@@ -1,0 +1,36 @@
+[2024-03-05 13:45:00] [ INFO ] [DomicilioDaoH2:50] Este es el id: 1
+[2024-03-05 13:45:00] [ INFO ] [DomicilioDaoH2:50] Este es el id: 2
+[2024-03-05 13:45:00] [ INFO ] [DomicilioDaoH2:97] Estamos consultando todos los domicilios
+[2024-03-05 13:45:01] [ INFO ] [DomicilioDaoH2:126] Esta es la lista que se está devolviendo??? [Domicilio con id=1, calle= Calle A, numero=123, localidad='Luján, provincia='Mendoza, Domicilio con id=2, calle= Calle B, numero=456, localidad='Carlos Paz, provincia='Cordoba]
+[2024-03-05 13:45:46] [ INFO ] [DomicilioDaoH2:50] Este es el id: 1
+[2024-03-05 13:45:46] [ INFO ] [DomicilioDaoH2:50] Este es el id: 2
+[2024-03-05 13:45:46] [ INFO ] [DomicilioDaoH2:97] Estamos consultando todos los domicilios
+[2024-03-05 13:45:47] [ INFO ] [DomicilioDaoH2:126] Esta es la lista que se está devolviendo??? [Domicilio con id=1, calle= Calle A, numero=123, localidad='Luján, provincia='Mendoza, Domicilio con id=2, calle= Calle B, numero=456, localidad='Carlos Paz, provincia='Cordoba]
+[2024-03-05 13:46:02] [ INFO ] [DomicilioDaoH2:50] Este es el id: 1
+[2024-03-05 13:46:02] [ INFO ] [DomicilioDaoH2:50] Este es el id: 2
+[2024-03-05 13:46:02] [ INFO ] [DomicilioDaoH2:97] Estamos consultando todos los domicilios
+[2024-03-05 13:46:03] [ INFO ] [DomicilioDaoH2:126] Esta es la lista que se está devolviendo??? [Domicilio con id=1, calle= Calle A, numero=123, localidad='Luján, provincia='Mendoza, Domicilio con id=2, calle= Calle B, numero=456, localidad='Carlos Paz, provincia='Cordoba]
+[2024-03-05 13:47:00] [ INFO ] [DomicilioDaoH2:50] Este es el id: 1
+[2024-03-05 13:47:00] [ INFO ] [DomicilioDaoH2:50] Este es el id: 2
+[2024-03-05 13:47:00] [ INFO ] [DomicilioDaoH2:97] Estamos consultando todos los domicilios
+[2024-03-05 13:47:01] [ INFO ] [DomicilioDaoH2:126] Esta es la lista que se está devolviendo??? [Domicilio con id=1, calle= Calle A, numero=123, localidad='Luján, provincia='Mendoza, Domicilio con id=2, calle= Calle B, numero=456, localidad='Carlos Paz, provincia='Cordoba]
+[2024-03-05 13:49:55] [ INFO ] [DomicilioDaoH2:50] Este es el id: 1
+[2024-03-05 13:49:56] [ INFO ] [DomicilioDaoH2:50] Este es el id: 2
+[2024-03-05 13:49:56] [ INFO ] [DomicilioDaoH2:97] Estamos consultando todos los domicilios
+[2024-03-05 13:49:56] [ INFO ] [DomicilioDaoH2:126] Esta es la lista que se está devolviendo??? [Domicilio con id=1, calle= Calle A, numero=123, localidad='Luján, provincia='Mendoza, Domicilio con id=2, calle= Calle B, numero=456, localidad='Carlos Paz, provincia='Cordoba]
+[2024-03-05 13:54:07] [ INFO ] [DomicilioDaoH2:50] Este es el id: null
+[2024-03-05 13:54:07] [ INFO ] [DomicilioDaoH2:50] Este es el id: null
+[2024-03-05 13:54:07] [ INFO ] [DomicilioDaoH2:97] Estamos consultando todos los domicilios
+[2024-03-05 13:54:07] [ ERROR] [DomicilioDaoH2:117] Error: Versión del archivo de base de datos no soportada ó encabezado de archivo invalido en archivo "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db"
+Unsupported database file version or invalid file header in file "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db" [90048-214]
+[2024-03-05 13:54:07] [ INFO ] [DomicilioDaoH2:126] Esta es la lista que se está devolviendo??? []
+[2024-03-05 13:54:29] [ INFO ] [DomicilioDaoH2:50] Este es el id: null
+[2024-03-05 13:54:29] [ INFO ] [DomicilioDaoH2:50] Este es el id: null
+[2024-03-05 13:54:29] [ INFO ] [DomicilioDaoH2:97] Estamos consultando todos los domicilios
+[2024-03-05 13:54:29] [ ERROR] [DomicilioDaoH2:117] Error: Versión del archivo de base de datos no soportada ó encabezado de archivo invalido en archivo "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db"
+Unsupported database file version or invalid file header in file "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db" [90048-214]
+[2024-03-05 13:54:29] [ INFO ] [DomicilioDaoH2:126] Esta es la lista que se está devolviendo??? []
+[2024-03-05 13:55:09] [ INFO ] [DomicilioDaoH2:50] Este es el id: 1
+[2024-03-05 13:55:09] [ INFO ] [DomicilioDaoH2:50] Este es el id: 2
+[2024-03-05 13:55:09] [ INFO ] [DomicilioDaoH2:97] Estamos consultando todos los domicilios
+[2024-03-05 13:55:10] [ INFO ] [DomicilioDaoH2:126] Esta es la lista que se está devolviendo??? [Domicilio con id=1, calle= Calle A, numero=123, localidad='Luján, provincia='Mendoza, Domicilio con id=2, calle= Calle B, numero=456, localidad='Carlos Paz, provincia='Cordoba]

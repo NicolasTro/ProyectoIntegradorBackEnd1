@@ -34,3 +34,668 @@ Unsupported database file version or invalid file header in file "C:/Windows.old
 [2024-03-05 13:55:09] [ INFO ] [DomicilioDaoH2:50] Este es el id: 2
 [2024-03-05 13:55:09] [ INFO ] [DomicilioDaoH2:97] Estamos consultando todos los domicilios
 [2024-03-05 13:55:10] [ INFO ] [DomicilioDaoH2:126] Esta es la lista que se está devolviendo??? [Domicilio con id=1, calle= Calle A, numero=123, localidad='Luján, provincia='Mendoza, Domicilio con id=2, calle= Calle B, numero=456, localidad='Carlos Paz, provincia='Cordoba]
+[2024-03-05 22:41:11] [ INFO ] [PacienteDaoH2:34] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 22:41:11] [ WARN ] [PacienteDaoH2:49] Error guardando Paciente 💁‍♂️💁‍♀️Cannot invoke "java.lang.Integer.intValue()" because the return value of "com.Dh.ProyectoIntegrador.model.Domicilio.getId()" is null
+[2024-03-05 22:41:11] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 22:41:12] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-05 22:41:12] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 22:41:12] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-05 22:41:12] [ INFO ] [DomicilioDaoH2:146] Estamos consultando todos los domicilios
+[2024-03-05 22:41:12] [ INFO ] [DomicilioDaoH2:152] Error Listando los domicilios 👨‍💻🏡🏡...
+[2024-03-05 22:43:17] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 22:43:17] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-05 22:43:17] [ INFO ] [PacienteDaoH2:34] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 22:43:17] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 22:43:17] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-05 22:43:17] [ INFO ] [DomicilioDaoH2:146] Estamos consultando todos los domicilios
+[2024-03-05 22:43:17] [ INFO ] [DomicilioDaoH2:152] Error Listando los domicilios 👨‍💻🏡🏡...
+[2024-03-05 22:43:30] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 22:43:30] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-05 22:43:30] [ INFO ] [PacienteDaoH2:34] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 22:43:30] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 22:43:30] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-05 22:43:30] [ INFO ] [DomicilioDaoH2:146] Estamos consultando todos los domicilios
+[2024-03-05 22:43:30] [ INFO ] [DomicilioDaoH2:152] Error Listando los domicilios 👨‍💻🏡🏡...
+[2024-03-05 22:45:11] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 22:45:11] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-05 22:45:11] [ INFO ] [PacienteDaoH2:34] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 22:45:11] [ INFO ] [PacienteDaoH2:178] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-05 22:45:12] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 22:45:12] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-05 22:45:12] [ INFO ] [DomicilioDaoH2:146] Estamos consultando todos los domicilios
+[2024-03-05 22:45:12] [ INFO ] [DomicilioDaoH2:152] Error Listando los domicilios 👨‍💻🏡🏡...
+[2024-03-05 22:47:30] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 22:47:30] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-05 22:47:30] [ INFO ] [PacienteDaoH2:34] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 22:47:30] [ INFO ] [PacienteDaoH2:175] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-05 22:47:30] [ WARN ] [PacienteDaoH2:210] Error listando Pacientes 💁‍♂️💁‍♀️Tabla "DOMICILIO" no encontrada
+Table "DOMICILIO" not found; SQL statement:
+SELECT * FROM DOMICILIO WHERE ID =? [42102-214]
+[2024-03-05 22:47:30] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 22:47:30] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-05 22:47:30] [ INFO ] [DomicilioDaoH2:146] Estamos consultando todos los domicilios
+[2024-03-05 22:47:30] [ INFO ] [DomicilioDaoH2:152] Error Listando los domicilios 👨‍💻🏡🏡...
+[2024-03-05 22:48:12] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 22:48:12] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-05 22:48:12] [ INFO ] [PacienteDaoH2:34] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 22:48:12] [ INFO ] [PacienteDaoH2:175] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-05 22:48:12] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 22:48:12] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-05 22:48:12] [ INFO ] [DomicilioDaoH2:146] Estamos consultando todos los domicilios
+[2024-03-05 22:48:12] [ INFO ] [DomicilioDaoH2:152] Error Listando los domicilios 👨‍💻🏡🏡...
+[2024-03-05 23:04:53] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:04:53] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-05 23:04:53] [ INFO ] [PacienteDaoH2:36] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 23:04:53] [ INFO ] [PacienteDaoH2:191] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-05 23:04:53] [ INFO ] [PacienteDaoH2:124] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-05 23:04:53] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:04:53] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-05 23:04:53] [ INFO ] [DomicilioDaoH2:146] Estamos consultando todos los domicilios
+[2024-03-05 23:04:53] [ INFO ] [DomicilioDaoH2:152] Error Listando los domicilios 👨‍💻🏡🏡...
+[2024-03-05 23:06:34] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:06:35] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-05 23:06:35] [ INFO ] [PacienteDaoH2:36] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 23:06:35] [ INFO ] [PacienteDaoH2:191] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-05 23:06:35] [ INFO ] [PacienteDaoH2:124] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-05 23:11:39] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:11:39] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-05 23:11:39] [ INFO ] [PacienteDaoH2:36] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 23:11:39] [ INFO ] [PacienteDaoH2:197] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-05 23:11:40] [ INFO ] [PacienteDaoH2:124] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-05 23:11:40] [ WARN ] [PacienteDaoH2:147] Error eliminando Paciente 💁‍♂️💁‍♀️Metodo no permitido en un query. Use execute ó executeQuery en lugar de executeUpdate
+Method is not allowed for a query. Use execute or executeQuery instead of executeUpdate; SQL statement:
+SELECT * FROM DOMICILIOS WHERE ID =? [90001-214]
+[2024-03-05 23:11:40] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:11:40] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-05 23:11:40] [ INFO ] [DomicilioDaoH2:146] Estamos consultando todos los domicilios
+[2024-03-05 23:11:40] [ INFO ] [DomicilioDaoH2:152] Error Listando los domicilios 👨‍💻🏡🏡...
+[2024-03-05 23:13:05] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:13:06] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-05 23:13:06] [ INFO ] [PacienteDaoH2:36] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 23:13:06] [ INFO ] [PacienteDaoH2:197] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-05 23:13:06] [ INFO ] [PacienteDaoH2:124] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-05 23:13:06] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:13:06] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-05 23:13:06] [ INFO ] [DomicilioDaoH2:146] Estamos consultando todos los domicilios
+[2024-03-05 23:13:06] [ INFO ] [DomicilioDaoH2:152] Error Listando los domicilios 👨‍💻🏡🏡...
+[2024-03-05 23:14:52] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:14:53] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-05 23:14:53] [ INFO ] [PacienteDaoH2:36] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 23:14:53] [ INFO ] [PacienteDaoH2:199] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-05 23:14:53] [ INFO ] [PacienteDaoH2:124] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-05 23:14:53] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:14:53] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-05 23:14:53] [ INFO ] [DomicilioDaoH2:146] Estamos consultando todos los domicilios
+[2024-03-05 23:14:53] [ INFO ] [DomicilioDaoH2:152] Error Listando los domicilios 👨‍💻🏡🏡...
+[2024-03-05 23:16:33] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:16:33] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-05 23:16:33] [ INFO ] [PacienteDaoH2:36] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 23:16:34] [ INFO ] [PacienteDaoH2:199] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-05 23:16:34] [ INFO ] [PacienteDaoH2:124] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-05 23:16:34] [ WARN ] [PacienteDaoH2:147] Error eliminando Paciente 💁‍♂️💁‍♀️Metodo no permitido en un query. Use execute ó executeQuery en lugar de executeUpdate
+Method is not allowed for a query. Use execute or executeQuery instead of executeUpdate; SQL statement:
+SELECT * FROM DOMICILIOS WHERE ID =? [90001-214]
+[2024-03-05 23:16:34] [ WARN ] [PacienteDaoH2:150] TUVIMOS QUE ARREGLAR LA CAGADA
+[2024-03-05 23:16:34] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:16:34] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-05 23:16:34] [ INFO ] [DomicilioDaoH2:146] Estamos consultando todos los domicilios
+[2024-03-05 23:16:34] [ INFO ] [DomicilioDaoH2:152] Listando los domicilios 👨‍💻🏡🏡...
+[2024-03-05 23:19:49] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:19:49] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-05 23:19:49] [ INFO ] [PacienteDaoH2:36] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 23:19:49] [ INFO ] [PacienteDaoH2:199] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-05 23:19:49] [ INFO ] [PacienteDaoH2:124] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-05 23:19:49] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:19:49] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-05 23:19:49] [ INFO ] [DomicilioDaoH2:146] Estamos consultando todos los domicilios
+[2024-03-05 23:19:49] [ INFO ] [DomicilioDaoH2:152] Listando los domicilios 👨‍💻🏡🏡...
+[2024-03-05 23:20:54] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:20:55] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-05 23:20:55] [ INFO ] [PacienteDaoH2:36] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 23:20:55] [ INFO ] [PacienteDaoH2:191] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-05 23:20:55] [ INFO ] [PacienteDaoH2:124] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-05 23:20:55] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:20:55] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-05 23:20:55] [ INFO ] [DomicilioDaoH2:146] Estamos consultando todos los domicilios
+[2024-03-05 23:20:55] [ INFO ] [DomicilioDaoH2:152] Listando los domicilios 👨‍💻🏡🏡...
+[2024-03-05 23:22:16] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:22:16] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-05 23:22:16] [ INFO ] [PacienteDaoH2:36] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 23:22:17] [ INFO ] [PacienteDaoH2:197] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-05 23:22:17] [ INFO ] [PacienteDaoH2:124] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-05 23:22:17] [ WARN ] [PacienteDaoH2:147] Error eliminando Paciente 💁‍♂️💁‍♀️Metodo no permitido en un query. Use execute ó executeQuery en lugar de executeUpdate
+Method is not allowed for a query. Use execute or executeQuery instead of executeUpdate; SQL statement:
+SELECT * FROM DOMICILIOS WHERE ID =? [90001-214]
+[2024-03-05 23:22:17] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:22:17] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-05 23:22:17] [ INFO ] [DomicilioDaoH2:146] Estamos consultando todos los domicilios
+[2024-03-05 23:22:17] [ INFO ] [DomicilioDaoH2:152] Listando los domicilios 👨‍💻🏡🏡...
+[2024-03-05 23:24:34] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:24:34] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-05 23:24:34] [ INFO ] [PacienteDaoH2:36] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 23:24:34] [ INFO ] [PacienteDaoH2:193] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-05 23:24:34] [ INFO ] [PacienteDaoH2:120] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-05 23:24:34] [ WARN ] [PacienteDaoH2:144] Error eliminando Paciente 💁‍♂️💁‍♀️/ by zero
+[2024-03-05 23:24:35] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:24:35] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-05 23:24:35] [ INFO ] [DomicilioDaoH2:146] Estamos consultando todos los domicilios
+[2024-03-05 23:24:35] [ INFO ] [DomicilioDaoH2:152] Listando los domicilios 👨‍💻🏡🏡...
+[2024-03-05 23:25:10] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:25:10] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-05 23:25:10] [ INFO ] [PacienteDaoH2:36] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 23:25:10] [ INFO ] [PacienteDaoH2:193] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-05 23:25:10] [ INFO ] [PacienteDaoH2:120] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-05 23:25:10] [ WARN ] [PacienteDaoH2:144] Error eliminando Paciente 💁‍♂️💁‍♀️/ by zero
+[2024-03-05 23:25:10] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:25:10] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-05 23:25:10] [ INFO ] [DomicilioDaoH2:146] Estamos consultando todos los domicilios
+[2024-03-05 23:25:10] [ INFO ] [DomicilioDaoH2:152] Listando los domicilios 👨‍💻🏡🏡...
+[2024-03-05 23:29:53] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:29:53] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-05 23:29:53] [ INFO ] [PacienteDaoH2:36] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 23:29:53] [ INFO ] [PacienteDaoH2:193] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-05 23:29:53] [ INFO ] [PacienteDaoH2:120] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-05 23:29:53] [ WARN ] [PacienteDaoH2:144] Error eliminando Paciente 💁‍♂️💁‍♀️/ by zero
+[2024-03-05 23:29:53] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:29:53] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-05 23:29:53] [ INFO ] [DomicilioDaoH2:146] Estamos consultando todos los domicilios
+[2024-03-05 23:29:53] [ INFO ] [DomicilioDaoH2:152] Listando los domicilios 👨‍💻🏡🏡...
+[2024-03-05 23:30:25] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:30:26] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-05 23:30:26] [ INFO ] [PacienteDaoH2:36] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 23:30:26] [ INFO ] [PacienteDaoH2:193] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-05 23:30:26] [ INFO ] [PacienteDaoH2:120] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-05 23:30:26] [ WARN ] [PacienteDaoH2:144] Error eliminando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 23:30:26] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:30:26] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-05 23:30:26] [ INFO ] [DomicilioDaoH2:146] Estamos consultando todos los domicilios
+[2024-03-05 23:30:26] [ INFO ] [DomicilioDaoH2:152] Listando los domicilios 👨‍💻🏡🏡...
+[2024-03-05 23:30:45] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:30:45] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-05 23:30:45] [ INFO ] [PacienteDaoH2:36] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 23:30:45] [ INFO ] [PacienteDaoH2:194] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-05 23:30:45] [ INFO ] [PacienteDaoH2:120] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-05 23:30:45] [ WARN ] [PacienteDaoH2:144] Error eliminando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 23:30:45] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:30:46] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-05 23:30:46] [ INFO ] [DomicilioDaoH2:146] Estamos consultando todos los domicilios
+[2024-03-05 23:30:46] [ INFO ] [DomicilioDaoH2:152] Listando los domicilios 👨‍💻🏡🏡...
+[2024-03-05 23:31:44] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:31:44] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-05 23:31:44] [ INFO ] [PacienteDaoH2:36] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 23:31:44] [ INFO ] [PacienteDaoH2:194] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-05 23:31:44] [ INFO ] [PacienteDaoH2:120] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-05 23:31:45] [ WARN ] [PacienteDaoH2:144] Error eliminando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 23:31:45] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:31:45] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-05 23:31:45] [ INFO ] [DomicilioDaoH2:146] Estamos consultando todos los domicilios
+[2024-03-05 23:31:45] [ INFO ] [DomicilioDaoH2:152] Listando los domicilios 👨‍💻🏡🏡...
+[2024-03-05 23:32:59] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:32:59] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-05 23:32:59] [ INFO ] [PacienteDaoH2:36] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 23:33:00] [ INFO ] [PacienteDaoH2:194] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-05 23:33:00] [ INFO ] [PacienteDaoH2:120] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-05 23:33:00] [ WARN ] [PacienteDaoH2:144] Error eliminando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 23:33:00] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:33:00] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-05 23:33:00] [ INFO ] [DomicilioDaoH2:146] Estamos consultando todos los domicilios
+[2024-03-05 23:33:00] [ INFO ] [DomicilioDaoH2:152] Listando los domicilios 👨‍💻🏡🏡...
+[2024-03-05 23:40:17] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:40:17] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-05 23:40:17] [ INFO ] [PacienteDaoH2:38] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 23:40:17] [ INFO ] [PacienteDaoH2:196] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-05 23:40:18] [ INFO ] [PacienteDaoH2:122] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-05 23:40:18] [ WARN ] [PacienteDaoH2:145] Error eliminando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 23:40:18] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:40:18] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-05 23:40:18] [ INFO ] [DomicilioDaoH2:146] Estamos consultando todos los domicilios
+[2024-03-05 23:40:18] [ INFO ] [DomicilioDaoH2:152] Listando los domicilios 👨‍💻🏡🏡...
+[2024-03-05 23:40:24] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:40:24] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-05 23:40:24] [ INFO ] [PacienteDaoH2:38] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 23:40:24] [ INFO ] [PacienteDaoH2:196] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-05 23:40:24] [ INFO ] [PacienteDaoH2:122] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-05 23:40:24] [ WARN ] [PacienteDaoH2:145] Error eliminando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 23:40:24] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:40:25] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-05 23:40:25] [ INFO ] [DomicilioDaoH2:146] Estamos consultando todos los domicilios
+[2024-03-05 23:40:25] [ INFO ] [DomicilioDaoH2:152] Listando los domicilios 👨‍💻🏡🏡...
+[2024-03-05 23:40:49] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:40:49] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-05 23:40:49] [ INFO ] [PacienteDaoH2:38] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 23:40:49] [ INFO ] [PacienteDaoH2:196] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-05 23:40:50] [ INFO ] [PacienteDaoH2:122] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-05 23:40:50] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:40:50] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-05 23:40:50] [ INFO ] [DomicilioDaoH2:146] Estamos consultando todos los domicilios
+[2024-03-05 23:40:50] [ INFO ] [DomicilioDaoH2:152] Listando los domicilios 👨‍💻🏡🏡...
+[2024-03-05 23:41:18] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:41:18] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-05 23:41:18] [ INFO ] [PacienteDaoH2:38] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 23:41:18] [ INFO ] [PacienteDaoH2:196] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-05 23:41:19] [ INFO ] [PacienteDaoH2:122] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-05 23:41:52] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:42:16] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:42:17] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-05 23:42:17] [ INFO ] [PacienteDaoH2:38] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 23:42:17] [ INFO ] [PacienteDaoH2:196] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-05 23:42:17] [ INFO ] [PacienteDaoH2:122] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-05 23:42:17] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:42:17] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-05 23:42:17] [ INFO ] [DomicilioDaoH2:146] Estamos consultando todos los domicilios
+[2024-03-05 23:42:17] [ INFO ] [DomicilioDaoH2:152] Listando los domicilios 👨‍💻🏡🏡...
+[2024-03-05 23:42:25] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:42:26] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-05 23:42:26] [ INFO ] [PacienteDaoH2:38] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 23:42:26] [ INFO ] [PacienteDaoH2:196] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-05 23:42:26] [ INFO ] [PacienteDaoH2:122] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-05 23:42:58] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:42:59] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-05 23:43:01] [ INFO ] [DomicilioDaoH2:146] Estamos consultando todos los domicilios
+[2024-03-05 23:43:01] [ INFO ] [DomicilioDaoH2:152] Listando los domicilios 👨‍💻🏡🏡...
+[2024-03-05 23:45:16] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:45:16] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-05 23:45:16] [ INFO ] [PacienteDaoH2:38] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 23:45:16] [ INFO ] [PacienteDaoH2:196] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-05 23:45:16] [ INFO ] [PacienteDaoH2:122] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-05 23:45:17] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:45:17] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-05 23:45:17] [ INFO ] [DomicilioDaoH2:146] Estamos consultando todos los domicilios
+[2024-03-05 23:45:17] [ INFO ] [DomicilioDaoH2:152] Listando los domicilios 👨‍💻🏡🏡...
+[2024-03-05 23:45:27] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:45:27] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-05 23:45:27] [ INFO ] [PacienteDaoH2:38] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 23:45:27] [ INFO ] [PacienteDaoH2:196] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-05 23:45:27] [ INFO ] [PacienteDaoH2:122] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-05 23:45:27] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:45:27] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-05 23:45:27] [ INFO ] [DomicilioDaoH2:146] Estamos consultando todos los domicilios
+[2024-03-05 23:45:27] [ INFO ] [DomicilioDaoH2:152] Listando los domicilios 👨‍💻🏡🏡...
+[2024-03-05 23:46:43] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:46:43] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-05 23:46:43] [ INFO ] [PacienteDaoH2:38] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 23:46:43] [ INFO ] [PacienteDaoH2:196] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-05 23:46:43] [ INFO ] [PacienteDaoH2:122] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-05 23:46:44] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:46:44] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-05 23:46:44] [ INFO ] [DomicilioDaoH2:146] Estamos consultando todos los domicilios
+[2024-03-05 23:46:44] [ INFO ] [DomicilioDaoH2:152] Listando los domicilios 👨‍💻🏡🏡...
+[2024-03-05 23:50:02] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:50:02] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-05 23:50:02] [ INFO ] [PacienteDaoH2:38] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 23:50:02] [ INFO ] [PacienteDaoH2:196] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-05 23:50:02] [ INFO ] [PacienteDaoH2:122] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-05 23:50:02] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:50:02] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-05 23:50:02] [ INFO ] [DomicilioDaoH2:146] Estamos consultando todos los domicilios
+[2024-03-05 23:50:02] [ INFO ] [DomicilioDaoH2:152] Listando los domicilios 👨‍💻🏡🏡...
+[2024-03-05 23:50:21] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:50:22] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-05 23:50:22] [ INFO ] [PacienteDaoH2:38] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 23:50:22] [ INFO ] [PacienteDaoH2:196] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-05 23:50:22] [ INFO ] [PacienteDaoH2:122] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-05 23:50:22] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:50:22] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-05 23:50:22] [ INFO ] [DomicilioDaoH2:146] Estamos consultando todos los domicilios
+[2024-03-05 23:50:22] [ INFO ] [DomicilioDaoH2:152] Listando los domicilios 👨‍💻🏡🏡...
+[2024-03-05 23:50:53] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:50:54] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-05 23:50:54] [ INFO ] [PacienteDaoH2:38] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 23:50:54] [ INFO ] [PacienteDaoH2:196] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-05 23:50:54] [ INFO ] [PacienteDaoH2:122] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-05 23:50:54] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:50:54] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-05 23:50:54] [ INFO ] [DomicilioDaoH2:146] Estamos consultando todos los domicilios
+[2024-03-05 23:50:54] [ INFO ] [DomicilioDaoH2:152] Listando los domicilios 👨‍💻🏡🏡...
+[2024-03-05 23:51:54] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:51:54] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-05 23:51:54] [ INFO ] [PacienteDaoH2:38] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 23:51:54] [ INFO ] [PacienteDaoH2:196] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-05 23:51:55] [ INFO ] [PacienteDaoH2:122] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-05 23:51:55] [ WARN ] [PacienteDaoH2:145] Error eliminando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 23:51:55] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:51:55] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-05 23:51:55] [ INFO ] [DomicilioDaoH2:146] Estamos consultando todos los domicilios
+[2024-03-05 23:51:55] [ INFO ] [DomicilioDaoH2:152] Listando los domicilios 👨‍💻🏡🏡...
+[2024-03-05 23:52:59] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:52:59] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-05 23:52:59] [ INFO ] [PacienteDaoH2:38] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 23:52:59] [ INFO ] [PacienteDaoH2:196] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-05 23:52:59] [ INFO ] [PacienteDaoH2:122] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-05 23:52:59] [ WARN ] [PacienteDaoH2:145] Error eliminando Paciente 💁‍♂️💁‍♀️
+[2024-03-05 23:53:00] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-05 23:53:00] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-05 23:53:00] [ INFO ] [DomicilioDaoH2:146] Estamos consultando todos los domicilios
+[2024-03-05 23:53:00] [ INFO ] [DomicilioDaoH2:152] Listando los domicilios 👨‍💻🏡🏡...
+[2024-03-06 00:00:03] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:00:04] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-06 00:00:04] [ INFO ] [PacienteDaoH2:38] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:00:04] [ INFO ] [PacienteDaoH2:198] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 00:00:04] [ INFO ] [PacienteDaoH2:122] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 00:00:04] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:00:04] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-06 00:00:04] [ INFO ] [DomicilioDaoH2:146] Estamos consultando todos los domicilios
+[2024-03-06 00:00:04] [ INFO ] [DomicilioDaoH2:152] Listando los domicilios 👨‍💻🏡🏡...
+[2024-03-06 00:01:51] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:01:51] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-06 00:01:51] [ INFO ] [PacienteDaoH2:38] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:01:51] [ INFO ] [PacienteDaoH2:198] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 00:01:51] [ INFO ] [PacienteDaoH2:122] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 00:01:51] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:01:52] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-06 00:01:52] [ INFO ] [DomicilioDaoH2:146] Estamos consultando todos los domicilios
+[2024-03-06 00:01:52] [ INFO ] [DomicilioDaoH2:152] Listando los domicilios 👨‍💻🏡🏡...
+[2024-03-06 00:03:48] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:03:48] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-06 00:03:48] [ INFO ] [PacienteDaoH2:35] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:03:48] [ INFO ] [PacienteDaoH2:199] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 00:03:48] [ INFO ] [PacienteDaoH2:119] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 00:03:49] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:03:49] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-06 00:03:49] [ INFO ] [DomicilioDaoH2:146] Estamos consultando todos los domicilios
+[2024-03-06 00:03:49] [ INFO ] [DomicilioDaoH2:152] Listando los domicilios 👨‍💻🏡🏡...
+[2024-03-06 00:03:57] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:03:58] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-06 00:03:58] [ INFO ] [PacienteDaoH2:35] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:03:58] [ INFO ] [PacienteDaoH2:199] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 00:03:58] [ INFO ] [PacienteDaoH2:119] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 00:03:58] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:03:58] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-06 00:03:58] [ INFO ] [DomicilioDaoH2:146] Estamos consultando todos los domicilios
+[2024-03-06 00:03:58] [ INFO ] [DomicilioDaoH2:152] Listando los domicilios 👨‍💻🏡🏡...
+[2024-03-06 00:07:36] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:07:36] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-06 00:07:36] [ INFO ] [PacienteDaoH2:35] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:07:36] [ INFO ] [PacienteDaoH2:199] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 00:07:36] [ INFO ] [PacienteDaoH2:119] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 00:07:36] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:07:36] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-06 00:07:36] [ INFO ] [DomicilioDaoH2:146] Estamos consultando todos los domicilios
+[2024-03-06 00:07:36] [ INFO ] [DomicilioDaoH2:152] Listando los domicilios 👨‍💻🏡🏡...
+[2024-03-06 00:09:43] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:09:44] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-06 00:09:44] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:09:44] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-06 00:09:44] [ INFO ] [PacienteDaoH2:35] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:09:44] [ INFO ] [PacienteDaoH2:200] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 00:09:44] [ INFO ] [PacienteDaoH2:119] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 00:09:44] [ INFO ] [DomicilioDaoH2:146] Estamos consultando todos los domicilios
+[2024-03-06 00:09:44] [ INFO ] [DomicilioDaoH2:152] Listando los domicilios 👨‍💻🏡🏡...
+[2024-03-06 00:13:03] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:13:04] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-06 00:13:04] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:13:04] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-06 00:13:04] [ INFO ] [PacienteDaoH2:35] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:13:04] [ INFO ] [PacienteDaoH2:200] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 00:13:04] [ INFO ] [PacienteDaoH2:119] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 00:13:04] [ INFO ] [DomicilioDaoH2:146] Estamos consultando todos los domicilios
+[2024-03-06 00:13:04] [ INFO ] [DomicilioDaoH2:152] Listando los domicilios 👨‍💻🏡🏡...
+[2024-03-06 00:16:08] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:16:08] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-06 00:16:08] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:16:08] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-06 00:16:08] [ INFO ] [PacienteDaoH2:35] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:16:09] [ INFO ] [PacienteDaoH2:200] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 00:16:09] [ INFO ] [PacienteDaoH2:119] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 00:16:09] [ INFO ] [DomicilioDaoH2:146] Estamos consultando todos los domicilios
+[2024-03-06 00:16:09] [ INFO ] [DomicilioDaoH2:152] Listando los domicilios 👨‍💻🏡🏡...
+[2024-03-06 00:17:27] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:17:28] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-06 00:17:28] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:17:28] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-06 00:17:28] [ INFO ] [PacienteDaoH2:35] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:17:28] [ INFO ] [PacienteDaoH2:200] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 00:17:28] [ INFO ] [PacienteDaoH2:119] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 00:17:36] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:17:36] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-06 00:17:36] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:17:36] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-06 00:17:36] [ INFO ] [PacienteDaoH2:35] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:17:37] [ INFO ] [PacienteDaoH2:200] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 00:17:37] [ INFO ] [PacienteDaoH2:119] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 00:18:31] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:18:31] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-06 00:18:31] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:18:31] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-06 00:18:31] [ INFO ] [PacienteDaoH2:35] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:18:31] [ INFO ] [PacienteDaoH2:200] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 00:18:31] [ INFO ] [PacienteDaoH2:119] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 00:19:07] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:19:07] [ WARN ] [DomicilioDaoH2:41] Error guardando domicilio 🏡...La base de datos puede que ya esté siendo utilizada: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-214]
+[2024-03-06 00:19:07] [ WARN ] [DomicilioDaoH2:47] Error guardando domicilio 🏡...Cannot invoke "java.sql.Connection.close()" because "connection" is null
+[2024-03-06 00:19:07] [ INFO ] [DomicilioDaoH2:51] Este es el id: null
+[2024-03-06 00:19:07] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:19:08] [ WARN ] [DomicilioDaoH2:41] Error guardando domicilio 🏡...La base de datos puede que ya esté siendo utilizada: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-214]
+[2024-03-06 00:19:08] [ WARN ] [DomicilioDaoH2:47] Error guardando domicilio 🏡...Cannot invoke "java.sql.Connection.close()" because "connection" is null
+[2024-03-06 00:19:08] [ INFO ] [DomicilioDaoH2:51] Este es el id: null
+[2024-03-06 00:19:08] [ INFO ] [PacienteDaoH2:35] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:19:08] [ WARN ] [PacienteDaoH2:50] Error guardando Paciente 💁‍♂️💁‍♀️La base de datos puede que ya esté siendo utilizada: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-214]
+[2024-03-06 00:19:08] [ WARN ] [PacienteDaoH2:56] Error guardando Paciente 💁‍♂️💁‍♀️Cannot invoke "java.sql.Connection.close()" because "connection" is null
+[2024-03-06 00:19:08] [ INFO ] [PacienteDaoH2:200] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 00:19:08] [ WARN ] [PacienteDaoH2:233] Error listando Pacientes 💁‍♂️💁‍♀️La base de datos puede que ya esté siendo utilizada: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-214]
+[2024-03-06 00:19:08] [ WARN ] [PacienteDaoH2:239] Error listando Pacientes 💁‍♂️💁‍♀️Cannot invoke "java.sql.Connection.close()" because "conexion" is null
+[2024-03-06 00:19:08] [ INFO ] [PacienteDaoH2:119] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 00:19:08] [ WARN ] [PacienteDaoH2:145] Error eliminando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:19:08] [ WARN ] [PacienteDaoH2:161] Error eliminando Paciente 💁‍♂️💁‍♀️Cannot invoke "java.sql.Connection.close()" because "conexion" is null
+[2024-03-06 00:19:24] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:19:24] [ WARN ] [DomicilioDaoH2:41] Error guardando domicilio 🏡...La base de datos puede que ya esté siendo utilizada: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-214]
+[2024-03-06 00:19:24] [ WARN ] [DomicilioDaoH2:47] Error guardando domicilio 🏡...Cannot invoke "java.sql.Connection.close()" because "connection" is null
+[2024-03-06 00:19:24] [ INFO ] [DomicilioDaoH2:51] Este es el id: null
+[2024-03-06 00:19:24] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:19:24] [ WARN ] [DomicilioDaoH2:41] Error guardando domicilio 🏡...La base de datos puede que ya esté siendo utilizada: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-214]
+[2024-03-06 00:19:24] [ WARN ] [DomicilioDaoH2:47] Error guardando domicilio 🏡...Cannot invoke "java.sql.Connection.close()" because "connection" is null
+[2024-03-06 00:19:24] [ INFO ] [DomicilioDaoH2:51] Este es el id: null
+[2024-03-06 00:19:24] [ INFO ] [PacienteDaoH2:35] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:19:24] [ WARN ] [PacienteDaoH2:50] Error guardando Paciente 💁‍♂️💁‍♀️La base de datos puede que ya esté siendo utilizada: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-214]
+[2024-03-06 00:19:24] [ WARN ] [PacienteDaoH2:56] Error guardando Paciente 💁‍♂️💁‍♀️Cannot invoke "java.sql.Connection.close()" because "connection" is null
+[2024-03-06 00:19:24] [ INFO ] [PacienteDaoH2:200] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 00:19:25] [ WARN ] [PacienteDaoH2:233] Error listando Pacientes 💁‍♂️💁‍♀️La base de datos puede que ya esté siendo utilizada: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-214]
+[2024-03-06 00:19:25] [ WARN ] [PacienteDaoH2:239] Error listando Pacientes 💁‍♂️💁‍♀️Cannot invoke "java.sql.Connection.close()" because "conexion" is null
+[2024-03-06 00:19:25] [ INFO ] [PacienteDaoH2:119] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 00:19:25] [ WARN ] [PacienteDaoH2:145] Error eliminando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:19:25] [ WARN ] [PacienteDaoH2:161] Error eliminando Paciente 💁‍♂️💁‍♀️Cannot invoke "java.sql.Connection.close()" because "conexion" is null
+[2024-03-06 00:20:29] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:20:29] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-06 00:20:29] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:20:29] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-06 00:20:29] [ INFO ] [PacienteDaoH2:35] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:20:29] [ INFO ] [PacienteDaoH2:200] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 00:20:29] [ INFO ] [PacienteDaoH2:119] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 00:20:29] [ WARN ] [PacienteDaoH2:145] Error eliminando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:20:51] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:20:51] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-06 00:20:51] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:20:52] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-06 00:20:52] [ INFO ] [PacienteDaoH2:35] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:20:52] [ INFO ] [PacienteDaoH2:200] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 00:20:52] [ INFO ] [PacienteDaoH2:119] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 00:22:55] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:22:55] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-06 00:22:55] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:22:55] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-06 00:22:55] [ INFO ] [PacienteDaoH2:35] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:22:56] [ INFO ] [PacienteDaoH2:200] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 00:22:56] [ INFO ] [PacienteDaoH2:119] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 00:23:35] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:23:35] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-06 00:23:35] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:23:35] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-06 00:23:35] [ INFO ] [PacienteDaoH2:35] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:23:35] [ INFO ] [PacienteDaoH2:199] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 00:23:36] [ INFO ] [PacienteDaoH2:119] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 00:23:36] [ WARN ] [PacienteDaoH2:145] Error eliminando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:24:52] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:24:53] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-06 00:24:53] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:24:53] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-06 00:24:53] [ INFO ] [PacienteDaoH2:35] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:24:53] [ INFO ] [PacienteDaoH2:199] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 00:24:53] [ INFO ] [PacienteDaoH2:119] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 00:24:54] [ WARN ] [PacienteDaoH2:145] Error eliminando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:25:17] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:25:17] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-06 00:25:17] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:25:18] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-06 00:25:18] [ INFO ] [PacienteDaoH2:35] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:25:18] [ INFO ] [PacienteDaoH2:199] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 00:25:18] [ INFO ] [PacienteDaoH2:119] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 00:25:18] [ WARN ] [PacienteDaoH2:145] Error eliminando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:25:44] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:25:45] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-06 00:25:45] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:25:45] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-06 00:25:45] [ INFO ] [PacienteDaoH2:35] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:25:45] [ INFO ] [PacienteDaoH2:199] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 00:25:46] [ INFO ] [PacienteDaoH2:119] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 00:25:46] [ WARN ] [PacienteDaoH2:145] Error eliminando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:28:20] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:28:20] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-06 00:28:20] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:28:20] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-06 00:28:20] [ INFO ] [PacienteDaoH2:36] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:28:20] [ INFO ] [PacienteDaoH2:202] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 00:28:20] [ INFO ] [PacienteDaoH2:120] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 00:28:20] [ WARN ] [PacienteDaoH2:148] Error eliminando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:29:24] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:29:24] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-06 00:29:24] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:29:24] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-06 00:29:24] [ INFO ] [PacienteDaoH2:36] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:29:24] [ INFO ] [PacienteDaoH2:202] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 00:29:25] [ INFO ] [PacienteDaoH2:120] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 00:29:25] [ WARN ] [PacienteDaoH2:148] Error eliminando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:29:53] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:29:53] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-06 00:29:53] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:29:53] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-06 00:29:53] [ INFO ] [PacienteDaoH2:36] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:29:53] [ INFO ] [PacienteDaoH2:202] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 00:29:53] [ INFO ] [PacienteDaoH2:120] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 00:30:50] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:30:50] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-06 00:30:50] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:30:50] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-06 00:30:50] [ INFO ] [PacienteDaoH2:36] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:30:50] [ INFO ] [PacienteDaoH2:202] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 00:30:50] [ INFO ] [PacienteDaoH2:120] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 00:30:50] [ WARN ] [PacienteDaoH2:148] Error eliminando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:31:55] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:31:55] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-06 00:31:55] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:31:55] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-06 00:31:55] [ INFO ] [PacienteDaoH2:36] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:31:56] [ INFO ] [PacienteDaoH2:202] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 00:31:56] [ INFO ] [PacienteDaoH2:120] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 00:43:51] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:43:51] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-06 00:43:51] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:43:51] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-06 00:43:51] [ INFO ] [PacienteDaoH2:36] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:43:51] [ INFO ] [PacienteDaoH2:200] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 00:43:51] [ INFO ] [PacienteDaoH2:120] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 00:43:59] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:43:59] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-06 00:43:59] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:44:00] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-06 00:44:00] [ INFO ] [PacienteDaoH2:36] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:44:00] [ INFO ] [PacienteDaoH2:200] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 00:44:00] [ INFO ] [PacienteDaoH2:120] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 00:46:49] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:46:50] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-06 00:46:50] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:46:50] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-06 00:46:50] [ INFO ] [PacienteDaoH2:36] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:46:50] [ INFO ] [PacienteDaoH2:200] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 00:46:51] [ INFO ] [PacienteDaoH2:120] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 00:48:05] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:48:06] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-06 00:48:06] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:48:06] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-06 00:48:06] [ INFO ] [PacienteDaoH2:36] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:48:06] [ INFO ] [PacienteDaoH2:202] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 00:48:06] [ INFO ] [PacienteDaoH2:120] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 00:48:06] [ WARN ] [PacienteDaoH2:148] Error eliminando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:49:03] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:49:03] [ WARN ] [DomicilioDaoH2:41] Error guardando domicilio 🏡...La base de datos puede que ya esté siendo utilizada: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-214]
+[2024-03-06 00:49:03] [ WARN ] [DomicilioDaoH2:47] Error guardando domicilio 🏡...Cannot invoke "java.sql.Connection.close()" because "connection" is null
+[2024-03-06 00:49:03] [ INFO ] [DomicilioDaoH2:51] Este es el id: null
+[2024-03-06 00:49:03] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:49:03] [ WARN ] [DomicilioDaoH2:41] Error guardando domicilio 🏡...La base de datos puede que ya esté siendo utilizada: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-214]
+[2024-03-06 00:49:03] [ WARN ] [DomicilioDaoH2:47] Error guardando domicilio 🏡...Cannot invoke "java.sql.Connection.close()" because "connection" is null
+[2024-03-06 00:49:03] [ INFO ] [DomicilioDaoH2:51] Este es el id: null
+[2024-03-06 00:49:03] [ INFO ] [PacienteDaoH2:36] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:49:03] [ WARN ] [PacienteDaoH2:51] Error guardando Paciente 💁‍♂️💁‍♀️La base de datos puede que ya esté siendo utilizada: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-214]
+[2024-03-06 00:49:03] [ WARN ] [PacienteDaoH2:57] Error guardando Paciente 💁‍♂️💁‍♀️Cannot invoke "java.sql.Connection.close()" because "connection" is null
+[2024-03-06 00:49:03] [ INFO ] [PacienteDaoH2:203] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 00:49:03] [ WARN ] [PacienteDaoH2:236] Error listando Pacientes 💁‍♂️💁‍♀️La base de datos puede que ya esté siendo utilizada: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-214]
+[2024-03-06 00:49:03] [ WARN ] [PacienteDaoH2:242] Error listando Pacientes 💁‍♂️💁‍♀️Cannot invoke "java.sql.Connection.close()" because "conexion" is null
+[2024-03-06 00:49:03] [ INFO ] [PacienteDaoH2:120] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 00:49:03] [ WARN ] [PacienteDaoH2:148] Error eliminando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:49:03] [ ERROR] [PacienteDaoH2:154] NO SE PUDO VOLVER AL INICIO CAGASTE
+[2024-03-06 00:49:03] [ WARN ] [PacienteDaoH2:164] Error eliminando Paciente 💁‍♂️💁‍♀️Cannot invoke "java.sql.Connection.close()" because "conexion" is null
+[2024-03-06 00:49:27] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:49:27] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-06 00:49:27] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:49:27] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-06 00:49:27] [ INFO ] [PacienteDaoH2:36] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:49:27] [ INFO ] [PacienteDaoH2:203] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 00:49:28] [ INFO ] [PacienteDaoH2:120] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 00:49:28] [ WARN ] [PacienteDaoH2:148] Error eliminando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:49:28] [ INFO ] [PacienteDaoH2:152] ARREGLANDO TODO
+[2024-03-06 00:50:17] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:50:17] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-06 00:50:17] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:50:17] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-06 00:50:17] [ INFO ] [PacienteDaoH2:36] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:50:17] [ INFO ] [PacienteDaoH2:203] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 00:50:18] [ INFO ] [PacienteDaoH2:120] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 00:50:18] [ WARN ] [PacienteDaoH2:148] Error eliminando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:50:18] [ INFO ] [PacienteDaoH2:152] ARREGLANDO TODO
+[2024-03-06 00:50:32] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:50:32] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-06 00:50:32] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:50:33] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-06 00:50:33] [ INFO ] [PacienteDaoH2:36] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:50:33] [ INFO ] [PacienteDaoH2:203] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 00:50:33] [ INFO ] [PacienteDaoH2:120] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 00:50:33] [ WARN ] [PacienteDaoH2:148] Error eliminando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:50:33] [ INFO ] [PacienteDaoH2:152] ARREGLANDO TODO
+[2024-03-06 00:51:09] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:51:09] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-06 00:51:09] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:51:10] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-06 00:51:10] [ INFO ] [PacienteDaoH2:36] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:51:10] [ INFO ] [PacienteDaoH2:203] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 00:51:10] [ INFO ] [PacienteDaoH2:120] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 00:51:10] [ WARN ] [PacienteDaoH2:148] Error eliminando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:51:10] [ INFO ] [PacienteDaoH2:152] ARREGLANDO TODO
+[2024-03-06 00:51:37] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:51:37] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-06 00:51:37] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:51:37] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-06 00:51:38] [ INFO ] [PacienteDaoH2:36] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:51:38] [ INFO ] [PacienteDaoH2:203] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 00:51:38] [ INFO ] [PacienteDaoH2:120] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 00:51:38] [ WARN ] [PacienteDaoH2:148] Error eliminando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:51:38] [ ERROR] [PacienteDaoH2:152] ARREGLANDO TODO
+[2024-03-06 00:51:57] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:51:57] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-06 00:51:57] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 00:51:57] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-06 00:51:57] [ INFO ] [PacienteDaoH2:36] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:51:57] [ INFO ] [PacienteDaoH2:203] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 00:51:57] [ INFO ] [PacienteDaoH2:120] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 00:51:57] [ WARN ] [PacienteDaoH2:148] Error eliminando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 00:51:57] [ ERROR] [PacienteDaoH2:152] ARREGLANDO TODO/ by zero

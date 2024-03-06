@@ -23,7 +23,7 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
 
 		Connection connection = null;
 		try {
-
+			LOGGER.info("Guardando odontologos 👨‍⚕️...");
 			connection = BD.getConnection();
 			PreparedStatement psInsert = connection.prepareStatement(SQL_INSERT_ODONTOLOGO, Statement.RETURN_GENERATED_KEYS);
 
@@ -37,15 +37,17 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
 				odontologo.setId(rs.getInt(1));
 			}
 		} catch (Exception e) {
+			LOGGER.warn("Guardando odontologos 👨‍⚕️..." + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			try {
 				connection.close();
 			} catch (Exception ex) {
+				LOGGER.warn("Guardando odontologos 👨‍⚕️..." + ex.getMessage());
 				ex.printStackTrace();
 			}
 		}
-		return null;
+		return odontologo;
 	}
 
 	@Override
@@ -53,6 +55,7 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
 		Connection conexion = null;
 		Odontologo odontologo = null;
 		try {
+			LOGGER.info("Buscando odontologo 👨‍⚕️...");
 			conexion = BD.getConnection();
 			PreparedStatement psSearchByID =  conexion.prepareStatement(SQL_SEARCH_ID);
 			psSearchByID.setInt(1, id);
@@ -66,11 +69,13 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
 				odontologo.setMatricula(rs.getString(4));
 			}
 		}catch (Exception e){
+			LOGGER.warn("Error al buscar odontologo 👨‍⚕️..." + e.getMessage());
 			e.printStackTrace();
 		}finally {
 			try {
 				conexion.close();
 			} catch (SQLException e) {
+				LOGGER.warn("Error al buscar odontologo 👨‍⚕️..." + e.getMessage());
 				throw new RuntimeException(e);
 			}
 		}
@@ -82,17 +87,20 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
 
 		Connection conexion = null;
 		try {
+			LOGGER.info("Eliminando odontologo 👨‍⚕️...");
 			conexion = BD.getConnection();
 			PreparedStatement psDeleteByID = conexion.prepareStatement(SQL_DELETE_ODONTOLOGO);
 			psDeleteByID.setInt(1, id);
 			psDeleteByID.executeUpdate();
 
 		} catch (Exception e) {
+			LOGGER.warn("Error eliminando odontologos 👨‍⚕️..." + e.getMessage());
 			e.printStackTrace();
 		}finally {
 			try {
 				conexion.close();
 			} catch (SQLException e) {
+				LOGGER.warn("Error eliminando odontologo 👨‍⚕️..." + e.getMessage());
 				throw new RuntimeException(e);
 			}
 		}
@@ -102,6 +110,7 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
 	public void actualizar(Odontologo odontologo) {
 		Connection conexion = null;
 		try {
+			LOGGER.info("Actualizando odontologo 👨‍⚕️...");
 			conexion = BD.getConnection();
 			PreparedStatement psUpdateById = conexion.prepareStatement(SQL_MODIFY_ODONTOLOGO);
 			psUpdateById.setString(1, odontologo.getNombre());
@@ -112,11 +121,13 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
 			psUpdateById.executeUpdate();
 
 		} catch (Exception e) {
+			LOGGER.warn("Error al actualizar odontologo 👨‍⚕️..." + e.getMessage());
 			e.printStackTrace();
 		}finally {
 			try {
 				conexion.close();
 			} catch (SQLException e) {
+				LOGGER.warn("Error al actualizar odontologo 👨‍⚕️..." + e.getMessage());
 				throw new RuntimeException(e);
 			}
 		}
@@ -124,11 +135,11 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
 
 	@Override
 	public List<Odontologo> listarTodos() {
-		LOGGER.info("Estamos consultando todos los Odontologos.");
 		Connection conexion = null;
 		List<Odontologo>  listaOdontologos = new ArrayList<>();
 		Odontologo odontologo =  null;
 		try {
+			LOGGER.info("Consultando todos los odontologos 👨‍⚕️...");
 			conexion = BD.getConnection();
 			PreparedStatement psUpdateById = conexion.prepareStatement(SQL_SEARCH_ALL);
 			ResultSet rs = psUpdateById.executeQuery();
@@ -139,11 +150,13 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
 				listaOdontologos.add(odontologo);
 			}
 		} catch (Exception e) {
+			LOGGER.warn("Error listando odontologos 👨‍⚕️..." + e.getMessage());
 			e.printStackTrace();
 		}finally {
 			try {
 				conexion.close();
 			} catch (SQLException e) {
+				LOGGER.warn("Error listando odontologos 👨‍⚕️..." + e.getMessage());
 				throw new RuntimeException(e);
 			}
 		}

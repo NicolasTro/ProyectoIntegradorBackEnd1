@@ -1,0 +1,747 @@
+2024-03-05 22:47:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "DOMICILIO" no encontrada
+Table "DOMICILIO" not found; SQL statement:
+SELECT * FROM DOMICILIO WHERE ID =? [42102-214]
+2024-03-05 23:11:40 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Metodo no permitido en un query. Use execute ó executeQuery en lugar de executeUpdate
+Method is not allowed for a query. Use execute or executeQuery instead of executeUpdate; SQL statement:
+SELECT * FROM DOMICILIOS WHERE ID =? [90001-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:554)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.command.Prepared.update(Prepared.java:244)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:169)
+	at org.h2.command.Command.executeUpdate(Command.java:252)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:209)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:169)
+	at com.Dh.ProyectoIntegrador.dao.implementacion.PacienteDaoH2.eliminar(PacienteDaoH2.java:137)
+	at com.Dh.ProyectoIntegrador.service.implementacion.PacienteService.eliminar(PacienteService.java:29)
+	at com.Dh.ProyectoIntegrador.Main.main(Main.java:32)
+2024-03-05 23:16:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Metodo no permitido en un query. Use execute ó executeQuery en lugar de executeUpdate
+Method is not allowed for a query. Use execute or executeQuery instead of executeUpdate; SQL statement:
+SELECT * FROM DOMICILIOS WHERE ID =? [90001-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:554)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.command.Prepared.update(Prepared.java:244)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:169)
+	at org.h2.command.Command.executeUpdate(Command.java:252)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:209)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:169)
+	at com.Dh.ProyectoIntegrador.dao.implementacion.PacienteDaoH2.eliminar(PacienteDaoH2.java:137)
+	at com.Dh.ProyectoIntegrador.service.implementacion.PacienteService.eliminar(PacienteService.java:29)
+	at com.Dh.ProyectoIntegrador.Main.main(Main.java:32)
+2024-03-05 23:17:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT * FROM ODONTOLOGOS DOMICILIOS [*]DOMICILIOS"
+Syntax error in SQL statement "SELECT * FROM ODONTOLOGOS DOMICILIOS [*]DOMICILIOS"; SQL statement:
+SELECT * FROM ODONTOLOGOS DOMICILIOS DOMICILIOS [42000-214]
+2024-03-05 23:17:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT * FROM DOMICILIOS PACIENTES [*]PACIENTES"
+Syntax error in SQL statement "SELECT * FROM DOMICILIOS PACIENTES [*]PACIENTES"; SQL statement:
+SELECT * FROM DOMICILIOS PACIENTES PACIENTES [42000-214]
+2024-03-05 23:22:17 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Metodo no permitido en un query. Use execute ó executeQuery en lugar de executeUpdate
+Method is not allowed for a query. Use execute or executeQuery instead of executeUpdate; SQL statement:
+SELECT * FROM DOMICILIOS WHERE ID =? [90001-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:554)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.command.Prepared.update(Prepared.java:244)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:169)
+	at org.h2.command.Command.executeUpdate(Command.java:252)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:209)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:169)
+	at com.Dh.ProyectoIntegrador.dao.implementacion.PacienteDaoH2.eliminar(PacienteDaoH2.java:136)
+	at com.Dh.ProyectoIntegrador.service.implementacion.PacienteService.eliminar(PacienteService.java:29)
+	at com.Dh.ProyectoIntegrador.Main.main(Main.java:32)
+2024-03-05 23:51:55 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Valor Invalido "3" para el parametro "parameterIndex"
+Invalid value "3" for parameter "parameterIndex" [90008-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:646)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.getInvalidValueException(DbException.java:298)
+	at org.h2.jdbc.JdbcPreparedStatement.setParameter(JdbcPreparedStatement.java:1395)
+	at org.h2.jdbc.JdbcPreparedStatement.setInt(JdbcPreparedStatement.java:359)
+	at com.Dh.ProyectoIntegrador.dao.implementacion.PacienteDaoH2.eliminar(PacienteDaoH2.java:138)
+	at com.Dh.ProyectoIntegrador.service.implementacion.PacienteService.eliminar(PacienteService.java:29)
+	at com.Dh.ProyectoIntegrador.Main.main(Main.java:32)
+2024-03-05 23:52:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Valor Invalido "3" para el parametro "parameterIndex"
+Invalid value "3" for parameter "parameterIndex" [90008-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:646)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.getInvalidValueException(DbException.java:298)
+	at org.h2.jdbc.JdbcPreparedStatement.setParameter(JdbcPreparedStatement.java:1395)
+	at org.h2.jdbc.JdbcPreparedStatement.setInt(JdbcPreparedStatement.java:359)
+	at com.Dh.ProyectoIntegrador.dao.implementacion.PacienteDaoH2.eliminar(PacienteDaoH2.java:138)
+	at com.Dh.ProyectoIntegrador.service.implementacion.PacienteService.eliminar(PacienteService.java:29)
+	at com.Dh.ProyectoIntegrador.Main.main(Main.java:32)
+2024-03-06 00:19:07 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:395)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:125)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:3318)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:593)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:469)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:4082)
+	at org.h2.mvstore.db.Store.<init>(Store.java:136)
+	at org.h2.engine.Database.<init>(Database.java:324)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at com.Dh.ProyectoIntegrador.dao.BD.getConnection(BD.java:36)
+	at com.Dh.ProyectoIntegrador.dao.BD.crearTablas(BD.java:45)
+	at com.Dh.ProyectoIntegrador.Main.main(Main.java:13)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:554)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	... 20 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:1004)
+	at org.h2.mvstore.FileStore.open(FileStore.java:178)
+	at org.h2.mvstore.FileStore.open(FileStore.java:128)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:452)
+	... 14 more
+2024-03-06 00:19:07 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:395)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:125)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:3318)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:593)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:469)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:4082)
+	at org.h2.mvstore.db.Store.<init>(Store.java:136)
+	at org.h2.engine.Database.<init>(Database.java:324)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at com.Dh.ProyectoIntegrador.dao.BD.getConnection(BD.java:36)
+	at com.Dh.ProyectoIntegrador.dao.implementacion.DomicilioDaoH2.guardar(DomicilioDaoH2.java:28)
+	at com.Dh.ProyectoIntegrador.dao.implementacion.DomicilioDaoH2.guardar(DomicilioDaoH2.java:12)
+	at com.Dh.ProyectoIntegrador.service.implementacion.DomicilioService.guardar(DomicilioService.java:19)
+	at com.Dh.ProyectoIntegrador.Main.main(Main.java:19)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:554)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	... 22 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:1004)
+	at org.h2.mvstore.FileStore.open(FileStore.java:178)
+	at org.h2.mvstore.FileStore.open(FileStore.java:128)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:452)
+	... 16 more
+2024-03-06 00:19:08 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:395)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:125)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:3318)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:593)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:469)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:4082)
+	at org.h2.mvstore.db.Store.<init>(Store.java:136)
+	at org.h2.engine.Database.<init>(Database.java:324)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at com.Dh.ProyectoIntegrador.dao.BD.getConnection(BD.java:36)
+	at com.Dh.ProyectoIntegrador.dao.implementacion.DomicilioDaoH2.guardar(DomicilioDaoH2.java:28)
+	at com.Dh.ProyectoIntegrador.dao.implementacion.DomicilioDaoH2.guardar(DomicilioDaoH2.java:12)
+	at com.Dh.ProyectoIntegrador.service.implementacion.DomicilioService.guardar(DomicilioService.java:19)
+	at com.Dh.ProyectoIntegrador.Main.main(Main.java:20)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:554)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	... 22 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:1004)
+	at org.h2.mvstore.FileStore.open(FileStore.java:178)
+	at org.h2.mvstore.FileStore.open(FileStore.java:128)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:452)
+	... 16 more
+2024-03-06 00:19:08 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:395)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:125)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:3318)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:593)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:469)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:4082)
+	at org.h2.mvstore.db.Store.<init>(Store.java:136)
+	at org.h2.engine.Database.<init>(Database.java:324)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at com.Dh.ProyectoIntegrador.dao.BD.getConnection(BD.java:36)
+	at com.Dh.ProyectoIntegrador.dao.implementacion.PacienteDaoH2.guardar(PacienteDaoH2.java:36)
+	at com.Dh.ProyectoIntegrador.dao.implementacion.PacienteDaoH2.guardar(PacienteDaoH2.java:15)
+	at com.Dh.ProyectoIntegrador.service.implementacion.PacienteService.guardar(PacienteService.java:21)
+	at com.Dh.ProyectoIntegrador.Main.main(Main.java:29)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:554)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	... 22 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:1004)
+	at org.h2.mvstore.FileStore.open(FileStore.java:178)
+	at org.h2.mvstore.FileStore.open(FileStore.java:128)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:452)
+	... 16 more
+2024-03-06 00:19:08 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:395)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:125)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:3318)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:593)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:469)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:4082)
+	at org.h2.mvstore.db.Store.<init>(Store.java:136)
+	at org.h2.engine.Database.<init>(Database.java:324)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at com.Dh.ProyectoIntegrador.dao.BD.getConnection(BD.java:36)
+	at com.Dh.ProyectoIntegrador.dao.implementacion.PacienteDaoH2.listarTodos(PacienteDaoH2.java:201)
+	at com.Dh.ProyectoIntegrador.service.implementacion.PacienteService.listarTodos(PacienteService.java:37)
+	at com.Dh.ProyectoIntegrador.Main.main(Main.java:32)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:554)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	... 21 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:1004)
+	at org.h2.mvstore.FileStore.open(FileStore.java:178)
+	at org.h2.mvstore.FileStore.open(FileStore.java:128)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:452)
+	... 15 more
+2024-03-06 00:19:08 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:395)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:125)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:3318)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:593)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:469)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:4082)
+	at org.h2.mvstore.db.Store.<init>(Store.java:136)
+	at org.h2.engine.Database.<init>(Database.java:324)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at com.Dh.ProyectoIntegrador.dao.BD.getConnection(BD.java:36)
+	at com.Dh.ProyectoIntegrador.dao.implementacion.PacienteDaoH2.eliminar(PacienteDaoH2.java:120)
+	at com.Dh.ProyectoIntegrador.service.implementacion.PacienteService.eliminar(PacienteService.java:29)
+	at com.Dh.ProyectoIntegrador.Main.main(Main.java:33)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:554)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	... 21 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:1004)
+	at org.h2.mvstore.FileStore.open(FileStore.java:178)
+	at org.h2.mvstore.FileStore.open(FileStore.java:128)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:452)
+	... 15 more
+2024-03-06 00:19:24 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:395)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:125)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:3318)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:593)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:469)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:4082)
+	at org.h2.mvstore.db.Store.<init>(Store.java:136)
+	at org.h2.engine.Database.<init>(Database.java:324)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at com.Dh.ProyectoIntegrador.dao.BD.getConnection(BD.java:36)
+	at com.Dh.ProyectoIntegrador.dao.BD.crearTablas(BD.java:45)
+	at com.Dh.ProyectoIntegrador.Main.main(Main.java:13)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:554)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	... 20 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:1004)
+	at org.h2.mvstore.FileStore.open(FileStore.java:178)
+	at org.h2.mvstore.FileStore.open(FileStore.java:128)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:452)
+	... 14 more
+2024-03-06 00:19:24 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:395)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:125)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:3318)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:593)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:469)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:4082)
+	at org.h2.mvstore.db.Store.<init>(Store.java:136)
+	at org.h2.engine.Database.<init>(Database.java:324)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at com.Dh.ProyectoIntegrador.dao.BD.getConnection(BD.java:36)
+	at com.Dh.ProyectoIntegrador.dao.implementacion.DomicilioDaoH2.guardar(DomicilioDaoH2.java:28)
+	at com.Dh.ProyectoIntegrador.dao.implementacion.DomicilioDaoH2.guardar(DomicilioDaoH2.java:12)
+	at com.Dh.ProyectoIntegrador.service.implementacion.DomicilioService.guardar(DomicilioService.java:19)
+	at com.Dh.ProyectoIntegrador.Main.main(Main.java:19)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:554)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	... 22 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:1004)
+	at org.h2.mvstore.FileStore.open(FileStore.java:178)
+	at org.h2.mvstore.FileStore.open(FileStore.java:128)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:452)
+	... 16 more
+2024-03-06 00:19:24 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:395)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:125)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:3318)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:593)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:469)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:4082)
+	at org.h2.mvstore.db.Store.<init>(Store.java:136)
+	at org.h2.engine.Database.<init>(Database.java:324)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at com.Dh.ProyectoIntegrador.dao.BD.getConnection(BD.java:36)
+	at com.Dh.ProyectoIntegrador.dao.implementacion.DomicilioDaoH2.guardar(DomicilioDaoH2.java:28)
+	at com.Dh.ProyectoIntegrador.dao.implementacion.DomicilioDaoH2.guardar(DomicilioDaoH2.java:12)
+	at com.Dh.ProyectoIntegrador.service.implementacion.DomicilioService.guardar(DomicilioService.java:19)
+	at com.Dh.ProyectoIntegrador.Main.main(Main.java:20)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:554)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	... 22 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:1004)
+	at org.h2.mvstore.FileStore.open(FileStore.java:178)
+	at org.h2.mvstore.FileStore.open(FileStore.java:128)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:452)
+	... 16 more
+2024-03-06 00:19:24 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:395)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:125)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:3318)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:593)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:469)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:4082)
+	at org.h2.mvstore.db.Store.<init>(Store.java:136)
+	at org.h2.engine.Database.<init>(Database.java:324)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at com.Dh.ProyectoIntegrador.dao.BD.getConnection(BD.java:36)
+	at com.Dh.ProyectoIntegrador.dao.implementacion.PacienteDaoH2.guardar(PacienteDaoH2.java:36)
+	at com.Dh.ProyectoIntegrador.dao.implementacion.PacienteDaoH2.guardar(PacienteDaoH2.java:15)
+	at com.Dh.ProyectoIntegrador.service.implementacion.PacienteService.guardar(PacienteService.java:21)
+	at com.Dh.ProyectoIntegrador.Main.main(Main.java:29)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:554)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	... 22 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:1004)
+	at org.h2.mvstore.FileStore.open(FileStore.java:178)
+	at org.h2.mvstore.FileStore.open(FileStore.java:128)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:452)
+	... 16 more
+2024-03-06 00:19:24 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:395)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:125)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:3318)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:593)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:469)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:4082)
+	at org.h2.mvstore.db.Store.<init>(Store.java:136)
+	at org.h2.engine.Database.<init>(Database.java:324)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at com.Dh.ProyectoIntegrador.dao.BD.getConnection(BD.java:36)
+	at com.Dh.ProyectoIntegrador.dao.implementacion.PacienteDaoH2.listarTodos(PacienteDaoH2.java:201)
+	at com.Dh.ProyectoIntegrador.service.implementacion.PacienteService.listarTodos(PacienteService.java:37)
+	at com.Dh.ProyectoIntegrador.Main.main(Main.java:32)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:554)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	... 21 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:1004)
+	at org.h2.mvstore.FileStore.open(FileStore.java:178)
+	at org.h2.mvstore.FileStore.open(FileStore.java:128)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:452)
+	... 15 more
+2024-03-06 00:19:25 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:395)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:125)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:3318)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:593)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:469)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:4082)
+	at org.h2.mvstore.db.Store.<init>(Store.java:136)
+	at org.h2.engine.Database.<init>(Database.java:324)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at com.Dh.ProyectoIntegrador.dao.BD.getConnection(BD.java:36)
+	at com.Dh.ProyectoIntegrador.dao.implementacion.PacienteDaoH2.eliminar(PacienteDaoH2.java:120)
+	at com.Dh.ProyectoIntegrador.service.implementacion.PacienteService.eliminar(PacienteService.java:29)
+	at com.Dh.ProyectoIntegrador.Main.main(Main.java:33)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:554)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	... 21 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:1004)
+	at org.h2.mvstore.FileStore.open(FileStore.java:178)
+	at org.h2.mvstore.FileStore.open(FileStore.java:128)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:452)
+	... 15 more
+2024-03-06 00:20:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "DELETE [*]* FROM PACIENTES WHERE ID=38"; se esperaba "identifier"
+Syntax error in SQL statement "DELETE [*]* FROM PACIENTES WHERE ID=38"; expected "identifier"; SQL statement:
+DELETE * FROM PACIENTES WHERE ID=38 [42001-214]
+2024-03-06 00:28:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Metodo permitido unicamente en un query. Use execute ó executeUpdate en lugar de executeQuery
+Method is only allowed for a query. Use execute or executeUpdate instead of executeQuery; SQL statement:
+DELETE FROM PACIENTES WHERE ID=38 [90002-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:554)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.command.Prepared.query(Prepared.java:256)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:251)
+	at org.h2.command.Command.executeQuery(Command.java:190)
+	at org.h2.jdbc.JdbcPreparedStatement.executeQuery(JdbcPreparedStatement.java:128)
+	at com.Dh.ProyectoIntegrador.dao.implementacion.PacienteDaoH2.eliminar(PacienteDaoH2.java:139)
+	at com.Dh.ProyectoIntegrador.service.implementacion.PacienteService.eliminar(PacienteService.java:29)
+	at com.Dh.ProyectoIntegrador.Main.main(Main.java:33)
+2024-03-06 00:30:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PACIENTE" no encontrada
+Table "PACIENTE" not found; SQL statement:
+DELETE FROM PACIENTE WHERE ID=38 [42102-214]
+2024-03-06 00:49:02 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:395)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:125)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:3318)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:593)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:469)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:4082)
+	at org.h2.mvstore.db.Store.<init>(Store.java:136)
+	at org.h2.engine.Database.<init>(Database.java:324)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at com.Dh.ProyectoIntegrador.dao.BD.getConnection(BD.java:36)
+	at com.Dh.ProyectoIntegrador.dao.BD.crearTablas(BD.java:45)
+	at com.Dh.ProyectoIntegrador.Main.main(Main.java:13)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:554)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	... 20 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:1004)
+	at org.h2.mvstore.FileStore.open(FileStore.java:178)
+	at org.h2.mvstore.FileStore.open(FileStore.java:128)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:452)
+	... 14 more
+2024-03-06 00:49:03 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:395)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:125)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:3318)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:593)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:469)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:4082)
+	at org.h2.mvstore.db.Store.<init>(Store.java:136)
+	at org.h2.engine.Database.<init>(Database.java:324)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at com.Dh.ProyectoIntegrador.dao.BD.getConnection(BD.java:36)
+	at com.Dh.ProyectoIntegrador.dao.implementacion.DomicilioDaoH2.guardar(DomicilioDaoH2.java:28)
+	at com.Dh.ProyectoIntegrador.dao.implementacion.DomicilioDaoH2.guardar(DomicilioDaoH2.java:12)
+	at com.Dh.ProyectoIntegrador.service.implementacion.DomicilioService.guardar(DomicilioService.java:19)
+	at com.Dh.ProyectoIntegrador.Main.main(Main.java:19)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:554)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	... 22 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:1004)
+	at org.h2.mvstore.FileStore.open(FileStore.java:178)
+	at org.h2.mvstore.FileStore.open(FileStore.java:128)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:452)
+	... 16 more
+2024-03-06 00:49:03 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:395)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:125)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:3318)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:593)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:469)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:4082)
+	at org.h2.mvstore.db.Store.<init>(Store.java:136)
+	at org.h2.engine.Database.<init>(Database.java:324)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at com.Dh.ProyectoIntegrador.dao.BD.getConnection(BD.java:36)
+	at com.Dh.ProyectoIntegrador.dao.implementacion.DomicilioDaoH2.guardar(DomicilioDaoH2.java:28)
+	at com.Dh.ProyectoIntegrador.dao.implementacion.DomicilioDaoH2.guardar(DomicilioDaoH2.java:12)
+	at com.Dh.ProyectoIntegrador.service.implementacion.DomicilioService.guardar(DomicilioService.java:19)
+	at com.Dh.ProyectoIntegrador.Main.main(Main.java:20)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:554)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	... 22 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:1004)
+	at org.h2.mvstore.FileStore.open(FileStore.java:178)
+	at org.h2.mvstore.FileStore.open(FileStore.java:128)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:452)
+	... 16 more
+2024-03-06 00:49:03 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:395)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:125)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:3318)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:593)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:469)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:4082)
+	at org.h2.mvstore.db.Store.<init>(Store.java:136)
+	at org.h2.engine.Database.<init>(Database.java:324)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at com.Dh.ProyectoIntegrador.dao.BD.getConnection(BD.java:36)
+	at com.Dh.ProyectoIntegrador.dao.implementacion.PacienteDaoH2.guardar(PacienteDaoH2.java:37)
+	at com.Dh.ProyectoIntegrador.dao.implementacion.PacienteDaoH2.guardar(PacienteDaoH2.java:16)
+	at com.Dh.ProyectoIntegrador.service.implementacion.PacienteService.guardar(PacienteService.java:21)
+	at com.Dh.ProyectoIntegrador.Main.main(Main.java:29)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:554)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	... 22 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:1004)
+	at org.h2.mvstore.FileStore.open(FileStore.java:178)
+	at org.h2.mvstore.FileStore.open(FileStore.java:128)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:452)
+	... 16 more
+2024-03-06 00:49:03 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:395)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:125)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:3318)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:593)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:469)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:4082)
+	at org.h2.mvstore.db.Store.<init>(Store.java:136)
+	at org.h2.engine.Database.<init>(Database.java:324)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at com.Dh.ProyectoIntegrador.dao.BD.getConnection(BD.java:36)
+	at com.Dh.ProyectoIntegrador.dao.implementacion.PacienteDaoH2.listarTodos(PacienteDaoH2.java:204)
+	at com.Dh.ProyectoIntegrador.service.implementacion.PacienteService.listarTodos(PacienteService.java:37)
+	at com.Dh.ProyectoIntegrador.Main.main(Main.java:32)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:554)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	... 21 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:1004)
+	at org.h2.mvstore.FileStore.open(FileStore.java:178)
+	at org.h2.mvstore.FileStore.open(FileStore.java:128)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:452)
+	... 15 more
+2024-03-06 00:49:03 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:395)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:125)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:3318)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:593)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:469)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:4082)
+	at org.h2.mvstore.db.Store.<init>(Store.java:136)
+	at org.h2.engine.Database.<init>(Database.java:324)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at com.Dh.ProyectoIntegrador.dao.BD.getConnection(BD.java:36)
+	at com.Dh.ProyectoIntegrador.dao.implementacion.PacienteDaoH2.eliminar(PacienteDaoH2.java:121)
+	at com.Dh.ProyectoIntegrador.service.implementacion.PacienteService.eliminar(PacienteService.java:29)
+	at com.Dh.ProyectoIntegrador.Main.main(Main.java:33)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]" [50000-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:554)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	... 21 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db [2.1.214/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:1004)
+	at org.h2.mvstore.FileStore.open(FileStore.java:178)
+	at org.h2.mvstore.FileStore.open(FileStore.java:128)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:452)
+	... 15 more

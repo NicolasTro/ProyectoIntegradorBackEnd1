@@ -31,7 +31,7 @@ public class PacienteDaoH2 implements IDao<Paciente> {
 		Connection connection = null;
 
 		try {
-
+			LOGGER.info("Guardando Paciente 💁‍♂️💁‍♀️");
 			connection = BD.getConnection();
 			PreparedStatement psInsert = connection.prepareStatement(SQL_INSERT_PACIENTE, Statement.RETURN_GENERATED_KEYS);
 			psInsert.setString(1, paciente.getNombre());
@@ -46,11 +46,13 @@ public class PacienteDaoH2 implements IDao<Paciente> {
 				paciente.setId(rs.getInt(1));
 			}
 		} catch (Exception e) {
+			LOGGER.warn("Error guardando Paciente 💁‍♂️💁‍♀️" + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			try {
 				connection.close();
 			} catch (Exception ex) {
+				LOGGER.warn("Error guardando Paciente 💁‍♂️💁‍♀️" + ex.getMessage());
 				ex.printStackTrace();
 			}
 		}
@@ -63,6 +65,7 @@ public class PacienteDaoH2 implements IDao<Paciente> {
 		Connection conexion = null;
 		Paciente pacienteEncontrado = null;
 		try {
+			LOGGER.info("Buscando Paciente 🔎 💁‍♂️💁‍♀️");
 			conexion = BD.getConnection();
 			PreparedStatement psSearchID = conexion.prepareStatement(SQL_SEARCH_ID);
 			psSearchID.setInt(1, id);
@@ -83,11 +86,13 @@ public class PacienteDaoH2 implements IDao<Paciente> {
 				return null;
 			}
 		} catch (Exception e) {
+			LOGGER.warn("Error buscando Paciente 💁‍♂️💁‍♀️" + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			try {
 				conexion.close();
 			} catch (Exception ex) {
+				LOGGER.warn("Error buscando Paciente 💁‍♂️💁‍♀️" + ex.getMessage());
 				ex.printStackTrace();
 			}
 		}
@@ -100,18 +105,20 @@ public class PacienteDaoH2 implements IDao<Paciente> {
 		Connection conexion = null;
 
 		try {
-
+			LOGGER.info("Eliminando Paciente 🚮💁‍♂️💁‍♀️");
 			conexion = BD.getConnection();
 			PreparedStatement psDelete = conexion.prepareStatement(SQL_DELETE_PACIENTE);
 			psDelete.setInt(1, id);
 			psDelete.execute();
 
 		} catch (Exception e) {
+			LOGGER.warn("Error eliminando Paciente 💁‍♂️💁‍♀️" + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			try {
 				conexion.close();
 			} catch (Exception ex) {
+				LOGGER.warn("Error eliminando Paciente 💁‍♂️💁‍♀️" + ex.getMessage());
 				ex.printStackTrace();
 			}
 		}
@@ -124,7 +131,7 @@ public class PacienteDaoH2 implements IDao<Paciente> {
 		Connection conexion = null;
 
 		try {
-
+			LOGGER.info("Actualizando Paciente 👨‍💻💁‍♂️💁‍♀️");
 			conexion = BD.getConnection();
 			PreparedStatement psUpdate = conexion.prepareStatement(SQL_MODIFY_PACIENTE);
 			psUpdate.setString(1, paciente.getNombre());
@@ -134,11 +141,13 @@ public class PacienteDaoH2 implements IDao<Paciente> {
 			psUpdate.setInt(5, paciente.getDomicilio().getId());
 			psUpdate.executeUpdate();
 		} catch (Exception e) {
+			LOGGER.warn("Error actualizando Paciente 💁‍♂️💁‍♀️" + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			try {
 				conexion.close();
 			} catch (Exception e) {
+				LOGGER.warn("Error actualizando Paciente 💁‍♂️💁‍♀️" + e.getMessage());
 				e.printStackTrace();
 			}
 		}
@@ -149,7 +158,7 @@ public class PacienteDaoH2 implements IDao<Paciente> {
 		Connection conexion = null;
 		List<Paciente> listaPacientes = null;
 		try {
-
+			LOGGER.info("Listando todos los Pacientes 💁‍♂️💁‍♀️");
 			conexion = BD.getConnection();
 			PreparedStatement psSearchAll = conexion.prepareStatement(SQL_SEARCH_ALL);
 			ResultSet rsSearchAll = psSearchAll.executeQuery();
@@ -170,19 +179,17 @@ public class PacienteDaoH2 implements IDao<Paciente> {
 					listaPacientes.add(paciente);
 				}
 			}
-
-
 		} catch (Exception e) {
+			LOGGER.warn("Error listando Pacientes 💁‍♂️💁‍♀️" + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			try {
 				conexion.close();
 			} catch (Exception e) {
+				LOGGER.warn("Error listando Pacientes 💁‍♂️💁‍♀️" + e.getMessage());
 				e.printStackTrace();
 			}
 		}
-		return null;
-
-
+		return listaPacientes;
 	}
 }

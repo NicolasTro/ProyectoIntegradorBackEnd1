@@ -24,7 +24,7 @@ public class DomicilioDaoH2 implements IDao<Domicilio> {
 		Connection connection = null;
 
 		try {
-
+			LOGGER.info("Guardando domicilio 🏡...");
 			connection = BD.getConnection();
 			PreparedStatement psInsert = connection.prepareStatement(INSERT_DOMICILIO, Statement.RETURN_GENERATED_KEYS);
 			psInsert.setString(1, domicilio.getCalle());
@@ -38,11 +38,13 @@ public class DomicilioDaoH2 implements IDao<Domicilio> {
 			}
 
 		} catch (Exception e) {
+			LOGGER.warn("Error guardando domicilio 🏡..." + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			try {
 				connection.close();
 			} catch (Exception e) {
+				LOGGER.warn("Error guardando domicilio 🏡..." + e.getMessage());
 				e.printStackTrace();
 			}
 		}
@@ -56,6 +58,7 @@ public class DomicilioDaoH2 implements IDao<Domicilio> {
 		Connection conexion = null;
 		Domicilio domicilio = null;
 		try {
+			LOGGER.info("Buscando domicilio 🔎🏡...");
 			conexion = BD.getConnection();
 			PreparedStatement psSearchById = conexion.prepareStatement(SQL_SELECT_BY_ID);
 			psSearchById.setInt(1, id);
@@ -71,12 +74,15 @@ public class DomicilioDaoH2 implements IDao<Domicilio> {
 			}
 
 		} catch (Exception e) {
+			LOGGER.warn("Error buscando domicilio 🔎🏡..." + e.getMessage());
+			e.printStackTrace();
+		}finally {
 			try {
 				conexion.close();
-			} catch (Exception ex) {
-				e.printStackTrace();
+			}catch (Exception ex) {
+				LOGGER.warn("Error buscando domicilio 🔎🏡..." + ex.getMessage());
+				ex.printStackTrace();
 			}
-
 		}
 		return domicilio;
 	}
@@ -86,17 +92,20 @@ public class DomicilioDaoH2 implements IDao<Domicilio> {
 
 		Connection conexion = null;
 		try {
+			LOGGER.info("Eliminando domicilio 🚮🏡...");
 			conexion = BD.getConnection();
 			PreparedStatement psDeleteByID = conexion.prepareStatement(SQL_DELETE_BY_ID);
 			psDeleteByID.setInt(1, id);
 			psDeleteByID.executeUpdate();
 
 		} catch (Exception e) {
+			LOGGER.warn("Error eliminando domicilio 🚮🏡..." + e.getMessage());
 			e.printStackTrace();
 		}finally {
 			try {
 				conexion.close();
 			} catch (SQLException e) {
+				LOGGER.warn("Error eliminando domicilio 🚮🏡..." + e.getMessage());
 				throw new RuntimeException(e);
 			}
 		}
@@ -106,6 +115,7 @@ public class DomicilioDaoH2 implements IDao<Domicilio> {
 	public void actualizar(Domicilio domicilio) {
 		Connection conexion = null;
 		try {
+			LOGGER.info("Actualizando domicilio 👨‍💻🏡...");
 			conexion = BD.getConnection();
 			PreparedStatement psUpdateById = conexion.prepareStatement(SQL_UPDATE_BY_ID);
 			psUpdateById.setString(1, domicilio.getCalle());
@@ -118,11 +128,13 @@ public class DomicilioDaoH2 implements IDao<Domicilio> {
 			psUpdateById.executeUpdate();
 
 		} catch (Exception e) {
+			LOGGER.warn("Error actualizando domicilio 👨‍💻🏡..." + e.getMessage());
 			e.printStackTrace();
 		}finally {
 			try {
 				conexion.close();
 			} catch (SQLException e) {
+				LOGGER.warn("Error actualizando domicilio 👨‍💻🏡..." + e.getMessage());
 				throw new RuntimeException(e);
 			}
 		}
@@ -137,6 +149,7 @@ public class DomicilioDaoH2 implements IDao<Domicilio> {
 		Domicilio domicilio = null;
 
 		try {
+			LOGGER.info("Error Listando los domicilios 👨‍💻🏡🏡...");
 			connection = BD.getConnection();
 			PreparedStatement psSelect = connection.prepareStatement(SELECT_ALL);
 			ResultSet rs = psSelect.executeQuery();
@@ -151,16 +164,16 @@ public class DomicilioDaoH2 implements IDao<Domicilio> {
 			}
 
 		} catch (Exception e) {
-			LOGGER.error("Error: " + e.getMessage());
+			LOGGER.warn("Error Listando los domicilios 👨‍💻🏡🏡..." + e.getMessage());
 			e.printStackTrace();
 		} finally {
 			try {
 				connection.close();
 			} catch (Exception e) {
+				LOGGER.warn("Error actualizando domicilio 👨‍💻🏡🏡..." + e.getMessage());
 				e.printStackTrace();
 			}
 		}
-		LOGGER.info("Esta es la lista que se está devolviendo??? " + domicilioList);
 		return domicilioList;
 	}
 }

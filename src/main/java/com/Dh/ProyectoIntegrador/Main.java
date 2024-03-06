@@ -2,7 +2,7 @@ package com.Dh.ProyectoIntegrador;
 
 import com.Dh.ProyectoIntegrador.dao.BD;
 import com.Dh.ProyectoIntegrador.model.Domicilio;
-import com.Dh.ProyectoIntegrador.service.DomicilioService;
+import com.Dh.ProyectoIntegrador.service.implementacion.DomicilioService;
 
 public class Main {
     public static void main(String[] args) {

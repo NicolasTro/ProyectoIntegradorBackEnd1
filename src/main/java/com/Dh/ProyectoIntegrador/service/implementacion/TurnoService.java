@@ -1,4 +1,4 @@
-package com.Dh.ProyectoIntegrador.service;
+package com.Dh.ProyectoIntegrador.service.implementacion;
 
 import com.Dh.ProyectoIntegrador.dao.IDao;
 import com.Dh.ProyectoIntegrador.dao.implementacion.TurnoDaoH2;

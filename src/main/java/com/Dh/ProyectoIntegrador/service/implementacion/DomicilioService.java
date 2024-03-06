@@ -1,13 +1,14 @@
-package com.Dh.ProyectoIntegrador.service;
+package com.Dh.ProyectoIntegrador.service.implementacion;
 
 import com.Dh.ProyectoIntegrador.dao.IDao;
 import com.Dh.ProyectoIntegrador.dao.implementacion.DomicilioDaoH2;
 
 import com.Dh.ProyectoIntegrador.model.Domicilio;
+import com.Dh.ProyectoIntegrador.service.IDomicilioService;
 
 import java.util.List;
 
-public class DomicilioService {
+public class DomicilioService implements IDomicilioService {
 	private IDao<Domicilio> iDao;
 
 	public DomicilioService() {
@@ -18,7 +19,7 @@ public class DomicilioService {
 		return iDao.guardar(domicilio);
 	}
 
-	public Domicilio busarPorId(Integer id){
+	public Domicilio buscarPorId(Integer id){
 		return this.iDao.buscarPorId(id);
 	}
 
@@ -28,7 +29,6 @@ public class DomicilioService {
 	public void actualizar(Domicilio domicilio){
 		this.iDao.actualizar(domicilio);
 	}
-
 
 	public List<Domicilio> listarTodos() {
 		return iDao.listarTodos();

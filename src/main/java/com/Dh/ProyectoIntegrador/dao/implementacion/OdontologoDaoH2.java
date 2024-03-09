@@ -1,5 +1,6 @@
 package com.Dh.ProyectoIntegrador.dao.implementacion;
 
+import com.Dh.ProyectoIntegrador.Excepciones.OdontologoException;
 import com.Dh.ProyectoIntegrador.dao.IDao;
 import com.Dh.ProyectoIntegrador.dao.BD;
 import com.Dh.ProyectoIntegrador.model.Odontologo;
@@ -107,7 +108,7 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
 	}
 
 	@Override
-	public void actualizar(Odontologo odontologo) {
+	public void actualizar(Odontologo odontologo) throws OdontologoException {
 		Connection conexion = null;
 		try {
 			LOGGER.info("Actualizando odontologo 👨‍⚕️...");
@@ -117,18 +118,18 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
 			psUpdateById.setString(2, odontologo.getApellido());
 			psUpdateById.setString(3, odontologo.getMatricula());
 			psUpdateById.setInt(4, odontologo.getId());
-
+			double a = 4 / 0;
 			psUpdateById.executeUpdate();
 
 		} catch (Exception e) {
 			LOGGER.warn("Error al actualizar odontologo 👨‍⚕️..." + e.getMessage());
-			e.printStackTrace();
+			throw new OdontologoException("ERROR de actualizacion");
 		} finally {
 			try {
 				conexion.close();
 			} catch (SQLException e) {
 				LOGGER.warn("Error al actualizar odontologo 👨‍⚕️..." + e.getMessage());
-				throw new RuntimeException(e);
+
 			}
 		}
 	}

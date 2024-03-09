@@ -1,5 +1,6 @@
 package com.Dh.ProyectoIntegrador.service.implementacion;
 
+import com.Dh.ProyectoIntegrador.Excepciones.OdontologoException;
 import com.Dh.ProyectoIntegrador.dao.IDao;
 import com.Dh.ProyectoIntegrador.dao.implementacion.TurnoDaoH2;
 import com.Dh.ProyectoIntegrador.model.Turno;
@@ -29,7 +30,7 @@ public class TurnoService implements IService<Turno> {
 		this.iDao.eliminar(id);
 	}
 
-	public void actualizar(Turno turno ){
+	public void actualizar(Turno turno ) throws OdontologoException {
 		this.iDao.actualizar(turno);
 	}
 

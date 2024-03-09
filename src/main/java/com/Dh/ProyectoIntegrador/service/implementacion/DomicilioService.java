@@ -1,5 +1,6 @@
 package com.Dh.ProyectoIntegrador.service.implementacion;
 
+import com.Dh.ProyectoIntegrador.Excepciones.OdontologoException;
 import com.Dh.ProyectoIntegrador.dao.IDao;
 import com.Dh.ProyectoIntegrador.dao.implementacion.DomicilioDaoH2;
 
@@ -27,7 +28,7 @@ public class DomicilioService implements IService<Domicilio> {
 	public void eliminar(Integer id){
 		this.iDao.eliminar(id);
 	}
-	public void actualizar(Domicilio domicilio){
+	public void actualizar(Domicilio domicilio) throws OdontologoException {
 		this.iDao.actualizar(domicilio);
 	}
 

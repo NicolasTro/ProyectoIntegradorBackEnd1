@@ -23,7 +23,6 @@ public class OdontologoController {
 		this.odontologoIService = odontologoIService;
 	}
 
-
 	@GetMapping("/{id}")
 	public ResponseEntity buscarPorId(@PathVariable Integer id){
 		ResponseEntity response = null;
@@ -35,17 +34,11 @@ public class OdontologoController {
 			response = new ResponseEntity(HttpStatus.NOT_FOUND);
 		}
 		return response;
-
 	}
-
-
-
-
 
 	@GetMapping("/listar")
 
 	public List<Odontologo> listarTodos() {
 		return this.odontologoIService.listarTodos();
 	}
-
 }

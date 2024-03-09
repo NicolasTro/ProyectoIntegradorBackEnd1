@@ -11,9 +11,7 @@ import java.util.List;
 @Service
 public class OdontologoService implements IService<Odontologo> {
 	private IDao<Odontologo> iDao;
-	public OdontologoService(
-
-	) {
+	public OdontologoService() {
 		this.iDao = new OdontologoDaoH2();
 	}
 	public Odontologo guardar(Odontologo odontologo) {

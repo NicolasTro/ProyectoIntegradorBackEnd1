@@ -46,6 +46,4 @@ public List<Paciente> listarTodos(){
 		return this.pacienteService.listarTodos();
 }
 
-
-
 }

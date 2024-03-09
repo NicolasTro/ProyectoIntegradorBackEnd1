@@ -26,10 +26,17 @@ public class OdontologoController {
 
 		Odontologo odontologoEncontrado = this.odontologoIService.buscarPorId(id);
 
+<<<<<<< HEAD
+		if(odontologoEncontrado != null){
+			response = new ResponseEntity<>(HttpStatus.ACCEPTED);
+		}else{
+			response = new ResponseEntity<>(HttpStatus.NOT_FOUND);
+=======
 		if (odontologoEncontrado != null) {
 			response = new ResponseEntity<>(odontologoEncontrado, HttpStatus.ACCEPTED);
 		} else {
 			response = new ResponseEntity(HttpStatus.NOT_FOUND);
+>>>>>>> e8b143eda05d742e63b28e0d5f3638cbbe3703f4
 		}
 		return response;
 	}

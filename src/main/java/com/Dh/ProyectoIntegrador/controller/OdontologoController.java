@@ -31,7 +31,7 @@ public class OdontologoController {
 		if(odontologoEncontrado != null){
 			response = new ResponseEntity<>(HttpStatus.ACCEPTED);
 		}else{
-			response = new ResponseEntity(HttpStatus.NOT_FOUND);
+			response = new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		return response;
 	}

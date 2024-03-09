@@ -1,15 +1,12 @@
 package com.Dh.ProyectoIntegrador.controller;
 
 
-
+import com.Dh.ProyectoIntegrador.Excepciones.OdontologoException;
 import com.Dh.ProyectoIntegrador.model.Odontologo;
 import com.Dh.ProyectoIntegrador.service.IService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,21 +21,42 @@ public class OdontologoController {
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity buscarPorId(@PathVariable Integer id){
+	public ResponseEntity buscarPorId(@PathVariable Integer id) {
 		ResponseEntity response = null;
+
 		Odontologo odontologoEncontrado = this.odontologoIService.buscarPorId(id);
 
-		if(odontologoEncontrado != null){
-			response = new ResponseEntity<>(HttpStatus.ACCEPTED);
-		}else{
+		if (odontologoEncontrado != null) {
+			response = new ResponseEntity<>(odontologoEncontrado, HttpStatus.ACCEPTED);
+		} else {
 			response = new ResponseEntity(HttpStatus.NOT_FOUND);
 		}
 		return response;
 	}
 
+@PutMapping("/actualizar")
+	public ResponseEntity actualizar(@RequestBody Odontologo odontologo) {
+		ResponseEntity response = null;
+		try {
+			this.odontologoIService.actualizar(odontologo);
+		} catch (OdontologoException e) {
+			response = new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
+			return response;
+		}
+		return response = new ResponseEntity<Odontologo>(HttpStatus.OK);
+	}
+
+
 	@GetMapping("/listar")
 
-	public List<Odontologo> listarTodos() {
-		return this.odontologoIService.listarTodos();
+	public ResponseEntity listarTodos() {
+		ResponseEntity response = null;
+		List<Odontologo> listaOdontologos = this.odontologoIService.listarTodos();
+		if (listaOdontologos != null) {
+			response = new ResponseEntity(listaOdontologos, HttpStatus.ACCEPTED);
+		} else {
+			response = new ResponseEntity(HttpStatus.NOT_FOUND);
+		}
+		return response;
 	}
 }

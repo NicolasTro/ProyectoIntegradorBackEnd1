@@ -1,6 +1,7 @@
 package com.Dh.ProyectoIntegrador.controller;
 
 
+import com.Dh.ProyectoIntegrador.Excepciones.OdontologoException;
 import com.Dh.ProyectoIntegrador.model.Paciente;
 import com.Dh.ProyectoIntegrador.service.IService;
 import org.springframework.web.bind.annotation.*;
@@ -30,7 +31,7 @@ public Paciente buscarPorId(@PathVariable Integer id){
 
 
 @PutMapping("/actualizar")
-public void actualizar(@RequestBody Paciente paciente){
+public void actualizar(@RequestBody Paciente paciente) throws OdontologoException {
 		this.pacienteService.actualizar(paciente);
 }
 

@@ -1,5 +1,6 @@
 package com.Dh.ProyectoIntegrador.service.implementacion;
 
+import com.Dh.ProyectoIntegrador.Excepciones.OdontologoException;
 import com.Dh.ProyectoIntegrador.dao.IDao;
 
 import com.Dh.ProyectoIntegrador.dao.implementacion.PacienteDaoH2;
@@ -30,7 +31,7 @@ public class PacienteService implements IService<Paciente> {
 		this.iDao.eliminar(id);
 	}
 
-	public void actualizar(Paciente paciente){
+	public void actualizar(Paciente paciente) throws OdontologoException {
 		this.iDao.actualizar(paciente);
 	}
 

@@ -3,10 +3,11 @@ package com.Dh.ProyectoIntegrador.service.implementacion;
 import com.Dh.ProyectoIntegrador.dao.IDao;
 import com.Dh.ProyectoIntegrador.dao.implementacion.TurnoDaoH2;
 import com.Dh.ProyectoIntegrador.model.Turno;
+import com.Dh.ProyectoIntegrador.service.IService;
 
 import java.util.List;
 
-public class TurnoService {
+public class TurnoService implements IService<Turno> {
 
 
 	private IDao<Turno> iDao;

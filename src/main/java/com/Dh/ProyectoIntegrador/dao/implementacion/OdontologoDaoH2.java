@@ -1,21 +1,22 @@
 package com.Dh.ProyectoIntegrador.dao.implementacion;
 
-
 import com.Dh.ProyectoIntegrador.dao.IDao;
 import com.Dh.ProyectoIntegrador.dao.BD;
 import com.Dh.ProyectoIntegrador.model.Odontologo;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Service;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
+@Service
 public class OdontologoDaoH2 implements IDao<Odontologo> {
 	private static final Logger LOGGER = Logger.getLogger(OdontologoDaoH2.class);
 	private static final String SQL_INSERT_ODONTOLOGO = "INSERT INTO ODONTOLOGOS (NOMBRE, APELLIDO, MATRICULA) VALUES (?,?,?)";
-	private static final String SQL_MODIFY_ODONTOLOGO = "UPDATE ODONTOLOGOS SET NOMBRE=?, APELLIDO=?, MATRICULA=? WHERE ID=?";
-	private static final String SQL_DELETE_ODONTOLOGO= "DELETE FROM ODONTOLOGOS WHERE ID=?";
+	private static final String SQL_UPDATE_ODONTOLOGO = "UPDATE ODONTOLOGOS SET NOMBRE=?, APELLIDO=?, MATRICULA=? WHERE ID=?";
+	private static final String SQL_DELETE_ODONTOLOGO = "DELETE FROM ODONTOLOGOS WHERE ID=?";
 	private static final String SQL_SEARCH_ID = "SELECT * FROM ODONTOLOGOS WHERE ID=?";
-
 	private static final String SQL_SEARCH_ALL = "SELECT * FROM ODONTOLOGOS";
 
 	@Override
@@ -26,7 +27,6 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
 			LOGGER.info("Guardando odontologos 👨‍⚕️...");
 			connection = BD.getConnection();
 			PreparedStatement psInsert = connection.prepareStatement(SQL_INSERT_ODONTOLOGO, Statement.RETURN_GENERATED_KEYS);
-
 			psInsert.setString(1, odontologo.getNombre());
 			psInsert.setString(2, odontologo.getApellido());
 			psInsert.setString(3, odontologo.getMatricula());
@@ -57,21 +57,21 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
 		try {
 			LOGGER.info("Buscando odontologo 👨‍⚕️...");
 			conexion = BD.getConnection();
-			PreparedStatement psSearchByID =  conexion.prepareStatement(SQL_SEARCH_ID);
+			PreparedStatement psSearchByID = conexion.prepareStatement(SQL_SEARCH_ID);
 			psSearchByID.setInt(1, id);
-			ResultSet rs  = psSearchByID.executeQuery();
+			ResultSet rs = psSearchByID.executeQuery();
 
-			while (rs.next()){
+			while (rs.next()) {
 				odontologo = new Odontologo();
 				odontologo.setId(rs.getInt(1));
 				odontologo.setNombre(rs.getString(2));
 				odontologo.setApellido(rs.getString(3));
 				odontologo.setMatricula(rs.getString(4));
 			}
-		}catch (Exception e){
+		} catch (Exception e) {
 			LOGGER.warn("Error al buscar odontologo 👨‍⚕️..." + e.getMessage());
 			e.printStackTrace();
-		}finally {
+		} finally {
 			try {
 				conexion.close();
 			} catch (SQLException e) {
@@ -96,7 +96,7 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
 		} catch (Exception e) {
 			LOGGER.warn("Error eliminando odontologos 👨‍⚕️..." + e.getMessage());
 			e.printStackTrace();
-		}finally {
+		} finally {
 			try {
 				conexion.close();
 			} catch (SQLException e) {
@@ -112,7 +112,7 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
 		try {
 			LOGGER.info("Actualizando odontologo 👨‍⚕️...");
 			conexion = BD.getConnection();
-			PreparedStatement psUpdateById = conexion.prepareStatement(SQL_MODIFY_ODONTOLOGO);
+			PreparedStatement psUpdateById = conexion.prepareStatement(SQL_UPDATE_ODONTOLOGO);
 			psUpdateById.setString(1, odontologo.getNombre());
 			psUpdateById.setString(2, odontologo.getApellido());
 			psUpdateById.setString(3, odontologo.getMatricula());
@@ -123,7 +123,7 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
 		} catch (Exception e) {
 			LOGGER.warn("Error al actualizar odontologo 👨‍⚕️..." + e.getMessage());
 			e.printStackTrace();
-		}finally {
+		} finally {
 			try {
 				conexion.close();
 			} catch (SQLException e) {
@@ -136,23 +136,25 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
 	@Override
 	public List<Odontologo> listarTodos() {
 		Connection conexion = null;
-		List<Odontologo>  listaOdontologos = new ArrayList<>();
-		Odontologo odontologo =  null;
+		List<Odontologo> listaOdontologos = null;
+		Odontologo odontologo = null;
 		try {
 			LOGGER.info("Consultando todos los odontologos 👨‍⚕️...");
 			conexion = BD.getConnection();
 			PreparedStatement psUpdateById = conexion.prepareStatement(SQL_SEARCH_ALL);
 			ResultSet rs = psUpdateById.executeQuery();
+			if (!rs.wasNull()) {
+				listaOdontologos = new ArrayList<>();
+				while (rs.next()) {
+					odontologo = new Odontologo(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4));
 
-			while (rs.next())  {
-				odontologo = new Odontologo(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4));
-
-				listaOdontologos.add(odontologo);
+					listaOdontologos.add(odontologo);
+				}
 			}
 		} catch (Exception e) {
 			LOGGER.warn("Error listando odontologos 👨‍⚕️..." + e.getMessage());
 			e.printStackTrace();
-		}finally {
+		} finally {
 			try {
 				conexion.close();
 			} catch (SQLException e) {

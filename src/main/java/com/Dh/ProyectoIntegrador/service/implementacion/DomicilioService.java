@@ -4,11 +4,12 @@ import com.Dh.ProyectoIntegrador.dao.IDao;
 import com.Dh.ProyectoIntegrador.dao.implementacion.DomicilioDaoH2;
 
 import com.Dh.ProyectoIntegrador.model.Domicilio;
-import com.Dh.ProyectoIntegrador.service.IDomicilioService;
+import com.Dh.ProyectoIntegrador.service.IService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
-public class DomicilioService implements IDomicilioService {
+@Service
+public class DomicilioService implements IService<Domicilio> {
 	private IDao<Domicilio> iDao;
 
 	public DomicilioService() {

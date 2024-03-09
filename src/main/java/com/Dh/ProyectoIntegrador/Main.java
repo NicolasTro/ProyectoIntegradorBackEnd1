@@ -14,10 +14,12 @@ public class Main {
 
         Domicilio domicilio = new Domicilio("Calle A", 123, "Luján", "Mendoza");
         Domicilio domicilio2 = new Domicilio("Calle B", 456, "Carlos Paz", "Cordoba");
+        Domicilio domicilio3 = new Domicilio("Calle C", 789, "Carlos Paz", "Cordoba");
 
         DomicilioService domicilioService = new DomicilioService();
         domicilio2=  domicilioService.guardar(domicilio2);
         domicilio = domicilioService.guardar(domicilio);
+        domicilio3 = domicilioService.guardar(domicilio3);
 
         Paciente paciente = new Paciente();
         paciente.setNombre("MR");
@@ -30,7 +32,7 @@ public class Main {
 
 
         System.out.println(servicioAlConsumidor.listarTodos());
-        servicioAlConsumidor.eliminar(paciente.getId());
+//        servicioAlConsumidor.eliminar(paciente.getId());
 
         //creo una instancia de la clase para usar sus métodos
 

@@ -13,11 +13,11 @@ public class DomicilioDaoH2 implements IDao<Domicilio> {
 
 	private static final Logger LOGGER = Logger.getLogger(DomicilioDaoH2.class);
 
-	private static final String INSERT_DOMICILIO = "INSERT INTO DOMICILIOS (CALLE, NUMERO, LOCALIDAD, PROVINCIA) VALUES (?,?,?,?)";
-	private static final String SELECT_ALL = "SELECT * FROM DOMICILIOS";
-	private static final String SQL_SELECT_BY_ID = "SELECT * FROM DOMICILIOS WHERE ID=?";
-	private static final String SQL_DELETE_BY_ID= "DELETE FROM DOMICILIOS WHERE ID=?";
-	private static final String SQL_UPDATE_BY_ID= "UPDATE DOMICILIOS SET CALLE=? NUMERO=? LOCALIDAD=? PROVINCIA=? WHERE ID=?";
+	private static final String SQL_INSERT_DOMICILIO = "INSERT INTO DOMICILIOS (CALLE, NUMERO, LOCALIDAD, PROVINCIA) VALUES (?,?,?,?)";
+	private static final String SQL_UPDATE_DOMICILIO = "UPDATE DOMICILIOS SET CALLE=?, NUMERO=?, LOCALIDAD=?, PROVINCIA=? WHERE ID=?";
+	private static final String SQL_DELETE_DOMICILIO = "DELETE FROM DOMICILIOS WHERE ID=?";
+	private static final String SQL_SEARCH_ID = "SELECT * FROM DOMICILIOS WHERE ID=?";
+	private static final String SQL_SEARCH_ALL = "SELECT * FROM DOMICILIOS";
 
 	@Override
 	public Domicilio guardar(Domicilio domicilio) {
@@ -26,7 +26,7 @@ public class DomicilioDaoH2 implements IDao<Domicilio> {
 		try {
 			LOGGER.info("Guardando domicilio 🏡...");
 			connection = BD.getConnection();
-			PreparedStatement psInsert = connection.prepareStatement(INSERT_DOMICILIO, Statement.RETURN_GENERATED_KEYS);
+			PreparedStatement psInsert = connection.prepareStatement(SQL_INSERT_DOMICILIO, Statement.RETURN_GENERATED_KEYS);
 			psInsert.setString(1, domicilio.getCalle());
 			psInsert.setInt(2, domicilio.getNumero());
 			psInsert.setString(3, domicilio.getLocalidad());
@@ -60,7 +60,7 @@ public class DomicilioDaoH2 implements IDao<Domicilio> {
 		try {
 			LOGGER.info("Buscando domicilio 🔎🏡...");
 			conexion = BD.getConnection();
-			PreparedStatement psSearchById = conexion.prepareStatement(SQL_SELECT_BY_ID);
+			PreparedStatement psSearchById = conexion.prepareStatement(SQL_SEARCH_ID);
 			psSearchById.setInt(1, id);
 			ResultSet rs = psSearchById.executeQuery();
 
@@ -94,7 +94,7 @@ public class DomicilioDaoH2 implements IDao<Domicilio> {
 		try {
 			LOGGER.info("Eliminando domicilio 🚮🏡...");
 			conexion = BD.getConnection();
-			PreparedStatement psDeleteByID = conexion.prepareStatement(SQL_DELETE_BY_ID);
+			PreparedStatement psDeleteByID = conexion.prepareStatement(SQL_DELETE_DOMICILIO);
 			psDeleteByID.setInt(1, id);
 			psDeleteByID.executeUpdate();
 
@@ -106,7 +106,7 @@ public class DomicilioDaoH2 implements IDao<Domicilio> {
 				conexion.close();
 			} catch (SQLException e) {
 				LOGGER.warn("Error eliminando domicilio 🚮🏡..." + e.getMessage());
-				throw new RuntimeException(e);
+
 			}
 		}
 	}
@@ -117,14 +117,12 @@ public class DomicilioDaoH2 implements IDao<Domicilio> {
 		try {
 			LOGGER.info("Actualizando domicilio 👨‍💻🏡...");
 			conexion = BD.getConnection();
-			PreparedStatement psUpdateById = conexion.prepareStatement(SQL_UPDATE_BY_ID);
+			PreparedStatement psUpdateById = conexion.prepareStatement(SQL_UPDATE_DOMICILIO);
 			psUpdateById.setString(1, domicilio.getCalle());
 			psUpdateById.setInt(2, domicilio.getNumero());
 			psUpdateById.setString(3, domicilio.getLocalidad());
 			psUpdateById.setString(4, domicilio.getProvincia());
 			psUpdateById.setInt(5, domicilio.getId());
-
-			//todo PREGUNTARLE A LA PROFE PARA QUE ES EL EXECUTE LONG UPDATE
 			psUpdateById.executeUpdate();
 
 		} catch (Exception e) {
@@ -151,14 +149,13 @@ public class DomicilioDaoH2 implements IDao<Domicilio> {
 		try {
 			LOGGER.info("Listando los domicilios 👨‍💻🏡🏡...");
 			connection = BD.getConnection();
-			PreparedStatement psSelect = connection.prepareStatement(SELECT_ALL);
+			PreparedStatement psSelect = connection.prepareStatement(SQL_SEARCH_ALL);
 			ResultSet rs = psSelect.executeQuery();
 
 			while (rs.next()) {
 				//completamos el domicilio
 				domicilio = new Domicilio(rs.getInt(1), rs.getString(2), rs.getInt(3),
 						rs.getString(4), rs.getString(5));
-
 				//lo guardamos en la lista
 				domicilioList.add(domicilio);
 			}

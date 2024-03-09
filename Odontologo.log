@@ -699,3 +699,259 @@ Database may be already in use: "C:/Windows.old/Users/Nico/Desktop/Programacion/
 [2024-03-06 00:51:57] [ INFO ] [PacienteDaoH2:120] Eliminando Paciente 🚮💁‍♂️💁‍♀️
 [2024-03-06 00:51:57] [ WARN ] [PacienteDaoH2:148] Error eliminando Paciente 💁‍♂️💁‍♀️
 [2024-03-06 00:51:57] [ ERROR] [PacienteDaoH2:152] ARREGLANDO TODO/ by zero
+[2024-03-06 12:00:45] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 12:00:45] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-06 12:00:45] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 12:00:46] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-06 12:00:46] [ INFO ] [PacienteDaoH2:34] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 12:00:46] [ INFO ] [PacienteDaoH2:198] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 12:00:46] [ INFO ] [PacienteDaoH2:118] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 12:01:15] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 12:01:15] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-06 12:01:15] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 12:01:15] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-06 12:01:15] [ INFO ] [PacienteDaoH2:34] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 12:01:15] [ INFO ] [PacienteDaoH2:198] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 12:01:16] [ INFO ] [PacienteDaoH2:118] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 12:09:44] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 12:09:44] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-06 12:09:44] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 12:09:44] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-06 12:09:44] [ INFO ] [PacienteDaoH2:34] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 12:09:44] [ INFO ] [PacienteDaoH2:198] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 12:09:44] [ INFO ] [PacienteDaoH2:118] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 12:10:29] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 12:10:29] [ INFO ] [DomicilioDaoH2:51] Este es el id: 1
+[2024-03-06 12:10:29] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 12:10:29] [ INFO ] [DomicilioDaoH2:51] Este es el id: 2
+[2024-03-06 12:10:29] [ INFO ] [PacienteDaoH2:34] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 12:10:30] [ INFO ] [PacienteDaoH2:198] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 12:10:30] [ INFO ] [PacienteDaoH2:118] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 12:11:57] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 12:11:57] [ WARN ] [DomicilioDaoH2:41] Error guardando domicilio 🏡...La base de datos puede que ya esté siendo utilizada: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-214]
+[2024-03-06 12:11:57] [ WARN ] [DomicilioDaoH2:47] Error guardando domicilio 🏡...Cannot invoke "java.sql.Connection.close()" because "connection" is null
+[2024-03-06 12:11:57] [ INFO ] [DomicilioDaoH2:51] Este es el id: null
+[2024-03-06 12:11:57] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 12:11:57] [ WARN ] [DomicilioDaoH2:41] Error guardando domicilio 🏡...La base de datos puede que ya esté siendo utilizada: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-214]
+[2024-03-06 12:11:57] [ WARN ] [DomicilioDaoH2:47] Error guardando domicilio 🏡...Cannot invoke "java.sql.Connection.close()" because "connection" is null
+[2024-03-06 12:11:57] [ INFO ] [DomicilioDaoH2:51] Este es el id: null
+[2024-03-06 12:11:57] [ INFO ] [PacienteDaoH2:34] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 12:11:57] [ WARN ] [PacienteDaoH2:49] Error guardando Paciente 💁‍♂️💁‍♀️La base de datos puede que ya esté siendo utilizada: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-214]
+[2024-03-06 12:11:57] [ WARN ] [PacienteDaoH2:55] Error guardando Paciente 💁‍♂️💁‍♀️Cannot invoke "java.sql.Connection.close()" because "connection" is null
+[2024-03-06 12:11:57] [ INFO ] [PacienteDaoH2:198] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 12:11:57] [ WARN ] [PacienteDaoH2:231] Error listando Pacientes 💁‍♂️💁‍♀️La base de datos puede que ya esté siendo utilizada: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-214]
+[2024-03-06 12:11:57] [ WARN ] [PacienteDaoH2:237] Error listando Pacientes 💁‍♂️💁‍♀️Cannot invoke "java.sql.Connection.close()" because "conexion" is null
+[2024-03-06 12:11:57] [ INFO ] [PacienteDaoH2:118] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 12:11:57] [ WARN ] [PacienteDaoH2:146] Error eliminando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 12:11:57] [ ERROR] [PacienteDaoH2:151] NO SE PUDO VOLVER AL INICIO CAGASTE
+[2024-03-06 12:11:57] [ WARN ] [PacienteDaoH2:159] Error eliminando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 12:12:07] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 12:12:07] [ INFO ] [DomicilioDaoH2:51] Este es el id: 3
+[2024-03-06 12:12:07] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 12:12:07] [ INFO ] [DomicilioDaoH2:51] Este es el id: 4
+[2024-03-06 12:12:07] [ INFO ] [PacienteDaoH2:34] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 12:12:08] [ INFO ] [PacienteDaoH2:198] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 12:12:08] [ INFO ] [PacienteDaoH2:118] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 12:17:21] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 12:17:31] [ INFO ] [DomicilioDaoH2:51] Este es el id: 5
+[2024-03-06 12:17:31] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 12:17:40] [ INFO ] [DomicilioDaoH2:51] Este es el id: 6
+[2024-03-06 12:17:40] [ INFO ] [PacienteDaoH2:34] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 12:17:50] [ INFO ] [PacienteDaoH2:198] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 12:18:00] [ INFO ] [PacienteDaoH2:118] Eliminando Paciente 🚮💁‍♂️💁‍♀️
+[2024-03-06 12:19:08] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 12:19:17] [ WARN ] [DomicilioDaoH2:41] Error guardando domicilio 🏡...La base de datos puede que ya esté siendo utilizada: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-214]
+[2024-03-06 12:19:17] [ WARN ] [DomicilioDaoH2:47] Error guardando domicilio 🏡...Cannot invoke "java.sql.Connection.close()" because "connection" is null
+[2024-03-06 12:19:17] [ INFO ] [DomicilioDaoH2:51] Este es el id: null
+[2024-03-06 12:19:17] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 12:19:27] [ WARN ] [DomicilioDaoH2:41] Error guardando domicilio 🏡...La base de datos puede que ya esté siendo utilizada: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-214]
+[2024-03-06 12:19:27] [ WARN ] [DomicilioDaoH2:47] Error guardando domicilio 🏡...Cannot invoke "java.sql.Connection.close()" because "connection" is null
+[2024-03-06 12:19:27] [ INFO ] [DomicilioDaoH2:51] Este es el id: null
+[2024-03-06 12:19:27] [ INFO ] [PacienteDaoH2:34] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 12:19:47] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 12:19:57] [ INFO ] [DomicilioDaoH2:51] Este es el id: 7
+[2024-03-06 12:19:57] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 12:20:07] [ INFO ] [DomicilioDaoH2:51] Este es el id: 8
+[2024-03-06 12:20:07] [ INFO ] [PacienteDaoH2:34] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 12:20:17] [ INFO ] [PacienteDaoH2:198] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 12:21:58] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 12:21:58] [ WARN ] [DomicilioDaoH2:41] Error guardando domicilio 🏡...La base de datos puede que ya esté siendo utilizada: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-214]
+[2024-03-06 12:21:58] [ WARN ] [DomicilioDaoH2:47] Error guardando domicilio 🏡...Cannot invoke "java.sql.Connection.close()" because "connection" is null
+[2024-03-06 12:21:58] [ INFO ] [DomicilioDaoH2:51] Este es el id: null
+[2024-03-06 12:21:58] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 12:21:58] [ WARN ] [DomicilioDaoH2:41] Error guardando domicilio 🏡...La base de datos puede que ya esté siendo utilizada: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-214]
+[2024-03-06 12:21:58] [ WARN ] [DomicilioDaoH2:47] Error guardando domicilio 🏡...Cannot invoke "java.sql.Connection.close()" because "connection" is null
+[2024-03-06 12:21:58] [ INFO ] [DomicilioDaoH2:51] Este es el id: null
+[2024-03-06 12:21:58] [ INFO ] [PacienteDaoH2:34] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 12:21:58] [ WARN ] [PacienteDaoH2:49] Error guardando Paciente 💁‍♂️💁‍♀️La base de datos puede que ya esté siendo utilizada: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-214]
+[2024-03-06 12:21:58] [ WARN ] [PacienteDaoH2:55] Error guardando Paciente 💁‍♂️💁‍♀️Cannot invoke "java.sql.Connection.close()" because "connection" is null
+[2024-03-06 12:21:58] [ INFO ] [PacienteDaoH2:198] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 12:21:58] [ WARN ] [PacienteDaoH2:231] Error listando Pacientes 💁‍♂️💁‍♀️La base de datos puede que ya esté siendo utilizada: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-214]
+[2024-03-06 12:21:58] [ WARN ] [PacienteDaoH2:237] Error listando Pacientes 💁‍♂️💁‍♀️Cannot invoke "java.sql.Connection.close()" because "conexion" is null
+[2024-03-06 12:22:14] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 12:22:14] [ INFO ] [DomicilioDaoH2:51] Este es el id: 9
+[2024-03-06 12:22:14] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 12:22:15] [ INFO ] [DomicilioDaoH2:51] Este es el id: 10
+[2024-03-06 12:22:15] [ INFO ] [PacienteDaoH2:34] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 12:22:15] [ INFO ] [PacienteDaoH2:198] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 12:23:12] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 12:23:12] [ WARN ] [DomicilioDaoH2:41] Error guardando domicilio 🏡...La base de datos puede que ya esté siendo utilizada: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-214]
+[2024-03-06 12:23:12] [ WARN ] [DomicilioDaoH2:47] Error guardando domicilio 🏡...Cannot invoke "java.sql.Connection.close()" because "connection" is null
+[2024-03-06 12:23:12] [ INFO ] [DomicilioDaoH2:51] Este es el id: null
+[2024-03-06 12:23:12] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 12:23:12] [ WARN ] [DomicilioDaoH2:41] Error guardando domicilio 🏡...La base de datos puede que ya esté siendo utilizada: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-214]
+[2024-03-06 12:23:12] [ WARN ] [DomicilioDaoH2:47] Error guardando domicilio 🏡...Cannot invoke "java.sql.Connection.close()" because "connection" is null
+[2024-03-06 12:23:12] [ INFO ] [DomicilioDaoH2:51] Este es el id: null
+[2024-03-06 12:23:12] [ INFO ] [PacienteDaoH2:34] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 12:23:12] [ WARN ] [PacienteDaoH2:49] Error guardando Paciente 💁‍♂️💁‍♀️La base de datos puede que ya esté siendo utilizada: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-214]
+[2024-03-06 12:23:12] [ WARN ] [PacienteDaoH2:55] Error guardando Paciente 💁‍♂️💁‍♀️Cannot invoke "java.sql.Connection.close()" because "connection" is null
+[2024-03-06 12:23:12] [ INFO ] [PacienteDaoH2:198] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 12:23:12] [ WARN ] [PacienteDaoH2:231] Error listando Pacientes 💁‍♂️💁‍♀️La base de datos puede que ya esté siendo utilizada: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-214]
+[2024-03-06 12:23:12] [ WARN ] [PacienteDaoH2:237] Error listando Pacientes 💁‍♂️💁‍♀️Cannot invoke "java.sql.Connection.close()" because "conexion" is null
+[2024-03-06 12:23:21] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 12:23:21] [ INFO ] [DomicilioDaoH2:51] Este es el id: 11
+[2024-03-06 12:23:21] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 12:23:22] [ INFO ] [DomicilioDaoH2:51] Este es el id: 12
+[2024-03-06 12:23:22] [ INFO ] [PacienteDaoH2:34] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 12:23:22] [ INFO ] [PacienteDaoH2:198] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-06 12:24:05] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 12:24:05] [ INFO ] [DomicilioDaoH2:51] Este es el id: 13
+[2024-03-06 12:24:05] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 12:24:05] [ INFO ] [DomicilioDaoH2:51] Este es el id: 14
+[2024-03-06 12:24:05] [ INFO ] [DomicilioDaoH2:27] Guardando domicilio 🏡...
+[2024-03-06 12:24:05] [ INFO ] [DomicilioDaoH2:51] Este es el id: 15
+[2024-03-06 12:24:05] [ INFO ] [PacienteDaoH2:34] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-06 12:24:05] [ INFO ] [PacienteDaoH2:198] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-08 20:45:58] [ INFO ] [PacienteDaoH2:36] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-08 20:45:59] [ WARN ] [PacienteDaoH2:51] Error guardando Paciente 💁‍♂️💁‍♀️Cannot invoke "java.lang.Integer.intValue()" because the return value of "com.Dh.ProyectoIntegrador.model.Domicilio.getId()" is null
+[2024-03-08 20:48:50] [ INFO ] [PacienteDaoH2:36] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-08 20:48:51] [ INFO ] [DomicilioDaoH2:30] Guardando domicilio 🏡...
+[2024-03-08 20:48:51] [ INFO ] [DomicilioDaoH2:54] Este es el id: 16
+[2024-03-08 20:48:51] [ WARN ] [PacienteDaoH2:55] Error guardando Paciente 💁‍♂️💁‍♀️La columna "FECHA_INGRESO" no permite valores nulos (NULL)
+NULL not allowed for column "FECHA_INGRESO"; SQL statement:
+INSERT INTO PACIENTES (NOMBRE, APELLIDO, DNI, FECHA_INGRESO, DOMICILIO_ID) VALUES (?,?,?,?,?) [23502-214]
+[2024-03-08 20:50:36] [ INFO ] [PacienteDaoH2:36] Guardando Paciente 💁‍♂️💁‍♀️
+[2024-03-08 20:50:37] [ INFO ] [DomicilioDaoH2:30] Guardando domicilio 🏡...
+[2024-03-08 20:50:37] [ INFO ] [DomicilioDaoH2:54] Este es el id: 17
+[2024-03-08 20:52:56] [ INFO ] [PacienteDaoH2:74] Buscando Paciente 🔎 💁‍♂️💁‍♀️
+[2024-03-08 20:54:51] [ INFO ] [PacienteDaoH2:178] Actualizando Paciente 👨‍💻💁‍♂️💁‍♀️
+[2024-03-08 20:55:01] [ INFO ] [PacienteDaoH2:74] Buscando Paciente 🔎 💁‍♂️💁‍♀️
+[2024-03-08 20:57:14] [ INFO ] [PacienteDaoH2:74] Buscando Paciente 🔎 💁‍♂️💁‍♀️
+[2024-03-08 20:57:15] [ INFO ] [DomicilioDaoH2:64] Buscando domicilio 🔎🏡...
+[2024-03-08 20:58:45] [ INFO ] [PacienteDaoH2:74] Buscando Paciente 🔎 💁‍♂️💁‍♀️
+[2024-03-08 20:58:45] [ INFO ] [DomicilioDaoH2:64] Buscando domicilio 🔎🏡...
+[2024-03-08 21:01:26] [ INFO ] [PacienteDaoH2:183] Actualizando Paciente 👨‍💻💁‍♂️💁‍♀️
+[2024-03-08 21:01:27] [ INFO ] [DomicilioDaoH2:124] Actualizando domicilio 👨‍💻🏡...
+[2024-03-08 21:01:27] [ WARN ] [DomicilioDaoH2:137] Error actualizando domicilio 👨‍💻🏡...Error de Sintaxis en sentencia SQL "UPDATE DOMICILIOS SET CALLE=? [*]NUMERO=? LOCALIDAD=? PROVINCIA=? WHERE ID=?"
+Syntax error in SQL statement "UPDATE DOMICILIOS SET CALLE=? [*]NUMERO=? LOCALIDAD=? PROVINCIA=? WHERE ID=?"; SQL statement:
+UPDATE DOMICILIOS SET CALLE=? NUMERO=? LOCALIDAD=? PROVINCIA=? WHERE ID=? [42000-214]
+[2024-03-08 21:01:34] [ INFO ] [PacienteDaoH2:74] Buscando Paciente 🔎 💁‍♂️💁‍♀️
+[2024-03-08 21:01:34] [ INFO ] [DomicilioDaoH2:64] Buscando domicilio 🔎🏡...
+[2024-03-08 21:07:29] [ INFO ] [PacienteDaoH2:183] Actualizando Paciente 👨‍💻💁‍♂️💁‍♀️
+[2024-03-08 21:07:29] [ INFO ] [DomicilioDaoH2:124] Actualizando domicilio 👨‍💻🏡...
+[2024-03-08 21:07:29] [ WARN ] [DomicilioDaoH2:137] Error actualizando domicilio 👨‍💻🏡...Error de Sintaxis en sentencia SQL "UPDATE DOMICILIOS SET CALLE=? [*]NUMERO=? LOCALIDAD=? PROVINCIA=? WHERE ID=?"
+Syntax error in SQL statement "UPDATE DOMICILIOS SET CALLE=? [*]NUMERO=? LOCALIDAD=? PROVINCIA=? WHERE ID=?"; SQL statement:
+UPDATE DOMICILIOS SET CALLE=? NUMERO=? LOCALIDAD=? PROVINCIA=? WHERE ID=? [42000-214]
+[2024-03-08 21:11:25] [ INFO ] [PacienteDaoH2:183] Actualizando Paciente 👨‍💻💁‍♂️💁‍♀️
+[2024-03-08 21:11:25] [ INFO ] [DomicilioDaoH2:124] Actualizando domicilio 👨‍💻🏡...
+[2024-03-08 21:11:25] [ WARN ] [DomicilioDaoH2:137] Error actualizando domicilio 👨‍💻🏡...Error de Sintaxis en sentencia SQL "UPDATE DOMICILIOS SET CALLE=? [*]NUMERO=? LOCALIDAD=? PROVINCIA=? WHERE ID=?"
+Syntax error in SQL statement "UPDATE DOMICILIOS SET CALLE=? [*]NUMERO=? LOCALIDAD=? PROVINCIA=? WHERE ID=?"; SQL statement:
+UPDATE DOMICILIOS SET CALLE=? NUMERO=? LOCALIDAD=? PROVINCIA=? WHERE ID=? [42000-214]
+[2024-03-08 21:17:16] [ INFO ] [PacienteDaoH2:183] Actualizando Paciente 👨‍💻💁‍♂️💁‍♀️
+[2024-03-08 21:18:01] [ INFO ] [DomicilioDaoH2:124] Actualizando domicilio 👨‍💻🏡...
+[2024-03-08 21:19:11] [ WARN ] [DomicilioDaoH2:137] Error actualizando domicilio 👨‍💻🏡...Error de Sintaxis en sentencia SQL "UPDATE DOMICILIOS SET CALLE=? [*]NUMERO=? LOCALIDAD=? PROVINCIA=? WHERE ID=?"
+Syntax error in SQL statement "UPDATE DOMICILIOS SET CALLE=? [*]NUMERO=? LOCALIDAD=? PROVINCIA=? WHERE ID=?"; SQL statement:
+UPDATE DOMICILIOS SET CALLE=? NUMERO=? LOCALIDAD=? PROVINCIA=? WHERE ID=? [42000-214]
+[2024-03-08 22:13:16] [ INFO ] [PacienteDaoH2:172] Actualizando Paciente 👨‍💻💁‍♂️💁‍♀️
+[2024-03-08 22:13:16] [ WARN ] [PacienteDaoH2:188] Error actualizando Paciente 💁‍♂️💁‍♀️La base de datos puede que ya esté siendo utilizada: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Windows.old/Users/Nico/Desktop/Programacion/CTD/DH/Backend 1/Clases/ProyectoIntegrador/BDPI.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-214]
+[2024-03-08 22:13:16] [ WARN ] [PacienteDaoH2:194] Error actualizando Paciente 💁‍♂️💁‍♀️Cannot invoke "java.sql.Connection.close()" because "conexion" is null
+[2024-03-08 22:13:39] [ INFO ] [PacienteDaoH2:172] Actualizando Paciente 👨‍💻💁‍♂️💁‍♀️
+[2024-03-08 22:13:40] [ INFO ] [DomicilioDaoH2:124] Actualizando domicilio 👨‍💻🏡...
+[2024-03-08 22:13:40] [ WARN ] [DomicilioDaoH2:137] Error actualizando domicilio 👨‍💻🏡...Error de Sintaxis en sentencia SQL "UPDATE DOMICILIOS SET CALLE=? [*]NUMERO=? LOCALIDAD=? PROVINCIA=? WHERE ID=?"
+Syntax error in SQL statement "UPDATE DOMICILIOS SET CALLE=? [*]NUMERO=? LOCALIDAD=? PROVINCIA=? WHERE ID=?"; SQL statement:
+UPDATE DOMICILIOS SET CALLE=? NUMERO=? LOCALIDAD=? PROVINCIA=? WHERE ID=? [42000-214]
+[2024-03-08 22:14:34] [ INFO ] [PacienteDaoH2:172] Actualizando Paciente 👨‍💻💁‍♂️💁‍♀️
+[2024-03-08 22:14:43] [ INFO ] [DomicilioDaoH2:124] Actualizando domicilio 👨‍💻🏡...
+[2024-03-08 22:16:33] [ WARN ] [DomicilioDaoH2:137] Error actualizando domicilio 👨‍💻🏡...Error de Sintaxis en sentencia SQL "UPDATE DOMICILIOS SET CALLE=? [*]NUMERO=? LOCALIDAD=? PROVINCIA=? WHERE ID=?"
+Syntax error in SQL statement "UPDATE DOMICILIOS SET CALLE=? [*]NUMERO=? LOCALIDAD=? PROVINCIA=? WHERE ID=?"; SQL statement:
+UPDATE DOMICILIOS SET CALLE=? NUMERO=? LOCALIDAD=? PROVINCIA=? WHERE ID=? [42000-214]
+[2024-03-08 22:17:13] [ INFO ] [PacienteDaoH2:172] Actualizando Paciente 👨‍💻💁‍♂️💁‍♀️
+[2024-03-08 22:17:23] [ INFO ] [DomicilioDaoH2:124] Actualizando domicilio 👨‍💻🏡...
+[2024-03-08 22:19:48] [ WARN ] [DomicilioDaoH2:137] Error actualizando domicilio 👨‍💻🏡...Error de Sintaxis en sentencia SQL "UPDATE DOMICILIOS SET CALLE=? [*]NUMERO=? LOCALIDAD=? PROVINCIA=? WHERE ID=?"
+Syntax error in SQL statement "UPDATE DOMICILIOS SET CALLE=? [*]NUMERO=? LOCALIDAD=? PROVINCIA=? WHERE ID=?"; SQL statement:
+UPDATE DOMICILIOS SET CALLE=? NUMERO=? LOCALIDAD=? PROVINCIA=? WHERE ID=? [42000-214]
+[2024-03-08 22:21:16] [ INFO ] [PacienteDaoH2:172] Actualizando Paciente 👨‍💻💁‍♂️💁‍♀️
+[2024-03-08 22:21:16] [ INFO ] [DomicilioDaoH2:124] Actualizando domicilio 👨‍💻🏡...
+[2024-03-08 22:21:26] [ INFO ] [PacienteDaoH2:74] Buscando Paciente 🔎 💁‍♂️💁‍♀️
+[2024-03-08 22:21:26] [ INFO ] [DomicilioDaoH2:64] Buscando domicilio 🔎🏡...
+[2024-03-09 10:11:48] [ INFO ] [PacienteDaoH2:210] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-09 10:11:48] [ WARN ] [PacienteDaoH2:234] Error listando Pacientes 💁‍♂️💁‍♀️Cannot invoke "com.Dh.ProyectoIntegrador.model.Domicilio.setId(java.lang.Integer)" because the return value of "com.Dh.ProyectoIntegrador.model.Paciente.getDomicilio()" is null
+[2024-03-09 10:12:58] [ INFO ] [PacienteDaoH2:210] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-09 10:12:58] [ WARN ] [PacienteDaoH2:234] Error listando Pacientes 💁‍♂️💁‍♀️Cannot invoke "com.Dh.ProyectoIntegrador.model.Domicilio.setId(java.lang.Integer)" because the return value of "com.Dh.ProyectoIntegrador.model.Paciente.getDomicilio()" is null
+[2024-03-09 10:13:11] [ INFO ] [PacienteDaoH2:210] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-09 10:13:31] [ WARN ] [PacienteDaoH2:234] Error listando Pacientes 💁‍♂️💁‍♀️Cannot invoke "com.Dh.ProyectoIntegrador.model.Domicilio.setId(java.lang.Integer)" because the return value of "com.Dh.ProyectoIntegrador.model.Paciente.getDomicilio()" is null
+[2024-03-09 10:13:52] [ INFO ] [PacienteDaoH2:210] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-09 10:13:53] [ INFO ] [DomicilioDaoH2:61] Buscando domicilio 🔎🏡...
+[2024-03-09 10:13:53] [ INFO ] [DomicilioDaoH2:61] Buscando domicilio 🔎🏡...
+[2024-03-09 10:13:53] [ INFO ] [DomicilioDaoH2:61] Buscando domicilio 🔎🏡...
+[2024-03-09 10:13:53] [ INFO ] [DomicilioDaoH2:61] Buscando domicilio 🔎🏡...
+[2024-03-09 10:13:53] [ INFO ] [DomicilioDaoH2:61] Buscando domicilio 🔎🏡...
+[2024-03-09 10:15:16] [ INFO ] [PacienteDaoH2:210] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-09 10:15:16] [ INFO ] [DomicilioDaoH2:61] Buscando domicilio 🔎🏡...
+[2024-03-09 10:15:48] [ INFO ] [DomicilioDaoH2:61] Buscando domicilio 🔎🏡...
+[2024-03-09 10:15:48] [ WARN ] [DomicilioDaoH2:77] Error buscando domicilio 🔎🏡...La base de datos ya esta cerrada (para des-habilitar el cerrado automatico durante el shutdown de la VM, agregue ";DB_CLOSE_ON_EXIT=FALSE" a la URL de conexión)
+Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-214]
+[2024-03-09 10:15:49] [ WARN ] [DomicilioDaoH2:83] Error buscando domicilio 🔎🏡...Cannot invoke "java.sql.Connection.close()" because "conexion" is null
+[2024-03-09 10:15:49] [ INFO ] [DomicilioDaoH2:61] Buscando domicilio 🔎🏡...
+[2024-03-09 10:15:49] [ INFO ] [DomicilioDaoH2:61] Buscando domicilio 🔎🏡...
+[2024-03-09 10:15:49] [ INFO ] [DomicilioDaoH2:61] Buscando domicilio 🔎🏡...
+[2024-03-09 10:16:21] [ INFO ] [PacienteDaoH2:210] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-09 10:16:22] [ INFO ] [DomicilioDaoH2:61] Buscando domicilio 🔎🏡...
+[2024-03-09 10:16:22] [ INFO ] [DomicilioDaoH2:61] Buscando domicilio 🔎🏡...
+[2024-03-09 10:16:22] [ INFO ] [DomicilioDaoH2:61] Buscando domicilio 🔎🏡...
+[2024-03-09 10:16:22] [ INFO ] [DomicilioDaoH2:61] Buscando domicilio 🔎🏡...
+[2024-03-09 10:16:22] [ INFO ] [DomicilioDaoH2:61] Buscando domicilio 🔎🏡...
+[2024-03-09 10:17:44] [ INFO ] [PacienteDaoH2:210] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-09 10:17:44] [ INFO ] [DomicilioDaoH2:61] Buscando domicilio 🔎🏡...
+[2024-03-09 10:17:44] [ INFO ] [DomicilioDaoH2:61] Buscando domicilio 🔎🏡...
+[2024-03-09 10:17:45] [ INFO ] [DomicilioDaoH2:61] Buscando domicilio 🔎🏡...
+[2024-03-09 10:17:45] [ INFO ] [DomicilioDaoH2:61] Buscando domicilio 🔎🏡...
+[2024-03-09 10:17:45] [ INFO ] [DomicilioDaoH2:61] Buscando domicilio 🔎🏡...
+[2024-03-09 10:18:06] [ INFO ] [PacienteDaoH2:84] Buscando Paciente 🔎 💁‍♂️💁‍♀️
+[2024-03-09 10:18:06] [ INFO ] [DomicilioDaoH2:61] Buscando domicilio 🔎🏡...
+[2024-03-09 10:19:29] [ INFO ] [PacienteDaoH2:166] Actualizando Paciente 👨‍💻💁‍♂️💁‍♀️
+[2024-03-09 10:19:29] [ INFO ] [DomicilioDaoH2:118] Actualizando domicilio 👨‍💻🏡...
+[2024-03-09 10:19:42] [ INFO ] [PacienteDaoH2:84] Buscando Paciente 🔎 💁‍♂️💁‍♀️
+[2024-03-09 10:19:42] [ INFO ] [DomicilioDaoH2:61] Buscando domicilio 🔎🏡...
+[2024-03-09 10:20:34] [ INFO ] [PacienteDaoH2:210] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-09 10:20:34] [ INFO ] [DomicilioDaoH2:61] Buscando domicilio 🔎🏡...
+[2024-03-09 10:20:34] [ INFO ] [DomicilioDaoH2:61] Buscando domicilio 🔎🏡...
+[2024-03-09 10:20:34] [ INFO ] [DomicilioDaoH2:61] Buscando domicilio 🔎🏡...
+[2024-03-09 10:20:34] [ INFO ] [DomicilioDaoH2:61] Buscando domicilio 🔎🏡...
+[2024-03-09 10:20:34] [ INFO ] [DomicilioDaoH2:61] Buscando domicilio 🔎🏡...
+[2024-03-09 10:23:05] [ INFO ] [PacienteDaoH2:166] Actualizando Paciente 👨‍💻💁‍♂️💁‍♀️
+[2024-03-09 10:23:05] [ INFO ] [DomicilioDaoH2:118] Actualizando domicilio 👨‍💻🏡...
+[2024-03-09 10:23:14] [ INFO ] [PacienteDaoH2:212] Listando todos los Pacientes 💁‍♂️💁‍♀️
+[2024-03-09 10:23:14] [ INFO ] [DomicilioDaoH2:61] Buscando domicilio 🔎🏡...
+[2024-03-09 10:23:14] [ INFO ] [DomicilioDaoH2:61] Buscando domicilio 🔎🏡...
+[2024-03-09 10:23:14] [ INFO ] [DomicilioDaoH2:61] Buscando domicilio 🔎🏡...
+[2024-03-09 10:23:14] [ INFO ] [DomicilioDaoH2:61] Buscando domicilio 🔎🏡...
+[2024-03-09 10:23:14] [ INFO ] [DomicilioDaoH2:61] Buscando domicilio 🔎🏡...
+[2024-03-09 10:25:19] [ INFO ] [PacienteDaoH2:166] Actualizando Paciente 👨‍💻💁‍♂️💁‍♀️
+[2024-03-09 10:25:19] [ INFO ] [DomicilioDaoH2:118] Actualizando domicilio 👨‍💻🏡...
+[2024-03-09 10:25:19] [ WARN ] [DomicilioDaoH2:129] Error actualizando domicilio 👨‍💻🏡...Cannot invoke "java.lang.Integer.intValue()" because the return value of "com.Dh.ProyectoIntegrador.model.Domicilio.getNumero()" is null

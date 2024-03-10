@@ -3,7 +3,8 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-
+BDPI.mv.db
+BDPI.trace.db
 ### STS ###
 .apt_generated
 .classpath

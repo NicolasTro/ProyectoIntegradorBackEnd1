@@ -32,6 +32,8 @@ public class PacienteDaoH2 implements IDao<Paciente> {
 			conexion = BD.getConnection();
 
 
+			DomicilioDaoH2 persistenciaDomicilio = new DomicilioDaoH2();
+			paciente.setDomicilio(persistenciaDomicilio.guardar(paciente.getDomicilio()));
 			PreparedStatement psInsert = conexion.prepareStatement(SQL_INSERT_PACIENTE, Statement.RETURN_GENERATED_KEYS);
 			conexion.setAutoCommit(false);
 			psInsert.setString(1, paciente.getNombre());
@@ -39,15 +41,13 @@ public class PacienteDaoH2 implements IDao<Paciente> {
 			psInsert.setString(3, paciente.getDni());
 			psInsert.setDate(4, paciente.getFechaIngreso());
 			psInsert.setInt(5, paciente.getDomicilio().getId());
-			psInsert.execute();
+			psInsert.executeUpdate();
 			ResultSet rs = psInsert.getGeneratedKeys();
 
 			if (!rs.wasNull()) {
 				while (rs.next()) {
 					paciente.setId(rs.getInt(1));
 				}
-				DomicilioDaoH2 persistenciaDomicilio = new DomicilioDaoH2();
-				persistenciaDomicilio.guardar(paciente.getDomicilio());
 			}
 
 			conexion.commit();
@@ -86,23 +86,23 @@ public class PacienteDaoH2 implements IDao<Paciente> {
 			PreparedStatement psSearchID = conexion.prepareStatement(SQL_SEARCH_ID);
 			psSearchID.setInt(1, id);
 			ResultSet rsSearch = psSearchID.executeQuery();
-			if (!rsSearch.wasNull()) {
+			while (rsSearch.next()) {
+
 				pacienteEncontrado = new Paciente();
 				Domicilio domicilio = new Domicilio();
 				pacienteEncontrado.setDomicilio(domicilio);
-				while (rsSearch.next()) {
-					pacienteEncontrado.setId(rsSearch.getInt(1));
-					pacienteEncontrado.setNombre(rsSearch.getString(2));
-					pacienteEncontrado.setApellido(rsSearch.getString(3));
-					pacienteEncontrado.setDni(rsSearch.getString(4));
-					pacienteEncontrado.setFechaIngreso(rsSearch.getDate(5));
-					pacienteEncontrado.getDomicilio().setId(rsSearch.getInt(6));
-				}
+				pacienteEncontrado.setId(rsSearch.getInt(1));
+				pacienteEncontrado.setNombre(rsSearch.getString(2));
+				pacienteEncontrado.setApellido(rsSearch.getString(3));
+				pacienteEncontrado.setDni(rsSearch.getString(4));
+				pacienteEncontrado.setFechaIngreso(rsSearch.getDate(5));
+				pacienteEncontrado.getDomicilio().setId(rsSearch.getInt(6));
 
 				DomicilioDaoH2 persistenciaDomicilio = new DomicilioDaoH2();
 				pacienteEncontrado.setDomicilio(persistenciaDomicilio.buscarPorId(domicilio.getId()));
 
 			}
+
 		} catch (Exception e) {
 			LOGGER.warn("Error buscando Paciente 💁‍♂️💁‍♀️" + e.getMessage());
 			e.printStackTrace();

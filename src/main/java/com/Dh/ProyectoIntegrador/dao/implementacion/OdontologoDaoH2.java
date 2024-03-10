@@ -21,7 +21,7 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
 	private static final String SQL_SEARCH_ALL = "SELECT * FROM ODONTOLOGOS";
 
 	@Override
-	public Odontologo guardar(Odontologo odontologo) {
+	public Odontologo guardar(Odontologo odontologo) throws OdontologoException {
 
 		Connection connection = null;
 		try {
@@ -31,28 +31,26 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
 			psInsert.setString(1, odontologo.getNombre());
 			psInsert.setString(2, odontologo.getApellido());
 			psInsert.setString(3, odontologo.getMatricula());
-			psInsert.execute();
-
+			psInsert.executeUpdate();
 			ResultSet rs = psInsert.getGeneratedKeys();
 			while (rs.next()) {
 				odontologo.setId(rs.getInt(1));
 			}
 		} catch (Exception e) {
-			LOGGER.warn("Guardando odontologos 👨‍⚕️..." + e.getMessage());
-			e.printStackTrace();
+			LOGGER.warn("Error al guardar odontologos 👨‍⚕️..." + e.getMessage());
+			throw new OdontologoException("Error al guardar un odontologo");
 		} finally {
 			try {
 				connection.close();
 			} catch (Exception ex) {
-				LOGGER.warn("Guardando odontologos 👨‍⚕️..." + ex.getMessage());
-				ex.printStackTrace();
+				LOGGER.warn("Error al cerrar la conexion de (Guardar Odontologo)" + ex.getMessage());
 			}
 		}
 		return odontologo;
 	}
 
 	@Override
-	public Odontologo buscarPorId(Integer id) {
+	public Odontologo buscarPorId(Integer id) throws OdontologoException {
 		Connection conexion = null;
 		Odontologo odontologo = null;
 		try {
@@ -71,20 +69,19 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
 			}
 		} catch (Exception e) {
 			LOGGER.warn("Error al buscar odontologo 👨‍⚕️..." + e.getMessage());
-			e.printStackTrace();
+			throw new OdontologoException("Error en la busqueda por ID");
 		} finally {
 			try {
 				conexion.close();
 			} catch (SQLException e) {
-				LOGGER.warn("Error al buscar odontologo 👨‍⚕️..." + e.getMessage());
-				throw new RuntimeException(e);
+				LOGGER.warn("Error al cerrar la conexion de (BuscarPorId Odontologo)" + e.getMessage());
 			}
 		}
 		return odontologo;
 	}
 
 	@Override
-	public void eliminar(Integer id) {
+	public void eliminar(Integer id) throws OdontologoException {
 
 		Connection conexion = null;
 		try {
@@ -96,13 +93,12 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
 
 		} catch (Exception e) {
 			LOGGER.warn("Error eliminando odontologos 👨‍⚕️..." + e.getMessage());
-			e.printStackTrace();
+			throw new OdontologoException("Error al eliminar Odontologo" +e.getMessage());
 		} finally {
 			try {
 				conexion.close();
 			} catch (SQLException e) {
-				LOGGER.warn("Error eliminando odontologo 👨‍⚕️..." + e.getMessage());
-				throw new RuntimeException(e);
+				LOGGER.warn("Error al cerrar la conexion de (Eliminar Odontologo)" + e.getMessage());
 			}
 		}
 	}
@@ -118,7 +114,7 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
 			psUpdateById.setString(2, odontologo.getApellido());
 			psUpdateById.setString(3, odontologo.getMatricula());
 			psUpdateById.setInt(4, odontologo.getId());
-			double a = 4 / 0;
+
 			psUpdateById.executeUpdate();
 
 		} catch (Exception e) {
@@ -128,14 +124,14 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
 			try {
 				conexion.close();
 			} catch (SQLException e) {
-				LOGGER.warn("Error al actualizar odontologo 👨‍⚕️..." + e.getMessage());
+				LOGGER.warn("Error al cerrar la conexion de (actualizar Odontologo)" + e.getMessage());
 
 			}
 		}
 	}
 
 	@Override
-	public List<Odontologo> listarTodos() {
+	public List<Odontologo> listarTodos() throws OdontologoException {
 		Connection conexion = null;
 		List<Odontologo> listaOdontologos = null;
 		Odontologo odontologo = null;
@@ -148,19 +144,17 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
 				listaOdontologos = new ArrayList<>();
 				while (rs.next()) {
 					odontologo = new Odontologo(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4));
-
 					listaOdontologos.add(odontologo);
 				}
 			}
 		} catch (Exception e) {
 			LOGGER.warn("Error listando odontologos 👨‍⚕️..." + e.getMessage());
-			e.printStackTrace();
+			throw new OdontologoException("Error al listar odontologos");
 		} finally {
 			try {
 				conexion.close();
 			} catch (SQLException e) {
-				LOGGER.warn("Error listando odontologos 👨‍⚕️..." + e.getMessage());
-				throw new RuntimeException(e);
+				LOGGER.warn("Error al cerrar la conexion de (listar Odontologos)" + e.getMessage());
 			}
 		}
 		return listaOdontologos;

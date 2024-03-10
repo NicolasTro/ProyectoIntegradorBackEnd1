@@ -31,7 +31,7 @@ public class DomicilioDaoH2 implements IDao<Domicilio> {
 			psInsert.setInt(2, domicilio.getNumero());
 			psInsert.setString(3, domicilio.getLocalidad());
 			psInsert.setString(4, domicilio.getProvincia());
-			psInsert.execute();
+			psInsert.executeUpdate();
 			ResultSet resultSet = psInsert.getGeneratedKeys();
 			while (resultSet.next()) {
 				domicilio.setId(resultSet.getInt(1));

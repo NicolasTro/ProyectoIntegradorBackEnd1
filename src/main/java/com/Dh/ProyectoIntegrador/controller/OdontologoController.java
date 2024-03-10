@@ -26,7 +26,6 @@ public class OdontologoController {
 
 		Odontologo odontologoEncontrado = this.odontologoIService.buscarPorId(id);
 
-
 		if (odontologoEncontrado != null) {
 			response = new ResponseEntity<>(odontologoEncontrado, HttpStatus.ACCEPTED);
 		} else {

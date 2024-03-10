@@ -1,5 +1,6 @@
 package com.Dh.ProyectoIntegrador.controller;
 
+import com.Dh.ProyectoIntegrador.Excepciones.OdontologoException;
 import com.Dh.ProyectoIntegrador.model.Domicilio;
 import com.Dh.ProyectoIntegrador.model.Paciente;
 import com.Dh.ProyectoIntegrador.service.IService;
@@ -39,7 +40,11 @@ public class DomicilioController {
 
     @PutMapping("/actualizar")
     public void actualizar(@RequestBody Domicilio domicilio){
-        this.domicilioIService.actualizar(domicilio);
+        try {
+            this.domicilioIService.actualizar(domicilio);
+        } catch (OdontologoException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @DeleteMapping("/{id}")

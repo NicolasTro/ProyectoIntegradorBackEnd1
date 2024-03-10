@@ -19,15 +19,15 @@ public class PacienteService implements IService<Paciente> {
 		this.iDao = new PacienteDaoH2();
 	}
 
-	public Paciente guardar(Paciente paciente) {
+	public Paciente guardar(Paciente paciente) throws OdontologoException {
 		return iDao.guardar(paciente);
 	}
 
-	public Paciente buscarPorId(Integer id){
+	public Paciente buscarPorId(Integer id) throws OdontologoException {
 		return this.iDao.buscarPorId(id);
 	}
 
-	public void eliminar(Integer id){
+	public void eliminar(Integer id) throws OdontologoException {
 		this.iDao.eliminar(id);
 	}
 
@@ -35,7 +35,7 @@ public class PacienteService implements IService<Paciente> {
 		this.iDao.actualizar(paciente);
 	}
 
-	public List<Paciente> listarTodos() {
+	public List<Paciente> listarTodos() throws OdontologoException {
 		return iDao.listarTodos();
 	}
 

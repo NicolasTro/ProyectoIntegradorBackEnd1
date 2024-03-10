@@ -17,16 +17,16 @@ public class TurnoService implements IService<Turno> {
 		this.iDao = new TurnoDaoH2();
 	}
 
-	public Turno guardar(Turno turno) {
+	public Turno guardar(Turno turno) throws OdontologoException {
 		return iDao.guardar(turno);
 	}
 
 
-	public Turno buscarPorId(Integer id){
+	public Turno buscarPorId(Integer id) throws OdontologoException {
 		return this.iDao.buscarPorId(id);
 	}
 
-	public void eliminar(Integer id){
+	public void eliminar(Integer id) throws OdontologoException {
 		this.iDao.eliminar(id);
 	}
 
@@ -35,7 +35,7 @@ public class TurnoService implements IService<Turno> {
 	}
 
 
-	public List<Turno> listarTodos() {
+	public List<Turno> listarTodos() throws OdontologoException {
 		return iDao.listarTodos();
 	}
 }

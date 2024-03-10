@@ -20,17 +20,19 @@ public class OdontologoController {
 		this.odontologoIService = odontologoIService;
 	}
 
+
+	@PostMapping("/agregar")
 	public ResponseEntity agregar(@RequestBody Odontologo odontologo) {
 		ResponseEntity response = null;
 		try {
 			Odontologo odontologoGuardado = this.odontologoIService.guardar(odontologo);
 			if (odontologoGuardado != null) {
-				response = new ResponseEntity<Odontologo>(odontologoGuardado, HttpStatus.CREATED);
+				response = new ResponseEntity(odontologoGuardado, HttpStatus.CREATED);
 			} else {
-				response = new ResponseEntity<Odontologo>(HttpStatus.NOT_ACCEPTABLE);
+				response = new ResponseEntity(HttpStatus.NOT_ACCEPTABLE);
 			}
 		} catch (Exception e) {
-			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			return new ResponseEntity(HttpStatus.NO_CONTENT);
 		}
 		return response;
 	}
@@ -45,7 +47,7 @@ public class OdontologoController {
 			if (odontologoEncontrado != null) {
 				response = new ResponseEntity<>(odontologoEncontrado, HttpStatus.FOUND);
 			} else {
-				response = new ResponseEntity(HttpStatus.NOT_FOUND);
+				response = new ResponseEntity("No se encontro Odontologo", HttpStatus.NOT_FOUND);
 			}
 		} catch (OdontologoException e) {
 			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
@@ -59,24 +61,48 @@ public class OdontologoController {
 		try {
 			this.odontologoIService.actualizar(odontologo);
 		} catch (OdontologoException e) {
-			response = new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
+			response = new ResponseEntity(e.getMessage(), HttpStatus.CONFLICT);
 			return response;
 		}
-		return response = new ResponseEntity<Odontologo>(HttpStatus.OK);
+		return  new ResponseEntity("Actualizacion correcta", HttpStatus.OK);
 	}
 //TODO METODO ACTUALIZAR SE LE PASA SOLO EL ID O TODOS LOS DATOS???
 	//TODO METODO ACTUALIZAR CON VOID? Y EXCEPTION O CAMBIAR EL VOID??
 
 	@GetMapping("/listar")
 
-	public ResponseEntity listarTodos() throws OdontologoException {
+	public ResponseEntity listarTodos() {
 		ResponseEntity response = null;
-		List<Odontologo> listaOdontologos = this.odontologoIService.listarTodos();
-		if (listaOdontologos != null) {
-			response = new ResponseEntity(listaOdontologos, HttpStatus.FOUND);
-		} else {
-			response = new ResponseEntity(HttpStatus.NOT_FOUND);
+		List<Odontologo> listaOdontologos = null;
+		try {
+			listaOdontologos = this.odontologoIService.listarTodos();
+			if (listaOdontologos.size() > 0) {
+				response = new ResponseEntity(listaOdontologos, HttpStatus.FOUND);
+			} else {
+				response = new ResponseEntity("No se encontraron odontologos", HttpStatus.NOT_FOUND);
+			}
+		} catch (OdontologoException e) {
+			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
 		}
 		return response;
 	}
+
+
+	@DeleteMapping("eliminar/{id}")
+	public ResponseEntity eliminar(@PathVariable Integer id) {
+		ResponseEntity response = null;
+		try {
+			this.odontologoIService.eliminar(id);
+
+
+		} catch (Exception e) {
+			return new ResponseEntity("Error al eliminar odontologo", HttpStatus.BAD_REQUEST);
+
+		}
+
+		return new ResponseEntity("Odontologo eliminado correctamente", HttpStatus.OK);
+
+
+	}
+
 }

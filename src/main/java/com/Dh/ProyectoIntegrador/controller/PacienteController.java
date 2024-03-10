@@ -4,6 +4,7 @@ package com.Dh.ProyectoIntegrador.controller;
 import com.Dh.ProyectoIntegrador.Excepciones.OdontologoException;
 import com.Dh.ProyectoIntegrador.model.Paciente;
 import com.Dh.ProyectoIntegrador.service.IService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,8 +20,16 @@ private IService<Paciente> pacienteService;
 	}
 
 @PostMapping("/registrar")
-public Paciente guardar(@RequestBody Paciente paciente) throws OdontologoException {
-		return pacienteService.guardar(paciente);
+public ResponseEntity guardar(@RequestBody Paciente paciente) throws OdontologoException {
+		ResponseEntity response = null;
+
+
+				pacienteService.guardar(paciente);
+		return response;
+
+
+
+
 }
 
 

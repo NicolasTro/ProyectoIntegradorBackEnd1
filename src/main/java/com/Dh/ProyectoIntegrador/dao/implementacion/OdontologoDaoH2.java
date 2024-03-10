@@ -31,8 +31,7 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
 			psInsert.setString(1, odontologo.getNombre());
 			psInsert.setString(2, odontologo.getApellido());
 			psInsert.setString(3, odontologo.getMatricula());
-			psInsert.execute();
-
+			psInsert.executeUpdate();
 			ResultSet rs = psInsert.getGeneratedKeys();
 			while (rs.next()) {
 				odontologo.setId(rs.getInt(1));
@@ -115,7 +114,7 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
 			psUpdateById.setString(2, odontologo.getApellido());
 			psUpdateById.setString(3, odontologo.getMatricula());
 			psUpdateById.setInt(4, odontologo.getId());
-			double a = 4 / 0;
+
 			psUpdateById.executeUpdate();
 
 		} catch (Exception e) {

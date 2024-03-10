@@ -17,22 +17,22 @@ public class DomicilioService implements IService<Domicilio> {
 		this.iDao = new DomicilioDaoH2();
 	}
 
-	public Domicilio guardar(Domicilio domicilio) {
+	public Domicilio guardar(Domicilio domicilio) throws OdontologoException {
 		return iDao.guardar(domicilio);
 	}
 
-	public Domicilio buscarPorId(Integer id){
+	public Domicilio buscarPorId(Integer id) throws OdontologoException {
 		return this.iDao.buscarPorId(id);
 	}
 
-	public void eliminar(Integer id){
+	public void eliminar(Integer id) throws OdontologoException {
 		this.iDao.eliminar(id);
 	}
 	public void actualizar(Domicilio domicilio) throws OdontologoException {
 		this.iDao.actualizar(domicilio);
 	}
 
-	public List<Domicilio> listarTodos() {
+	public List<Domicilio> listarTodos() throws OdontologoException {
 		return iDao.listarTodos();
 	}
 }

@@ -1,5 +1,6 @@
 package com.Dh.ProyectoIntegrador.controller;
 
+import com.Dh.ProyectoIntegrador.Excepciones.OdontologoException;
 import com.Dh.ProyectoIntegrador.model.Domicilio;
 import com.Dh.ProyectoIntegrador.model.Paciente;
 import com.Dh.ProyectoIntegrador.service.IService;
@@ -19,16 +20,26 @@ public class DomicilioController {
 
     @PostMapping("/registrar")
     public Domicilio guardar(@RequestBody Domicilio domicilio){
-        return domicilioIService.guardar(domicilio);
+	    try {
+		    return domicilioIService.guardar(domicilio);
+	    } catch (Exception e) {
+
+	    }
+		return null;
     }
 
 
     @GetMapping("/{id}")
     public ResponseEntity buscarPorId(@PathVariable Integer id){
         ResponseEntity response = null;
-        Domicilio domicilioEncontrado = this.domicilioIService.buscarPorId(id);
+	    Domicilio domicilioEncontrado = null;
+	    try {
+		    domicilioEncontrado = this.domicilioIService.buscarPorId(id);
+	    } catch (Exception e) {
 
-        if (domicilioEncontrado != null) {
+	    }
+
+	    if (domicilioEncontrado != null) {
             response =new ResponseEntity<>(domicilioEncontrado, HttpStatus.ACCEPTED);
         }else {
             response = new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -38,24 +49,33 @@ public class DomicilioController {
 
 
     @PutMapping("/actualizar")
-    public void actualizar(@RequestBody Domicilio domicilio){
+    public void actualizar(@RequestBody Domicilio domicilio) throws OdontologoException {
         this.domicilioIService.actualizar(domicilio);
     }
 
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable Integer id){
-        this.domicilioIService.eliminar(id);
+	    try {
+		    this.domicilioIService.eliminar(id);
+	    } catch (Exception e) {
+
+	    }
     }
     @GetMapping("/listar")
     public ResponseEntity listarTodos(){
         ResponseEntity response = null;
-        List<Domicilio> listaDomicilios = this.domicilioIService.listarTodos();
-
-        if (listaDomicilios != null) {
-            response =new ResponseEntity<>(listaDomicilios, HttpStatus.ACCEPTED);
-        }else {
+	    List<Domicilio> listaDomicilios = null;
+	    try {
+		    listaDomicilios = this.domicilioIService.listarTodos();
+	    if (listaDomicilios != null) {
+            response = new ResponseEntity<>(listaDomicilios, HttpStatus.ACCEPTED);
+        } else {
             response = new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+	    } catch (Exception e) {
+
+	    }
+
         return response;
     }
 }

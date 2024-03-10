@@ -51,7 +51,6 @@ public class DomicilioController {
     @PutMapping("/actualizar")
     public void actualizar(@RequestBody Domicilio domicilio) throws OdontologoException {
         this.domicilioIService.actualizar(domicilio);
-    public void actualizar(@RequestBody Domicilio domicilio){
         try {
             this.domicilioIService.actualizar(domicilio);
         } catch (OdontologoException e) {

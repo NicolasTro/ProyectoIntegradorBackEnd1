@@ -44,7 +44,7 @@ public class DomicilioDaoH2 implements IDao<Domicilio> {
 			try {
 				connection.close();
 			} catch (Exception e) {
-				LOGGER.warn("Error guardando domicilio 🏡..." + e.getMessage());
+				LOGGER.warn("Error al cerrar la conexion de (guardar domicilio) 🏡..." + e.getMessage());
 				e.printStackTrace();
 			}
 		}
@@ -80,7 +80,7 @@ public class DomicilioDaoH2 implements IDao<Domicilio> {
 			try {
 				conexion.close();
 			}catch (Exception ex) {
-				LOGGER.warn("Error buscando domicilio 🔎🏡..." + ex.getMessage());
+				LOGGER.warn("Error al cerrar la conexion de (buscar domicilio)🔎🏡..." + ex.getMessage());
 				ex.printStackTrace();
 			}
 		}
@@ -105,7 +105,7 @@ public class DomicilioDaoH2 implements IDao<Domicilio> {
 			try {
 				conexion.close();
 			} catch (SQLException e) {
-				LOGGER.warn("Error eliminando domicilio 🚮🏡..." + e.getMessage());
+				LOGGER.warn("Error al cerrar la conexion de (eliminar domicilio) 🚮🏡..." + e.getMessage());
 
 			}
 		}
@@ -132,7 +132,7 @@ public class DomicilioDaoH2 implements IDao<Domicilio> {
 			try {
 				conexion.close();
 			} catch (SQLException e) {
-				LOGGER.warn("Error actualizando domicilio 👨‍💻🏡..." + e.getMessage());
+				LOGGER.warn("Error al cerrar la conexion de (actualizar domicilio) 👨‍💻🏡..." + e.getMessage());
 				throw new RuntimeException(e);
 			}
 		}
@@ -167,7 +167,7 @@ public class DomicilioDaoH2 implements IDao<Domicilio> {
 			try {
 				connection.close();
 			} catch (Exception e) {
-				LOGGER.warn("Error actualizando domicilio 👨‍💻🏡🏡..." + e.getMessage());
+				LOGGER.warn("Error al cerrar la conexion de (Listar domicilios) 👨‍💻🏡🏡..." + e.getMessage());
 				e.printStackTrace();
 			}
 		}

@@ -68,7 +68,7 @@ public class PacienteDaoH2 implements IDao<Paciente> {
 			try {
 				conexion.close();
 			} catch (Exception ex) {
-				LOGGER.warn("Error cerrando conexion Paciente guardar💁‍♂️💁‍♀️" + ex.getMessage());
+				LOGGER.warn("Error cerrando conexion de (guardar Paciente)💁‍♂️💁‍♀️" + ex.getMessage());
 				ex.printStackTrace();
 			}
 		}
@@ -110,7 +110,7 @@ public class PacienteDaoH2 implements IDao<Paciente> {
 			try {
 				conexion.close();
 			} catch (Exception ex) {
-				LOGGER.warn("Error cerrando conexion Paciente buscar ID💁‍♂️💁‍♀️" + ex.getMessage());
+				LOGGER.warn("Error cerrando conexion de (Buscar pacienteID) 💁‍♂️💁‍♀️" + ex.getMessage());
 				ex.printStackTrace();
 			}
 		}
@@ -151,7 +151,7 @@ public class PacienteDaoH2 implements IDao<Paciente> {
 			try {
 				conexion.close();
 			} catch (Exception ex) {
-				LOGGER.warn("Error cerrando conexion (Paciente eliminar)💁‍♂️💁‍♀️");
+				LOGGER.warn("Error cerrando conexion de (eliminar Paciente)💁‍♂️💁‍♀️");
 				ex.printStackTrace();
 			}
 		}
@@ -198,7 +198,7 @@ public class PacienteDaoH2 implements IDao<Paciente> {
 			try {
 				conexion.close();
 			} catch (Exception e) {
-				LOGGER.warn("Error cerrando la conexion (Paciente actualizar)💁‍♂️💁‍♀️" + e.getMessage());
+				LOGGER.warn("Error cerrando la conexion de (actualizar Paciente )💁‍♂️💁‍♀️" + e.getMessage());
 				e.printStackTrace();
 			}
 		}
@@ -239,7 +239,7 @@ public class PacienteDaoH2 implements IDao<Paciente> {
 			try {
 				conexion.close();
 			} catch (Exception e) {
-				LOGGER.warn("Error listando Pacientes 💁‍♂️💁‍♀️" + e.getMessage());
+				LOGGER.warn("Error cerrando la conexion de (listando Pacientes) 💁‍♂️💁‍♀️" + e.getMessage());
 				e.printStackTrace();
 			}
 		}

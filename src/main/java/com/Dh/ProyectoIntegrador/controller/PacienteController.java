@@ -1,6 +1,7 @@
 package com.Dh.ProyectoIntegrador.controller;
 
 
+import com.Dh.ProyectoIntegrador.Excepciones.DomicilioException;
 import com.Dh.ProyectoIntegrador.Excepciones.OdontologoException;
 import com.Dh.ProyectoIntegrador.model.Paciente;
 import com.Dh.ProyectoIntegrador.service.IService;
@@ -20,7 +21,7 @@ private IService<Paciente> pacienteService;
 	}
 
 @PostMapping("/registrar")
-public ResponseEntity guardar(@RequestBody Paciente paciente) throws OdontologoException {
+public ResponseEntity guardar(@RequestBody Paciente paciente) throws OdontologoException, DomicilioException {
 		ResponseEntity response = null;
 
 
@@ -34,26 +35,26 @@ public ResponseEntity guardar(@RequestBody Paciente paciente) throws OdontologoE
 
 
 @GetMapping("/{id}")
-public Paciente buscarPorId(@PathVariable Integer id) throws OdontologoException {
+public Paciente buscarPorId(@PathVariable Integer id) throws OdontologoException, DomicilioException {
 		return pacienteService.buscarPorId(id);
 }
 
 
 @PutMapping("/actualizar")
-public void actualizar(@RequestBody Paciente paciente) throws OdontologoException {
+public void actualizar(@RequestBody Paciente paciente) throws OdontologoException, DomicilioException {
 		this.pacienteService.actualizar(paciente);
 
 
 }
 
 @DeleteMapping("/{id}")
-public void eliminar(@PathVariable Integer id) throws OdontologoException {
+public void eliminar(@PathVariable Integer id) throws OdontologoException, DomicilioException {
 		this.pacienteService.eliminar(id);
 }
 
 
 @GetMapping("/listar")
-public List<Paciente> listarTodos() throws OdontologoException {
+public List<Paciente> listarTodos() throws OdontologoException, DomicilioException {
 		return this.pacienteService.listarTodos();
 }
 

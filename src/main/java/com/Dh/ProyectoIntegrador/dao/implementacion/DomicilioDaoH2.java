@@ -1,5 +1,6 @@
 package com.Dh.ProyectoIntegrador.dao.implementacion;
 
+import com.Dh.ProyectoIntegrador.Excepciones.DomicilioException;
 import com.Dh.ProyectoIntegrador.dao.BD;
 import com.Dh.ProyectoIntegrador.dao.IDao;
 import com.Dh.ProyectoIntegrador.model.Domicilio;
@@ -20,7 +21,7 @@ public class DomicilioDaoH2 implements IDao<Domicilio> {
 	private static final String SQL_SEARCH_ALL = "SELECT * FROM DOMICILIOS";
 
 	@Override
-	public Domicilio guardar(Domicilio domicilio) {
+	public Domicilio guardar(Domicilio domicilio) throws DomicilioException {
 		Connection connection = null;
 
 		try {
@@ -35,25 +36,24 @@ public class DomicilioDaoH2 implements IDao<Domicilio> {
 			ResultSet resultSet = psInsert.getGeneratedKeys();
 			while (resultSet.next()) {
 				domicilio.setId(resultSet.getInt(1));
+				LOGGER.info("Domicilio guardado: " + domicilio);
 			}
 
 		} catch (Exception e) {
 			LOGGER.warn("Error guardando domicilio 🏡..." + e.getMessage());
-			e.printStackTrace();
+			throw new DomicilioException("Error al guardar domicilio " + e.getMessage());
 		} finally {
 			try {
 				connection.close();
 			} catch (Exception e) {
 				LOGGER.warn("Error al cerrar la conexion de (guardar domicilio) 🏡..." + e.getMessage());
-				e.printStackTrace();
 			}
 		}
-		LOGGER.info("Este es el id: " + domicilio.getId());
 		return domicilio;
 	}
 
 	@Override
-	public Domicilio buscarPorId(Integer id) {
+	public Domicilio buscarPorId(Integer id) throws DomicilioException {
 
 		Connection conexion = null;
 		Domicilio domicilio = null;
@@ -71,24 +71,24 @@ public class DomicilioDaoH2 implements IDao<Domicilio> {
 				domicilio.setNumero(rs.getInt(3));
 				domicilio.setLocalidad(rs.getString(4));
 				domicilio.setProvincia(rs.getString(5));
+				LOGGER.info("Domicilio encontrado: " + domicilio);
 			}
 
 		} catch (Exception e) {
 			LOGGER.warn("Error buscando domicilio 🔎🏡..." + e.getMessage());
-			e.printStackTrace();
-		}finally {
+			throw new DomicilioException("Error en busqueda por id " + e.getMessage());
+		} finally {
 			try {
 				conexion.close();
-			}catch (Exception ex) {
+			} catch (Exception ex) {
 				LOGGER.warn("Error al cerrar la conexion de (buscar domicilio)🔎🏡..." + ex.getMessage());
-				ex.printStackTrace();
 			}
 		}
 		return domicilio;
 	}
 
 	@Override
-	public void eliminar(Integer id) {
+	public void eliminar(Integer id) throws DomicilioException {
 
 		Connection conexion = null;
 		try {
@@ -100,8 +100,8 @@ public class DomicilioDaoH2 implements IDao<Domicilio> {
 
 		} catch (Exception e) {
 			LOGGER.warn("Error eliminando domicilio 🚮🏡..." + e.getMessage());
-			e.printStackTrace();
-		}finally {
+			throw new DomicilioException("Error en la eliminacion de domicilio " + e.getMessage());
+		} finally {
 			try {
 				conexion.close();
 			} catch (SQLException e) {
@@ -112,7 +112,7 @@ public class DomicilioDaoH2 implements IDao<Domicilio> {
 	}
 
 	@Override
-	public void actualizar(Domicilio domicilio) {
+	public void actualizar(Domicilio domicilio) throws DomicilioException {
 		Connection conexion = null;
 		try {
 			LOGGER.info("Actualizando domicilio 👨‍💻🏡...");
@@ -124,11 +124,12 @@ public class DomicilioDaoH2 implements IDao<Domicilio> {
 			psUpdateById.setString(4, domicilio.getProvincia());
 			psUpdateById.setInt(5, domicilio.getId());
 			psUpdateById.executeUpdate();
+			LOGGER.info("Domicilio actualizado " + domicilio);
 
 		} catch (Exception e) {
 			LOGGER.warn("Error actualizando domicilio 👨‍💻🏡..." + e.getMessage());
-			e.printStackTrace();
-		}finally {
+			throw new DomicilioException("Error al actualizar domicilio " + e.getMessage());
+		} finally {
 			try {
 				conexion.close();
 			} catch (SQLException e) {
@@ -140,7 +141,7 @@ public class DomicilioDaoH2 implements IDao<Domicilio> {
 	}
 
 	@Override
-	public List<Domicilio> listarTodos() {
+	public List<Domicilio> listarTodos() throws DomicilioException {
 		LOGGER.info("Estamos consultando todos los domicilios");
 		Connection connection = null;
 		List<Domicilio> domicilioList = new ArrayList<>();
@@ -160,15 +161,20 @@ public class DomicilioDaoH2 implements IDao<Domicilio> {
 				domicilioList.add(domicilio);
 			}
 
+			if (domicilioList.size() > 0) {
+				LOGGER.info("Lista de domicilios cargada ");
+			} else {
+				LOGGER.info("Lista de domicilios vacia ");
+			}
+
 		} catch (Exception e) {
 			LOGGER.warn("Error Listando los domicilios 👨‍💻🏡🏡..." + e.getMessage());
-			e.printStackTrace();
+			throw new DomicilioException("Error listando los domicilios " + e.getMessage());
 		} finally {
 			try {
 				connection.close();
 			} catch (Exception e) {
 				LOGGER.warn("Error al cerrar la conexion de (Listar domicilios) 👨‍💻🏡🏡..." + e.getMessage());
-				e.printStackTrace();
 			}
 		}
 		return domicilioList;

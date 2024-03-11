@@ -1,6 +1,7 @@
 package com.Dh.ProyectoIntegrador.controller;
 
 
+import com.Dh.ProyectoIntegrador.Excepciones.DomicilioException;
 import com.Dh.ProyectoIntegrador.Excepciones.OdontologoException;
 import com.Dh.ProyectoIntegrador.model.Odontologo;
 import com.Dh.ProyectoIntegrador.service.IService;
@@ -51,6 +52,8 @@ public class OdontologoController {
 			}
 		} catch (OdontologoException e) {
 			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
+		} catch (DomicilioException e) {
+			throw new RuntimeException(e);
 		}
 		return response;
 	}
@@ -60,7 +63,7 @@ public class OdontologoController {
 		ResponseEntity response = null;
 		try {
 			this.odontologoIService.actualizar(odontologo);
-		} catch (OdontologoException e) {
+		} catch (OdontologoException | DomicilioException e) {
 			response = new ResponseEntity(e.getMessage(), HttpStatus.CONFLICT);
 			return response;
 		}
@@ -81,7 +84,7 @@ public class OdontologoController {
 			} else {
 				response = new ResponseEntity("No se encontraron odontologos", HttpStatus.NOT_FOUND);
 			}
-		} catch (OdontologoException e) {
+		} catch (OdontologoException | DomicilioException e) {
 			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
 		}
 		return response;

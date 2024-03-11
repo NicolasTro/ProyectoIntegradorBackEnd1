@@ -1,5 +1,6 @@
 package com.Dh.ProyectoIntegrador.service.implementacion;
 
+import com.Dh.ProyectoIntegrador.Excepciones.DomicilioException;
 import com.Dh.ProyectoIntegrador.Excepciones.OdontologoException;
 import com.Dh.ProyectoIntegrador.dao.IDao;
 
@@ -19,23 +20,23 @@ public class PacienteService implements IService<Paciente> {
 		this.iDao = new PacienteDaoH2();
 	}
 
-	public Paciente guardar(Paciente paciente) throws OdontologoException {
+	public Paciente guardar(Paciente paciente) throws OdontologoException, DomicilioException {
 		return iDao.guardar(paciente);
 	}
 
-	public Paciente buscarPorId(Integer id) throws OdontologoException {
+	public Paciente buscarPorId(Integer id) throws OdontologoException, DomicilioException {
 		return this.iDao.buscarPorId(id);
 	}
 
-	public void eliminar(Integer id) throws OdontologoException {
+	public void eliminar(Integer id) throws OdontologoException, DomicilioException {
 		this.iDao.eliminar(id);
 	}
 
-	public void actualizar(Paciente paciente) throws OdontologoException {
+	public void actualizar(Paciente paciente) throws OdontologoException, DomicilioException {
 		this.iDao.actualizar(paciente);
 	}
 
-	public List<Paciente> listarTodos() throws OdontologoException {
+	public List<Paciente> listarTodos() throws OdontologoException, DomicilioException {
 		return iDao.listarTodos();
 	}
 

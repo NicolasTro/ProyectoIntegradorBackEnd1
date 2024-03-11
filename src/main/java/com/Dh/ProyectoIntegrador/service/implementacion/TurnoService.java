@@ -1,8 +1,10 @@
 package com.Dh.ProyectoIntegrador.service.implementacion;
 
+import com.Dh.ProyectoIntegrador.Excepciones.DomicilioException;
 import com.Dh.ProyectoIntegrador.Excepciones.OdontologoException;
 import com.Dh.ProyectoIntegrador.dao.IDao;
-import com.Dh.ProyectoIntegrador.dao.implementacion.TurnoDaoH2;
+
+import com.Dh.ProyectoIntegrador.dao.implementacion.TurnoDaoMemoria;
 import com.Dh.ProyectoIntegrador.model.Turno;
 import com.Dh.ProyectoIntegrador.service.IService;
 
@@ -14,28 +16,28 @@ public class TurnoService implements IService<Turno> {
 	private IDao<Turno> iDao;
 
 	public TurnoService() {
-		this.iDao = new TurnoDaoH2();
+		this.iDao = new TurnoDaoMemoria();
 	}
 
-	public Turno guardar(Turno turno) throws OdontologoException {
+	public Turno guardar(Turno turno) throws OdontologoException, DomicilioException {
 		return iDao.guardar(turno);
 	}
 
 
-	public Turno buscarPorId(Integer id) throws OdontologoException {
+	public Turno buscarPorId(Integer id) throws OdontologoException, DomicilioException {
 		return this.iDao.buscarPorId(id);
 	}
 
-	public void eliminar(Integer id) throws OdontologoException {
+	public void eliminar(Integer id) throws OdontologoException, DomicilioException {
 		this.iDao.eliminar(id);
 	}
 
-	public void actualizar(Turno turno ) throws OdontologoException {
+	public void actualizar(Turno turno ) throws OdontologoException, DomicilioException {
 		this.iDao.actualizar(turno);
 	}
 
 
-	public List<Turno> listarTodos() throws OdontologoException {
+	public List<Turno> listarTodos() throws OdontologoException, DomicilioException {
 		return iDao.listarTodos();
 	}
 }

@@ -1,5 +1,6 @@
 package com.Dh.ProyectoIntegrador.service.implementacion;
 
+import com.Dh.ProyectoIntegrador.Excepciones.DomicilioException;
 import com.Dh.ProyectoIntegrador.Excepciones.OdontologoException;
 import com.Dh.ProyectoIntegrador.dao.IDao;
 import com.Dh.ProyectoIntegrador.dao.implementacion.OdontologoDaoH2;
@@ -15,16 +16,16 @@ public class OdontologoService implements IService<Odontologo> {
 	public OdontologoService() {
 		this.iDao = new OdontologoDaoH2();
 	}
-	public Odontologo guardar(Odontologo odontologo) throws OdontologoException {
+	public Odontologo guardar(Odontologo odontologo) throws OdontologoException, DomicilioException {
 		return iDao.guardar(odontologo);
 	}
-	public void eliminar(Integer id) throws OdontologoException { this.iDao.eliminar(id); }
+	public void eliminar(Integer id) throws OdontologoException, DomicilioException { this.iDao.eliminar(id); }
 
-	public void actualizar(Odontologo odontologo) throws OdontologoException { this.iDao.actualizar(odontologo); }
+	public void actualizar(Odontologo odontologo) throws OdontologoException, DomicilioException { this.iDao.actualizar(odontologo); }
 
-	public Odontologo buscarPorId(Integer  id) throws OdontologoException { return this.iDao.buscarPorId(id); }
+	public Odontologo buscarPorId(Integer  id) throws OdontologoException, DomicilioException { return this.iDao.buscarPorId(id); }
 
-	public List<Odontologo> listarTodos() throws OdontologoException {
+	public List<Odontologo> listarTodos() throws OdontologoException, DomicilioException {
 		return iDao.listarTodos();
 	}
 }

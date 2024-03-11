@@ -1,5 +1,6 @@
 package com.Dh.ProyectoIntegrador.controller;
 
+import com.Dh.ProyectoIntegrador.Excepciones.DomicilioException;
 import com.Dh.ProyectoIntegrador.Excepciones.OdontologoException;
 import com.Dh.ProyectoIntegrador.model.Domicilio;
 import com.Dh.ProyectoIntegrador.model.Paciente;
@@ -19,9 +20,10 @@ public class DomicilioController {
     }
 
     @PostMapping("/registrar")
-    public Domicilio guardar(@RequestBody Domicilio domicilio){
+    public ResponseEntity guardar(@RequestBody Domicilio domicilio){
 	    try {
-		    return domicilioIService.guardar(domicilio);
+			 domicilio = domicilioIService.guardar(domicilio);
+
 	    } catch (Exception e) {
 
 	    }
@@ -49,7 +51,7 @@ public class DomicilioController {
 
 
     @PutMapping("/actualizar")
-    public void actualizar(@RequestBody Domicilio domicilio) throws OdontologoException {
+    public void actualizar(@RequestBody Domicilio domicilio) throws OdontologoException, DomicilioException {
         this.domicilioIService.actualizar(domicilio);
         try {
             this.domicilioIService.actualizar(domicilio);

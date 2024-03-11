@@ -1,5 +1,7 @@
 package com.Dh.ProyectoIntegrador;
 
+import com.Dh.ProyectoIntegrador.Excepciones.DomicilioException;
+import com.Dh.ProyectoIntegrador.Excepciones.OdontologoException;
 import com.Dh.ProyectoIntegrador.dao.BD;
 import com.Dh.ProyectoIntegrador.model.Domicilio;
 import com.Dh.ProyectoIntegrador.model.Paciente;
@@ -9,26 +11,26 @@ import com.Dh.ProyectoIntegrador.service.implementacion.PacienteService;
 import java.sql.Date;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws OdontologoException, DomicilioException {
         BD.crearTablas();
 
         Domicilio domicilio = new Domicilio("Calle A", 123, "Luján", "Mendoza");
         Domicilio domicilio2 = new Domicilio("Calle B", 456, "Carlos Paz", "Cordoba");
         Domicilio domicilio3 = new Domicilio("Calle C", 789, "Carlos Paz", "Cordoba");
-//
-//        DomicilioService domicilioService = new DomicilioService();
-//        domicilio2=  domicilioService.guardar(domicilio2);
-//        domicilio = domicilioService.guardar(domicilio);
-//        domicilio3 = domicilioService.guardar(domicilio3);
-//
-//        Paciente paciente = new Paciente();
-//        paciente.setNombre("MR");
-//        paciente.setApellido("POPO");
-//        paciente.setDni("1234");
-//        paciente.setFechaIngreso(Date.valueOf("2024-05-10"));
-//        paciente.setDomicilio(domicilio2);
-//        PacienteService servicioAlConsumidor = new PacienteService();
-//        servicioAlConsumidor.guardar(paciente);
+
+        DomicilioService domicilioService = new DomicilioService();
+        domicilio2=  domicilioService.guardar(domicilio2);
+        domicilio = domicilioService.guardar(domicilio);
+        domicilio3 = domicilioService.guardar(domicilio3);
+
+        Paciente paciente = new Paciente();
+        paciente.setNombre("MR");
+        paciente.setApellido("POPO");
+        paciente.setDni("1234");
+        paciente.setFechaIngreso(Date.valueOf("2024-05-10"));
+        paciente.setDomicilio(domicilio2);
+        PacienteService servicioAlConsumidor = new PacienteService();
+        servicioAlConsumidor.guardar(paciente);
 //
 //
 //        System.out.println(servicioAlConsumidor.listarTodos());

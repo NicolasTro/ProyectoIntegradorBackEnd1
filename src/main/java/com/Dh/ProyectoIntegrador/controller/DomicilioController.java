@@ -21,13 +21,19 @@ public class DomicilioController {
 
     @PostMapping("/registrar")
     public ResponseEntity guardar(@RequestBody Domicilio domicilio){
+        ResponseEntity response = null;
 	    try {
-			 domicilio = domicilioIService.guardar(domicilio);
+			 Domicilio domicilioGuardado = this.domicilioIService.guardar(domicilio);
+             if (domicilioGuardado != null) {
+                 response = new ResponseEntity(domicilioGuardado, HttpStatus.CREATED);
+             } else {
+                 response = new ResponseEntity(HttpStatus.NOT_ACCEPTABLE);
+             }
 
 	    } catch (Exception e) {
-
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
 	    }
-		return null;
+		return response;
     }
 
 
@@ -37,36 +43,39 @@ public class DomicilioController {
 	    Domicilio domicilioEncontrado = null;
 	    try {
 		    domicilioEncontrado = this.domicilioIService.buscarPorId(id);
+            if (domicilioEncontrado != null) {
+                response =new ResponseEntity<>(domicilioEncontrado, HttpStatus.FOUND);
+            }else {
+                response = new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
 	    } catch (Exception e) {
 
 	    }
-
-	    if (domicilioEncontrado != null) {
-            response =new ResponseEntity<>(domicilioEncontrado, HttpStatus.ACCEPTED);
-        }else {
-            response = new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
         return response;
     }
 
 
     @PutMapping("/actualizar")
-    public void actualizar(@RequestBody Domicilio domicilio) throws OdontologoException, DomicilioException {
-        this.domicilioIService.actualizar(domicilio);
+    public ResponseEntity actualizar(@RequestBody Domicilio domicilio) throws OdontologoException, DomicilioException {
+        ResponseEntity response = null;
         try {
             this.domicilioIService.actualizar(domicilio);
-        } catch (OdontologoException e) {
-            throw new RuntimeException(e);
+        } catch (OdontologoException | DomicilioException e) {
+            response = new ResponseEntity(e.getMessage(), HttpStatus.CONFLICT);
+            return response;
         }
+        return new ResponseEntity("Actualizaccion correcta de Domicilio.", HttpStatus.OK);
     }
 
-    @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable Integer id){
+    @DeleteMapping("eliminar/{id}")
+    public ResponseEntity eliminar(@PathVariable Integer id){
+        ResponseEntity response = null;
 	    try {
 		    this.domicilioIService.eliminar(id);
 	    } catch (Exception e) {
-
+            return new ResponseEntity("Error al eliminar Domicilio.", HttpStatus.BAD_REQUEST);
 	    }
+        return new ResponseEntity("Domicilio eliminado correctamente.", HttpStatus.OK);
     }
     @GetMapping("/listar")
     public ResponseEntity listarTodos(){
@@ -79,10 +88,9 @@ public class DomicilioController {
         } else {
             response = new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-	    } catch (Exception e) {
-
+	    } catch (OdontologoException | DomicilioException e) {
+            return new ResponseEntity("No se puede listar los Domicilios.", HttpStatus.BAD_REQUEST);
 	    }
-
         return response;
     }
 }

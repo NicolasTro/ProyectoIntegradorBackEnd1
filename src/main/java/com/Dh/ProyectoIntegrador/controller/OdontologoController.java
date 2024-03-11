@@ -85,7 +85,7 @@ public class OdontologoController {
 				response = new ResponseEntity("No se encontraron odontologos", HttpStatus.NOT_FOUND);
 			}
 		} catch (OdontologoException | DomicilioException e) {
-			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
+			return new ResponseEntity("No se puede listar los Pacientes.", HttpStatus.BAD_REQUEST);
 		}
 		return response;
 	}
@@ -96,16 +96,10 @@ public class OdontologoController {
 		ResponseEntity response = null;
 		try {
 			this.odontologoIService.eliminar(id);
-
-
 		} catch (Exception e) {
 			return new ResponseEntity("Error al eliminar odontologo", HttpStatus.BAD_REQUEST);
-
 		}
-
 		return new ResponseEntity("Odontologo eliminado correctamente", HttpStatus.OK);
-
-
 	}
 
 }

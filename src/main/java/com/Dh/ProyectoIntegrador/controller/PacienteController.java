@@ -60,12 +60,11 @@ public class PacienteController {
 		ResponseEntity response = null;
 		try {
 			this.pacienteService.actualizar(paciente);
-			response = new ResponseEntity(paciente, HttpStatus.ACCEPTED);
-
 		} catch (Exception e) {
-
+			response = new ResponseEntity(e.getMessage(), HttpStatus.CONFLICT);
+			return response;
 		}
-		return response;
+		return new ResponseEntity("Actualizacion correcta de Paciente", HttpStatus.OK);
 	}
 
 	@DeleteMapping("/eliminar/{id}")
@@ -73,12 +72,11 @@ public class PacienteController {
 		ResponseEntity response = null;
 		try {
 			this.pacienteService.eliminar(id);
-
 		} catch (Exception e) {
-
+			response = new ResponseEntity("Error al eliminar Paciente.", HttpStatus.BAD_REQUEST);
+			return response;
 		}
-		return response;
-
+		return new ResponseEntity("Paciente eliminado correctamente.", HttpStatus.OK);
 	}
 
 

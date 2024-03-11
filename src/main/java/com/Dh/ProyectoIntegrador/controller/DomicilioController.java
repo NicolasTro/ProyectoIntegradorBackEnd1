@@ -51,7 +51,7 @@ public class DomicilioController {
                 response = new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
 	    } catch (Exception e) {
-
+            return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
 	    }
         return response;
     }

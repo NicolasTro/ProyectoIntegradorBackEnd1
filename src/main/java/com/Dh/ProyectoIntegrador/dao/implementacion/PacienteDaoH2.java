@@ -1,5 +1,6 @@
 package com.Dh.ProyectoIntegrador.dao.implementacion;
 
+import com.Dh.ProyectoIntegrador.Excepciones.PacienteException;
 import com.Dh.ProyectoIntegrador.dao.IDao;
 import com.Dh.ProyectoIntegrador.dao.BD;
 import com.Dh.ProyectoIntegrador.model.Domicilio;
@@ -23,7 +24,7 @@ public class PacienteDaoH2 implements IDao<Paciente> {
 
 
 	@Override
-	public Paciente guardar(Paciente paciente) {
+	public Paciente guardar(Paciente paciente) throws PacienteException {
 
 		Connection conexion = null;
 
@@ -55,28 +56,25 @@ public class PacienteDaoH2 implements IDao<Paciente> {
 
 		} catch (Exception e) {
 			LOGGER.warn("Error guardando Paciente 💁‍♂️💁‍♀️" + e.getMessage());
-
 			try {
 				conexion.rollback();
 				LOGGER.info("Reestableciendo los registros originales (Paciente guardar) 💁‍♂️💁‍♀️");
 			} catch (Exception ex) {
 				LOGGER.warn("Error al reestablecer los registros originales (Paciente guardar) 💁‍♂️💁‍♀️" + e.getMessage());
 			}
-
-			e.printStackTrace();
+			throw new PacienteException("Error guardando Paciente");
 		} finally {
 			try {
 				conexion.close();
 			} catch (Exception ex) {
 				LOGGER.warn("Error cerrando conexion de (guardar Paciente)💁‍♂️💁‍♀️" + ex.getMessage());
-				ex.printStackTrace();
 			}
 		}
 		return paciente;
 	}
 
 	@Override
-	public Paciente buscarPorId(Integer id) {
+	public Paciente buscarPorId(Integer id) throws PacienteException {
 
 		Connection conexion = null;
 		Paciente pacienteEncontrado = null;
@@ -105,20 +103,19 @@ public class PacienteDaoH2 implements IDao<Paciente> {
 
 		} catch (Exception e) {
 			LOGGER.warn("Error buscando Paciente 💁‍♂️💁‍♀️" + e.getMessage());
-			e.printStackTrace();
+			throw new PacienteException("Error buscando paciente");
 		} finally {
 			try {
 				conexion.close();
 			} catch (Exception ex) {
 				LOGGER.warn("Error cerrando conexion de (Buscar pacienteID) 💁‍♂️💁‍♀️" + ex.getMessage());
-				ex.printStackTrace();
 			}
 		}
 		return pacienteEncontrado;
 	}
 
 	@Override
-	public void eliminar(Integer id) {
+	public void eliminar(Integer id) throws PacienteException {
 
 		Connection conexion = null;
 
@@ -145,20 +142,19 @@ public class PacienteDaoH2 implements IDao<Paciente> {
 				LOGGER.info("Reestableciendo los registros originales (Paciente eliminar)");
 			} catch (Exception ex) {
 				LOGGER.error("Error al reestablecer los registros originales (Paciente eliminar)" + e.getMessage());
-				e.printStackTrace();
 			}
+			throw new PacienteException("Error eliminando paciente");
 		} finally {
 			try {
 				conexion.close();
 			} catch (Exception ex) {
-				LOGGER.warn("Error cerrando conexion de (eliminar Paciente)💁‍♂️💁‍♀️");
-				ex.printStackTrace();
+				LOGGER.warn("Error cerrando conexion de (eliminar Paciente)💁‍♂️💁‍♀️" + ex.getMessage());
 			}
 		}
 	}
 
 	@Override
-	public void actualizar(Paciente paciente) {
+	public void actualizar(Paciente paciente) throws PacienteException {
 
 		Connection conexion = null;
 
@@ -186,26 +182,24 @@ public class PacienteDaoH2 implements IDao<Paciente> {
 
 		} catch (Exception e) {
 			LOGGER.warn("Error actualizando Paciente 💁‍♂️💁‍♀️" + e.getMessage());
-
 			try {
 				conexion.rollback();
 				LOGGER.warn("Reestableciendo los registros originales en la base de datos (Paciente actualizar)");
 			} catch (Exception ex) {
 				LOGGER.warn("No se pudo reestablecer los registros originales en la base de datos (Paciente) " + ex.getMessage());
 			}
-			e.printStackTrace();
+			throw new PacienteException("Error actualizando paciente");
 		} finally {
 			try {
 				conexion.close();
 			} catch (Exception e) {
 				LOGGER.warn("Error cerrando la conexion de (actualizar Paciente )💁‍♂️💁‍♀️" + e.getMessage());
-				e.printStackTrace();
 			}
 		}
 	}
 
 	@Override
-	public List<Paciente> listarTodos() {
+	public List<Paciente> listarTodos() throws PacienteException {
 		Connection conexion = null;
 		List<Paciente> listaPacientes = null;
 		try {
@@ -234,13 +228,12 @@ public class PacienteDaoH2 implements IDao<Paciente> {
 			}
 		} catch (Exception e) {
 			LOGGER.warn("Error listando Pacientes 💁‍♂️💁‍♀️" + e.getMessage());
-			e.printStackTrace();
+			throw new PacienteException("Error listando Pacientes");
 		} finally {
 			try {
 				conexion.close();
 			} catch (Exception e) {
 				LOGGER.warn("Error cerrando la conexion de (listando Pacientes) 💁‍♂️💁‍♀️" + e.getMessage());
-				e.printStackTrace();
 			}
 		}
 		return listaPacientes;

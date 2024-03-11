@@ -14,10 +14,11 @@ import java.util.List;
 @RestController
 @RequestMapping("/domicilio")
 public class DomicilioController {
-    private IService<Domicilio> domicilioIService;
-    public DomicilioController(IService<Domicilio> domicilioIService) {
-        this.domicilioIService = domicilioIService;
-    }
+	private IService<Domicilio> domicilioIService;
+
+	public DomicilioController(IService<Domicilio> domicilioIService) {
+		this.domicilioIService = domicilioIService;
+	}
 
     @PostMapping("/registrar")
     public ResponseEntity guardar(@RequestBody Domicilio domicilio){
@@ -29,6 +30,7 @@ public class DomicilioController {
              } else {
                  response = new ResponseEntity(HttpStatus.NOT_ACCEPTABLE);
              }
+
 
 	    } catch (Exception e) {
             return new ResponseEntity(HttpStatus.NO_CONTENT);
@@ -60,7 +62,7 @@ public class DomicilioController {
         ResponseEntity response = null;
         try {
             this.domicilioIService.actualizar(domicilio);
-        } catch (OdontologoException | DomicilioException e) {
+        } catch (Exception e) {
             response = new ResponseEntity(e.getMessage(), HttpStatus.CONFLICT);
             return response;
         }
@@ -88,7 +90,7 @@ public class DomicilioController {
         } else {
             response = new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-	    } catch (OdontologoException | DomicilioException e) {
+	    } catch (Exception e) {
             return new ResponseEntity("No se puede listar los Domicilios.", HttpStatus.BAD_REQUEST);
 	    }
         return response;

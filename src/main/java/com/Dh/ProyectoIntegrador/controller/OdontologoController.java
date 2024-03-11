@@ -22,18 +22,19 @@ public class OdontologoController {
 	}
 
 
-	@PostMapping("/agregar")
-	public ResponseEntity agregar(@RequestBody Odontologo odontologo) {
+	@PostMapping("/registrar")
+	public ResponseEntity guardar(@RequestBody Odontologo odontologo) {
 		ResponseEntity response = null;
 		try {
 			Odontologo odontologoGuardado = this.odontologoIService.guardar(odontologo);
 			if (odontologoGuardado != null) {
 				response = new ResponseEntity(odontologoGuardado, HttpStatus.CREATED);
+			//TODO ES NECESARIO EL ELSE DEL RESPONSE ENTITY O NO?
 			} else {
 				response = new ResponseEntity(HttpStatus.NOT_ACCEPTABLE);
 			}
 		} catch (Exception e) {
-			return new ResponseEntity(HttpStatus.NO_CONTENT);
+			return new ResponseEntity(e.getMessage(),  HttpStatus.NO_CONTENT);
 		}
 		return response;
 	}
@@ -50,10 +51,8 @@ public class OdontologoController {
 			} else {
 				response = new ResponseEntity("No se encontro Odontologo", HttpStatus.NOT_FOUND);
 			}
-		} catch (OdontologoException e) {
+		} catch (Exception e) {
 			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
-		} catch (DomicilioException e) {
-			throw new RuntimeException(e);
 		}
 		return response;
 	}
@@ -63,7 +62,7 @@ public class OdontologoController {
 		ResponseEntity response = null;
 		try {
 			this.odontologoIService.actualizar(odontologo);
-		} catch (OdontologoException | DomicilioException e) {
+		} catch (Exception e) {
 			response = new ResponseEntity(e.getMessage(), HttpStatus.CONFLICT);
 			return response;
 		}
@@ -84,8 +83,8 @@ public class OdontologoController {
 			} else {
 				response = new ResponseEntity("No se encontraron odontologos", HttpStatus.NOT_FOUND);
 			}
-		} catch (OdontologoException | DomicilioException e) {
-			return new ResponseEntity("No se puede listar los Pacientes.", HttpStatus.BAD_REQUEST);
+		} catch (Exception e) {
+			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
 		}
 		return response;
 	}
@@ -97,7 +96,7 @@ public class OdontologoController {
 		try {
 			this.odontologoIService.eliminar(id);
 		} catch (Exception e) {
-			return new ResponseEntity("Error al eliminar odontologo", HttpStatus.BAD_REQUEST);
+			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
 		}
 		return new ResponseEntity("Odontologo eliminado correctamente", HttpStatus.OK);
 	}

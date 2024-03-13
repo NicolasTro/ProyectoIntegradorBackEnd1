@@ -5,6 +5,8 @@ target/
 !**/src/test/**/target/
 BDPI.mv.db
 BDPI.trace.db
+BD
+/src/main/java/com/Dh/ProyectoIntegrador/dao/BD.java
 ### STS ###
 .apt_generated
 .classpath

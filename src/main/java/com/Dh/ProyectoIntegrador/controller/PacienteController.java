@@ -17,8 +17,7 @@ import java.util.List;
 public class PacienteController {
 
 	private IService<Paciente> pacienteService;
-
-	@Autowired
+@Autowired
 	public PacienteController(IService<Paciente> pacienteService) {
 		this.pacienteService = pacienteService;
 	}
@@ -85,11 +84,16 @@ public class PacienteController {
 	@GetMapping("/listar")
 	public ResponseEntity listarTodos() {
 		ResponseEntity response = null;
+		List<Paciente> listaPacientes = null;
 		try {
-			this.pacienteService.listarTodos();
-
+			listaPacientes = this.pacienteService.listarTodos();
+			if (listaPacientes.size() > 0) {
+				response = new ResponseEntity(listaPacientes, HttpStatus.FOUND);
+			} else {
+				response = new ResponseEntity("No se encontraron odontologos", HttpStatus.NOT_FOUND);
+			}
 		} catch (Exception e) {
-
+			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
 		}
 		return response;
 	}

@@ -5,6 +5,7 @@ import com.Dh.ProyectoIntegrador.dao.IDao;
 import com.Dh.ProyectoIntegrador.model.Odontologo;
 import com.Dh.ProyectoIntegrador.model.Paciente;
 import com.Dh.ProyectoIntegrador.model.Turno;
+import org.springframework.stereotype.Component;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,7 +15,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TurnoDaoH2 implements IDao<Turno> {
+
+public class urnoDaoH2 implements IDao<Turno> {
 	private static final String SQL_INSERT = "INSERT INTO TURNOS (PACIENTE_ID, ODONTOLOGO_ID, FECHA_HORA_TURNO) VALUES (?,?,?)";
 	private static final String SQL_UPDATE = "UPDATE TURNOS SET PACIENTE_ID=?, ODONTOLOGO_ID=?, FECHA_HORA_TURNO=?";
 	private static final String SQL_DELETE = "DELETE FROM TURNOS WHERE ID=?";

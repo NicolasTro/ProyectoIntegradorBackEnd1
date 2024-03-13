@@ -9,15 +9,18 @@ import com.Dh.ProyectoIntegrador.dao.implementacion.DomicilioDaoH2;
 
 import com.Dh.ProyectoIntegrador.model.Domicilio;
 import com.Dh.ProyectoIntegrador.service.IService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 public class DomicilioService implements IService<Domicilio> {
 	private IDao<Domicilio> iDao;
 
-	public DomicilioService() {
-		this.iDao = new DomicilioDaoH2();
+	@Autowired
+	public DomicilioService(IDao<Domicilio> iDao) {
+		this.iDao = iDao;
 	}
 
 	public Domicilio guardar(Domicilio domicilio) throws OdontologoException, DomicilioException, PacienteException, TurnoException {
@@ -31,6 +34,7 @@ public class DomicilioService implements IService<Domicilio> {
 	public void eliminar(Integer id) throws OdontologoException, DomicilioException, PacienteException, TurnoException {
 		this.iDao.eliminar(id);
 	}
+
 	public void actualizar(Domicilio domicilio) throws OdontologoException, DomicilioException, PacienteException, TurnoException {
 		this.iDao.actualizar(domicilio);
 	}

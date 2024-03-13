@@ -9,18 +9,24 @@ import com.Dh.ProyectoIntegrador.dao.IDao;
 import com.Dh.ProyectoIntegrador.dao.implementacion.TurnoDaoMemoria;
 import com.Dh.ProyectoIntegrador.model.Turno;
 import com.Dh.ProyectoIntegrador.service.IService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 public class TurnoService implements IService<Turno> {
 
-
 	private IDao<Turno> iDao;
 
-	public TurnoService() {
-		this.iDao = new TurnoDaoMemoria();
+	@Autowired
+	public TurnoService(IDao<Turno> iDao) {
+		this.iDao = iDao;
 	}
+
+//	public TurnoService() {
+//		this.iDao = new TurnoDaoMemoria();
+//	}
 
 	public Turno guardar(Turno turno) throws OdontologoException, DomicilioException, PacienteException, TurnoException {
 		return iDao.guardar(turno);
@@ -35,7 +41,7 @@ public class TurnoService implements IService<Turno> {
 		this.iDao.eliminar(id);
 	}
 
-	public void actualizar(Turno turno ) throws OdontologoException, DomicilioException, PacienteException, TurnoException {
+	public void actualizar(Turno turno) throws OdontologoException, DomicilioException, PacienteException, TurnoException {
 		this.iDao.actualizar(turno);
 	}
 

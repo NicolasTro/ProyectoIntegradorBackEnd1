@@ -4,6 +4,7 @@ import com.Dh.ProyectoIntegrador.Excepciones.DomicilioException;
 import com.Dh.ProyectoIntegrador.Excepciones.OdontologoException;
 import com.Dh.ProyectoIntegrador.model.Domicilio;
 import com.Dh.ProyectoIntegrador.service.IService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +15,7 @@ import java.util.List;
 @RequestMapping("/domicilio")
 public class DomicilioController {
 	private IService<Domicilio> domicilioIService;
-
+@Autowired
 	public DomicilioController(IService<Domicilio> domicilioIService) {
 		this.domicilioIService = domicilioIService;
 	}

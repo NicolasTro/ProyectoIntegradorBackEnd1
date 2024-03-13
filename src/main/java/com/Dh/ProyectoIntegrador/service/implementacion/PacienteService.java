@@ -10,6 +10,7 @@ import com.Dh.ProyectoIntegrador.dao.implementacion.PacienteDaoH2;
 
 import com.Dh.ProyectoIntegrador.model.Paciente;
 import com.Dh.ProyectoIntegrador.service.IService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,8 +19,9 @@ public class PacienteService implements IService<Paciente> {
 
 	private IDao<Paciente> iDao;
 
-	public PacienteService() {
-		this.iDao = new PacienteDaoH2();
+	@Autowired
+	public PacienteService(IDao<Paciente> iDao) {
+		this.iDao = iDao;
 	}
 
 	public Paciente guardar(Paciente paciente) throws OdontologoException, DomicilioException, PacienteException, TurnoException {

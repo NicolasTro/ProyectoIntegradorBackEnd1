@@ -17,7 +17,8 @@ import java.util.List;
 public class PacienteController {
 
 	private IService<Paciente> pacienteService;
-@Autowired
+
+	@Autowired
 	public PacienteController(IService<Paciente> pacienteService) {
 		this.pacienteService = pacienteService;
 	}
@@ -85,7 +86,7 @@ public class PacienteController {
 	public ResponseEntity listarTodos() {
 		ResponseEntity response = null;
 		try {
-				this.pacienteService.listarTodos();
+			this.pacienteService.listarTodos();
 
 		} catch (Exception e) {
 

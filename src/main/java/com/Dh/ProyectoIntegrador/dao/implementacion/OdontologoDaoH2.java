@@ -5,13 +5,14 @@ import com.Dh.ProyectoIntegrador.dao.IDao;
 import com.Dh.ProyectoIntegrador.dao.BD;
 import com.Dh.ProyectoIntegrador.model.Odontologo;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
+@Component
 public class OdontologoDaoH2 implements IDao<Odontologo> {
 	private static final Logger LOGGER = Logger.getLogger(OdontologoDaoH2.class);
 	private static final String SQL_INSERT_ODONTOLOGO = "INSERT INTO ODONTOLOGOS (NOMBRE, APELLIDO, MATRICULA) VALUES (?,?,?)";
@@ -93,7 +94,7 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
 
 		} catch (Exception e) {
 			LOGGER.warn("Error eliminando odontologos 👨‍⚕️..." + e.getMessage());
-			throw new OdontologoException("Error al eliminar Odontologo" +e.getMessage());
+			throw new OdontologoException("Error al eliminar Odontologo" + e.getMessage());
 		} finally {
 			try {
 				conexion.close();

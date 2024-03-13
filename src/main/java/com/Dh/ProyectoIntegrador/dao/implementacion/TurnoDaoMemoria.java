@@ -10,11 +10,11 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
 @Component
-
 public class TurnoDaoMemoria implements IDao<Turno> {
 	private static final Logger LOGGER = Logger.getLogger(TurnoDaoMemoria.class);
 	private List<Turno> listaTurnos = null;
@@ -22,10 +22,8 @@ public class TurnoDaoMemoria implements IDao<Turno> {
 
 	@Autowired
 	public TurnoDaoMemoria() {
-		this.listaTurnos = listaTurnos;
+		this.listaTurnos = new ArrayList<>();
 	}
-
-
 
 	@Override
 	public Turno guardar(Turno turno) throws OdontologoException, DomicilioException, TurnoException, PacienteException {
@@ -77,11 +75,15 @@ public class TurnoDaoMemoria implements IDao<Turno> {
 	}
 
 	@Override
-	public void actualizar(Turno nuevoTurno) throws OdontologoException, DomicilioException, TurnoException {
+	public void actualizar(Turno nuevoTurno) throws OdontologoException, DomicilioException, TurnoException, PacienteException {
 		if (nuevoTurno != null) {
 			Turno turnoAModificar = this.buscarPorId(nuevoTurno.getId());
-			turnoAModificar.setOdontologo(nuevoTurno.getOdontologo());
-			turnoAModificar.setPaciente(nuevoTurno.getPaciente());
+			Integer idNuevoOdontologo = nuevoTurno.getOdontologo().getId();
+			Integer idNuevoPaciente = nuevoTurno.getPaciente().getId();
+
+			turnoAModificar.setOdontologo(new OdontologoDaoH2().buscarPorId(idNuevoOdontologo));
+			turnoAModificar.setPaciente(new PacienteDaoH2().buscarPorId(idNuevoPaciente));
+
 			turnoAModificar.setFechaYHora(nuevoTurno.getFechaYHora());
 			LOGGER.info("Turno actualizado correctamente");
 		} else {

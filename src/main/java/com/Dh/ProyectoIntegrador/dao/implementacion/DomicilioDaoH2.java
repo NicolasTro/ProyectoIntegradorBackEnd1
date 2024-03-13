@@ -5,11 +5,14 @@ import com.Dh.ProyectoIntegrador.dao.BD;
 import com.Dh.ProyectoIntegrador.dao.IDao;
 import com.Dh.ProyectoIntegrador.model.Domicilio;
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Component;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
+@Component
 public class DomicilioDaoH2 implements IDao<Domicilio> {
 
 	private static final Logger LOGGER = Logger.getLogger(DomicilioDaoH2.class);

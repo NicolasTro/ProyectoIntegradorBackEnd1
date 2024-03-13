@@ -2,6 +2,7 @@ package com.Dh.ProyectoIntegrador.controller;
 
 import com.Dh.ProyectoIntegrador.model.Turno;
 import com.Dh.ProyectoIntegrador.service.IService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,9 +13,9 @@ import java.util.List;
 @RequestMapping("/turnos")
 public class TurnoController {
 
-
 	private IService<Turno> turnoIService;
 
+	@Autowired
 	public TurnoController(IService<Turno> turnoIService) {
 		this.turnoIService = turnoIService;
 	}
@@ -38,8 +39,12 @@ public class TurnoController {
 		ResponseEntity response = null;
 		try {
 			turnoIService.actualizar(turno);
+			Turno nuevoTurno = turnoIService.buscarPorId(turno.getId());
+			if(nuevoTurno.equals(turno)){
 			response = new ResponseEntity("Actualizacion correcta", HttpStatus.ACCEPTED);
-
+			}else{
+			response = new ResponseEntity("No se pudieron modificar los registros", HttpStatus.CONFLICT);
+			}
 		} catch (Exception e) {
 			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
 		}
@@ -76,7 +81,6 @@ public class TurnoController {
 		return response;
 	}
 
-
 	@GetMapping("/listar")
 
 	public ResponseEntity listarTodos() {
@@ -93,6 +97,4 @@ public class TurnoController {
 		}
 		return response;
 	}
-
-
 }

@@ -30,7 +30,7 @@ public class PacienteService implements IService<Paciente> {
 		return this.iDao.buscarPorId(id);
 	}
 
-	public void eliminar(Integer id) throws OdontologoException, DomicilioException, PacienteException {
+	public void eliminar(Integer id) throws OdontologoException, DomicilioException, PacienteException, TurnoException {
 		this.iDao.eliminar(id);
 	}
 

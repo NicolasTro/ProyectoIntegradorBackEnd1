@@ -10,7 +10,7 @@ import java.util.List;
 public interface IDao<T> {
     T guardar(T t) throws OdontologoException, DomicilioException, PacienteException, TurnoException;
     T buscarPorId(Integer id) throws OdontologoException, DomicilioException, PacienteException, TurnoException;
-    void eliminar(Integer id) throws OdontologoException, DomicilioException, PacienteException;
+    void eliminar(Integer id) throws OdontologoException, DomicilioException, PacienteException, TurnoException;
     void actualizar(T t) throws OdontologoException, DomicilioException, PacienteException, TurnoException;
     List<T> listarTodos() throws OdontologoException, DomicilioException, PacienteException, TurnoException;
 

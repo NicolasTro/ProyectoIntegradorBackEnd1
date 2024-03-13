@@ -1,8 +1,5 @@
 package com.Dh.ProyectoIntegrador.controller;
 
-
-import com.Dh.ProyectoIntegrador.Excepciones.DomicilioException;
-import com.Dh.ProyectoIntegrador.Excepciones.OdontologoException;
 import com.Dh.ProyectoIntegrador.model.Odontologo;
 import com.Dh.ProyectoIntegrador.service.IService;
 import org.springframework.http.HttpStatus;
@@ -68,8 +65,11 @@ public class OdontologoController {
 		}
 		return  new ResponseEntity("Actualizacion correcta", HttpStatus.OK);
 	}
-//TODO METODO ACTUALIZAR SE LE PASA SOLO EL ID O TODOS LOS DATOS???
+
 	//TODO METODO ACTUALIZAR CON VOID? Y EXCEPTION O CAMBIAR EL VOID??
+	//TODO RESPONSE ENTITY ESPECIFICO O GENERICO?
+
+
 
 	@GetMapping("/listar")
 

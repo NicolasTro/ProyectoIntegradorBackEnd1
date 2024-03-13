@@ -3,7 +3,6 @@ package com.Dh.ProyectoIntegrador.controller;
 import com.Dh.ProyectoIntegrador.Excepciones.DomicilioException;
 import com.Dh.ProyectoIntegrador.Excepciones.OdontologoException;
 import com.Dh.ProyectoIntegrador.model.Domicilio;
-import com.Dh.ProyectoIntegrador.model.Paciente;
 import com.Dh.ProyectoIntegrador.service.IService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

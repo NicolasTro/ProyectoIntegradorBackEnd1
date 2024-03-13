@@ -7,19 +7,25 @@ import com.Dh.ProyectoIntegrador.Excepciones.TurnoException;
 import com.Dh.ProyectoIntegrador.dao.IDao;
 import com.Dh.ProyectoIntegrador.model.Turno;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.List;
+
+
+@Component
 
 public class TurnoDaoMemoria implements IDao<Turno> {
 	private static final Logger LOGGER = Logger.getLogger(TurnoDaoMemoria.class);
 	private List<Turno> listaTurnos = null;
 	private static Integer contador = 0;
 
+	@Autowired
 	public TurnoDaoMemoria() {
-		this.listaTurnos = new ArrayList<>();
-		;
+		this.listaTurnos = listaTurnos;
 	}
+
+
 
 	@Override
 	public Turno guardar(Turno turno) throws OdontologoException, DomicilioException, TurnoException, PacienteException {
@@ -52,16 +58,19 @@ public class TurnoDaoMemoria implements IDao<Turno> {
 		return turnoEncontrado;
 	}
 
+
+	//TODO DEVOLVER ALGO SI ESTA CORRECTO?
 	@Override
-	public void eliminar(Integer id) throws OdontologoException, DomicilioException {
+	public void eliminar(Integer id) throws OdontologoException, DomicilioException, TurnoException {
 		if (id > 0) {
-			Turno turnoEliminado = null;
-			for (int i = 0; i < listaTurnos.size(); i++) {
-				if (listaTurnos.get(i).getId().equals(id)) {
-					turnoEliminado = listaTurnos.remove(i);
-				}
-				if (turnoEliminado != null) {
-					LOGGER.info("Turno eliminado: " + turnoEliminado);
+			Turno turnoAEliminar = null;
+			turnoAEliminar = this.buscarPorId(id);
+			if (turnoAEliminar != null) {
+				if (this.listaTurnos.remove(turnoAEliminar)) {
+
+					LOGGER.info("Turno eliminado: " + turnoAEliminar);
+				} else {
+					LOGGER.info("Turno NO eliminado: " + turnoAEliminar);
 				}
 			}
 		}

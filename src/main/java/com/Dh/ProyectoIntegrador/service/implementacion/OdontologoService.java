@@ -21,7 +21,7 @@ public class OdontologoService implements IService<Odontologo> {
 	public Odontologo guardar(Odontologo odontologo) throws OdontologoException, DomicilioException, PacienteException, TurnoException {
 		return iDao.guardar(odontologo);
 	}
-	public void eliminar(Integer id) throws OdontologoException, DomicilioException, PacienteException { this.iDao.eliminar(id); }
+	public void eliminar(Integer id) throws OdontologoException, DomicilioException, PacienteException, TurnoException { this.iDao.eliminar(id); }
 
 	public void actualizar(Odontologo odontologo) throws OdontologoException, DomicilioException, PacienteException, TurnoException { this.iDao.actualizar(odontologo); }
 

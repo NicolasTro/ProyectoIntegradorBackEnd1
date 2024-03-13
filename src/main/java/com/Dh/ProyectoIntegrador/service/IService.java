@@ -12,7 +12,7 @@ public interface IService<T> {
 
 	T guardar(T t) throws OdontologoException, DomicilioException, PacienteException, TurnoException;
 	T buscarPorId(Integer id) throws OdontologoException, DomicilioException, PacienteException, TurnoException;
-	void eliminar (Integer id) throws OdontologoException, DomicilioException, PacienteException;
+	void eliminar (Integer id) throws OdontologoException, DomicilioException, PacienteException, TurnoException;
 
 
 

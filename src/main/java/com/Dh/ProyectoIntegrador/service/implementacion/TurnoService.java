@@ -31,7 +31,7 @@ public class TurnoService implements IService<Turno> {
 		return this.iDao.buscarPorId(id);
 	}
 
-	public void eliminar(Integer id) throws OdontologoException, DomicilioException, PacienteException {
+	public void eliminar(Integer id) throws OdontologoException, DomicilioException, PacienteException, TurnoException {
 		this.iDao.eliminar(id);
 	}
 

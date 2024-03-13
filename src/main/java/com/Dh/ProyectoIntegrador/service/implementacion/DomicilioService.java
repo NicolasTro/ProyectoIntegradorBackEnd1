@@ -28,7 +28,7 @@ public class DomicilioService implements IService<Domicilio> {
 		return this.iDao.buscarPorId(id);
 	}
 
-	public void eliminar(Integer id) throws OdontologoException, DomicilioException, PacienteException {
+	public void eliminar(Integer id) throws OdontologoException, DomicilioException, PacienteException, TurnoException {
 		this.iDao.eliminar(id);
 	}
 	public void actualizar(Domicilio domicilio) throws OdontologoException, DomicilioException, PacienteException, TurnoException {

@@ -12,10 +12,22 @@
 <body>
     <!-- Image and text -->
 <nav class="navbar navbar-dark bg-dark sticky-top">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="index.html">
       <img src="/src/main/resources/static/Logo_Muela-removebg-preview.png" width="70" height="70" class="d-inline-block align-center" alt="">
       Clinica Odontologica
     </a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                    Gestión odontólogos
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="odontologoLista.html">Listar odontólogos</a>
+                </div>
+            </li>
+        </ul>
+    </div>
   </nav>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -39,10 +51,10 @@
                         ABM Odontologos
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="odontologRegistrar.html">Registro</a>
-                        <a class="dropdown-item" href="odontologActualizar.html">Actualizacion de datos</a>
-                        <a class="dropdown-item" href="odontologListar.html">Listar</a>
-                        <a class="dropdown-item" href="odontologEliminar.html">Baja</a>
+                        <a class="dropdown-item" href="odontologoRegistrar.html">Registro</a>
+                        <a class="dropdown-item" href="odontologoActualizar.html">Actualizacion de datos</a>
+                        <a class="dropdown-item" href="odontologoLista.html">Listar</a>
+                        <a class="dropdown-item" href="odontologoEliminar.html">Baja</a>
                     </div>
                 </li><li class="nav-item dropdown">
                     <a class="nav-link active dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
@@ -69,7 +81,5 @@
         </div>
     </nav>
 
-  
-    
 </body>
 </html>

@@ -24,6 +24,9 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
 	@Override
 	public Odontologo guardar(Odontologo odontologo) throws OdontologoException {
 
+
+		//TODO LA BASE DE DATOS NO TOMA LOS ID INGRESADOS MANUALES HAY QUE DROPEARLOS PARA QUE GENERATED KEYS TOME LOS VALORES
+
 		Connection connection = null;
 		try {
 			LOGGER.info("Guardando odontologos 👨‍⚕️...");

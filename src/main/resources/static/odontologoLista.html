@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
+  <head>
     <title>Odontólogos</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/stylesListOd.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./css/stylesListOd.css" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -19,92 +22,164 @@
 <nav class="navbar navbar-dark bg-dark sticky-top">
     <a class="navbar-brand" href="index.html">
         <img src="./images/Logo_Muela-removebg-preview.png" width="70" height="70" class="d-inline-block align-center" alt="">
+    <!--    <script text="text/javascript" src="/js/update_odontologo.js"></script>-->
+    <!--    <script text="text/javascript" src="/js/delete_odontologo.js"></script>-->
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-dark sticky-top">
+      <a class="navbar-brand" href="index.html">
+        <img
+          src="./images/Logo_Muela-removebg-preview.png"
+          width="70"
+          height="70"
+          class="d-inline-block align-center"
+          alt=""
+        />
         Clinica Odontologica
-    </a>
-</nav>
+      </a>
+    </nav>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#"></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link active dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                    Gestion Odontologos
-                </a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="odontologoRegistrar.html">Registro</a>
-                    <a class="dropdown-item" href="odontologoUpdate.html">Actualizacion de datos</a>
-                    <a class="dropdown-item" href="odontologoLista.html">Listar</a>
-                    <a class="dropdown-item" href="odontologoEliminar.html">Baja</a>
-                </div>
-            </li><li class="nav-item dropdown">
-        </ul>
-    </div>
-</nav>
-
-
-<div class="container-fluid fondo">
-
-<div class="container-fluid">
-    <div id="div_dentist_table" class="tablaOd ">
-        <h1>Listado de Odontólogos</h1>
-        <div class="row" >
-<!--        <div class="row col-md-6 " >-->
-            <table id="dentistTable" class="table table-striped table-responsive">
-<!--                <thead>-->
-<!--                <tr class="tituloTabla">-->
-<!--                    <th>Id</th>-->
-<!--                    <th>Nombre</th>-->
-<!--                    <th>Apellido</th>-->
-<!--                    <th>Matrícula</th>-->
-<!--                    -->
-<!--                </tr>-->
-<!--                </thead>-->
-                <tbody id="dentistTableBody">
-
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-sm-6" style="display: none;
-											background-color:#e6fffa; padding:10px; border-radius:3px"
-             id="div_dentist_updating">
-            <form id="update_dentist_form">
-                <div class="form-group">
-                    <label >Id:</label>
-                    <input type="text" class="form-control" id="idOdontologo" readonly>
-                </div>
-                <div class="form-group">
-                    <label >Nombre:</label>
-                    <input type="text" class="form-control" placeholder="nombre" id="nombre">
-                </div>
-                <div class="form-group">
-                    <label >Apellido</label>
-                    <input type="text" class="form-control" placeholder="apellido" id="apellido">
-                </div>
-                <div class="form-group">
-                    <label >Matrícula:</label>
-                    <input type="text" class="form-control" placeholder="matricula" id="matricula">
-                </div>
-                <button type="submit" class="btn btn-primary">Modificar</button>
-            </form>
-            <div id="response" style="display:none; margin:10px">
+          <li class="nav-item active">
+            <a class="nav-link" href="#"
+              >Inicio <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link active dropdown-toggle"
+              href="#"
+              role="button"
+              data-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Gestion Odontologos
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="odontologoRegistrar.html"
+                >Registro</a
+              >
+              <a class="dropdown-item" href="odontologoUpdate.html"
+                >Actualizacion de datos</a
+              >
+              <a class="dropdown-item" href="odontologoLista.html">Listar</a>
+              <a class="dropdown-item" href="odontologoEliminar.html">Baja</a>
             </div>
+          </li>
+          <li class="nav-item dropdown"></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container-fluid fondo">
+      <div class="posicionarPlanilla container-fluid">
+        <!-- <img
+          src="./images/PlanillaMediaResol.png"
+          class="img-fluid col"
+          alt="..."
+        /> -->
+        <div id="div_dentist_table" class="tablaOd container-md">
+          <h1>Listado de Odontólogos</h1>
+          <!-- <div class="row"> -->
+            <!-- <div class="row col-md-6 " > -->
+              <table
+                id="dentistTable"
+                class="table table-striped table-responsive">
+                <!--                <thead>-->
+                <!--                <tr class="tituloTabla">-->
+                <!--                    <th>Id</th>-->
+                <!--                    <th>Nombre</th>-->
+                <!--                    <th>Apellido</th>-->
+                <!--                    <th>Matrícula</th>-->
+                <!--                    -->
+                <!--                </tr>-->
+                <!--                </thead>-->
+                <tbody id="dentistTableBody"></tbody>
+              </table>
+            <!-- </div> -->
+          <!-- </div> -->
         </div>
-    </div>
-    <hr>
+      </div>
+<!--
+      <div class="row">
+        <div
+          class="col-sm-6"
+          style="
+            display: none;
+            background-color: #e6fffa;
+            padding: 10px;
+            border-radius: 3px;
+          "
+          id="div_dentist_updating"
+        >
+          <form id="update_dentist_form">
+            <div class="form-group">
+              <label>Id:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="dentist_id"
+                readonly
+              />
+            </div>
+            <div class="form-group">
+              <label>Nombre:</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="nombre"
+                id="nombre"
+              />
+            </div>
+            <div class="form-group">
+              <label>Apellido</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="apellido"
+                id="apellido"
+              />
+            </div>
+            <div class="form-group">
+              <label>Matrícula:</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="matricula"
+                id="matricula"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">Modificar</button>
+          </form>
+          <div id="response" style="display: none; margin: 10px"></div>
+        </div>
+      </div>
+      <hr /> -->
 
-
-    <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="staticBackdrop"
+        data-backdrop="static"
+        data-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -134,11 +209,9 @@
                     </form>
                 </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-</div>
-
-
-</body>
+  </body>
 </html>

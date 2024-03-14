@@ -1,17 +1,62 @@
+/* *{
+border: solid black 1px;
+
+} */
+
+
+
+.contenedorTablita{
+
+    height: 100%;
+    width: 70%;
+}
+
 .tablaOd{
-    background-image: url("../images/ListaOd.png");
-    background-size: contain;
+    
+    
+    
+    /* border: solid red 3px; */
+    background-image: url("../images/PlanillaMediaResol.png");
+    background-size: cover;
     background-repeat: no-repeat;
-    height: 998px;
-    opacity: 80%;
-       
+    /* height: 62%; */
+    margin-top: 20px;
+    /* width: 42vw; */
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.5);
+    
 }
 
 .fondo{
 
     background-image: url("../images/2149443493.jpg");
-    /* background-repeat: no-repeat; */
+    
     background-size: cover;
-    /* height: 10%; */
-    /* width: 50%; */
+    height: 100vh;
+    
 }
+
+.listaOdEncima{
+    position: absolute;
+    left: 1rem;
+    top: 100px;
+}
+
+.posicionarPlanilla{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    
+    
+}
+
+/* @media  (max-width: 493px){
+
+
+.tablaOd{
+    height: max-content; 
+    /* width: 100;    */
+    
+
+
+

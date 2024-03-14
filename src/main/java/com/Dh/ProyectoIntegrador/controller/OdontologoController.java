@@ -54,7 +54,7 @@ public class OdontologoController {
 		}
 		return response;
 	}
-
+//TODO CAMBIAR METODO ACTUALIZAR COMO EL DEL TURNO
 	@PutMapping("/actualizar")
 	public ResponseEntity actualizar(@RequestBody Odontologo odontologo) {
 		ResponseEntity response = null;

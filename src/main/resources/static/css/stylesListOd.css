@@ -1,0 +1,17 @@
+.tablaOd{
+    background-image: url("../images/ListaOd.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 998px;
+    opacity: 80%;
+       
+}
+
+.fondo{
+
+    background-image: url("../images/2149443493.jpg");
+    /* background-repeat: no-repeat; */
+    background-size: cover;
+    /* height: 10%; */
+    /* width: 50%; */
+}

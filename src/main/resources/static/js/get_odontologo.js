@@ -56,8 +56,15 @@ console.log("entro aca")
               '<td class="td_matricula align-middle">' +
               dentist.matricula +
               "</td>"+ "<td><div class='dropdown'><button class='btn btn-secondary dropdown-toggle' type='button'"+
-              "data-toggle='dropdown' aria-expanded='false'></button><div class='dropdown-menu'><a class='dropdown-item' href='#'>Modificar</a>"+
+              "data-toggle='dropdown' aria-expanded='false'></button><div class='dropdown-menu'><button type='button' class='btn btn-primary dropdown-item' data-toggle='modal' data-target='#staticBackdrop'>Modificar</button>"+
+//              "data-toggle='dropdown' aria-expanded='false'></button><div class='dropdown-menu'><a class='dropdown-item ' href='#'>Modificar</a>"+
               "<a class='dropdown-item' href='#'>Eliminar</a></div></div></td>";
+
+
+              //  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+              //         Launch static backdrop modal
+              //     </button>
+
 
 
           }

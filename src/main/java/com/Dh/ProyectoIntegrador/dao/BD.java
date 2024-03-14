@@ -57,8 +57,8 @@ public class BD {
 	public static Connection getConnection() throws Exception {
 		Class.forName("org.h2.Driver");
 		Server server = Server.createTcpServer("-tcpAllowOthers").start();
-//		return DriverManager.getConnection("jdbc:h2:~/BDPI",
-		return DriverManager.getConnection("jdbc:h2:./BDPI",
+		return DriverManager.getConnection("jdbc:h2:~/BDPI",
+//		return DriverManager.getConnection("jdbc:h2:./BDPI",
 //		return DriverManager.getConnection("jdbc:h2:./BDPI;AUTO_SERVER=TRUE",
 				"sa", "sa");
 	}

@@ -14,7 +14,7 @@ import java.util.List;
 public class OdontologoController {
 
 	private IService<Odontologo> odontologoIService;
-@Autowired
+	@Autowired
 	public OdontologoController(IService<Odontologo> odontologoIService) {
 		this.odontologoIService = odontologoIService;
 	}
@@ -27,7 +27,7 @@ public class OdontologoController {
 			Odontologo odontologoGuardado = this.odontologoIService.guardar(odontologo);
 			if (odontologoGuardado != null) {
 				response = new ResponseEntity(odontologoGuardado, HttpStatus.CREATED);
-			//TODO ES NECESARIO EL ELSE DEL RESPONSE ENTITY O NO?
+				//TODO ES NECESARIO EL ELSE DEL RESPONSE ENTITY O NO?
 			} else {
 				response = new ResponseEntity(HttpStatus.NOT_ACCEPTABLE);
 			}
@@ -54,12 +54,22 @@ public class OdontologoController {
 		}
 		return response;
 	}
-//TODO CAMBIAR METODO ACTUALIZAR COMO EL DEL TURNO
+	//TODO CAMBIAR METODO ACTUALIZAR COMO EL DEL TURNO
+	//TODO cuando se ve el ResponseEnntity?
 	@PutMapping("/actualizar")
-	public ResponseEntity actualizar(@RequestBody Odontologo odontologo) {
+	public ResponseEntity<Odontologo> actualizar(@RequestBody Odontologo odontologo) {
 		ResponseEntity response = null;
 		try {
-			this.odontologoIService.actualizar(odontologo);
+			if(odontologo != null) {
+				this.odontologoIService.actualizar(odontologo);
+
+				Odontologo actualizarOdontologo = odontologoIService.buscarPorId(odontologo.getId());
+				if (actualizarOdontologo.equals(odontologo)) {
+					return new ResponseEntity("Actualizacion correcta", HttpStatus.OK);
+				} else {
+					return new ResponseEntity("El odontólogo con el ID especificado no existe", HttpStatus.NOT_FOUND);
+				}
+			}
 		} catch (Exception e) {
 			response = new ResponseEntity(e.getMessage(), HttpStatus.CONFLICT);
 			return response;

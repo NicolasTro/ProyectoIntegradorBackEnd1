@@ -1,22 +1,13 @@
-window.addEventListener('load', function () {
-    const formulario = document.querySelector('#formOdontologoUpdate');
-    let idOdontologo = document.querySelector('#dentistTable');
-    let btnsModificar = document.querySelectorAll('.dropdown-item[data-target="#modificarBtn"]')
-
-console.log(idOdontologo)
-btnsModificar.forEach(boton => () {
-    boton.addEventListener('click', function() {
-
-    })
-})
+window.addEventListener('load', function()  {
+    const formulario = document.querySelector('#updateOdontologo');
 
     formulario.addEventListener('submit', function (event) {
 
         const formData = {
-            idOdontologo,
-            nombre: document.querySelector('#nombreUpdate').value,
-            apellido: document.querySelector('#apellidoUpdate').value,
-            matricula: document.querySelector('#matriculaUpdate').value,
+            id: document.querySelector('#idOdontologo').value,
+            nombre: document.querySelector('#nombre').value,
+            apellido: document.querySelector('#apellido').value,
+            matricula: document.querySelector('#matricula').value,
 
         };
         const url = '/odontologos/actualizar';
@@ -37,7 +28,7 @@ btnsModificar.forEach(boton => () {
 
                  document.querySelector('#response').innerHTML = successAlert;
                  document.querySelector('#response').style.display = "block";
-//                 resetUploadForm();
+                 resetUploadForm();
 
             })
             .catch(error => {
@@ -47,25 +38,24 @@ btnsModificar.forEach(boton => () {
 
                       document.querySelector('#response').innerHTML = errorAlert;
                       document.querySelector('#response').style.display = "block";
-//                     resetUploadForm();})
+                     resetUploadForm();})
     });
 
 
-//    function resetUploadForm(){
-//        document.querySelector('#idOdontologo').value = "";
-//        document.querySelector('#nombre').value = "";
-//        document.querySelector('#apellido').value = "";
-//        document.querySelector('#matricula').value = "";
-//
-//    }
+    function resetUploadForm(){
+        document.querySelector('#idOdontologo').value = "";
+        document.querySelector('#nombre').value = "";
+        document.querySelector('#apellido').value = "";
+        document.querySelector('#matricula').value = "";
+
+    }
 
     (function(){
         let pathname = window.location.pathname;
         if(pathname === "/"){
             document.querySelector(".nav .nav-item a:first").addClass("active");
-        } else if (pathname == "/odotologoLista.html") {
+        } else if (pathname == "/odotologoUpdate.html") {
             document.querySelector(".nav .nav-item a:last").addClass("active");
         }
-    });
-});
+    })();
 });

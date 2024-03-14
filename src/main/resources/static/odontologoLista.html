@@ -11,7 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script text="text/javascript" src="js/get_odontologo.js"></script>
-<!--    <script text="text/javascript" src="/js/update_odontologo.js"></script>-->
+    <script text="text/javascript" src="js/update_odontologo.js"></script>
 <!--    <script text="text/javascript" src="/js/delete_odontologo.js"></script>-->
 </head>
 <body>
@@ -80,7 +80,7 @@
             <form id="update_dentist_form">
                 <div class="form-group">
                     <label >Id:</label>
-                    <input type="text" class="form-control" id="dentist_id" readonly>
+                    <input type="text" class="form-control" id="idOdontologo" readonly>
                 </div>
                 <div class="form-group">
                     <label >Nombre:</label>
@@ -108,17 +108,30 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">Actualizar Odontologo</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Understood</button>
+                    <form id="formOdontologoUpdate">
+                        <div class="form-group">
+                            <label for="nombreUpdate">Ingresa nuevo nombre</label>
+                            <input type="text" class="form-control" id="nombreUpdate" aria-describedby="emailHelp" placeholder="Nombre">
+                        </div>
+                        <div class="form-group">
+                            <label for="apellidoUpdate">Ingresa nuevo Apellido</label>
+                            <input type="text" class="form-control" id="apellidoUpdate" placeholder="Apellido">
+                        </div>
+                        <div class="form-group">
+                            <label for="matriculaUpdate">Ingresa nueva matricula</label>
+                            <input type="text" class="form-control" id="matriculaUpdate" placeholder="Matricula">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary" id="actualizarBtn">Actualizar</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar Actualizacion</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

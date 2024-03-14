@@ -74,7 +74,7 @@ public class OdontologoController {
 
 	@GetMapping("/listar")
 
-	public ResponseEntity listarTodos() {
+	public ResponseEntity<List<Odontologo>> listarTodos() {
 		ResponseEntity response = null;
 		List<Odontologo> listaOdontologos = null;
 		try {
@@ -82,7 +82,7 @@ public class OdontologoController {
 			if (listaOdontologos.size() > 0) {
 				response = new ResponseEntity(listaOdontologos, HttpStatus.FOUND);
 			} else {
-				response = new ResponseEntity("No se encontraron odontologos", HttpStatus.NOT_FOUND);
+				response = new ResponseEntity<List<Odontologo>>(listaOdontologos,  HttpStatus.NOT_FOUND);
 			}
 		} catch (Exception e) {
 			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);

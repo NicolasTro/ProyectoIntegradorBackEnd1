@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>DH Clínica Dental</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/update_odontologo.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-dark bg-dark sticky-top">
+  <a class="navbar-brand" href="index.html">
+    <img src="./images/Logo_Muela-removebg-preview.png" width="70" height="70" class="d-inline-block align-center" alt="">
+    Clinica Odontologica
+  </a>
+</nav>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link active dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+          Gestion odontologos
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="odontologoRegistrar.html">Registro</a>
+          <a class="dropdown-item" href="odontologoUpdate.html">Actualizacion de datos</a>
+          <a class="dropdown-item" href="odontologoLista.html">Listar</a>
+          <a class="dropdown-item" href="odontologoEliminar.html">Baja</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+
+  <div class="row">
+    <div class="col-sm-7" style="background-color:#e6fffa; padding:10px; border-radius:3px">
+      <h3>Actualizar odontólogo</h3>
+      <form id="updateOdontologo">
+        <div class="form-group">
+          <label class="control-label" for="idOdontologo">ID:</label>
+          <input type="text" class="form-control" id="idOdontologo"
+                 placeholder="Ingrese el ID del odontologo"
+                 name="id" required></input>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="nombre">Nombre:</label>
+          <input type="text" class="form-control" id="nombre"
+                 placeholder="Ingrese el nombre a actualizar"
+                 name="nombre" required></input>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="apellido">Apellido:</label>
+          <input type="text" class="form-control" id="apellido"
+                 placeholder="Ingrese el apellido a actualizar"
+                 name="apellido" required></input>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="matricula">Matrícula:</label>
+          <input type="text" class="form-control" id="matricula"
+                 placeholder="Ingrese la matrícula a actualizar"
+                 name="matricula" required></input>
+        </div>
+
+
+        <button type="submit" class="btn btn-danger"
+                id="btn-add-new-dentist">Actualizar Odontologo.</button>
+      </form>
+      <div id="response" style="display:none; margin-top:10px">
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

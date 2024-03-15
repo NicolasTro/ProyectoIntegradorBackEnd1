@@ -10,7 +10,7 @@ window.addEventListener('load', function()  {
             matricula: document.querySelector('#matricula').value,
 
         };
-        const url = '/odontologos/actualizar';
+        const url = "/odontologos/actualizar";
         const settings = {
             method: 'PUT',
             headers: {
@@ -32,10 +32,7 @@ window.addEventListener('load', function()  {
 
             })
             .catch(error => {
-                    let errorAlert = '<div class="alert alert-danger alert-dismissible">' +
-                                     '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
-                                     '<strong> Error intente nuevamente</strong> </div>'
-
+                    let errorAlert = "<div class='alert alert-danger alert-dismissible'><strong> Error intente nuevamente</strong></div>"
                       document.querySelector('#response').innerHTML = errorAlert;
                       document.querySelector('#response').style.display = "block";
                      resetUploadForm();})

@@ -64,8 +64,8 @@ public class OdontologoController {
 				this.odontologoIService.actualizar(odontologo);
 
 				Odontologo actualizarOdontologo = odontologoIService.buscarPorId(odontologo.getId());
-				if (actualizarOdontologo.equals(odontologo)) {
-					return new ResponseEntity("Actualizacion correcta", HttpStatus.OK);
+				if (actualizarOdontologo.compareTo(odontologo)==0) {
+					return new ResponseEntity(actualizarOdontologo, HttpStatus.OK);
 				} else {
 					return new ResponseEntity("El odontólogo con el ID especificado no existe", HttpStatus.NOT_FOUND);
 				}

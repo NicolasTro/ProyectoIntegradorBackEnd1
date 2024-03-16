@@ -4,43 +4,49 @@ import com.Dh.ProyectoIntegrador.Excepciones.DomicilioException;
 import com.Dh.ProyectoIntegrador.Excepciones.OdontologoException;
 import com.Dh.ProyectoIntegrador.Excepciones.PacienteException;
 import com.Dh.ProyectoIntegrador.Excepciones.TurnoException;
-import com.Dh.ProyectoIntegrador.dao.IDao;
-import com.Dh.ProyectoIntegrador.dao.implementacion.OdontologoDaoH2;
-import com.Dh.ProyectoIntegrador.model.Odontologo;
+import com.Dh.ProyectoIntegrador.entity.Odontologo;
 
+import com.Dh.ProyectoIntegrador.repository.IOdontologoRepository;
 import com.Dh.ProyectoIntegrador.service.IService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class OdontologoService implements IService<Odontologo> {
-	private IDao<Odontologo> iDao;
+
+	private IOdontologoRepository odontologoRepository;
 
 	@Autowired
-	public OdontologoService(IDao<Odontologo> iDao) {
-		this.iDao = iDao;
+	public OdontologoService(IOdontologoRepository odontologoRepository) {
+		this.odontologoRepository = odontologoRepository;
 	}
 
 
 	public Odontologo guardar(Odontologo odontologo) throws OdontologoException, DomicilioException, PacienteException, TurnoException {
-		return iDao.guardar(odontologo);
+		return odontologoRepository.save(odontologo);
 	}
 
-	public void eliminar(Integer id) throws OdontologoException, DomicilioException, PacienteException, TurnoException {
-		this.iDao.eliminar(id);
+	public void eliminar(Long id) throws OdontologoException, DomicilioException, PacienteException, TurnoException {
+		this.odontologoRepository.deleteById(id);
 	}
 
 	public void actualizar(Odontologo odontologo) throws OdontologoException, DomicilioException, PacienteException, TurnoException {
-		this.iDao.actualizar(odontologo);
+		this.odontologoRepository.save(odontologo);
 	}
 
-	public Odontologo buscarPorId(Integer id) throws OdontologoException, DomicilioException, PacienteException, TurnoException {
-		return this.iDao.buscarPorId(id);
+	public Odontologo buscarPorId(Long id) throws OdontologoException, DomicilioException, PacienteException, TurnoException {
+		Optional<Odontologo> odontologoOptional = odontologoRepository.findById(id);
+		if(odontologoOptional.isPresent()) {
+			return odontologoOptional.get();
+		} else {
+			return null;
+		}
 	}
 
 	public List<Odontologo> listarTodos() throws OdontologoException, DomicilioException, PacienteException, TurnoException {
-		return iDao.listarTodos();
+		return odontologoRepository.findAll();
 	}
 }

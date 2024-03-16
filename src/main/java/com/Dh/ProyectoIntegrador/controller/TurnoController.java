@@ -1,6 +1,6 @@
 package com.Dh.ProyectoIntegrador.controller;
 
-import com.Dh.ProyectoIntegrador.model.Turno;
+import com.Dh.ProyectoIntegrador.entity.Turno;
 import com.Dh.ProyectoIntegrador.service.IService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -53,7 +53,7 @@ public class TurnoController {
 
 	@DeleteMapping("/eliminar/{id}")
 
-	public ResponseEntity eliminar(@PathVariable Integer id) {
+	public ResponseEntity eliminar(@PathVariable Long id) {
 		ResponseEntity response = null;
 		try {
 			turnoIService.eliminar(id);
@@ -66,7 +66,7 @@ public class TurnoController {
 
 
 	@GetMapping("{id}")
-	public ResponseEntity buscarPorId(@PathVariable Integer id) {
+	public ResponseEntity buscarPorId(@PathVariable Long id) {
 		ResponseEntity response = null;
 		try {
 			Turno turnoEncontrado = turnoIService.buscarPorId(id);

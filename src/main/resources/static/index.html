@@ -5,24 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clinica Odontologica</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/stylesIndex.css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
     <!-- Image and text -->
+    <div class="sticky-top">
+
 <nav class="navbar navbar-dark bg-dark ">
     <a class="navbar-brand" href="index.html">
       <img src="./images/Logo_Muela-removebg-preview.png" width="70" height="70" class="d-inline-block align-center" alt="">
       Clinica Odontologica
     </a>
-  </nav>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</nav>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top ">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark  ">
         <a class="navbar-brand" href="#"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item active">
@@ -33,38 +38,129 @@
                     <a class="nav-link active dropdown-toggle " href="#" role="button" data-toggle="dropdown" aria-expanded="false">
                         Gestion Odontologos
                     </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="odontologoRegistrar.html">Registro</a>
-                        <a class="dropdown-item" href="odontologoUpdate.html">Actualizacion de datos</a>
-                        <a class="dropdown-item" href="odontologoLista.html">Listar</a>
-                        <a class="dropdown-item" href="odontologoEliminar.html">Baja</a>
+                    <div class="dropdown-menu">                       
+                        <a class="btn" data-toggle="modal" data-target="#staticBackdrop1">Registro</a>                                            
+                        
+                        <a class="dropdown-item" href="odontologoLista.html">Listar</a>                                            
                     </div>
                 </li><li class="nav-item dropdown">
                     <a class="nav-link active dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
                         Gestion Pacientes
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="pacienteRegistrar.html">Registro</a>
-                        <a class="dropdown-item" href="#">Actualizacion de datos</a>
-                        <a class="dropdown-item" href="#">Listar</a>
-                        <a class="dropdown-item" href="#">Baja</a>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+                            Launch static backdrop modal
+                          </button>
+                        <!-- <a class="dropdown-item" href="">Registro</a>                         -->
+                        <a class="dropdown-item" href="#">Listar</a>                        
                     </div>
                 </li><li class="nav-item dropdown">
                     <a class="nav-link active dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
                         Gestion Turnos
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Registro</a>
-                        <a class="dropdown-item" href="#">Actualizacion de datos</a>
-                        <a class="dropdown-item" href="#">Listar</a>
-                        <a class="dropdown-item" href="#">Baja</a>
+                        <a class="dropdown-item" href="#">Registro</a>                        
+                        <a class="dropdown-item" href="#">Listar</a>                        
                     </div>
                 </li>
             </ul>
+
+           
         </div>
     </nav>
-    <img src="./images/beautiful-spacious-office-dentist.jpg" class="img-fluid" alt="...">
+</div>
+
+
+    <div class="imagenPrincipal">
+
+<!-- ACA VA MODAL DE REGISTRAR ODONTOLOGO -->
+
+<div class="modal fade" id="staticBackdrop1" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5> -->
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+            <div style="background-color:#e6fffa; padding:10px; border-radius:3px">
+                <h3>Agregar odontólogos</h3>
+                <form id="add_new_dentist">
+                    <div class="form-group">
+                        <label class="control-label" for="nombre">Nombre:</label>
+                        <input type="text" class="form-control" id="nombre"
+                               placeholder="Ingrese el nombre"
+                               name="nombre" required></input>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="apellido">Apellido:</label>
+                        <input type="text" class="form-control" id="apellido"
+                               placeholder="Ingrese el apellido"
+                               name="apellido" required></input>
+                    </div>
+    
+                    <div class="form-group">
+                        <label class="control-label" for="matricula">Matrícula:</label>
+                        <input type="text" class="form-control" id="matricula"
+                               placeholder="Ingrese la matrícula"
+                               name="matricula" required></input>
+                    </div>
+    
+    
+                    <button type="submit" class="btn btn-danger"
+                            id="btn-add-new-dentist">Guardar</button>
+                </form>
+                <div id="response" style="display:none; margin-top:10px">
+                </div>
+            </div>
+
+
+
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Understood</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- 
+            -->
+
+<!-- ACA VA MODAL DE REGISTRAR PACIENTES -->
+
+
   
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Understood</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- ACA VA MODAL DE REGISTRAR TURNOS -->
+
+
+    </div>
     
 </body>
+<script text="text/javascript" src="./js/index.js"></script>
 </html>

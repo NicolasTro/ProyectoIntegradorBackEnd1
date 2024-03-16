@@ -3,57 +3,72 @@ border: solid black 1px;
 
 } */
 
-
-
-.contenedorTablita{
-
-    height: 100%;
-    width: 70%;
+.contenedorTablita {
+  height: 100%;
+  width: 70%;
 }
 
-.tablaOd{
-    
-    
-    /* display: flex;
+/* .texto{ */
+/* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
+/* -webkit-text-stroke-color: white; */
+/* -webkit-text-stroke-width: 1.5px; */
+
+/* } */
+
+.tablaOd {
+  /* display: flex;
     justify-content: center; */
-    border: solid red 3px;
-    background-image: url("../images/PlanillaMediaResol.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    /* height: 62%; */
-    margin-top: 20px;
-    width: 42vw;
-    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.5);
-    
+  /* border: solid red 3px; */
+  background-image: url("../images/PlanillaMediaResol.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  /* height: 62%; */
+  margin-top: 20px;
+  width: 42vw;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.5);
 }
 
-.fondo{
+.fondo {
+  background-image: url("../images/2149443493.jpg");
 
-    background-image: url("../images/2149443493.jpg");
-    
+  background-size: cover;
+  height: 100vh;
+}
+/* h1 {
+  font-size: 1rem;
+} */
+
+.posicionarPlanilla {
+  /* position: relative; */
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  /* height: 100vh; */
+}
+
+.listadoOdontologo {
+  margin-top: 190px;
+}
+
+@media  (max-width: 720px) {
+  
+    .tablaOd {
+    /* height: 30vh; */
+    width: 100vw;
     background-size: cover;
-    height: 100vh;
-    
-}
-h1{
-    font-size: 1rem;
-}
 
-
-.posicionarPlanilla{
-    /* position: relative; */
-    display: flex;
-    justify-content: center;
-    height: 100vh;
-    /* height: 100vh; */
-      
+    border: solid black 3px;
+  }
+  .posicionarPlanilla {
+    border: solid black 3px;
+    height: 20px;
 }
 
-.listadoOdontologo{
-    margin-top: 190px;
+h1.f {
+      border: solid black 3px;
+    display: none;
+    visibility: hidden;
+    position: relative;
+    top: 20px;
+  }
 }
-
-    
-
-
-

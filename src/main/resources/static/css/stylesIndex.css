@@ -1,0 +1,92 @@
+/* *{
+    border: solid black 1px;
+} */
+
+
+.navbar-toggler{
+visibility: hidden;
+}
+ #registrarOdontologos{
+    position: relative;
+   
+} 
+
+
+/* .ocultarRegistroOdontologos{
+display: none;
+} */
+
+@media(max-width: 720px){
+
+html{
+
+    border: solid green 1px;
+    height: 103%;
+}
+
+body{
+    border: solid red 1px;
+    height: 100%;
+}
+
+
+ .imagenPrincipal{
+    border: solid blue 1px;
+    /* position: relative; */
+    height: 83%;
+    /* background-image: url("../images/FondoMobile1.png"); */
+    /* height: 87%; */
+    
+    /* background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    transition: filter 0.3s ease; */
+
+} 
+/* .blur */
+
+
+
+.imagenPrincipal{
+    /* background-image: url("../images/FondoMobile1.png");
+    height: 87%;
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    filter:blur(5px); */
+
+
+    /* content: ""; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; */
+    background-image: url("../images/FondoMobile1.png");
+    background-size: cover;
+    background-position: center;
+    /* filter: blur(5px); */
+    z-index: -1; 
+}
+
+
+}
+
+@media (max-width: 991px){
+
+
+
+    #registrarOdontologos{
+        /* position: absolute; */
+        top: 5%;
+        /* left: 20%; */
+        height: 60%;
+        /* width: 100vw; */
+    }
+
+    
+    .navbar-toggler{
+        visibility: visible;
+    }
+}

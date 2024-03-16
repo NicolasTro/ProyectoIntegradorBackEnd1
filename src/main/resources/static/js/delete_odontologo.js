@@ -1,63 +1,48 @@
-
 window.addEventListener('load', function(e){
     
-    const formulario = document.querySelector("#formOdontologoUpdate");
+    
     let id;
     
+    let listaBtnEliminar = document.querySelectorAll("btnTabla")
+    console.log(listaBtnEliminar)
 
-    
-    
+
+
     document.addEventListener('click', function(e){
         
         
         if(e.target instanceof(HTMLButtonElement)){
-            if(e.target.textContent=="Modificar"){
-
+            
+            if(e.target.textContent=="Eliminar"){
+                
+                
                 
                 id = e.target.dataset.id
-                // console.log("Id seleccionado: "+ id)
-            }
-            
-        }
         
-        
-    });
+   
+  
     
-    
-    
-    
-    
-    
-    formulario.addEventListener('submit', function (e) {
-//        e.preventDefault()
-  console.log(formulario);
-  console.log("actualizacion")
-  const formData = {
-      id,
-      nombre: document.querySelector("#nombreUpdate").value,
-    apellido: document.querySelector("#apellidoUpdate").value,
-    matricula: document.querySelector("#matriculaUpdate").value
-    }
-    
-    const url = '/odontologos/actualizar';
+    const url = '/odontologos/eliminar/'+id;
+    // console.log(url)
        const settings = {
-           method: 'PUT',
+           method: 'DELETE',
            headers: {
                'Content-Type': 'application/json',
             },
-            body: JSON.stringify(formData)
+            // body: JSON.stringify(formData)
        }
        
        fetch(url, settings)
            .then(response => response.json())
            .then(data => {
+            console.log("no entra aca")
+               cargarLista()
                 let successAlert = '<div class="alert alert-success alert-dismissible">' +
                     '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
                     '<strong></strong> Odontólogo Actualizado </div>'
 
                 document.querySelector('#response').innerHTML = successAlert;
                 document.querySelector('#response').style.display = "block";
-
                 
            })
            .catch(error => {
@@ -74,16 +59,19 @@ window.addEventListener('load', function(e){
                     
                     
 
-   (function(){
-       let pathname = window.location.pathname;
-       if(pathname === "/"){
-           document.querySelector(".nav .nav-item a:first").addClass("active");
-       } else if (pathname == "/odotologoLista.html") {
-           document.querySelector(".nav .nav-item a:last").addClass("active");
-       }
-    });
-    
+//    (function(){
+//        let pathname = window.location.pathname;
+//        if(pathname === "/"){
+//            document.querySelector(".nav .nav-item a:first").addClass("active");
+//        } else if (pathname == "/odotologoLista.html") {
+//            document.querySelector(".nav .nav-item a:last").addClass("active");
+//        }
+//     });
+}
+            
+}
+
+
 });
 }
 )
-

@@ -1,6 +1,6 @@
 package com.Dh.ProyectoIntegrador.controller;
 
-import com.Dh.ProyectoIntegrador.model.Odontologo;
+import com.Dh.ProyectoIntegrador.entity.Odontologo;
 import com.Dh.ProyectoIntegrador.service.IService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -39,7 +39,7 @@ public class OdontologoController {
 
 
 	@GetMapping("/{id}")
-	public ResponseEntity buscarPorId(@PathVariable Integer id) {
+	public ResponseEntity buscarPorId(@PathVariable Long id) {
 		ResponseEntity response = null;
 		Odontologo odontologoEncontrado = null;
 		try {
@@ -102,7 +102,7 @@ public class OdontologoController {
 
 
 	@DeleteMapping("eliminar/{id}")
-	public ResponseEntity eliminar(@PathVariable Integer id) {
+	public ResponseEntity eliminar(@PathVariable Long id) {
 		ResponseEntity response = null;
 		try {
 			this.odontologoIService.eliminar(id);

@@ -3,7 +3,7 @@ package com.Dh.ProyectoIntegrador.controller;
 
 import com.Dh.ProyectoIntegrador.Excepciones.DomicilioException;
 import com.Dh.ProyectoIntegrador.Excepciones.OdontologoException;
-import com.Dh.ProyectoIntegrador.model.Paciente;
+import com.Dh.ProyectoIntegrador.entity.Paciente;
 import com.Dh.ProyectoIntegrador.service.IService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -40,7 +40,7 @@ public class PacienteController {
 
 
 	@GetMapping("/{id}")
-	public ResponseEntity buscarPorId(@PathVariable Integer id) throws OdontologoException, DomicilioException {
+	public ResponseEntity buscarPorId(@PathVariable Long id) throws OdontologoException, DomicilioException {
 		ResponseEntity response = null;
 		try {
 			Paciente pacienteEncontrado = pacienteService.buscarPorId(id);
@@ -69,7 +69,7 @@ public class PacienteController {
 	}
 
 	@DeleteMapping("/eliminar/{id}")
-	public ResponseEntity eliminar(@PathVariable Integer id) throws OdontologoException, DomicilioException {
+	public ResponseEntity eliminar(@PathVariable Long id) throws OdontologoException, DomicilioException {
 		ResponseEntity response = null;
 		try {
 			this.pacienteService.eliminar(id);

@@ -9,9 +9,9 @@ window.addEventListener('load', function () {
 
        //creamos un JSON que tendrá los datos del nuevo odontólogo
         const formData = {
-            nombre: document.querySelector('#nombre').value,
-            apellido: document.querySelector('#apellido').value,
-            matricula: document.querySelector('#matricula').value,
+            nombre: document.querySelector('#nombreOdontologo').value,
+            apellido: document.querySelector('#apellidoOdontologo').value,
+            matricula: document.querySelector('#matriculaOdontologo').value,
 
         };
         //invocamos utilizando la función fetch la API odontólogos con el método POST que guardará
@@ -34,8 +34,8 @@ window.addEventListener('load', function () {
                      '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
                      '<strong></strong> Odontólogo agregado </div>'
 
-                 document.querySelector('#response').innerHTML = successAlert;
-                 document.querySelector('#response').style.display = "block";
+                 document.querySelector('#responseDentist').innerHTML = successAlert;
+                 document.querySelector('#responseDentist').style.display = "block";
                  resetUploadForm();
 
             })
@@ -46,17 +46,17 @@ window.addEventListener('load', function () {
                                      '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
                                      '<strong> Error intente nuevamente</strong> </div>'
 
-                      document.querySelector('#response').innerHTML = errorAlert;
-                      document.querySelector('#response').style.display = "block";
+                      document.querySelector('#responseDentist').innerHTML = errorAlert;
+                      document.querySelector('#responseDentist').style.display = "block";
                      //se dejan todos los campos vacíos por si se quiere ingresar otro odontólogo
                      resetUploadForm();})
     });
 
 
     function resetUploadForm(){
-        document.querySelector('#nombre').value = "";
-        document.querySelector('#apellido').value = "";
-        document.querySelector('#matricula').value = "";
+        document.querySelector('#nombreOdontologo').value = "";
+        document.querySelector('#apellidoOdontologo').value = "";
+        document.querySelector('#matriculaOdontologo').value = "";
 
     }
 

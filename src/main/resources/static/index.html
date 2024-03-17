@@ -12,22 +12,22 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <!-- Image and text -->
-    <div class="sticky-top">
+<!-- Image and text -->
+<div class="sticky-top">
 
-<nav class="navbar navbar-dark bg-dark ">
-    <a class="navbar-brand" href="index.html">
-      <img src="./images/Logo_Muela-removebg-preview.png" width="70" height="70" class="d-inline-block align-center" alt="">
-      Clinica Odontologica
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-</nav>
+    <nav class="navbar navbar-dark bg-dark ">
+        <a class="navbar-brand" href="index.html">
+            <img src="./images/Logo_Muela-removebg-preview.png" width="70" height="70" class="d-inline-block align-center" alt="">
+            Clinica Odontologica
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark  ">
         <a class="navbar-brand" href="#"></a>
-        
+
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item active">
@@ -38,129 +38,200 @@
                     <a class="nav-link active dropdown-toggle " href="#" role="button" data-toggle="dropdown" aria-expanded="false">
                         Gestion Odontologos
                     </a>
-                    <div class="dropdown-menu">                       
-                        <a class="btn" data-toggle="modal" data-target="#staticBackdrop1">Registro</a>                                            
-                        
-                        <a class="dropdown-item" href="odontologoLista.html">Listar</a>                                            
+                    <div class="dropdown-menu">
+                        <a class="btn" data-toggle="modal" data-target="#staticBackdropOdontologo">Registro</a>
+
+                        <a class="dropdown-item" href="odontologoLista.html">Listar</a>
                     </div>
                 </li><li class="nav-item dropdown">
-                    <a class="nav-link active dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                        Gestion Pacientes
-                    </a>
-                    <div class="dropdown-menu">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
-                            Launch static backdrop modal
-                          </button>
-                        <!-- <a class="dropdown-item" href="">Registro</a>                         -->
-                        <a class="dropdown-item" href="#">Listar</a>                        
-                    </div>
-                </li><li class="nav-item dropdown">
-                    <a class="nav-link active dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                        Gestion Turnos
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Registro</a>                        
-                        <a class="dropdown-item" href="#">Listar</a>                        
-                    </div>
-                </li>
+                <a class="nav-link active dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                    Gestion Pacientes
+                </a>
+                <div class="dropdown-menu">
+                    <button type="button" class="btn" data-toggle="modal" data-target="#staticBackdropPacientes">
+                        Registrar
+                    </button>
+                    <!-- <a class="dropdown-item" href="">Registro</a>                         -->
+                    <a class="dropdown-item" href="#">Listar</a>
+                </div>
+            </li><li class="nav-item dropdown">
+                <a class="nav-link active dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                    Gestion Turnos
+                </a>
+                <div class="dropdown-menu">
+                    <button type="button" class="btn" data-toggle="modal" data-target="#staticBackdropTurno">
+                        Registrar
+                    </button>
+                    <!--                        <a class="dropdown-item" href="#">Registro</a>                        -->
+                    <a class="dropdown-item" href="#">Listar</a>
+                </div>
+            </li>
             </ul>
 
-           
+
         </div>
     </nav>
 </div>
 
 
-    <div class="imagenPrincipal">
+<div class="imagenPrincipal">
 
-<!-- ACA VA MODAL DE REGISTRAR ODONTOLOGO -->
+    <!-- ACA VA MODAL DE REGISTRAR ODONTOLOGO -->
 
-<div class="modal fade" id="staticBackdrop1" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <!-- <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5> -->
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
+    <div class="modal fade" id="staticBackdropOdontologo" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!-- <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5> -->
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
 
-            <div style="background-color:#e6fffa; padding:10px; border-radius:3px">
-                <h3>Agregar odontólogos</h3>
-                <form id="add_new_dentist">
-                    <div class="form-group">
-                        <label class="control-label" for="nombre">Nombre:</label>
-                        <input type="text" class="form-control" id="nombre"
-                               placeholder="Ingrese el nombre"
-                               name="nombre" required></input>
+                    <div style="background-color:#e6fffa; padding:10px; border-radius:3px">
+                        <h3>Agregar odontólogos</h3>
+                        <form id="add_new_dentist">
+                            <div class="form-group">
+                                <label class="control-label" for="nombreOdontologo">Nombre:</label>
+                                <input type="text" class="form-control" id="nombreOdontologo"
+                                       placeholder="Ingrese el nombre"
+                                       name="nombreOdontologo" required></input>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="apellidoOdontologo">Apellido:</label>
+                                <input type="text" class="form-control" id="apellidoOdontologo"
+                                       placeholder="Ingrese el apellido"
+                                       name="apellidoOdontologo" required></input>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label" for="matriculaOdontologo">Matrícula:</label>
+                                <input type="text" class="form-control" id="matriculaOdontologo"
+                                       placeholder="Ingrese la matrícula"
+                                       name="matricula" required></input>
+                            </div>
+                        </form>
+                        <div id="responseDentist" style="display:none; margin-top:10px">
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label class="control-label" for="apellido">Apellido:</label>
-                        <input type="text" class="form-control" id="apellido"
-                               placeholder="Ingrese el apellido"
-                               name="apellido" required></input>
-                    </div>
-    
-                    <div class="form-group">
-                        <label class="control-label" for="matricula">Matrícula:</label>
-                        <input type="text" class="form-control" id="matricula"
-                               placeholder="Ingrese la matrícula"
-                               name="matricula" required></input>
-                    </div>
-    
-    
-                    <button type="submit" class="btn btn-danger"
-                            id="btn-add-new-dentist">Guardar</button>
-                </form>
-                <div id="response" style="display:none; margin-top:10px">
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn " data-dismiss="modal" id="btn-add-new-odontologo">Guardar</button>
+                    <button type="button" class="btn ">Cerrar</button>
                 </div>
             </div>
-
-
-
-          
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Understood</button>
-        </div>
-      </div>
     </div>
-  </div>
-<!-- 
-            -->
+    <!--
+                -->
 
-<!-- ACA VA MODAL DE REGISTRAR PACIENTES -->
+    <!-- ACA VA MODAL DE REGISTRAR PACIENTES -->
 
 
-  
-  <!-- Modal -->
-  <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdropPacientes" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!--          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>-->
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div style="background-color:#e6fffa; padding:10px; border-radius:3px">
+                        <h3>Agregar Pacientes</h3>
+                        <form id="add_new_patient">
+                            <div class="form-group">
+                                <label class="control-label" for="nombrePaciente">Nombre:</label>
+                                <input type="text" class="form-control" id="nombrePaciente"
+                                       placeholder="Ingrese el nombre"
+                                       name="nombre" required></input>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="apellidoPaciente">Apellido:</label>
+                                <input type="text" class="form-control" id="apellidoPaciente"
+                                       placeholder="Ingrese el apellido"
+                                       name="apellido" required></input>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label" for="dni">DNI:</label>
+                                <input type="text" class="form-control" id="dni"
+                                       placeholder="Ingrese su DNI"
+                                       name="DNI" required></input>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="fechaIngreso">Fecha de Ingreso:</label>
+                                <input type="text" class="form-control" id="fechaIngreso"
+                                       placeholder="Ingrese la Fecha de Ingreso"
+                                       name="fechaIngreso" required></input>
+                            </div>
+
+                        </form>
+                        <div id="response" style="display:none; margin-top:10px">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn " data-dismiss="modal" id="btn-add-new-patient">Guardar</button>
+                        <button type="button" class="btn ">Cerrar</button>
+                    </div>
+
+                </div>
+            </div>
         </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Understood</button>
-        </div>
-      </div>
     </div>
-  </div>
+</div>
 
 <!-- ACA VA MODAL DE REGISTRAR TURNOS -->
+<div class="modal fade" id="staticBackdropTurno" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!--          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>-->
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div style="background-color:#e6fffa; padding:10px; border-radius:3px">
+                    <h3>Agregar Pacientes</h3>
+                    <form id="add_new_turno">
+                        <div class="form-group">
+                            <label class="control-label" for="odontologoID">ID del Odontologo:</label>
+                            <input type="text" class="form-control" id="odontologoID"
+                                   placeholder="Ingrese el ID del Odontologo"
+                                   name="odontologoID" required></input>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="pacienteID">ID del Paciente:</label>
+                            <input type="text" class="form-control" id="pacienteID"
+                                   placeholder="Ingrese el ID del Paciente"
+                                   name="pacienteID" required></input>
+                        </div>
 
+                        <div class="form-group">
+                            <label class="control-label" for="fechaTurno">DNI:</label>
+                            <input type="text" class="form-control" id="fechaTurno"
+                                   placeholder="Ingrese la fecha y hora del turno"
+                                   name="fechaTurno" required></input>
+                        </div>
+                    </form>
+                    <div id="responseTurno" style="display:none; margin-top:10px">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn " data-dismiss="modal" id="btn-add-new-turno">Guardar</button>
+                    <button type="button" class="btn ">Cerrar</button>
+                </div>
 
+            </div>
+        </div>
     </div>
-    
+</div>
+
 </body>
 <script text="text/javascript" src="./js/index.js"></script>
 </html>

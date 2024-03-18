@@ -23,7 +23,8 @@ public class Paciente {
     private String apellido;
     private String dni;
     private Date fechaIngreso;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "domicilio_id")
     private Domicilio domicilio;
     @OneToMany(mappedBy = "paciente")
     private Set<Turno> turnoSet = new HashSet<>();

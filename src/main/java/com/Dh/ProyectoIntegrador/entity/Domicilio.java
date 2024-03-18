@@ -19,6 +19,4 @@ public class Domicilio {
     private Integer numero;
     private String localidad;
     private String provincia;
-    @OneToOne
-    private Paciente paciente;
 }

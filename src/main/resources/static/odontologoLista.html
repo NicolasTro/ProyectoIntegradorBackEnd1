@@ -17,15 +17,7 @@
         <img src="./images/Logo_Muela-removebg-preview.png" width="70" height="70" class="d-inline-block align-center" alt="" />
         Clinica Odontologica
       </a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNavDropdown"
-        aria-controls="navbarNavDropdown"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
     </nav>
@@ -56,100 +48,91 @@
       </div>
     </nav>
 
+    <div class="fondo">
+      <div class="container contenedorTablita">
+        <div class="tablaOd">
+          <div id="div_dentist_table" class="tablaOd container-fluid">
+            <div id="listadoOdontologo" class="listadoOdontologo" style="margin-top: 190px">
+              <div class="headerTablita">
+                <h1 class="tituloTablita">Listado de Odontólogos</h1>
+                <button type="button" class="btn btn-dark tituloTablita btnRegistrarHeader" data-toggle="modal" data-target="#staticBackdropOdontologo">Registrar odontologo</button>
+              </div>
 
-<div class=" fondo">
-
-<div class="container contenedorTablita">
-
-  <div class="tablaOd">
-    
-    <div id="div_dentist_table" class="tablaOd container-fluid">
-      <div class="listadoOdontologo" style="margin-top: 190px">
-        <h1 class="tituloTablita ">Listado de Odontólogos</h1>
-
-        <table id="dentistTable" class="table table-striped table-responsive posicionRegistros">
-          <tbody id="dentistTableBody"></tbody>          
-        </table>
-      </div>
-
-
-      </tbody>
-    </table>
-    
-    
-  </div>
-  
-</div>
-
-
-
-
-
-</div>
-
-
-
-
-
-    <!-- <div class="container-fluid fondo">
-      <div class="posicionarPlanilla container-fluid">
-        <div id="div_dentist_table" class="tablaOd container-fluid">
-          <div class="listadoOdontologo" style="margin-top: 190px">
-            <h1 class="f">Listado de Odontólogos</h1>
-
-            <table id="dentistTable" class="table table-striped table-responsive">
-              <tbody id="dentistTableBody"></tbody>
-            </table>
+              <table id="dentistTable" class="table table-striped table-responsive posicionRegistros">
+                <tbody id="dentistTableBody"></tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
+    </div>
 
-     
-    </div> -->
+    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Actualizar Odontologo</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="formOdontologoUpdate">
+              <div class="form-group">
+                <label for="nombreUpdate">Ingresa nuevo nombre</label>
+                <input type="text" class="form-control" id="nombreUpdate" aria-describedby="emailHelp" placeholder="Nombre" />
+              </div>
+              <div class="form-group"><label for="apellidoUpdate">Ingresa nuevo Apellido</label><input type="text" class="form-control" id="apellidoUpdate" placeholder="Apellido" /></div>
+              <div class="form-group"><label for="matriculaUpdate">Ingresa nueva matricula</label><input type="text" class="form-control" id="matriculaUpdate" placeholder="Matricula" /></div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" id="actualizarBtn">Actualizar</button><button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar Actualizacion</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 
-
-    <div
-        class="modal fade"
-        id="staticBackdrop"
-        data-backdrop="static"
-        data-keyboard="false"
-        tabindex="-1"
-        aria-labelledby="staticBackdropLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="staticBackdropLabel">Actualizar Odontologo</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <form id="formOdontologoUpdate">
+    <div class="modal fade" id="staticBackdropOdontologo" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title" id="staticBackdropLabel">Registro de odontologos</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div style="background-color: #e6fffa; padding: 10px; border-radius: 3px">
+              <h5>Ingreso de datos</h5>
+              <form id="agregarDentista">
                 <div class="form-group">
-                  <label for="nombreUpdate">Ingresa nuevo nombre</label>
-                  <input type="text" class="form-control" id="nombreUpdate" aria-describedby="emailHelp" placeholder="Nombre" />
+                  <label class="control-label" for="nombreOdontologo">Nombre:</label>
+                  <input type="text" class="form-control" id="nombreOdontologo" placeholder="Ingrese el nombre" name="nombreOdontologo" required />
                 </div>
                 <div class="form-group">
-                  <label for="apellidoUpdate">Ingresa nuevo Apellido</label
-                  ><input type="text" class="form-control" id="apellidoUpdate" placeholder="Apellido" />
+                  <label class="control-label" for="apellidoOdontologo">Apellido:</label>
+                  <input type="text" class="form-control" id="apellidoOdontologo" placeholder="Ingrese el apellido" name="apellidoOdontologo" required />
                 </div>
+
                 <div class="form-group">
-                  <label for="matriculaUpdate">Ingresa nueva matricula</label
-                  ><input type="text" class="form-control" id="matriculaUpdate" placeholder="Matricula" />
+                  <label class="control-label" for="matriculaOdontologo">Matrícula:</label>
+                  <input type="text" class="form-control" id="matriculaOdontologo" placeholder="Ingrese la matrícula" name="matricula" required />
                 </div>
                 <div class="modal-footer">
-                  <button type="submit" class="btn btn-primary" id="actualizarBtn">Actualizar</button
-                  ><button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar Actualizacion</button>
+                  <button type="submit" class="btn btn-success">Guardar</button>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                 </div>
               </form>
+              <div id="responseDentist" style="display: none; margin-top: 10px"></div>
             </div>
           </div>
         </div>
       </div>
+    </div>
   </body>
   <script text="text/javascript" src="js/get_odontologo.js"></script>
+  <script text="text/javascript" src="js/post_odontologo.js"></script>
   <script text="text/javascript" src="js/update_odontologo.js"></script>
   <script text="text/javascript" src="js/delete_odontologo.js"></script>
 </html>

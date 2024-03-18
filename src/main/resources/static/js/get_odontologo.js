@@ -1,5 +1,5 @@
 window.addEventListener("load", function () {
-  console.log("cargando lista");
+  
   (function () {
     const url = "/odontologos/listar";
     const settings = {
@@ -10,7 +10,7 @@ window.addEventListener("load", function () {
       .then((response) => response.json())
       .then((data) => {
         //recorremos la colección de odontólogos del JSON
-        console.log(data);
+        
         if (data.length > 0) {
           let table = document.getElementById("dentistTable");
           let dentistRowHeader = table.insertRow();
@@ -41,8 +41,12 @@ window.addEventListener("load", function () {
             } class='btn btn-primary dropdown-item btnTabla' data-toggle='modal' >Eliminar</button></div></div></td>`;
           }
           
-          let dentistRow = table.insertRow();
-          dentistRow.innerHTML = "<button> boton</button>"
+          //  let dentistRow = table.insertRow();
+          // dentistRow.innerHTML = "<td></td><button type='button' class='btn btn-primary' >Registrar odontologo</button><td></td><td></td><td></td>"
+
+
+          // let tablaLlena = document.getElementById("listadoOdontologo")
+          // tablaLlena.innerHTML += "<button type='button' class='btn btn-primary' >Registrar odontologo</button><td></td><td></td><td></td><td></td>"
 
 
 

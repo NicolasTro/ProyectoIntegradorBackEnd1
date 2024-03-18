@@ -62,6 +62,11 @@ window.addEventListener("load", function () {
     document.querySelector("#matriculaOdontologo").value = "";
   }
 
+
+
+
+  
+
 //  (function(){
 //      let pathname = window.location.pathname;
 //      if(pathname === "/"){

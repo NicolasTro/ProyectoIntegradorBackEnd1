@@ -34,23 +34,33 @@ border: solid black 1px;
     display: flex;
     justify-content: center;
     position: relative;
-    top: -106px;
+    top: -98px;
   }
 
   .posicionRegistros {
     position: relative;
     top: -65px;
+    
   }
 
+  .btnRegistrarHeader{
+    width: 60%;
+    position: relative;
+    align-self: center;
+  }
+
+  .headerTablita{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+  }
   table {
     font-size: 10px;
-    max-height: 430px; /* Establece la altura máxima según tus necesidades */
+    max-height: 410px; /* Establece la altura máxima según tus necesidades */
     overflow-y: auto; /* Permite el desbordamiento vertical */
   }
-  /* .tamanioTexto{
   
-  font-size: 500px;
-} */
 }
 
 @media (min-width: 769px) and (max-width: 991px) {

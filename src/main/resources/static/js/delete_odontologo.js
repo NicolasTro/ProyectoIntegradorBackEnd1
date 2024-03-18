@@ -4,7 +4,7 @@ window.addEventListener('load', function(e){
     let id;
     
     let listaBtnEliminar = document.querySelectorAll("btnTabla")
-    console.log(listaBtnEliminar)
+    
 
 
 

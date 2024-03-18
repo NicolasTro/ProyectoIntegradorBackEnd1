@@ -1,0 +1,59 @@
+@media (max-width: 768px) {
+  .fondo {
+    background-image: url("../images/salaDeEsperaPaciente.jfif");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+  }
+
+  .tablaOd {
+    background-image: url("../images/PlanillaMediaResol.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.5);
+    border: solid black 3px;
+
+    height: 100%;
+  }
+
+  .contenedorTablita {
+    height: 80vh;
+  }
+
+  .tituloTablita {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: -106px;
+  }
+
+  .posicionRegistros {
+    position: relative;
+    top: -65px;
+  }
+
+  table {
+    font-size: 10px;
+    max-height: 430px; /* Establece la altura máxima según tus necesidades */
+    overflow-y: auto; /* Permite el desbordamiento vertical */
+  }
+  /* .tamanioTexto{
+
+  font-size: 500px;
+} */
+}
+
+@media (min-width: 769px) and (max-width: 991px) {
+  .fondo {
+    background-image: url("../images/2149443493.jpg");
+
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+  }
+}

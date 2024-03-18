@@ -61,7 +61,8 @@ window.addEventListener("load", function () {
         let dentistRow = table.insertRow();
         dentistRow.innerHTML = "<td>No se encontraron registros</td>";
       });
-  })(function () {
+  })();
+    (function () {
     let pathname = window.location.pathname;
     if (pathname == "/odontologoLista.html") {
       document.querySelector(".nav .nav-item a:last").addClass("active");

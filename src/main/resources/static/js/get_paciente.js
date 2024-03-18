@@ -21,6 +21,7 @@ window.addEventListener("load", function () {
             "<th scope='col'>Nombre</th>" +
             "<th scope='col'>Apellido</th>" +
             "<th scope='col'>DNI</th>" +
+            "<th scope='col'>FechaIngreso</th>" +
             "<th scope='col'>ID_domicilio</th>" +
             "<th scope='col'>Gestionar</th></tr></thead>";
 
@@ -35,6 +36,7 @@ window.addEventListener("load", function () {
                                     <td class="td_nombre align-middle tamanioTexto">${patient.nombre.toUpperCase()}</td>
                                     <td class="td_apellido align-middle tamanioTexto">${patient.apellido.toUpperCase()}</td>
                                     <td class="td_dni align-middle tamanioTexto">${patient.dni}</td>
+                                    <td class="td_dni align-middle tamanioTexto">${patient.fechaIngreso}</td>
                                     <td class="td_domicilio align-middle tamanioTexto">${patient.domicilio.id}</td>
                                     <td>
                                       <div class="dropdown">

@@ -71,9 +71,6 @@ window.addEventListener('load', function(e){
 
                     });
 
-                    
-                    
-
    (function(){
        let pathname = window.location.pathname;
        if(pathname === "/"){
@@ -84,6 +81,8 @@ window.addEventListener('load', function(e){
     });
     
 });
+
+
 }
 )
 

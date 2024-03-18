@@ -7,7 +7,7 @@ window.addEventListener("load", function () {
   //Ante un submit del formulario se ejecutará la siguiente funcion
   formulario.addEventListener("submit", function (event) {
     event.preventDefault();
-    console.log("entro al form");
+    
     //creamos un JSON que tendrá los datos del nuevo odontólogo
     const formData = {
       nombre: document.querySelector("#nombreOdontologo").value,
@@ -15,7 +15,7 @@ window.addEventListener("load", function () {
       matricula: document.querySelector("#matriculaOdontologo").value,
     };
 
-    console.log(formData);
+    
     //invocamos utilizando la función fetch la API odontólogos con el método POST que guardará
     //el odontólogo que enviaremos en formato JSON
     const url = "/odontologos/registrar";
@@ -62,12 +62,12 @@ window.addEventListener("load", function () {
     document.querySelector("#matriculaOdontologo").value = "";
   }
 
-  // (function(){
-  //     let pathname = window.location.pathname;
-  //     if(pathname === "/"){
-  //         document.querySelector(".nav .nav-item a:first").addClass("active");
-  //     } else if (pathname == "/dentistList.html") {
-  //         document.querySelector(".nav .nav-item a:last").addClass("active");
-  //     }
-  // })();
+//  (function(){
+//      let pathname = window.location.pathname;
+//      if(pathname === "/"){
+//          document.querySelector(".nav .nav-item a:first").addClass("active");
+//      } else if (pathname == "/index.html") {
+//          document.querySelector(".nav .nav-item a:last").addClass("active");
+//      }
+//  })();
 });

@@ -29,14 +29,17 @@ window.addEventListener("load", function () {
           let tr_id = "tr_" + dentist.id;
 
           dentistRow.id = tr_id;
-          dentistRow.innerHTML = `<td class="td_id align-middle tamanioTexto">${data.id}</td><td class="td_nombre align-middle tamanioTexto">${data.nombre.toUpperCase()}</td>
-                                 <td class="td_apellido align-middle tamanioTexto">${data.apellido.toUpperCase()}</td><td class="td_matricula align-middle tamanioTexto">${
-            data.matricula
-          }</td><td><div class="dropdown"><button class='btn btn-secondary dropdown-toggle' type='button'data-toggle='dropdown' aria-expanded='false'></button><div class='dropdown-menu'><button type='button' data-id=${
-            data.id
-          } class='btn btn-primary btnTabla dropdown-item' data-toggle='modal' data-target='#staticBackdrop'>Modificar</button><button type='button' data-id=${
-            data.id
-          } class='btn btn-primary dropdown-item btnTabla' data-toggle='modal' >Eliminar</button></div></div></td></tbody>`;
+          dentistRow.innerHTML = cargarRegistro(data);
+          
+          
+          // `<td class="td_id align-middle tamanioTexto">${data.id}</td><td class="td_nombre align-middle tamanioTexto">${data.nombre.toUpperCase()}</td>
+          //                        <td class="td_apellido align-middle tamanioTexto">${data.apellido.toUpperCase()}</td><td class="td_matricula align-middle tamanioTexto">${
+          //   data.matricula
+          // }</td><td><div class="dropdown"><button class='btn btn-secondary dropdown-toggle' type='button'data-toggle='dropdown' aria-expanded='false'></button><div class='dropdown-menu'><button type='button' data-id=${
+          //   data.id
+          // } class='btn btn-primary btnTabla dropdown-item' data-toggle='modal' data-target='#staticBackdrop'>Modificar</button><button type='button' data-id=${
+          //   data.id
+          // } class='btn btn-primary dropdown-item btnTabla' data-toggle='modal' >Eliminar</button></div></div></td></tbody>`;
         })
         .catch((error) => {
           noSeEncontraronRegistros();

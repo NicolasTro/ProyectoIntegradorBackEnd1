@@ -103,7 +103,7 @@
 
       <!-- ACA VA MODAL DE REGISTRAR PACIENTES -->
 <!--TODO AGREGAR DATOS DE DOMICILIO PARA PACIENTES-->
-      <div class="modal fade" id="staticBackdropPacientes" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal fade" id="staticBackdropPacientes" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelPacientes" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -131,6 +131,22 @@
                   <div class="form-group">
                     <label class="control-label" for="fechaIngreso">Fecha de Ingreso:</label>
                     <input type="text" class="form-control" id="fechaIngreso" placeholder="Ingrese la Fecha de Ingreso" name="fechaIngreso" required />
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label" for="domicilioCalle">Calle</label>
+                    <input type="text" class="form-control" id="domicilioCalle" placeholder="Ingrese la calle." name="domicilioCalle" required />
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label" for="domicilioNumero">Numero de domicilio</label>
+                    <input type="text" class="form-control" id="domicilioNumero" placeholder="Ingrese el numero." name="domicilioNumero" required />
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label" for="domicilioLocalidad">Localidad</label>
+                    <input type="text" class="form-control" id="domicilioLocalidad" placeholder="Ingrese el localidad." name="domicilioLocaclidad" required />
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label" for="domicilioProvincia">Provincia</label>
+                    <input type="text" class="form-control" id="domicilioProvincia" placeholder="Ingrese el provincia." name="domicilioProvincia" required />
                   </div>
                   <div class="modal-footer">
                     <button type="submit" class="btn btn-success">Guardar</button>
@@ -185,4 +201,5 @@
     </div>
   </body>
   <script text="text/javascript" src="js/post_odontologo.js"></script>
+  <script text="text/javascript" src="js/post_paciente.js"></script>
 </html>

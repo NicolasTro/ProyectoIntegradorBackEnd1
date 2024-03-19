@@ -35,7 +35,7 @@ window.addEventListener("load", function () {
         let successAlert =
           '<div class="alert alert-success alert-dismissible">' +
           '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
-          "<strong></strong> Odontólogo agregado </div>";
+          "<strong>Odontólogo agregado </strong> </div>";
 
         document.querySelector("#responseDentist").innerHTML = successAlert;
         document.querySelector("#responseDentist").style.display = "block";
@@ -61,12 +61,6 @@ window.addEventListener("load", function () {
     document.querySelector("#apellidoOdontologo").value = "";
     document.querySelector("#matriculaOdontologo").value = "";
   }
-
-
-
-
-  
-
 //  (function(){
 //      let pathname = window.location.pathname;
 //      if(pathname === "/"){

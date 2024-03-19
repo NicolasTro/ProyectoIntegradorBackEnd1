@@ -30,7 +30,9 @@
           <li class="nav-item active">
             <a class="nav-link" href="./index.html">Inicio <span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item dropdown"></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link active" id="listar" >Listar</a>
+          </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
@@ -43,14 +45,14 @@
       <div class="container contenedorTablita ">
         <div class="tablaPaciente ">
           <div id="div_Paciente" class=" container-fluid">
-            
-            
-            
             <div class="listadoPaciente">
-              <h1 class="tituloTablita">Listado de Pacientes</h1>
+              <div class="headerTablita">
+                <h1 class="tituloTablita">Listado de Pacientes</h1>
+                <button type="button" class="btn btn-dark tituloTablita btnRegistrarHeader" data-toggle="modal" data-target="#staticBackdropOdontologo">Registrar paciente</button>
+              </div>
 
               <table id="tablePaciente" class="table table-striped table-responsive posicionRegistros">
-                <tbody id="pacienteTableBody"></tbody>
+
               </table>
             </div>
           </div>

@@ -28,9 +28,9 @@ public class PacienteController {
 		try {
 			paciente = pacienteService.guardar(paciente);
 			if (paciente != null) {
-				response = new ResponseEntity("Paciente registrado con exito", HttpStatus.CREATED);
+				response = new ResponseEntity(paciente, HttpStatus.CREATED);
 			} else {
-				response = new ResponseEntity("Paciente registrado con exito", HttpStatus.NOT_ACCEPTABLE);
+				response = new ResponseEntity(HttpStatus.NOT_ACCEPTABLE);
 			}
 		} catch (Exception e) {
 			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);

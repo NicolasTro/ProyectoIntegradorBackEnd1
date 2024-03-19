@@ -3,7 +3,7 @@ window.addEventListener("load", function () {
   //los datos que el usuario cargará del nuevo odontólogo
   const formulario = document.querySelector("#agregarDentista");
 
-  console.log(formulario);
+  
   //Ante un submit del formulario se ejecutará la siguiente funcion
   formulario.addEventListener("submit", function (event) {
     event.preventDefault();

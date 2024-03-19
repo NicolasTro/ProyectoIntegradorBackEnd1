@@ -30,19 +30,19 @@
       <li class="nav-item active">
         <a class="nav-link" href="./index.html">Inicio <span class="sr-only">(current)</span></a>
       </li>
-      <!-- <li class="nav-item dropdown">
-        <a class="nav-link active dropdown-toggle texto" href="#" role="button" data-toggle="dropdown" aria-expanded="false"> Gestion Odontologos </a>
+       <li class="nav-item dropdown"> 
+         <a class="nav-link active" id="listar" >Listar</a>
+        <!-- <a class="nav-link active dropdown-toggle texto" href="#" role="button" data-toggle="dropdown" aria-expanded="false"> Gestion Odontologos </a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="odontologoRegistrar.html">Registro</a>
           <a class="dropdown-item" href="odontologoUpdate.html">Actualizacion de datos</a>
           <a class="dropdown-item" href="odontologoLista.html">Listar</a>
           <a class="dropdown-item" href="odontologoEliminar.html">Baja</a>
-        </div>
-      </li> -->
-      <li class="nav-item dropdown"></li>
+        </div> -->
+      </li> 
+      <!-- <li class="nav-item dropdown"><a class="nav-link" ><span class="sr-only">Listar</span></a></li> -->
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+    <form class="form-inline my-2 my-lg-0 busqueda">
+      <input class="form-control mr-sm-2 idBusqueda" id="search"  type="search" placeholder="Search" aria-label="Search" />
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
@@ -59,7 +59,7 @@
               </div>
 
               <table id="dentistTable" class="table table-striped table-responsive posicionRegistros">
-                <tbody id="dentistTableBody"></tbody>
+                
               </table>
             </div>
           </div>
@@ -67,11 +67,11 @@
       </div>
     </div>
 
-    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelUp" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel">Actualizar Odontologo</h5>
+            <h5 class="modal-title" id="staticBackdropLabelUp">Actualizar Odontologo</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -93,11 +93,11 @@
       </div>
     </div>
 
-    <div class="modal fade" id="staticBackdropOdontologo" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="staticBackdropOdontologo" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelOd" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h3 class="modal-title" id="staticBackdropLabel">Registro de odontologos</h3>
+            <h3 class="modal-title" id="staticBackdropLabelOd">Registro de odontologos</h3>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -132,6 +132,7 @@
     </div>
   </body>
   <script text="text/javascript" src="js/get_odontologo.js"></script>
+  <script text="text/javascript" src="js/get_odontologoID.js"></script>
   <script text="text/javascript" src="js/post_odontologo.js"></script>
   <script text="text/javascript" src="js/update_odontologo.js"></script>
   <script text="text/javascript" src="js/delete_odontologo.js"></script>

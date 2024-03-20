@@ -2,8 +2,7 @@ window.addEventListener('load', function(e){
 
     const formulario = document.querySelector("#updatePaciente");
     let id;
-let ID_domicilio;
-
+    let ID_domicilio;
 
     document.addEventListener('click', function(e){
 
@@ -13,12 +12,9 @@ let ID_domicilio;
                 id = e.target.dataset.id
                 
                 idDomicilio = e.target.dataset.domicilioid;
-
-                 
             }
         }
     });
-
 
     formulario.addEventListener('submit', function (e) {
         // e.preventDefault()

@@ -7,13 +7,13 @@ function obtenerListaPacientes() {
     return fetch(url, settings)
           .then((response) => response.json())
           .then((data) => {
-            console.log(data);
-            let a = document.getElementById("tablePaciente")
+            
+            // let a = document.getElementById("tablePaciente")
             if (data.length > 0) {
             let body = document.getElementById("cuerpoTabla");
-            console.log(body)
+            
               for (patient of data) {
-                console.log(patient)
+                
                 let patientRow = body.insertRow();
                 let tr_id = "tr_" + patient.id;
                 patientRow.id = tr_id;
@@ -28,7 +28,7 @@ function obtenerListaPacientes() {
             });
 }
 window.addEventListener("load", function () {
-  console.log("cargando lista");
+  
   cargarEncabezadoTabla();
   cargarCuerpoTabla();
   obtenerListaPacientes();
@@ -45,6 +45,7 @@ window.addEventListener("load", function () {
   obtenerListaPacientes();
   })
 });
+
 function cargarEncabezadoTabla() {
     let table = document.getElementById("tablePaciente");
     let pacienteRowHeader = table.insertRow();
@@ -97,8 +98,8 @@ return `<td class="td_id align-middle tamanioTexto">${patient.id}</td>
                                           <div class="dropdown">
                                             <button class='btn btn-secondary dropdown-toggle' type='button' data-toggle='dropdown' aria-expanded='false'></button>
                                             <div class='dropdown-menu'>
-                                              <button type='button' data-id=${patient.id} ${patient.domicilio.id} class='btn btn-primary btnTabla dropdown-item' data-toggle='modal' data-target='#staticBackdropPacienteUpdate'>Modificar</button>
-                                              <button type='button' data-id=${patient.id} class='btn btn-primary dropdown-item btnTabla' data-toggle='modal'>Eliminar</button>
+                                              <button type='button' data-id=${patient.id} data-domicilioId=${patient.domicilio.id} class='btn btn-primary btnTabla dropdown-item' data-toggle='modal' data-target='#staticBackdropPacienteUpdate'>Modificar</button>
+                                              <button type='button' data-id=${patient.id} data-domicilioId=${patient.domicilio.id} class='btn btn-primary dropdown-item btnTabla' data-toggle='modal'>Eliminar</button>
                                             </div>
                                           </div>
                                         </td>`;

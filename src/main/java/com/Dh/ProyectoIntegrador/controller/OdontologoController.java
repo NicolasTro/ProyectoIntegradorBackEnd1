@@ -1,5 +1,9 @@
 package com.Dh.ProyectoIntegrador.controller;
 
+import com.Dh.ProyectoIntegrador.Excepciones.DomicilioException;
+import com.Dh.ProyectoIntegrador.Excepciones.OdontologoException;
+import com.Dh.ProyectoIntegrador.Excepciones.PacienteException;
+import com.Dh.ProyectoIntegrador.Excepciones.TurnoException;
 import com.Dh.ProyectoIntegrador.entity.Odontologo;
 import com.Dh.ProyectoIntegrador.service.IService;
 import lombok.extern.slf4j.Slf4j;
@@ -59,25 +63,23 @@ public class OdontologoController {
 	//TODO CAMBIAR METODO ACTUALIZAR COMO EL DEL TURNO
 	//TODO cuando se ve el ResponseEnntity?
 	@PutMapping("/actualizar")
-	public ResponseEntity<Odontologo> actualizar(@RequestBody Odontologo odontologo) {
+	public ResponseEntity<Odontologo> actualizar(@RequestBody Odontologo odontologo) throws PacienteException, OdontologoException, DomicilioException, TurnoException {
 		ResponseEntity response = null;
-		try {
+
 			if(odontologo != null) {
 				this.odontologoIService.actualizar(odontologo);
 
 				Odontologo actualizarOdontologo = odontologoIService.buscarPorId(odontologo.getId());
 				log.info("estamos logueando actualizar" + actualizarOdontologo);
-				if (actualizarOdontologo.compareTo(odontologo)==0) {
-					return new ResponseEntity(actualizarOdontologo, HttpStatus.OK);
+
+
+
 				} else {
-					return new ResponseEntity("El odontólogo con el ID especificado no existe", HttpStatus.NOT_FOUND);
+					return new ResponseEntity( HttpStatus.NOT_FOUND);
 				}
-			}
-		} catch (Exception e) {
-			response = new ResponseEntity(e.getMessage(), HttpStatus.CONFLICT);
-			return response;
-		}
-		return  new ResponseEntity("Actualizacion correcta", HttpStatus.OK);
+
+
+		return  new ResponseEntity(odontologo, HttpStatus.OK);
 	}
 
 	//TODO METODO ACTUALIZAR CON VOID? Y EXCEPTION O CAMBIAR EL VOID??

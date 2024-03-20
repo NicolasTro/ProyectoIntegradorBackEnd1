@@ -19,9 +19,8 @@ window.addEventListener('load', function(e){
     
 
     formulario.addEventListener('submit', function (e) {
-//        e.preventDefault()
-  console.log(formulario);
-  console.log("actualizacion")
+        // e.preventDefault()
+  
   const formData = {
       id,
       nombre: document.querySelector("#nombreUpdate").value,
@@ -39,25 +38,26 @@ window.addEventListener('load', function(e){
        }
        
        fetch(url, settings)
-           .then(response => response.json())
-           .then(data => {
+           .then((response) => response.json())
+           .then((data) => {
+            console.log(data);
                 let successAlert = '<div class="alert alert-success alert-dismissible">' +
                     '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
                     '<strong></strong> Odontólogo Actualizado </div>'
 
-                document.querySelector('#response').innerHTML = successAlert;
-                document.querySelector('#response').style.display = "block";
+                document.querySelector('#responseDentist').innerHTML = successAlert;
+                document.querySelector('#responseDentist').style.display = "block";
 
                 
            })
-           .catch(error => {
+           .catch((error) => {
              let errorAlert = "<div class='alert alert-danger alert-dismissible'>"+
                                     "<button type='button' class='close' data-dismiss='alert'>&times;</button>"+ 
                                     "<strong> Error intente nuevamente</strong></div>"
 
-//console.log(error)
-//                     document.querySelector('#response').innerHTML = errorAlert;
-//                     document.querySelector('#response').style.display = "block";
+
+                    document.querySelector('#responseDentist').innerHTML = errorAlert;
+                    document.querySelector('#responseDentist').style.display = "block";
 
                     });
 
@@ -65,7 +65,7 @@ window.addEventListener('load', function(e){
        let pathname = window.location.pathname;
        if(pathname === "/"){
            document.querySelector(".nav .nav-item a:first").addClass("active");
-       } else if (pathname == "/odotologoLista.html") {
+       } else if (pathname == "/odontologoLista.html") {
            document.querySelector(".nav .nav-item a:last").addClass("active");
        }
     });

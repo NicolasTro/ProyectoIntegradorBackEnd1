@@ -65,7 +65,7 @@ public class PacienteController {
 			response = new ResponseEntity(e.getMessage(), HttpStatus.CONFLICT);
 			return response;
 		}
-		return new ResponseEntity("Actualizacion correcta de Paciente", HttpStatus.OK);
+		return new ResponseEntity(paciente, HttpStatus.OK);
 	}
 
 	@DeleteMapping("/eliminar/{id}")

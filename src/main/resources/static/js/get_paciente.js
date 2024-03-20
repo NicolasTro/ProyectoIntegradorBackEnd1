@@ -48,10 +48,12 @@ window.addEventListener("load", function () {
 
 function cargarEncabezadoTabla() {
     let table = document.getElementById("tablePaciente");
-    let pacienteRowHeader = table.insertRow();
+    let  encabezadoTabla = document.createElement("thead")
+    encabezadoTabla.id = "encabezado";
+    table.appendChild(encabezadoTabla);
+    let pacienteRowHeader = document.getElementById("encabezado");
 
     pacienteRowHeader.innerHTML =
-    "<thead><tr>" +
     "<th scope='col'>Id</th>" +
     "<th scope='col'>Nombre</th>" +
     "<th scope='col'>Apellido</th>" +
@@ -70,7 +72,7 @@ function noSeEncontraronRegistro() {
 
     let filSinRegistro = document.getElementById("idSinRegistro");
 
-    filSinRegistro.innerHTML = "<td>No se encontraron registros</td>";
+    filSinRegistro.innerHTML = "<td></td><td>No se encontraron registros</td><td></td><td></td><td></td>";
 
 }
 function cargarCuerpoTabla(){

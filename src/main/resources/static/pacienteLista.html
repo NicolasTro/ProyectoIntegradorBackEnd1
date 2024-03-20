@@ -48,7 +48,7 @@
             <div class="listadoPaciente">
               <div class="headerTablita">
                 <h1 class="tituloTablita">Listado de Pacientes</h1>
-                <button type="button" class="btn btn-dark tituloTablita btnRegistrarHeader" data-toggle="modal" data-target="#staticBackdropOdontologo">Registrar paciente</button>
+                <button type="button" class="btn btn-dark tituloTablita btnRegistrarHeader" data-toggle="modal" data-target="#staticBackdropPaciente">Registrar paciente</button>
               </div>
 
               <table id="tablePaciente" class="table table-striped table-responsive posicionRegistros">
@@ -59,6 +59,122 @@
         </div>
       </div>
     </div>
+<!--    MODAL DE REGISTRO-->
+    <div class="modal fade" id="staticBackdropPaciente" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelPaciente" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title" id="staticBackdropLabelPaciente">Registro de pacientes</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div style="background-color: #e6fffa; padding: 10px; border-radius: 3px">
+              <h5>Ingreso de datos</h5>
+              <form id="agregarPaciente">
+                <div class="form-group">
+                  <label class="control-label" for="nombrePaciente">Nombre:</label>
+                  <input type="text" class="form-control" id="nombrePaciente" placeholder="Ingrese el nombre" name="nombre" required />
+                </div>
+                <div class="form-group">
+                  <label class="control-label" for="apellidoPaciente">Apellido:</label>
+                  <input type="text" class="form-control" id="apellidoPaciente" placeholder="Ingrese el apellido" name="apellido" required />
+                </div>
+                <div class="form-group">
+                  <label class="control-label" for="dni">DNI:</label>
+                  <input type="text" class="form-control" id="dni" placeholder="Ingrese su DNI" name="DNI" required />
+                </div>
+                <div class="form-group">
+                  <label class="control-label" for="fechaIngreso">Fecha de Ingreso:</label>
+                  <input type="text" class="form-control" id="fechaIngreso" placeholder="Ingrese la Fecha de Ingreso" name="fechaIngreso" required />
+                </div>
+                <div class="form-group">
+                  <label class="control-label" for="domicilioCalle">Calle</label>
+                  <input type="text" class="form-control" id="domicilioCalle" placeholder="Ingrese la calle." name="domicilioCalle" required />
+                </div>
+                <div class="form-group">
+                  <label class="control-label" for="domicilioNumero">Numero de domicilio</label>
+                  <input type="text" class="form-control" id="domicilioNumero" placeholder="Ingrese el numero." name="domicilioNumero" required />
+                </div>
+                <div class="form-group">
+                  <label class="control-label" for="domicilioLocalidad">Localidad</label>
+                  <input type="text" class="form-control" id="domicilioLocalidad" placeholder="Ingrese el localidad." name="domicilioLocaclidad" required />
+                </div>
+                <div class="form-group">
+                  <label class="control-label" for="domicilioProvincia">Provincia</label>
+                  <input type="text" class="form-control" id="domicilioProvincia" placeholder="Ingrese el provincia." name="domicilioProvincia" required />
+                </div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-success">Guardar</button>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                </div>
+              </form>
+              <div id="responsePatient" style="display: none; margin-top: 10px"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!--  MODAL ACTUALIZAR-->
+    <div class="modal fade" id="staticBackdropPacienteUpdate" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelPacienteUpdate" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title" id="staticBackdropLabelPacienteUpdate">Registro de pacientes</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div style="background-color: #e6fffa; padding: 10px; border-radius: 3px">
+              <h5>Ingreso de datos</h5>
+              <form id="updatePaciente">
+                <div class="form-group">
+                  <label class="control-label" for="nombrePacienteUpdate">Nombre:</label>
+                  <input type="text" class="form-control" id="nombrePacienteUpdate" placeholder="Actualica el nombre" name="nombre" required />
+                </div>
+                <div class="form-group">
+                  <label class="control-label" for="apellidoPacienteUpdate">Apellido:</label>
+                  <input type="text" class="form-control" id="apellidoPacienteUpdate" placeholder="Actualica el apellido" name="apellido" required />
+                </div>
+                <div class="form-group">
+                  <label class="control-label" for="dniUpdate">DNI:</label>
+                  <input type="text" class="form-control" id="dniUpdate" placeholder="Actualice su DNI" name="DNI" required />
+                </div>
+                <div class="form-group">
+                  <label class="control-label" for="fechaIngresoUpdate">Fecha de Ingreso:</label>
+                  <input type="text" class="form-control" id="fechaIngresoUpdate" placeholder="Actualiza la Fecha de Ingreso" name="fechaIngreso" required />
+                </div>
+                <div class="form-group">
+                  <label class="control-label" for="domicilioCalle">Calle</label>
+                  <input type="text" class="form-control" id="domicilioCalleUpdate" placeholder="Actualice la calle." name="domicilioCalle" required />
+                </div>
+                <div class="form-group">
+                  <label class="control-label" for="domicilioNumeroUpdate">Numero de domicilio</label>
+                  <input type="text" class="form-control" id="domicilioNumeroUpdate" placeholder="Actualice el numero." name="domicilioNumero" required />
+                </div>
+                <div class="form-group">
+                  <label class="control-label" for="domicilioLocalidadUpdate">Localidad</label>
+                  <input type="text" class="form-control" id="domicilioLocalidadUpdate" placeholder="Actualice la localidad." name="domicilioLocaclidad" required />
+                </div>
+                <div class="form-group">
+                  <label class="control-label" for="domicilioProvinciaUpdate">Provincia</label>
+                  <input type="text" class="form-control" id="domicilioProvinciaUpdate" placeholder="Actualice la provincia." name="domicilioProvincia" required />
+                </div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-success">Guardar</button>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                </div>
+              </form>
+              <div id="responsePatientUpdate" style="display: none; margin-top: 10px"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
   <script text="text/javascript" src="js/get_paciente.js"></script>
+  <script text="text/javascript" src="js/post_paciente.js"></script>
+  <script text="text/javascript" src="js/update_paciente.js"></script>
 </html>

@@ -1,107 +1,19 @@
-*{
-    border: solid black 1px;
+.navbar-toggler {
+  visibility: hidden;
+}
+#registrarOdontologos {
+  position: relative;
 }
 
-
-.navbar-toggler{
-visibility: hidden;
-}
- #registrarOdontologos{
-    position: relative;
-   
-} 
-
-
-
-
-@media(max-width: 768px){
-
-html{
-
-    border: solid green 1px;
-    height: 103%;
+.imagenPrincipal {
+  background-image: url("../images/beautiful-spacious-office-dentist.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
 }
 
-body{
-    border: solid red 1px;
-    height: 100%;
-}
-
-
- .imagenPrincipal{
-    border: solid blue 1px;
-   
-    height: 83%;
-    
-
-} 
-.navbar-toggler{
+@media (min-width: 0px) and (max-width: 991px) {  
+  .navbar-toggler {
     visibility: visible;
+  }
 }
-
-
-
-
-.imagenPrincipal{
- 
-    background-image: url("../images/FondoMobile1.png");
-    background-size: cover;
-    background-position: center;
-
-    z-index: -1; 
-}
-
-
-}
-
-@media (min-width: 769px) and (max-width: 991px){
-
-    .imagenPrincipal{
- 
-        background-image: url("../images/FondoMobile1.png");
-        background-size: cover;
-        background-position: center;
-        height: 89%;
-        z-index: -1; 
-        border: solid magenta 3px;
-    }
-html{
-height: 100%;
-border: solid green 3px;
-}
-
-body{
-    border: solid red 3px;
-height: 100%;
-}
-
-
-    #registrarOdontologos{
-      
-        top: 5%;
-     
-        height: 60%;
-  
-    }
-
-    
-    .navbar-toggler{
-        visibility: visible;
-    }
-}
-
-@media (min-width: 992px) and (max-width: 1199px){
-
-/* 576
-767
-768 991
-992 1199
-1200
-
-*/
-
-}
-
-
-
-

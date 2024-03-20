@@ -1,18 +1,13 @@
-/* *{
-border: solid black 1px;
-
-} */
-
 .fondo {
   background-image: url("../images/2149443493.jpg");
 
   background-size: cover;
-  /* background-position: center; */
+
   background-repeat: no-repeat;
   height: 100vh;
 }
 
-.tablaOd {
+.tablaRegistros  {
   background-image: url("../images/PlanillaMediaResol.png");
   background-size: cover;
   background-repeat: no-repeat;
@@ -24,12 +19,16 @@ border: solid black 1px;
   height: 100%;
 }
 
+.navbar-toggler {
+  visibility: hidden;
+}
 
-@media (min-width: 0px) and (max-width:768px){
- 
-
+@media (min-width: 0px) and (max-width: 576px) {
+  .navbar-toggler {
+    visibility: visible;
+  }
   .contenedorTablita {
-    padding-top: 20px;    
+    padding-top: 20px;
     height: 80vh;
   }
 
@@ -44,150 +43,331 @@ border: solid black 1px;
   .posicionRegistros {
     position: relative;
     top: 80px;
-    
   }
 
-  .btnRegistrarHeader{
+  .btnRegistrarHeader {
     width: 62%;
     position: relative;
     align-self: center;
     font-size: 14px;
   }
 
-  .headerTablita{
+  .headerTablita {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
   }
+
   table {
-    
     font-size: 8px;
-    max-height: 430px; /* Establece la altura máxima según tus necesidades */
-    overflow-y: auto; /* Permite el desbordamiento vertical */
+    max-height: 430px;
+    overflow-y: auto;
   }
-  
 }
 
+@media (min-width: 577px) and (max-width: 768px) {
+  .navbar-toggler {
+    visibility: visible;
+  }
+  .contenedorTablita {
+    padding-top: 30px;
+    height: 95vh;
+  }
 
-
-@media (min-width: 769px) and (max-width: 990px){
-
-  
   .tituloTablita {
     font-size: 20px;
     display: flex;
     justify-content: center;
     position: relative;
-    top: 70px;
+    top: 140px;
   }
 
   .posicionRegistros {
     position: relative;
-    top: 80px;
-    
+    top: 160px;
   }
 
-  .btnRegistrarHeader{
+  .listado  {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-self: center;
+  }
+
+  .btnRegistrarHeader {
     width: 62%;
     position: relative;
     align-self: center;
     font-size: 14px;
   }
 
-
-
-  table {
-    font-size: 25px;
-    max-height: 510px; /* Establece la altura máxima según tus necesidades */
-    overflow-y: auto; /* Permite el desbordamiento vertical */
-  }
-  .contenedorTablita {
-    height: 90vh;
-  }
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media (min-width: 991px) and (max-width:1200px){
- 
-  .btnRegistrarHeader{
-    width: 62%;
-    position: relative;
-    align-self: center;
-  }
-
-  .contenedorTablita {
-    height: 85vh;
-  }
-  .headerTablita{
+  .headerTablita {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
   }
+  table {
+    font-size: 18px;
+    max-height: 900px; /* Establece la altura máxima según tus necesidades */
+    overflow-y: auto; /* Permite el desbordamiento vertical */
+  }
+}
+
+@media (min-width: 769px) and (max-width: 990px) {
+  .navbar-toggler {
+    visibility: visible;
+  }
+  .tituloTablita {
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 170px;
+  }
+
   .posicionRegistros {
     position: relative;
-    top: -34px;
+    top: 190px;
 
-    
+    width: 80%;
   }
+  .headerTablita {
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .btnRegistrarHeader {
+    width: 78%;
+    position: relative;
+    align-self: center;
+    font-size: 20px;
+  }
+
+  .listado  {
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  /* 
   .listadoOdontologos{
     display: flex;
     justify-content: center;
-  }
-
-
-  .tituloTablita {
-    font-size: 20px;
-    display: flex;
-    justify-content: center;
-    position: relative;
-    top: -34px;
-  }
+  } */
   table {
-    font-size: 16px;
-    max-height: 410px; /* Establece la altura máxima según tus necesidades */
+    font-size: 24px;
+    max-height: 810px; /* Establece la altura máxima según tus necesidades */
     overflow-y: auto; /* Permite el desbordamiento vertical */
+    /* border: solid black 3px;     */
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
   }
-  
+
+  .contenedorTablita {
+    height: 95vh;
+    padding-top: 30px;
+  }
 }
 
-@media (min-width:1501px){
+@media (min-width: 991px) and (max-width: 1200px) {
+  
+  .btnRegistrarHeader {
+    width: 85%;
+    position: relative;
+    align-self: center;
+    font-size: 22px;
+  }
+  .collapse navbar-collapse{
+visibility: hidden;
+  }
+
+  .contenedorTablita {
+    height: 100vh;
+    padding-top: 30px;
+    width: 80%;
+  }
+
+  .headerTablita {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
   .posicionRegistros {
     position: relative;
-    top: -4px;
-    
+    top: 240px;
+    width: 90%;
+    border: solid black 2px;
   }
+  .listado  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .tituloTablita {
-    font-size: 20px;
+    /* font-size: 35px; */
     display: flex;
     justify-content: center;
     position: relative;
-    top: -4px;
+    top: 210px;
+  }
+  table {
+    font-size: 20px;
+    max-height: 760px;
+    overflow-y: auto;
+    width: 100%;
+    border: solid black 2px;
+  }
+}
+
+@media (min-width: 1201px) and (max-width: 1500px) {
+  .btnRegistrarHeader {
+    width: 85%;
+    position: relative;
+    align-self: center;
+    font-size: 22px;
   }
 
+  .contenedorTablita {
+    height: 100vh;
+    padding-top: 30px;
+    width: 80%;
+  }
+
+  .headerTablita {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .posicionRegistros {
+    position: relative;
+    top: 280px;
+    width: 85%;
+    border: solid black 2px;
+  }
+  .listado  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tituloTablita {
+    /* font-size: 35px; */
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 270px;
+  }
   table {
-    font-size: 18px;
-    max-height: 410px; /* Establece la altura máxima según tus necesidades */
-    overflow-y: auto; /* Permite el desbordamiento vertical */
+    font-size: 30px;
+    max-height: 760px;
+    overflow-y: auto;
+    width: 100%;
+    border: solid black 2px;
+  }
+}
+
+@media (min-width: 1501px) and (max-width: 2000px) {
+  .btnRegistrarHeader {
+    width: 85%;
+    position: relative;
+    align-self: center;
+    font-size: 20px;
+  }
+
+  .contenedorTablita {
+    height: 100vh;
+    padding-top: 60px;
+    width: 80%;
+  }
+
+  .headerTablita {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .posicionRegistros {
+    position: relative;
+    top: 290px;
+    width: 75%;
+    border: solid black 2px;
+  }
+  .listado  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tituloTablita {
+    /* font-size: 35px; */
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 270px;
+  }
+  table {
+    font-size: 30px;
+    max-height: 900px;
+    overflow-y: auto;
+    width: 100%;
+    border: solid black 2px;
+  }
+}
+
+@media (min-width: 2001px) {
+  .btnRegistrarHeader {
+    width: 85%;
+    position: relative;
+    align-self: center;
+    font-size: 10px;
+  }
+
+  .contenedorTablita {
+    padding-top: 50px;
+    height: 90vh;
+    width: 50%;
+  }
+
+  .headerTablita {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .posicionRegistros {
+    position: relative;
+    top: 260px;
+    width: 78%;
+    /* border: solid black 2px; */
+  }
+  .listado  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tituloTablita {
+    font-size: 60px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    font-size: 40px;
+    top: 240px;
+  }
+
+  .headerTablita button {
+    font-size: 30px;
+  }
+  table {
+    font-size: 25px;
+    max-height: 670px;
+    overflow-y: auto;
+    width: 100%;
+    /* border: solid black 2px; */
   }
 }

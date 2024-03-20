@@ -2,6 +2,7 @@ package com.Dh.ProyectoIntegrador.controller;
 
 import com.Dh.ProyectoIntegrador.entity.Odontologo;
 import com.Dh.ProyectoIntegrador.service.IService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("odontologos")
+@Slf4j
 public class OdontologoController {
 
 	private IService<Odontologo> odontologoIService;
@@ -64,6 +66,7 @@ public class OdontologoController {
 				this.odontologoIService.actualizar(odontologo);
 
 				Odontologo actualizarOdontologo = odontologoIService.buscarPorId(odontologo.getId());
+				log.info("estamos logueando actualizar" + actualizarOdontologo);
 				if (actualizarOdontologo.compareTo(odontologo)==0) {
 					return new ResponseEntity(actualizarOdontologo, HttpStatus.OK);
 				} else {

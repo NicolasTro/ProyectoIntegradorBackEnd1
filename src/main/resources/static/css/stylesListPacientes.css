@@ -1,43 +1,61 @@
-@media (max-width: 768px) {
-  
-  .fondoPacientes {
-    background-image: url("../images/_39f2251f-2f14-4f70-a183-986baf460412.jpeg");
 
-    background-size: cover;
-    /* background-position: top; */
-    background-repeat: no-repeat;
-    height: 100vh;
-    /* border: solid black 3px; */
-  }
+@import url('stylesListOd.css');
 
+
+
+.fondo {
+  background-image: url("../images/_39f2251f-2f14-4f70-a183-986baf460412.jpeg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
   
+}
+
+
+
+.tablaRegistros{
+
+  background-image: url("../images/PlanillaMediaResol.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.5);
+  border: solid black 3px;
+
+  height: 100%;
+}
+
+
+
+@media (min-width: 0px) and (max-width: 576px){
+
+
+/* .contenedorTablita{
+
+height: 600px;
+
+}
+
 .listadoPaciente{
-  /* background-color: rgb(223, 216, 202); */
-  /* background-color: #F3D77E; */
-  
-  background-color: #F8E4A3;
-  
-}
-
-
-.tablaPaciente{
   display: flex;
-  align-items: center;
-  border: solid black 1px;
-  position: relative;
-  top: 100px;
-}
-  
- 
- 
-}
-/* 
-@media (min-width: 769px) and (max-width: 991px) {
-  .fondo {
-    background-image: url("../images/2149443493.jpg");
 
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-  }
-} */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+table {
+  font-size: 5px;
+  max-height: 260px;
+  overflow-y: auto;
+  width: 80%;
+  border: solid black 2px;
+}
+ */
+
+
+
+}

@@ -51,6 +51,8 @@ function cargarEncabezadoTabla() {
   let tabla = document.getElementById("dentistTable");
   let encabezadoTabla = document.createElement("thead");
   encabezadoTabla.id = "encabezado";
+  encabezadoTabla.className="thead-dark ";
+  encabezadoTabla.className+="sticky-top";
   tabla.appendChild(encabezadoTabla);
   let dentistRowHeader = document.getElementById("encabezado");
   dentistRowHeader.innerHTML = "<th scope='col'>Id</th>" + "<th scope='col'>Nombre</th>" + "<th scope='col'>Apellido</th>" + "<th scope='col'>Matrícula</th>" + "<th scope='col'>Gestionar </th>";

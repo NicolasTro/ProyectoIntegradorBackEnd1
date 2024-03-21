@@ -37,8 +37,23 @@ public class OdontologoService implements IService<Odontologo> {
 		this.odontologoRepository.save(odontologo);
 	}
 
-	public Odontologo buscarPorId(Long id) throws OdontologoException, DomicilioException, PacienteException, TurnoException {
+	public Odontologo buscarPorId(Integer tipoDeBusqueda, String valor) throws OdontologoException, DomicilioException, PacienteException, TurnoException {
+		switch (tipoDeBusqueda){
+
+			case 1:
+				Long id = Long.parseLong(valor);
 		Optional<Odontologo> odontologoOptional = odontologoRepository.findById(id);
+
+				break;
+			case 2:
+				Optional<Odontologo> odontologoOptional = odontologoRepository.findById(id);
+
+		}
+
+
+
+
+
 		if(odontologoOptional.isPresent()) {
 			return odontologoOptional.get();
 		} else {

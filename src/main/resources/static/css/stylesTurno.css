@@ -5,16 +5,22 @@
 
 .fondo{
 
-    background-image: url("../images/view-international-worker-s-day-still-life.jpg");
-    background-position: left;
+    background-image: url("../images/dentist-healthcare-medical-schedule-appointment-concept.jpg");
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     
-    height: 100vh;
-    border: solid black 3px;
+    height: 89.6vh;
+    border: solid black 1px;
     /* width: 80%; */
 }
-/* .contenedor{
-    height: 500px;
-    width: 500px;
-} */
+
+.contenedorTablita{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgb(237, 233, 213);
+    width: 20%;
+    box-shadow: 10px 10px 5px 5px rgba(0,0,0,0.5);
+    align-items: center;
+}

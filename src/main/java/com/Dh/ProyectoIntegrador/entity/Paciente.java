@@ -4,12 +4,13 @@ import java.sql.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import lombok.*;
 
 @Entity
-@Table(name = "paciente")
+@Table(name = "pacientes")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -27,6 +28,7 @@ public class Paciente {
     @JoinColumn(name = "domicilio_id")
     private Domicilio domicilio;
     @OneToMany(mappedBy = "paciente")
+
     private Set<Turno> turnoSet = new HashSet<>();
 
 }

@@ -2,6 +2,7 @@ package com.Dh.ProyectoIntegrador.entity;
 
 import java.sql.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import lombok.*;
@@ -17,9 +18,13 @@ public class Turno {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "paciente_id")
+    @JsonIgnoreProperties("turnoSet")
     private Paciente paciente;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "odontologo_id")
+    @JsonIgnoreProperties("turnoSet")
     private Odontologo odontologo;
     private Date fechaYHora;
 

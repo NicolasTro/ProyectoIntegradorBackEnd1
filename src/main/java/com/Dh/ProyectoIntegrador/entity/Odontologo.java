@@ -1,5 +1,6 @@
 package com.Dh.ProyectoIntegrador.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import lombok.*;
@@ -14,7 +15,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Odontologo implements Comparable {
+public class Odontologo {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,42 +24,8 @@ public class Odontologo implements Comparable {
 	private String apellido;
 	private String matricula;
 	@OneToMany(mappedBy = "odontologo")
+
 	private Set<Turno> turnoSet = new HashSet<>();
 
-	@Override
-	public int compareTo(Object object) {
-		if (object instanceof Odontologo) {
-			Odontologo odontologoAComparar = (Odontologo) object;
-			if (this.id < (odontologoAComparar.getId())) {
-				return -1;
-			} else if (this.id > odontologoAComparar.getId()) {
-				return 1;
-			} else {
 
-				if (this.nombre.compareTo(odontologoAComparar.getNombre()) < 0) {
-					return -1;
-				} else if (this.nombre.compareTo(odontologoAComparar.getNombre()) > 0) {
-					return 1;
-				} else {
-
-					if (this.apellido.compareTo(odontologoAComparar.getApellido()) < 0) {
-						return -1;
-					} else if (this.apellido.compareTo(odontologoAComparar.getApellido()) > 0) {
-						return 1;
-					} else {
-
-						if (this.matricula.compareTo(odontologoAComparar.getMatricula()) < 0) {
-							return -1;
-						} else if (this.matricula.compareTo(odontologoAComparar.getMatricula()) > 0) {
-							return 1;
-						} else {
-
-							return 0;
-						}
-					}
-				}
-			}
-		}
-		return -1;
-	}
 }

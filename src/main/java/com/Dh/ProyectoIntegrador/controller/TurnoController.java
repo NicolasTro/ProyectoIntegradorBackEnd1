@@ -41,7 +41,7 @@ public class TurnoController {
 			turnoIService.actualizar(turno);
 			Turno nuevoTurno = turnoIService.buscarPorId(turno.getId());
 			if(nuevoTurno.equals(turno)){
-			response = new ResponseEntity("Actualizacion correcta", HttpStatus.ACCEPTED);
+			response = new ResponseEntity(HttpStatus.ACCEPTED);
 			}else{
 			response = new ResponseEntity("No se pudieron modificar los registros", HttpStatus.CONFLICT);
 			}

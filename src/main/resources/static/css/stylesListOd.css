@@ -4,6 +4,13 @@
   background-size: cover;
 
   background-repeat: no-repeat;
+  
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  position: relative;
 }
 
 
@@ -14,185 +21,268 @@
 .listado {
   box-shadow: 10px 10px 5px 5px rgba(0,0,0,0.5);
   background-color: rgba(251, 251, 251, 0.7);
+  height: calc(100vh - 122px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+
 
 legend{
   font-weight: bold;
 }
 
 .headerTablita, legend, .registros, .btnRegistrarHeader, fieldset, .contenedorTablita{
-
   margin-top: 20px;
 }
 
 
-.botones {
-      
+.botones {      
   display: flex;
   justify-content: center;
 }
 
+.headerTablita {
+  width: 100%;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-@media (min-width: 0px) and (max-width: 576px) {
+
+
+table{
+  
+  box-shadow: 10px 10px 5px 5px rgba(0,0,0,0.5);
+  border: solid black 2px;
+  border-radius: 5px;
+}
+.registros{
+  width: 80%;
+  
+  /* height: calc(100vh - 122px);     */
+}
+@media (min-width: 0px) and (max-width: 320px) {
+  
+
+  
   .botones {
-      
+    
     display: flex;
     justify-content: center;
   }
   
-  
   .listado {
     display: flex;
-    flex-direction: column;
+    flex-direction: column;    
+    align-items: center;   
+    height: calc(100vh - 122px); 
     
-    align-items: center;
-    
-    height: 90vh;
   }
 
-  .cabezal {
-    font-size: 20px;
-  }
-  .registros {
-    
-    
-    height: 100vh;
-    font-size: 10px;
-  }
+
+legend{
+  font-size: 16px;
+}
+  
   .navbar-toggler {
     visibility: visible;
   }
 
   .tituloTablita {
-    font-size: 26px;
+    font-size: 16px;
     text-align: center;
     
-  }
-  
-
-  .headerTablita {
-    width: 100%;
     
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
   }
 
-  .fondo {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
 
   table {
     font-size: 8px;
-    max-height: 480px;
+    max-height: 60%;
     overflow-y: auto;
+    
   }
 
-  .posicionRegistros{
-    height: 60%;
+  
+  .navDeRegistros{
+    width: 89%;
+    
+  }
+  
+  .navDeRegistros button, .comboBusqueda {
+    font-size: 12px;
+
+  }
+
+
+
+
+  .table{    
+    max-height: calc(100vh - 122px);
+      }  
+}
+
+@media (min-width: 321px) and (max-width: 375px){
+
+.navbar-toggler {
+  visibility: visible;
+}
+  .navDeRegistros button, .comboBusqueda {
+    font-size: 12px;
+
+  }
+  fieldset .busqueda{
+    display: flex;
+    justify-content: center;
+  }
+    
+   .navDeRegistros{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;    
+    width: 80%;
+   } 
+
+
+  .navDeRegistros legend{
+    text-align: center;
+    font-size: 16px;
+    
+  }
+  .tituloTablita{
+    font-size: 22px;
+  }
+  
+  
+  table {
+    
+    font-size: 8px;
+    max-height: calc(100vh - 122px);
+    overflow-y: auto;
+  }
+  
+
+}
+
+@media (min-width: 376px) and (max-width: 576px){
+  .navbar-toggler {
+    visibility: visible;
+  }
+  .navDeRegistros button, .comboBusqueda {
+    font-size: 12px;
+
+  }
+  fieldset .busqueda{
+    display: flex;
+    justify-content: center;
+
+  }
+    
+   .navDeRegistros{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    
+    width: 80%;
+   } 
+
+
+  .navDeRegistros legend{
+    text-align: center;
+    font-size: 16px;
+    
+  }
+  .tituloTablita{
+    font-size: 22px;
   }
   
   .registros{
     
-    height: 97%;
+    
+    
+    border: solid black 3px;
+  }
+  table {    
+    font-size: 10px;
+    max-height: calc(100vh - 122px);
+    overflow-y: auto;
+   
   }
 }
 
+
 @media (min-width: 577px) and (max-width: 768px) {  
 
-  .listado {
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    
-    align-items: center;
-    
-    height: 80vh;
-    width: 89vw;
-  }
-
-  .registros {
-    
-    
-    height: 100%;
-    
-  }
-  
-  .navDeRegistros .btn{
-    font-size: 20px;        
-  }
   .navbar-toggler {
     visibility: visible;
   }
-  
-  .tituloTablita {    
-    text-align: center;
-    border: solid black 3px;
-  }
-  .formBusqueda {
-    border: solid black 3px;
-  }
-/*   
-  .botones {
-    
-    display: flex;
-    justify-content: space-between;
-  } */
+  .navDeRegistros button, .comboBusqueda {
+    font-size: 12px;
 
-  .headerTablita {
-    
-    width: 100%;
-    
+  }
+  fieldset .busqueda{
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
   }
-
-  .fondo {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  table {
     
-    max-height: 80%;
+   .navDeRegistros{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;    
+    width: 80%;
+   } 
+
+
+  .navDeRegistros legend{
+    text-align: center;
+    font-size: 16px;
+    
+  }
+  .tituloTablita{
+    font-size: 28px;
+  }
+  
+ 
+
+  table {    
+    font-size: 14px;
+    max-height: calc(100vh - 122px);
     overflow-y: auto;
+   
+  }
+  .registros{
+    width: 78%;
   }
 
+.listado{
+  display: flex;
+  justify-content: center;
+}
 }
 
   
   
 
   @media (min-width: 769px) and (max-width: 990px) {
-    .listado {
-      margin-top: 30px;
-      display: flex;
-      flex-direction: column;
-      
-      align-items: center;
-      
-      height: 80vh;
-      width: 80%;
-    }
+    
 
-    .container-fluid{
+    /* .container-fluid{
       display: flex;
       justify-content: center;
       width: 89vw;
-    }
+    } */
   
     .registros {
       
       
-      height: 100%;
+      width:  85%;
       
     }
     
@@ -207,36 +297,11 @@ legend{
       text-align: center;
       
     }
-    /* .formBusqueda {
-      border: solid black 3px;
-    }
-     */
-    /* .botones {
-      
-      display: flex;
-      justify-content: space-between;
-    } */
-  
-    .headerTablita {
-      
-      width: 100%;
-      
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-  
-    .fondo {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-  
+    
     table {
       
-      max-height: 90%;
+      font-size: 19px;
+      max-height: calc(100vh - 122px);
       overflow-y: auto;
     }
   }

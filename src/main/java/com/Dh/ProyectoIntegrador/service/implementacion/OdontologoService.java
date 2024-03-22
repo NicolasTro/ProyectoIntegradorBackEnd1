@@ -8,22 +8,48 @@ import com.Dh.ProyectoIntegrador.entity.Odontologo;
 
 import com.Dh.ProyectoIntegrador.repository.IOdontologoRepository;
 import com.Dh.ProyectoIntegrador.service.IService;
+import com.Dh.ProyectoIntegrador.service.IServiceHQL;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class OdontologoService implements IService<Odontologo> {
+public class OdontologoService implements IService<Odontologo>, IServiceHQL<Odontologo> {
 
 	private IOdontologoRepository odontologoRepository;
 
 	@Autowired
-	public OdontologoService(IOdontologoRepository odontologoRepository) {
+	public OdontologoService( IOdontologoRepository odontologoRepository) {
 		this.odontologoRepository = odontologoRepository;
 	}
+	//  IServiceHQL
+	@Override
+	public Optional<Odontologo> buscar(Integer tipoDeBusqueda, String valor) {
+		Optional<Odontologo> odontologoOptional = null;
+		switch (tipoDeBusqueda){
 
+			case 1:
+				Long id = Long.parseLong(valor);
+				odontologoOptional= odontologoRepository.findById(id);
+				break;
+			case 2:
+				odontologoOptional = odontologoRepository.findByNombre(valor);
+				break;
+			case 3:
+				odontologoOptional = odontologoRepository.findByApellido(valor);
+				break;
+			case 4:
+				odontologoOptional = odontologoRepository.findByMatricula(valor);
+				break;
+
+		}
+		return odontologoOptional;
+	}
+
+    // IService
 
 	public Odontologo guardar(Odontologo odontologo) throws OdontologoException, DomicilioException, PacienteException, TurnoException {
 		return odontologoRepository.save(odontologo);
@@ -37,31 +63,29 @@ public class OdontologoService implements IService<Odontologo> {
 		this.odontologoRepository.save(odontologo);
 	}
 
-	public Odontologo buscarPorId(Integer tipoDeBusqueda, String valor) throws OdontologoException, DomicilioException, PacienteException, TurnoException {
-		switch (tipoDeBusqueda){
-
-			case 1:
-				Long id = Long.parseLong(valor);
+	public Odontologo buscarPorId(Long id) throws OdontologoException, DomicilioException, PacienteException, TurnoException {
 		Optional<Odontologo> odontologoOptional = odontologoRepository.findById(id);
-
-				break;
-			case 2:
-				Optional<Odontologo> odontologoOptional = odontologoRepository.findById(id);
-
-		}
-
-
-
-
-
 		if(odontologoOptional.isPresent()) {
 			return odontologoOptional.get();
 		} else {
 			return null;
 		}
 	}
+//	public Odontologo buscarPorId(Integer tipoDeBusqueda, String valor) throws OdontologoException, DomicilioException, PacienteException, TurnoException {
+//
+//
+//
+//
+//
+//		if(odontologoOptional.isPresent()) {
+//			return odontologoOptional.get();
+//		} else {
+//			return null;
+//		}
+//	}
 
 	public List<Odontologo> listarTodos() throws OdontologoException, DomicilioException, PacienteException, TurnoException {
 		return odontologoRepository.findAll();
 	}
+
 }

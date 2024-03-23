@@ -31,16 +31,16 @@
             <li class="nav-item active">
               <a class="nav-link" href="./index.html">Inicio <span class="sr-only">(current)</span></a>
             </li>
-            
+
             <li class="nav-item dropdown">
               <a class="nav-link active" id="listar">Listar</a>
               <a class="nav-link active dropdown-toggle texto" href="#" role="button" data-toggle="dropdown" aria-expanded="false"> Gestion Odontologos </a>
-        <div class="dropdown-menu">
+              <!-- <div class="dropdown-menu">
           <a class="dropdown-item" href="odontologoUpdate.html">Actualizacion de datos</a>
           <a class="dropdown-item" href="odontologoLista.html">Listar</a>
           <a class="dropdown-item" href="odontologoEliminar.html">Baja</a>
-        </div>
-        <li class="nav-item dropdown"><a class="nav-link" ><span class="sr-only">Listar</span></a></li>
+        </div> -->
+              <!-- <li class="nav-item dropdown"><a class="nav-link" ><span class="sr-only">Listar</span></a></li> -->
             </li>
           </ul>
         </div>
@@ -53,62 +53,44 @@
             <div class="algo">
               <div id="div_dentist_table" class="container-fluid">
                 <div id="listado" class="listado">
-                  
-                  
-                  <div class="headerTablita ">
-                    
+                  <div class="headerTablita">
+                    <h1 class="tituloTablita">Listado de Odontólogos</h1>
 
-                      <h1 class="tituloTablita ">Listado de Odontólogos</h1>
-                    
-                  <div class="navDeRegistros">
-
-                    <div class="botones">
-                      <button type="button" class="btn btn-dark btnRegistrarHeader" data-toggle="modal" data-target="#staticBackdropOdontologo">Registrar odontologo</button>
-                    </div>
-                    
-                    
-                    <fieldset>
-<legend>Busqueda de odontologos</legend>
-                      <div class="formBusqueda" >
-                        
-                        <form class="form-inline my-2 my-lg-0 busqueda">
-                        <input class="form-control  mr-sm-2 idBusqueda" id="search" type="search" placeholder="Search" aria-label="Search" />
-                        <div class="btn-group">
-
-                          <select class="btn btn-dark dropdown-toggle comboBusqueda" id="comboBusqueda">
-                            <option value="1">By: Id</option>
-                          <option value="2">By: Nombre</option>
-                          <option value="3">By: Apellido</option>
-                          <option value="4">By: Matricula</option>                          
-                        </select>
-                        
-                        <button type="button" class="btn btn-dark btn-group btnListarHeader">Reset</button>
-                        <button class="btn  btn-dark btn-group" type="submit">Search</button>
-                        <!-- <button class="btn  btn-dark my-2 my-sm-0" type="submit">Search</button> -->
+                    <div class="navDeRegistros">
+                      <div class="botones">
+                        <button type="button" class="btn btn-dark btnRegistrarHeader" data-toggle="modal" data-target="#staticBackdropOdontologo">Registrar odontologo</button>
                       </div>
+
+                      <fieldset>
+                        <legend>Busqueda de odontologos</legend>
+                        <div class="formBusqueda">
+                          <form class="form-inline my-2 my-lg-0 busqueda" id="formBusqueda">
+                            <input class="form-control mr-sm-2 idBusqueda" id="search" type="search" placeholder="Search" aria-label="Search" />
+                            <div class="btn-group">
+                              <select class="btn btn-dark dropdown-toggle comboBusqueda" id="comboBusqueda">
+                                <option value="1">By: Id</option>
+                                <option value="2">By: Nombre</option>
+                                <option value="3">By: Apellido</option>
+                                <option value="4">By: Matricula</option>
+                              </select>
+
+                              <button type="button" class="btn btn-dark btn-group btnListarHeader">Reset</button>
+                              <button class="btn btn-dark btn-group" type="submit">Search</button>
+                              <!-- <button class="btn  btn-dark my-2 my-sm-0" type="submit">Search</button> -->
+                            </div>
                           </form>
                         </div>
                       </fieldset>
-                  </div>  
-                  
-    
-  
-                      
-                        
-                      
                     </div>
-
-<!-- <div class="posicionRegistros"> -->
-
-  
-  
-  
-  <table id="dentistTable" class="registros table table-striped table-responsive"></table>
-<!-- </div> -->
-
                   </div>
 
+                  <!-- <div class="posicionRegistros"> -->
+
+                  <table id="dentistTable" class="registros table table-striped table-responsive"></table>
+                  <!-- </div> -->
                 </div>
+
+                <!-- </div> -->
               </div>
             </div>
           </div>

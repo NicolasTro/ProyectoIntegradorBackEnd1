@@ -44,6 +44,11 @@ window.addEventListener("load", function () {
   clearTabla();
   obtenerListaPacientes();
   })
+
+
+
+
+
 });
 
 function cargarEncabezadoTabla() {
@@ -107,3 +112,5 @@ return `<td class="td_id align-middle tamanioTexto">${patient.id}</td>
                                           </div>
                                         </td>`;
 }
+
+

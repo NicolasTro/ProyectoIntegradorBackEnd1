@@ -45,6 +45,15 @@ window.addEventListener("load", function () {
     clearTabla();
     obtenerListaOdontologos();
   });
+
+  let formularioBusqueda = document.getElementById("formBusqueda");
+console.log(formularioBusqueda);
+formularioBusqueda.addEventListener("submit", function(event){
+event.preventDefault();
+console.log("aca no busca");
+busquedaPersonalizada();
+
+})
 });
 
 function cargarEncabezadoTabla() {
@@ -94,3 +103,78 @@ dentist.id
 
 
 }
+
+
+function busquedaPersonalizada(){
+
+
+  let tipoDeBusqueda = document.getElementById("comboBusqueda");
+  let valorBusqueda = document.getElementById("search");
+  console.log(tipoDeBusqueda.value);
+
+
+
+
+  
+          const url = `/odontologos/buscar?valor=${valorBusqueda.value}&tipoDeBusqueda=${tipoDeBusqueda.value}`;
+          console.log(url);
+          const settings = {
+            method: "GET",
+          };
+          
+         return fetch(url, settings)
+            .then((response) => response.json())
+            .then((data) => {
+              clearTabla();
+
+if(data.length==1){
+
+  
+  // console.log(data);
+  // console.log(data[0].id);
+  let tablaBody = document.getElementById("cuerpoTabla");
+  console.log(tablaBody);
+  tablaBody.innerHTML = "";
+  let dentistRow = tablaBody.insertRow();
+  
+  let tr_id = "tr_" + data[0].id;
+  
+  dentistRow.id = tr_id;
+  dentistRow.innerHTML = cargarRegistro(data[0]);
+}else{
+
+  
+  let body = document.getElementById("cuerpoTabla");
+          console.log(body);
+          for (dentist of data) {
+            dentistRow = body.insertRow();
+            let tr_id = "tr_" + dentist.id;
+            dentistRow.id = tr_id;            
+            dentistRow.innerHTML = cargarRegistro(dentist);
+
+
+
+          }
+              
+}              
+              
+            })
+            .catch((error) => {
+              noSeEncontraronRegistros();
+            });
+
+            
+       // todo PARA QUE SIRVE ESTA FUNCION 
+      // (function () {
+      //     let pathname = window.location.pathname;
+      //     if (pathname == "/odontologoLista.html") {
+      //       document.querySelector(".nav .nav-item a:last").addClass("active");
+      //     }
+      //   });
+
+
+
+  
+  
+  
+  }

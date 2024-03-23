@@ -40,7 +40,7 @@ public class OdontologoController {
 			Optional<List<Odontologo>> odontologoBuscar = odontologoIServiceHQL.buscar(tipoDeBusqueda, valor);
 
 			if (odontologoBuscar != null) {
-				response = new ResponseEntity<>(odontologoBuscar, HttpStatus.FOUND);
+				response = new ResponseEntity<>(odontologoBuscar.get(), HttpStatus.FOUND);
 			} else {
 				response = new ResponseEntity(HttpStatus.NOT_FOUND);
 			}

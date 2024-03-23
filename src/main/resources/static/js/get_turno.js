@@ -7,7 +7,7 @@ function obtenerListaTurnos() {
     return fetch(url, settings)
       .then((response) => response.json())
       .then((data) => {
-            
+            console.log(data);
         if (data.length > 0) {
           
             let body = document.getElementById("cuerpoTabla");
@@ -80,8 +80,9 @@ function obtenerListaTurnos() {
   }
   
   function cargarRegistro(turno){
-    return  `<td class="td_id align-middle tamanioTexto">${turno.id}</td><td class="td_odontologo align-middle tamanioTexto">${turno.odontologo.id}</td>
-    <td class="td_paciente align-middle tamanioTexto">${turno.paciente.id}</td><td><div class="dropdown"><button class='btn btn-secondary dropdown-toggle' type='button'data-toggle='dropdown' aria-expanded='false'></button><div class='dropdown-menu'><button type='button' data-id=${
+    console.log(turno);
+    return  `<td class="td_id align-middle tamanioTexto">${turno.id}</td><td class="td_odontologo align-middle tamanioTexto">${turno.odontologo.nombre}</td>
+    <td class="td_paciente align-middle tamanioTexto">${turno.paciente.nombre}</td><td class="td_fechaTurno align-middle tamanioTexto">${turno.fechaYHora}</td><td><div class="dropdown"><button class='btn btn-secondary dropdown-toggle' type='button'data-toggle='dropdown' aria-expanded='false'></button><div class='dropdown-menu'><button type='button' data-id=${
   turno.id
   } class='btn btn-primary btnTabla dropdown-item' data-toggle='modal' data-target='#staticBackdrop'>Modificar</button><button type='button' data-id=${
   turno.id

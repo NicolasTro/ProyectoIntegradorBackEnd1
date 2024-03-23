@@ -62,9 +62,14 @@ table{
 }
 .registros{
   width: 80%;
+  width: fit-content;
   
-  /* height: calc(100vh - 122px);     */
 }
+
+.comboBusqueda{
+  border-radius: 0.25rem 0 0 0.25rem;
+}
+
 @media (min-width: 0px) and (max-width: 320px) {
   
 
@@ -119,8 +124,6 @@ legend{
   }
 
 
-
-
   .table{    
     max-height: calc(100vh - 122px);
       }  
@@ -165,6 +168,9 @@ legend{
     max-height: calc(100vh - 122px);
     overflow-y: auto;
   }
+  .registros{
+    width: calc(100vw - 30%);
+  }
   
 
 }
@@ -202,14 +208,15 @@ legend{
     font-size: 22px;
   }
   
-  .registros{
+  /* .registros{
     
-    
+    width: fit-content;
     
     border: solid black 3px;
-  }
+  } */
   table {    
-    font-size: 10px;
+    font-size: 7px;
+    width: fit-content;
     max-height: calc(100vh - 122px);
     overflow-y: auto;
    
@@ -249,7 +256,6 @@ legend{
     font-size: 28px;
   }
   
- 
 
   table {    
     font-size: 14px;
@@ -258,13 +264,10 @@ legend{
    
   }
   .registros{
-    width: 78%;
+    width: fit-content;
   }
 
-.listado{
-  display: flex;
-  justify-content: center;
-}
+
 }
 
   
@@ -273,18 +276,6 @@ legend{
   @media (min-width: 769px) and (max-width: 990px) {
     
 
-    /* .container-fluid{
-      display: flex;
-      justify-content: center;
-      width: 89vw;
-    } */
-  
-    .registros {
-      
-      
-      width:  85%;
-      
-    }
     
     .navDeRegistros .btn{
       font-size: 20px;        
@@ -306,136 +297,124 @@ legend{
     }
   }
 
-  @media (min-width: 991px) and (max-width: 1200px) {
-    
-    .collapse navbar-collapse {
+  @media (min-width: 991px) and (max-width: 1200px) {    
+    .navbar-toggler {
       visibility: hidden;
     }
 
-    .listado {
-      margin-top: 30px;
-      display: flex;
-      flex-direction: column;      
-      align-items: center;      
-      height: 80vh;
-      width: 80%;
-    }
-
-    .container-fluid{
-      display: flex;
-      justify-content: center;
-      width: 89vw;
-    }
+    .navDeRegistros button, .comboBusqueda {
+      font-size: 16px;
   
-    .registros {
-      
-      
-      height: 100%;
-      
     }
-    
-    .navDeRegistros .btn{
-      font-size: 20px;        
-    }
-
-    .navDeRegistros{
+    fieldset .busqueda{
       display: flex;
       justify-content: center;
-      flex-direction: column;
     }
-    
-    
-    .tituloTablita {    
-      text-align: center;
       
-    }
-    
-    
-    fieldset, .headerTablita, .btnRegistrarHeader{
-      margin-top: 20px;
-    }
-
-
-    .headerTablita {
-      width: 100%;
-      
-      
+     .navDeRegistros{
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-    }
-  
-    .fondo {
-      height: 100vh;
-      display: flex;
       flex-direction: column;
-      justify-content: space-between;
-    }
-
-
-    .posicionRegistros{
-      margin-top: 20px;
-    }
+      justify-content: center;    
+      width: 80%;
+     } 
   
-    table {
+  
+    .navDeRegistros legend{
+      text-align: center;
+      font-size: 20px;
       
-      max-height: 90%;
+    }
+    .tituloTablita{
+      font-size: 32px;
+    }
+    
+  .container-fluid{
+    display: flex;
+    justify-content: center;
+    width: 100vw; 
+  }
+
+    table {    
+      font-size: 20px;
+      max-height: calc(100vh - 122px);
       overflow-y: auto;
+      border: solid black 3px;        
     }
 
+    .registros{    
+      width: fit-content;
+    }
+    
+    .listado{
+      display: flex;
+      justify-content: center;
+      width: 70% ;
+    }
    
   }
 
 
 
-/*
+
   @media (min-width: 1201px) and (max-width: 1500px) {
-    .btnRegistrarHeader {
-      width: 85%;
-      position: relative;
-      align-self: center;
-      font-size: 22px;
+    .navbar-toggler {
+      visibility: hidden;
     }
 
-    .contenedorTablita {
-      height: 100vh;
-      padding-top: 30px;
-      width: 80%;
+    .navDeRegistros button, .comboBusqueda {
+      font-size: 16px;
+  
     }
-
-    .headerTablita {
+    fieldset .busqueda{
       display: flex;
-      flex-direction: column;
       justify-content: center;
     }
-    .posicionRegistros {
-      position: relative;
-      top: 280px;
-      width: 85%;
-      border: solid black 2px;
-    }
-    .listado {
+      
+     .navDeRegistros{
       display: flex;
-      flex-direction: column;
       align-items: center;
+      flex-direction: column;
+      justify-content: center;    
+      width: 80%;
+     } 
+  
+  
+    .navDeRegistros legend{
+      text-align: center;
+      font-size: 20px;
+      
+    }
+    .tituloTablita{
+      font-size: 32px;
+    }
+    
+  .container-fluid{
+    display: flex;
+    justify-content: center;
+    width: 100vw; 
+  }
+
+    table {    
+      font-size: 20px;
+      max-height: calc(100vh - 122px);
+      overflow-y: auto;
+      border: solid black 3px;        
     }
 
-    .tituloTablita {
+    .registros{    
+      width: fit-content;
+    }
+    
+    .listado{
       display: flex;
       justify-content: center;
-      position: relative;
-      top: 270px;
-    }
-    table {
-      font-size: 30px;
-      max-height: 760px;
-      overflow-y: auto;
-      width: 100%;
-      border: solid black 2px;
+      width: 60% ;
     }
   }
 
+
+/*
   @media (min-width: 1501px) and (max-width: 2000px) {
     .btnRegistrarHeader {
       width: 85%;

@@ -2,8 +2,9 @@ window.addEventListener("load", function () {
 
   const formulario = document.querySelector("#agregarPaciente");
 
-
+  
   formulario.addEventListener("submit", function (event) {
+    console.log(document.querySelector("#fechaIngreso").value());
   event.preventDefault();
 
   const formData = {

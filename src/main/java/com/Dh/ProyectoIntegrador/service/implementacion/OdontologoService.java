@@ -12,6 +12,7 @@ import com.Dh.ProyectoIntegrador.service.IServiceHQL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,14 +30,26 @@ public class OdontologoService implements IService<Odontologo>, IServiceHQL<Odon
 	public Optional<List<Odontologo>> buscar(Integer tipoDeBusqueda, String valor) {
 		Optional<List<Odontologo>> odontologoOptional = null;
 		switch (tipoDeBusqueda){
+
 			case 1:
-				odontologoOptional = odontologoRepository.findByNombre(valor);
+				Long id = Long.parseLong(valor);
+				Optional<Odontologo> odontologoEncontrado = this.odontologoRepository.findById(id);
+//				if (odontologoEncontrado.isPresent()) {
+					List<Odontologo> listaOdontologo = new ArrayList<>();
+					listaOdontologo.add(odontologoEncontrado.get());
+					odontologoOptional = Optional.of(listaOdontologo); // Envuelve la lista en un Optional
+//				}
 				break;
 			case 2:
-				odontologoOptional = odontologoRepository.findByApellido(valor);
+				odontologoOptional = odontologoRepository.findByNombre(valor);
 				break;
 			case 3:
+				odontologoOptional = odontologoRepository.findByApellido(valor);
+				break;
+			case 4:
 				odontologoOptional = odontologoRepository.findByMatricula(valor);
+				break;
+			default:
 				break;
 		}
 		return odontologoOptional;

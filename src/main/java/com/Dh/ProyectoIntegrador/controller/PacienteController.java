@@ -3,25 +3,47 @@ package com.Dh.ProyectoIntegrador.controller;
 
 import com.Dh.ProyectoIntegrador.Excepciones.DomicilioException;
 import com.Dh.ProyectoIntegrador.Excepciones.OdontologoException;
+import com.Dh.ProyectoIntegrador.entity.Odontologo;
 import com.Dh.ProyectoIntegrador.entity.Paciente;
 import com.Dh.ProyectoIntegrador.service.IService;
+import com.Dh.ProyectoIntegrador.service.IServiceHQL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/pacientes")
 public class PacienteController {
 
 	private IService<Paciente> pacienteService;
-@Autowired
-	public PacienteController(IService<Paciente> pacienteService) {
+	private IServiceHQL<Paciente>pacienteIServiceHQL;
+	@Autowired
+	public PacienteController(IService<Paciente> pacienteService, IServiceHQL<Paciente> pacienteIServiceHQL) {
 		this.pacienteService = pacienteService;
+		this.pacienteIServiceHQL = pacienteIServiceHQL;
 	}
 
+	// IServiceHQL
+	@GetMapping("/buscar")
+	public ResponseEntity<Paciente> buscar(@RequestParam("valor") String valor, @RequestParam("tipoDeBusqueda") Integer tipoDeBusqueda) {
+		ResponseEntity response =  null;
+		try {
+			Optional<List<Paciente>> pacienteBuscar = pacienteIServiceHQL.buscar(tipoDeBusqueda, valor);
+
+			if (pacienteBuscar != null) {
+				response = new ResponseEntity(pacienteBuscar, HttpStatus.FOUND);
+			} else {
+				response = new ResponseEntity(HttpStatus.NOT_FOUND);
+			}
+		}  catch (Exception  e) {
+			return new ResponseEntity(e.getMessage(), HttpStatus.I_AM_A_TEAPOT);
+		}
+		return response;
+	}
 	@PostMapping("/registrar")
 	public ResponseEntity guardar(@RequestBody Paciente paciente) {
 		ResponseEntity response = null;
@@ -90,7 +112,7 @@ public class PacienteController {
 			if (listaPacientes.size() > 0) {
 				response = new ResponseEntity(listaPacientes, HttpStatus.FOUND);
 			} else {
-				response = new ResponseEntity("No se encontraron odontologos", HttpStatus.NOT_FOUND);
+				response = new ResponseEntity("No se encontraron Pacientes", HttpStatus.NOT_FOUND);
 			}
 		} catch (Exception e) {
 			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);

@@ -9,8 +9,6 @@ import com.Dh.ProyectoIntegrador.service.IService;
 import com.Dh.ProyectoIntegrador.service.IServiceHQL;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Primary;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -44,7 +42,6 @@ public class OdontologoController {
 			} else {
 				response = new ResponseEntity(HttpStatus.NOT_FOUND);
 			}
-
 		}  catch (Exception  e) {
 			return new ResponseEntity(e.getMessage(), HttpStatus.I_AM_A_TEAPOT);
 		}

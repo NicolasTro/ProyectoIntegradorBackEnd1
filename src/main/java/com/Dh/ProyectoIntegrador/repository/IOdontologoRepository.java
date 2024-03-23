@@ -11,11 +11,11 @@ import java.util.Optional;
 @Repository
 public interface IOdontologoRepository extends JpaRepository<Odontologo, Long> {
 
-    @Query("SELECT o FROM Odontologo o WHERE o.nombre =?1")
+    @Query("SELECT o FROM Odontologo o WHERE LOWER(o.nombre) LIKE LOWER(concat('%', ?1, '%'))")
     Optional<List<Odontologo>> findByNombre(String valor);
-    @Query("SELECT o FROM Odontologo o WHERE o.apellido =?1")
+    @Query("SELECT o FROM Odontologo o WHERE LOWER(o.apellido) LIKE LOWER(concat('%', ?1, '%'))")
     Optional<List<Odontologo>> findByApellido(String valor);
-    @Query("SELECT o FROM Odontologo o WHERE o.matricula =?1")
+    @Query("SELECT o FROM Odontologo o WHERE LOWER(o.matricula) LIKE LOWER(concat('%', ?1, '%'))")
     Optional<List<Odontologo>> findByMatricula(String valor);
 
 

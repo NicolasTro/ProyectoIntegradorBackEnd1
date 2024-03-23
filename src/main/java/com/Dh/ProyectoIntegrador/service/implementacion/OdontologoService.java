@@ -10,7 +10,6 @@ import com.Dh.ProyectoIntegrador.repository.IOdontologoRepository;
 import com.Dh.ProyectoIntegrador.service.IService;
 import com.Dh.ProyectoIntegrador.service.IServiceHQL;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,24 +26,18 @@ public class OdontologoService implements IService<Odontologo>, IServiceHQL<Odon
 	}
 	//  IServiceHQL
 	@Override
-	public Optional<Odontologo> buscar(Integer tipoDeBusqueda, String valor) {
-		Optional<Odontologo> odontologoOptional = null;
+	public Optional<List<Odontologo>> buscar(Integer tipoDeBusqueda, String valor) {
+		Optional<List<Odontologo>> odontologoOptional = null;
 		switch (tipoDeBusqueda){
-
 			case 1:
-				Long id = Long.parseLong(valor);
-				odontologoOptional= odontologoRepository.findById(id);
-				break;
-			case 2:
 				odontologoOptional = odontologoRepository.findByNombre(valor);
 				break;
-			case 3:
+			case 2:
 				odontologoOptional = odontologoRepository.findByApellido(valor);
 				break;
-			case 4:
+			case 3:
 				odontologoOptional = odontologoRepository.findByMatricula(valor);
 				break;
-
 		}
 		return odontologoOptional;
 	}

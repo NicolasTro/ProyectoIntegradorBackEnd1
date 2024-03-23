@@ -1,23 +1,44 @@
 package com.Dh.ProyectoIntegrador.controller;
 
+import com.Dh.ProyectoIntegrador.entity.Odontologo;
 import com.Dh.ProyectoIntegrador.entity.Turno;
 import com.Dh.ProyectoIntegrador.service.IService;
+import com.Dh.ProyectoIntegrador.service.IServiceHQL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/turnos")
 public class TurnoController {
 
 	private IService<Turno> turnoIService;
+	private IServiceHQL<Turno> turnoIServiceHQL;
 
 	@Autowired
-	public TurnoController(IService<Turno> turnoIService) {
+	public TurnoController(IService<Turno> turnoIService, IServiceHQL<Turno> turnoIServiceHQL) {
 		this.turnoIService = turnoIService;
+		this.turnoIServiceHQL = turnoIServiceHQL;
+	}
+	@GetMapping("/buscar")
+	public ResponseEntity<Turno> buscar(@RequestParam("valor") String valor, @RequestParam("tipoDeBusqueda") Integer tipoDeBusqueda) {
+		ResponseEntity response =  null;
+		try {
+			Optional<List<Turno>> turnoBuscar = turnoIServiceHQL.buscar(tipoDeBusqueda, valor);
+
+			if (turnoBuscar != null) {
+				response = new ResponseEntity(turnoBuscar, HttpStatus.FOUND);
+			} else {
+				response = new ResponseEntity(HttpStatus.NOT_FOUND);
+			}
+		}  catch (Exception  e) {
+			return new ResponseEntity(e.getMessage(), HttpStatus.I_AM_A_TEAPOT);
+		}
+		return response;
 	}
 
 	@PostMapping("/registrar")

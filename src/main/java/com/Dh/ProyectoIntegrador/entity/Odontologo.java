@@ -24,7 +24,6 @@ public class Odontologo {
 	private String apellido;
 	private String matricula;
 	@OneToMany(mappedBy = "odontologo")
-
 	private Set<Turno> turnoSet = new HashSet<>();
 
 

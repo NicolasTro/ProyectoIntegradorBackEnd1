@@ -9,8 +9,6 @@ import com.Dh.ProyectoIntegrador.service.IService;
 import com.Dh.ProyectoIntegrador.service.IServiceHQL;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Primary;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -37,14 +35,13 @@ public class OdontologoController {
 	public ResponseEntity<Odontologo> buscar(@RequestParam("valor") String valor,@RequestParam("tipoDeBusqueda") Integer tipoDeBusqueda) {
 		ResponseEntity response =  null;
 		try {
-			Optional<Odontologo> odontologoBuscar = odontologoIServiceHQL.buscar(tipoDeBusqueda, valor);
+			Optional<List<Odontologo>> odontologoBuscar = odontologoIServiceHQL.buscar(tipoDeBusqueda, valor);
 
 			if (odontologoBuscar != null) {
-				response = new ResponseEntity<>(odontologoBuscar, HttpStatus.FOUND);
+				response = new ResponseEntity(odontologoBuscar, HttpStatus.FOUND);
 			} else {
 				response = new ResponseEntity(HttpStatus.NOT_FOUND);
 			}
-
 		}  catch (Exception  e) {
 			return new ResponseEntity(e.getMessage(), HttpStatus.I_AM_A_TEAPOT);
 		}

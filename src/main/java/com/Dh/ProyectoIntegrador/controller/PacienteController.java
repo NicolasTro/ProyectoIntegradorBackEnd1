@@ -90,7 +90,7 @@ public class PacienteController {
 			if (listaPacientes.size() > 0) {
 				response = new ResponseEntity(listaPacientes, HttpStatus.FOUND);
 			} else {
-				response = new ResponseEntity("No se encontraron odontologos", HttpStatus.NOT_FOUND);
+				response = new ResponseEntity("No se encontraron Pacientes", HttpStatus.NOT_FOUND);
 			}
 		} catch (Exception e) {
 			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);

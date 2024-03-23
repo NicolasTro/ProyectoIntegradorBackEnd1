@@ -1,0 +1,36 @@
+.arrastable {
+    padding: 10px;
+    border: 1px solid #000;
+    background-color: #f0f0f0;
+    width: 200px;
+    cursor: move;
+}
+
+#contenedor-destino {
+    margin-top: 20px;
+    height: 150px;
+    background-color: #ddd;
+    border: 2px dashed #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#drag-item {
+    cursor: move; /* Cambia el cursor para indicar que este elemento puede ser movido */
+    
+}
+
+   /* #drag-item{
+visibility: hidden;
+
+   } */
+
+.drag-item{
+    border: 4px solid black;
+
+
+}
+.invisible {
+    visibility: hidden; /* Usa visibility en lugar de display para mantener el espacio ocupado por el elemento. */
+}

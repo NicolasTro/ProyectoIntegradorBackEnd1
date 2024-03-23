@@ -52,17 +52,17 @@ function cargarEncabezadoTabla() {
     encabezadoTabla.id = "encabezado";
     table.appendChild(encabezadoTabla);
     let pacienteRowHeader = document.getElementById("encabezado");
+    // "<th scope='col'>Apellido</th>" +
 
     pacienteRowHeader.innerHTML =
     "<th scope='col'>Id</th>" +
-    "<th scope='col'>Nombre</th>" +
-    "<th scope='col'>Apellido</th>" +
+    "<th scope='col'>Nombre y Apellido" +
     "<th scope='col'>DNI</th>" +
     "<th scope='col'>FechaIngreso</th>" +
     "<th scope='col'>ID_domicilio</th>" +
     "<th scope='col'>Gestionar</th></tr></thead>";
-
 }
+
 function noSeEncontraronRegistro() {
     clearTabla();
     let sinRegistro = document.createElement("tr");
@@ -88,11 +88,12 @@ function clearTabla() {
     cargarEncabezadoTabla();
     cargarCuerpoTabla();
 
+    // <td class="td_apellido align-middle tamanioTexto">${patient.apellido.toUpperCase()}</td>
 }
 function cargarRegistro(patient){
 return `<td class="td_id align-middle tamanioTexto">${patient.id}</td>
-                                        <td class="td_nombre align-middle tamanioTexto">${patient.nombre.toUpperCase()}</td>
-                                        <td class="td_apellido align-middle tamanioTexto">${patient.apellido.toUpperCase()}</td>
+                                        <td class="td_nombre align-middle tamanioTexto">${patient.nombre.toUpperCase()} 
+                                        ${patient.apellido.toUpperCase()}</td>
                                         <td class="td_dni align-middle tamanioTexto">${patient.dni}</td>
                                         <td class="td_fecha align-middle tamanioTexto">${patient.fechaIngreso}</td>
                                         <td class="td_domicilio align-middle tamanioTexto">${patient.domicilio.id}</td>

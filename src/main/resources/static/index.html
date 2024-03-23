@@ -129,7 +129,12 @@
                   </div>
                   <div class="form-group">
                     <label class="control-label" for="fechaIngreso">Fecha de Ingreso:</label>
-                    <input type="text" class="form-control" id="fechaIngreso" placeholder="Ingrese la Fecha de Ingreso" name="fechaIngreso" required />
+                    <!-- <input type="text" class="form-control" id="fechaIngreso" placeholder="Ingrese la Fecha de Ingreso" name="fechaIngreso" required /> -->
+                    <!-- <form> -->
+                      <!-- <label for="fecha-hora">Selecciona una fecha y hora:</label> -->
+                      <input type="date" class="form-control" id="fechaIngreso" name="fechaIngreso" required/>
+                      <!-- <input type="submit" value="Enviar"> -->
+                    <!-- </form> -->
                   </div>
                   <div class="form-group">
                     <label class="control-label" for="domicilioCalle">Calle</label>
@@ -185,7 +190,8 @@
 
                 <div class="form-group">
                   <label class="control-label" for="fechaTurno">FechaYHora:</label>
-                  <input type="text" class="form-control" id="fechaTurno" placeholder="Ingrese la fecha y hora del turno" name="fechaTurno" required />
+                  <!-- <input type="text" class="form-control" id="fechaTurno" placeholder="Ingrese la fecha y hora del turno" name="fechaTurno" required /> -->
+                  <input type="datetime-local" class="form-control" id="fechaTurno" name="fechaTurno" required/>
                 </div>
                 <div class="modal-footer">
                   <button type="submit" class="btn btn-success">Guardar</button>

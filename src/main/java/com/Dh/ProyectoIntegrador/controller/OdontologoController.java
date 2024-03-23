@@ -37,7 +37,7 @@ public class OdontologoController {
 	public ResponseEntity<Odontologo> buscar(@RequestParam("valor") String valor,@RequestParam("tipoDeBusqueda") Integer tipoDeBusqueda) {
 		ResponseEntity response =  null;
 		try {
-			Optional<Odontologo> odontologoBuscar = odontologoIServiceHQL.buscar(tipoDeBusqueda, valor);
+			Optional<List<Odontologo>> odontologoBuscar = odontologoIServiceHQL.buscar(tipoDeBusqueda, valor);
 
 			if (odontologoBuscar != null) {
 				response = new ResponseEntity<>(odontologoBuscar, HttpStatus.FOUND);

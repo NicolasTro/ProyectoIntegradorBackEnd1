@@ -1,11 +1,7 @@
-/* *{
-    margin: 0 auto;
-    padding: 0px;
-} */
-
+@import url('stylesListOd.css');
 .fondo{
 
-    background-image: url("../images/dentist-healthcare-medical-schedule-appointment-concept.jpg");
+    background-image: url("../images/view-international-worker-s-day-still-life\ \(1\).jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -15,12 +11,3 @@
     /* width: 80%; */
 }
 
-.contenedorTablita{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    background-color: rgb(237, 233, 213);
-    width: 20%;
-    box-shadow: 10px 10px 5px 5px rgba(0,0,0,0.5);
-    align-items: center;
-}

@@ -15,47 +15,6 @@
 
 
 
-.tablaRegistros{
-
-  background-image: url("../images/PlanillaMediaResol.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top;
-
-  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.5);
-  border: solid black 3px;
-
-  height: 100%;
-}
 
 
 
-@media (min-width: 0px) and (max-width: 576px){
-
-
-/* .contenedorTablita{
-
-height: 600px;
-
-}
-
-.listadoPaciente{
-  display: flex;
-
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-}
-table {
-  font-size: 5px;
-  max-height: 260px;
-  overflow-y: auto;
-  width: 80%;
-  border: solid black 2px;
-}
- */
-
-
-
-}

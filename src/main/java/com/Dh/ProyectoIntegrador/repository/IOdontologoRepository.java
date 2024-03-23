@@ -12,11 +12,11 @@ import java.util.Optional;
 public interface IOdontologoRepository extends JpaRepository<Odontologo, Long> {
 
     @Query("SELECT o FROM Odontologo o WHERE o.nombre =?1")
-    Optional<Odontologo> findByNombre(String valor);
+    Optional<List<Odontologo>> findByNombre(String valor);
     @Query("SELECT o FROM Odontologo o WHERE o.apellido =?1")
-    Optional<Odontologo> findByApellido(String valor);
+    Optional<List<Odontologo>> findByApellido(String valor);
     @Query("SELECT o FROM Odontologo o WHERE o.matricula =?1")
-    Optional<Odontologo> findByMatricula(String valor);
+    Optional<List<Odontologo>> findByMatricula(String valor);
 
 
 }

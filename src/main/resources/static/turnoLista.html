@@ -31,20 +31,13 @@
             <li class="nav-item active">
               <a class="nav-link" href="./index.html">Inicio <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link active" id="listar">Listar</a>
-              <!-- <a class="nav-link active dropdown-toggle texto" href="#" role="button" data-toggle="dropdown" aria-expanded="false"> Gestion Odontologos </a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="odontologoUpdate.html">Actualizacion de datos</a>
-          <a class="dropdown-item" href="odontologoLista.html">Listar</a>
-          <a class="dropdown-item" href="odontologoEliminar.html">Baja</a>
-        </div> -->
+            <li>
+              <a class="nav-link active" href="./odontologoLista.html" role="button" aria-expanded="false"> Gestion Odontologos </a>
+            </li>
+            <li>
+              <a class="nav-link active" href="./pacienteLista.html" role="button" aria-expanded="false"> Gestion Pacientes </a>
             </li>
           </ul>
-          <form class="form-inline my-2 my-lg-0 busqueda">
-            <input class="form-control mr-sm-2 idBusqueda" id="search" type="search" placeholder="Search" aria-label="Search" />
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
         </div>
       </nav>
     </header>
@@ -57,17 +50,50 @@
                 <div id="listado" class="listado">
                   <div class="headerTablita">
                     <h1 class="tituloTablita">Listado de Turnos</h1>
-                    <button type="button" class="btn btn-dark tituloTablita btnRegistrarHeader" data-toggle="modal" data-target="#staticBackdropTurno">Registrar odontologo</button>
+
+                    <div class="navDeRegistros">
+                      <div class="botones">
+                        <button type="button" class="btn btn-dark tituloTablita btnRegistrarHeader" data-toggle="modal" data-target="#staticBackdropTurno">Registrar Turno</button>
+                      </div>
+
+                      <fieldset>
+                        <legend>Busqueda de odontologos</legend>
+                        <div class="formBusqueda">
+                          <form class="form-inline my-2 my-lg-0 busqueda" id="formBusqueda">
+                            <input class="form-control mr-sm-2 idBusqueda" id="search" type="search" placeholder="Buscar" aria-label="Search" />
+                            <div class="btn-group">
+                              <select class="btn btn-dark dropdown-toggle comboBusqueda" id="comboBusqueda">
+                                <option value="1">Por: Id</option>
+                                <option value="2">Por: Nombre</option>
+                                <option value="3">Por: Apellido</option>
+                                <option value="4">Por: Matricula</option>
+                              </select>
+
+                              <button type="button" class="btn btn-dark btn-group btnListarHeader">Reset</button>
+                              <button class="btn btn-dark btn-group" type="submit">Buscar</button>
+                            </div>
+                          </form>
+                        </div>
+                      </fieldset>
+                    </div>
                   </div>
 
-                  <table id="turnoTable" class="posicionRegistros table table-striped table-responsive"></table>
+                  <table id="turnoTable" class="registros table table-striped table-responsive"></table>
+                  <div class="cargando" id="cargando">
+                    <div class="spinner-grow text-primary" role="status">
+                      <span class="sr-only">Loading..asdas.</span>
+                    </div>
+                    <div class="spinner-grow text-primary" role="status">
+                      <span class="sr-only">Loading..asdas.</span>
+                    </div>
+                    <div class="spinner-grow text-primary" role="status">
+                      <span class="sr-only">Loading..asdas.</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-
-
-          
         </div>
       </div>
     </main>

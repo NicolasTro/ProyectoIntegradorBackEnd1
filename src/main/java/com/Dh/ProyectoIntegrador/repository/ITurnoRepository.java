@@ -15,6 +15,6 @@ public interface ITurnoRepository extends JpaRepository<Turno, Long> {
     Optional<List<Turno>> findByPacientes(String valor);
     @Query("SELECT t FROM Turno t WHERE t.odontologo.id =?1")
     Optional<List<Turno>> findByOdontologo(String valor);
-    @Query("SELECT t FROM Turno t WHERE t.fechaYHora =?1")
+    @Query("SELECT t FROM Turno t WHERE t.fechaYHora = ?1")
     Optional<List<Turno>> findByFecha(String valor);
 }

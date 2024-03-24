@@ -1,11 +1,5 @@
 package com.Dh.ProyectoIntegrador.service.implementacion;
 
-import com.Dh.ProyectoIntegrador.Excepciones.DomicilioException;
-import com.Dh.ProyectoIntegrador.Excepciones.OdontologoException;
-import com.Dh.ProyectoIntegrador.Excepciones.PacienteException;
-import com.Dh.ProyectoIntegrador.Excepciones.TurnoException;
-
-import com.Dh.ProyectoIntegrador.entity.Odontologo;
 import com.Dh.ProyectoIntegrador.entity.Paciente;
 import com.Dh.ProyectoIntegrador.repository.IPacienteRepository;
 import com.Dh.ProyectoIntegrador.service.IService;
@@ -28,11 +22,11 @@ public class PacienteService implements IService<Paciente>, IServiceHQL<Paciente
 		this.pacienteRepository = pacienteRepository;
 	}
 
-	public Paciente guardar(Paciente paciente) throws OdontologoException, DomicilioException, PacienteException, TurnoException {
+	public Paciente guardar(Paciente paciente) {
 		return pacienteRepository.save(paciente);
 	}
 
-	public Paciente buscarPorId(Long id) throws OdontologoException, DomicilioException, PacienteException, TurnoException {
+	public Paciente buscarPorId(Long id) {
 		Optional<Paciente> pacienteOptional = pacienteRepository.findById(id);
 		if (pacienteOptional.isPresent()) {
 			return pacienteOptional.get();
@@ -40,15 +34,15 @@ public class PacienteService implements IService<Paciente>, IServiceHQL<Paciente
 		return null;
 	}
 
-	public void eliminar(Long id) throws OdontologoException, DomicilioException, PacienteException, TurnoException {
+	public void eliminar(Long id) {
 		this.pacienteRepository.deleteById(id);
 	}
 
-	public void actualizar(Paciente paciente) throws OdontologoException, DomicilioException, PacienteException, TurnoException {
+	public void actualizar(Paciente paciente) {
 		this.pacienteRepository.save(paciente);
 	}
 
-	public List<Paciente> listarTodos() throws OdontologoException, DomicilioException, PacienteException, TurnoException {
+	public List<Paciente> listarTodos() {
 		return pacienteRepository.findAll();
 	}
 

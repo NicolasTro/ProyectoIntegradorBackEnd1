@@ -14,8 +14,8 @@
   <body>
     <header>
       <nav class="navbar navbar-dark bg-dark">
-        <a class="navbar-brand" href="index.html">
-          <img src="./images/Logo_Muela-removebg-preview.png" width="70" height="70" class="d-inline-block align-center" alt="" />
+        <a class="navbar-brand">
+          <img src="./images/Logo_Muela-removebg-preview.png" width="70" height="70" class="d-inline-block align-center" alt="Logo" />
           Clinica Odontologica
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,18 +29,15 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
             <li class="nav-item active">
-              <a class="nav-link" href="./index.html">Inicio <span class="sr-only">(current)</span></a>
+              <!-- <a class="nav-link" href="./index.html">Inicio <span class="sr-only">(current)</span></a>               -->
+              <a class="nav-link active" href="./index.html" role="button" aria-expanded="false"> Inicio </a>
             </li>
 
-            <li class="nav-item dropdown">
-              <a class="nav-link active" id="listar">Listar</a>
-              <a class="nav-link active dropdown-toggle texto" href="#" role="button" data-toggle="dropdown" aria-expanded="false"> Gestion Odontologos </a>
-              <!-- <div class="dropdown-menu">
-          <a class="dropdown-item" href="odontologoUpdate.html">Actualizacion de datos</a>
-          <a class="dropdown-item" href="odontologoLista.html">Listar</a>
-          <a class="dropdown-item" href="odontologoEliminar.html">Baja</a>
-        </div> -->
-              <!-- <li class="nav-item dropdown"><a class="nav-link" ><span class="sr-only">Listar</span></a></li> -->
+            <li>
+              <a class="nav-link active" href="./pacienteLista.html" role="button" aria-expanded="false"> Gestion Pacientes </a>
+            </li>
+            <li>
+              <a class="nav-link active" href="./turnoLista.html" role="button" aria-expanded="false"> Gestion Turnos </a>
             </li>
           </ul>
         </div>
@@ -65,18 +62,17 @@
                         <legend>Busqueda de odontologos</legend>
                         <div class="formBusqueda">
                           <form class="form-inline my-2 my-lg-0 busqueda" id="formBusqueda">
-                            <input class="form-control mr-sm-2 idBusqueda" id="search" type="search" placeholder="Search" aria-label="Search" />
+                            <input class="form-control mr-sm-2 idBusqueda" id="search" type="search" placeholder="Buscar" aria-label="Search" />
                             <div class="btn-group">
                               <select class="btn btn-dark dropdown-toggle comboBusqueda" id="comboBusqueda">
-                                <option value="1">By: Id</option>
-                                <option value="2">By: Nombre</option>
-                                <option value="3">By: Apellido</option>
-                                <option value="4">By: Matricula</option>
+                                <option value="1">Por: Id</option>
+                                <option value="2">Por: Nombre</option>
+                                <option value="3">Por: Apellido</option>
+                                <option value="4">Por: Matricula</option>
                               </select>
 
                               <button type="button" class="btn btn-dark btn-group btnListarHeader">Reset</button>
-                              <button class="btn btn-dark btn-group" type="submit">Search</button>
-                              <!-- <button class="btn  btn-dark my-2 my-sm-0" type="submit">Search</button> -->
+                              <button class="btn btn-dark btn-group" type="submit">Buscar</button>
                             </div>
                           </form>
                         </div>
@@ -84,20 +80,26 @@
                     </div>
                   </div>
 
-                  <!-- <div class="posicionRegistros"> -->
-
                   <table id="dentistTable" class="registros table table-striped table-responsive"></table>
-                  <!-- </div> -->
+                  <div class="cargando" id="cargando">
+                    <div class="spinner-grow text-primary" role="status">
+                      <span class="sr-only">Loading..asdas.</span>
+                    </div>
+                    <div class="spinner-grow text-primary" role="status">
+                      <span class="sr-only">Loading..asdas.</span>
+                    </div>
+                    <div class="spinner-grow text-primary" role="status">
+                      <span class="sr-only">Loading..asdas.</span>
+                    </div>
+                  </div>
                 </div>
-
-                <!-- </div> -->
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!--    ACCTUALIZAR ODONTOLOGO MODAL-->
+      <!--    ACTUALIZAR ODONTOLOGO MODAL-->
       <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelUp" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -165,7 +167,7 @@
     </main>
   </body>
   <script text="text/javascript" src="js/get_odontologo.js"></script>
-  <script text="text/javascript" src="js/get_odontologoID.js"></script>
+  
   <script text="text/javascript" src="js/post_odontologo.js"></script>
   <script text="text/javascript" src="js/update_odontologo.js"></script>
   <script text="text/javascript" src="js/delete_odontologo.js"></script>

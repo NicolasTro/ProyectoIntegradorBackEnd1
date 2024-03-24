@@ -5,7 +5,7 @@ import com.Dh.ProyectoIntegrador.Excepciones.OdontologoException;
 import com.Dh.ProyectoIntegrador.Excepciones.PacienteException;
 import com.Dh.ProyectoIntegrador.Excepciones.TurnoException;
 
-import com.Dh.ProyectoIntegrador.entity.Odontologo;
+
 import com.Dh.ProyectoIntegrador.entity.Turno;
 import com.Dh.ProyectoIntegrador.repository.ITurnoRepository;
 import com.Dh.ProyectoIntegrador.service.IService;
@@ -23,9 +23,6 @@ public class TurnoService implements IService<Turno>, IServiceHQL<Turno> {
 	public TurnoService(ITurnoRepository turnoRepository) {
 		this.turnoRepository = turnoRepository;
 	}
-//	public TurnoService() {
-//		this.iDao = new TurnoDaoMemoria();
-//	}
 
 	// IServiceHQL
 @Override
@@ -45,11 +42,11 @@ public Optional<List<Turno>> buscar(Integer tipoDeBusqueda, String valor) {
 	return turnoOptional;
 }
 
-	public Turno guardar(Turno turno) throws OdontologoException, DomicilioException, PacienteException, TurnoException {
+	public Turno guardar(Turno turno)  {
 		return turnoRepository.save(turno);
 	}
 
-	public Turno buscarPorId(Long id) throws OdontologoException, DomicilioException, PacienteException, TurnoException {
+	public Turno buscarPorId(Long id)  {
 		Optional<Turno> turnoOptional = turnoRepository.findById(id);
 		if (turnoOptional.isPresent()) {
 			return turnoOptional.get();
@@ -57,16 +54,16 @@ public Optional<List<Turno>> buscar(Integer tipoDeBusqueda, String valor) {
 		return null;
 	}
 
-	public void eliminar(Long id) throws OdontologoException, DomicilioException, PacienteException, TurnoException {
+	public void eliminar(Long id)  {
 		this.turnoRepository.deleteById(id);
 	}
 
-	public void actualizar(Turno turno) throws OdontologoException, DomicilioException, PacienteException, TurnoException {
+	public void actualizar(Turno turno) {
 		this.turnoRepository.save(turno);
 	}
 
 
-	public List<Turno> listarTodos() throws OdontologoException, DomicilioException, PacienteException, TurnoException {
+	public List<Turno> listarTodos() {
 		return turnoRepository.findAll();
 	}
 }

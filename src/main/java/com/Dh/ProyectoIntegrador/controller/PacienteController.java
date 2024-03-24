@@ -1,9 +1,7 @@
 package com.Dh.ProyectoIntegrador.controller;
 
-
 import com.Dh.ProyectoIntegrador.Excepciones.DomicilioException;
 import com.Dh.ProyectoIntegrador.Excepciones.OdontologoException;
-import com.Dh.ProyectoIntegrador.entity.Odontologo;
 import com.Dh.ProyectoIntegrador.entity.Paciente;
 import com.Dh.ProyectoIntegrador.service.IService;
 import com.Dh.ProyectoIntegrador.service.IServiceHQL;
@@ -35,7 +33,7 @@ public class PacienteController {
 			Optional<List<Paciente>> pacienteBuscar = pacienteIServiceHQL.buscar(tipoDeBusqueda, valor);
 
 			if (pacienteBuscar != null) {
-				response = new ResponseEntity(pacienteBuscar, HttpStatus.FOUND);
+				response = new ResponseEntity(pacienteBuscar.get(), HttpStatus.FOUND);
 			} else {
 				response = new ResponseEntity(HttpStatus.NOT_FOUND);
 			}

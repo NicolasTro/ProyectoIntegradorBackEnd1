@@ -57,19 +57,19 @@ public class OdontologoService implements IService<Odontologo>, IServiceHQL<Odon
 
     // IService
 
-	public Odontologo guardar(Odontologo odontologo) throws OdontologoException, DomicilioException, PacienteException, TurnoException {
+	public Odontologo guardar(Odontologo odontologo)  {
 		return odontologoRepository.save(odontologo);
 	}
 
-	public void eliminar(Long id) throws OdontologoException, DomicilioException, PacienteException, TurnoException {
+	public void eliminar(Long id)  {
 		this.odontologoRepository.deleteById(id);
 	}
 
-	public void actualizar(Odontologo odontologo) throws OdontologoException, DomicilioException, PacienteException, TurnoException {
+	public void actualizar(Odontologo odontologo)  {
 		this.odontologoRepository.save(odontologo);
 	}
 
-	public Odontologo buscarPorId(Long id) throws OdontologoException, DomicilioException, PacienteException, TurnoException {
+	public Odontologo buscarPorId(Long id)  {
 		Optional<Odontologo> odontologoOptional = odontologoRepository.findById(id);
 		if(odontologoOptional.isPresent()) {
 			return odontologoOptional.get();
@@ -90,7 +90,7 @@ public class OdontologoService implements IService<Odontologo>, IServiceHQL<Odon
 //		}
 //	}
 
-	public List<Odontologo> listarTodos() throws OdontologoException, DomicilioException, PacienteException, TurnoException {
+	public List<Odontologo> listarTodos()  {
 		return odontologoRepository.findAll();
 	}
 

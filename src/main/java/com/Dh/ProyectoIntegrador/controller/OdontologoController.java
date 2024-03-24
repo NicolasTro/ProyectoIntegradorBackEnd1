@@ -43,7 +43,7 @@ public class OdontologoController {
 				response = new ResponseEntity(HttpStatus.NOT_FOUND);
 			}
 		}  catch (Exception  e) {
-			return new ResponseEntity(e.getMessage(), HttpStatus.I_AM_A_TEAPOT);
+			return new ResponseEntity( HttpStatus.I_AM_A_TEAPOT);
 		}
 		return response;
 	}

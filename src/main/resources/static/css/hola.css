@@ -17,7 +17,7 @@
 }
 
 #drag-item {
-    cursor: move; /* Cambia el cursor para indicar que este elemento puede ser movido */
+    cursor: move; 
     
 }
 
@@ -32,5 +32,5 @@ visibility: hidden;
 
 }
 .invisible {
-    visibility: hidden; /* Usa visibility en lugar de display para mantener el espacio ocupado por el elemento. */
+    visibility: hidden; 
 }

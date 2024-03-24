@@ -12,36 +12,97 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-dark bg-dark">
-      <a class="navbar-brand" href="index.html">
-        <img src="./images/Logo_Muela-removebg-preview.png" width="70" height="70" class="d-inline-block align-center" alt="" />
-        Clinica Odontologica
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </nav>
+    <header>
+      <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand">
+          <img src="./images/Logo_Muela-removebg-preview.png" width="70" height="70" class="d-inline-block align-center" alt="Logo" />
+          Clinica Odontologica
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </nav>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-      <a class="navbar-brand" href="#"></a>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <a class="navbar-brand" href="#"></a>
 
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="./index.html">Inicio <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link active" id="listar" >Listar</a>
-          </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0 busqueda">
-          <input class="form-control mr-sm-2 idBusqueda" id="search" type="search" placeholder="Search" aria-label="Search" />
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <!-- <a class="nav-link" href="./index.html">Inicio <span class="sr-only">(current)</span></a>               -->
+              <a class="nav-link active" href="./index.html" role="button" aria-expanded="false"> Inicio </a>
+            </li>
+
+            <li>
+              <a class="nav-link active" href="./pacienteLista.html" role="button" aria-expanded="false"> Gestion Pacientes </a>
+            </li>
+            <li>
+              <a class="nav-link active" href="./turnoLista.html" role="button" aria-expanded="false"> Gestion Turnos </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+
+    <main>
+      <div class="contenedorFondo">
+        <div class="fondo">
+          <div class="container-fluid contenedorTablita">
+            <div class="algo">
+              <div id="div_paciente_table" class="container-fluid">
+                <div id="listado" class="listado">
+                  <div class="headerTablita">
+                    <h1 class="tituloTablita">Listado de Pacientes</h1>
+
+                    <div class="navDeRegistros">
+                      <div class="botones">
+                        <button type="button" class="btn btn-dark btnRegistrarHeader" data-toggle="modal" data-target="#staticBackdropPaciente">Registrar paciente</button>
+                      </div>
+
+                      <fieldset>
+                        <legend>Busqueda de pacientes</legend>
+                        <div class="formBusqueda">
+                          <form class="form-inline my-2 my-lg-0 busqueda" id="formBusqueda">
+                            <input class="form-control mr-sm-2 idBusqueda" id="search" type="search" placeholder="Buscar" aria-label="Search" />
+                            <div class="btn-group">
+                              <select class="btn btn-dark dropdown-toggle comboBusqueda" id="comboBusqueda">
+                                <option value="1">Por: Id</option>
+                                <option value="2">Por: Nombre</option>
+                                <option value="3">Por: Apellido</option>
+                                <option value="4">Por: Matricula</option>
+                              </select>
+
+                              <button type="button" class="btn btn-dark btn-group btnListarHeader">Reset</button>
+                              <button class="btn btn-dark btn-group" type="submit">Buscar</button>
+                            </div>
+                          </form>
+                        </div>
+                      </fieldset>
+                    </div>
+                  </div>
+
+                  <table id="patientTable" class="registros table table-striped table-responsive"></table>
+                  <div class="cargando" id="cargando">
+                    <div class="spinner-grow text-primary" role="status">
+                      <!-- <span class="sr-only">Loading..asdas.</span> -->
+                    </div>
+                    <div class="spinner-grow text-primary" role="status">
+                      <!-- <span class="sr-only">Loading..asdas.</span> -->
+                    </div>
+                    <div class="spinner-grow text-primary" role="status">
+                      <!-- <span class="sr-only">Loading..asdas.</span> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </nav>
 
-    <div class="fondo">
+
+    <!-- <div class="fondo">
       <div class="container-fluid contenedorTablita ">
         <div class="tablaRegistros ">
           <div id="div_Paciente" class="tablaRegistros container-fluid">
@@ -58,7 +119,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 <!--    MODAL DE REGISTRO-->
     <div class="modal fade" id="staticBackdropPaciente" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelPaciente" aria-hidden="true">
       <div class="modal-dialog">
@@ -173,9 +234,11 @@
         </div>
       </div>
     </div>
+  </main>
+
   </body>
   <script text="text/javascript" src="js/get_paciente.js"></script>
-  <script text="text/javascript" src="js/get_pacienteID.js"></script>
+  
   <script text="text/javascript" src="js/post_paciente.js"></script>
   <script text="text/javascript" src="js/update_paciente.js"></script>
   <script text="text/javascript" src="js/delete_paciente.js"></script>

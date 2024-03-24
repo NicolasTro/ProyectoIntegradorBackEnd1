@@ -32,7 +32,15 @@ function obtenerListaTurnos() {
   window.addEventListener("load", function () {
     cargarEncabezadoTabla();
     cargarCuerpoTabla();
+
+  let iconosDeCarga = document.getElementById("cargando");
+  iconosDeCarga.style.visibility = "visible";
+
+  setTimeout(function () {
+    iconosDeCarga.style.visibility = "hidden";
+
     obtenerListaTurnos();
+  }, 3000);
     (function () {
       let pathname = window.location.pathname;
       if (pathname == "/turnoLista.html") {

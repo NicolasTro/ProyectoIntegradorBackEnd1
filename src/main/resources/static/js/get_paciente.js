@@ -3,8 +3,6 @@ window.addEventListener("load", function () {
   cargarCuerpoTabla();
   obtenerListaPacientes();
 
-
-
   let formularioBusqueda = document.getElementById("formBusqueda");
   console.log(formularioBusqueda);
   formularioBusqueda.addEventListener("submit", function (event) {
@@ -30,6 +28,12 @@ window.addEventListener("load", function () {
       document.querySelector(".nav .nav-item a:last").addClass("active");
     }
   });
+
+
+
+
+
+
 });
 
 function obtenerListaPacientes() {
@@ -118,11 +122,7 @@ function cargarRegistro(patient) {
                                         </td>`;
 }
 function busquedaPacientePersonalizado() {
-  // clearTabla();
-
-  // setTimeout(){
-
-  // }
+  
 
   let tipoDeBusqueda = document.getElementById("comboBusqueda");
   let valorBusqueda = document.getElementById("search");

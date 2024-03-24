@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -36,6 +37,7 @@ public class PacienteController {
 				response = new ResponseEntity(pacienteBuscar.get(), HttpStatus.FOUND);
 			} else {
 				response = new ResponseEntity(HttpStatus.NOT_FOUND);
+
 			}
 		}  catch (Exception  e) {
 			return new ResponseEntity(e.getMessage(), HttpStatus.I_AM_A_TEAPOT);

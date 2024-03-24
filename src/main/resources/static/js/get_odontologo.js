@@ -7,9 +7,7 @@ function obtenerListaOdontologos() {
   return fetch(url, settings)
     .then((response) => response.json())
     .then((data) => {
-      // let a = document.getElementById("dentistTable");
       if (data.length > 0) {
-        // if (a != null) {
         let body = document.getElementById("cuerpoTabla");
         console.log(body);
         for (dentist of data) {
@@ -62,6 +60,46 @@ window.addEventListener("load", function () {
     setTimeout(function () {
       iconosDeCarga.style.visibility = "hidden";
       busquedaOdontologoPersonalizada();
+    }, 3000);
+  });
+
+  let validacionInputId = document.getElementById("search");
+  let tipoDeBusqueda = document.getElementById("comboBusqueda");
+  tipoDeBusqueda.addEventListener("change", function () {
+    validacionInputId.value = "";
+  });
+
+  validacionInputId.addEventListener("keypress", function (event) {
+    // console.log(tipoDeBusqueda);
+
+    if (tipoDeBusqueda.value == 1) {
+      const codigoTecla = event.keyCode;
+
+      if (codigoTecla === 8 || (codigoTecla >= 48 && codigoTecla <= 57)) {
+        return true;
+      } else {
+        event.preventDefault();
+        return false;
+      }
+    }
+  });
+
+  let btnReset = document.getElementById("btnReset");
+
+  btnReset.addEventListener("click", function (event) {
+    tipoDeBusqueda.value = 1;
+    validacionInputId.value = "";
+
+    clearTabla();
+    tablaNueva();
+    cargarEncabezadoTabla();
+    cargarCuerpoTabla();
+    // let iconosDeCarga = document.getElementById("cargando");
+    iconosDeCarga.style.visibility = "visible";
+
+    setTimeout(function () {
+      iconosDeCarga.style.visibility = "hidden";
+      obtenerListaOdontologos();
     }, 3000);
   });
 });
@@ -119,12 +157,6 @@ function cargarRegistro(dentist) {
 }
 
 function busquedaOdontologoPersonalizada() {
-  // clearTabla();
-
-  // setTimeout(){
-
-  // }
-
   let tipoDeBusqueda = document.getElementById("comboBusqueda");
   let valorBusqueda = document.getElementById("search");
   console.log(tipoDeBusqueda.value);

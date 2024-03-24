@@ -62,7 +62,7 @@
                         <legend>Busqueda de odontologos</legend>
                         <div class="formBusqueda">
                           <form class="form-inline my-2 my-lg-0 busqueda" id="formBusqueda">
-                            <input class="form-control mr-sm-2 idBusqueda" id="search" type="search" placeholder="Buscar" aria-label="Search" />
+                            <input class="form-control mr-sm-2 idBusqueda" id="search" type="search" placeholder="Buscar" aria-label="Search" required/>
                             <div class="btn-group">
                               <select class="btn btn-dark dropdown-toggle comboBusqueda" id="comboBusqueda">
                                 <option value="1">Por: Id</option>
@@ -71,7 +71,7 @@
                                 <option value="4">Por: Matricula</option>
                               </select>
 
-                              <button type="button" class="btn btn-dark btn-group btnListarHeader">Reset</button>
+                              <button type="reset" class="btn btn-dark btn-group btnListarHeader" id="btnReset" >Reset</button>
                               <button class="btn btn-dark btn-group" type="submit">Buscar</button>
                             </div>
                           </form>
@@ -83,13 +83,13 @@
                   <table id="dentistTable" class="registros table table-striped table-responsive"></table>
                   <div class="cargando" id="cargando">
                     <div class="spinner-grow text-primary" role="status">
-                      <span class="sr-only">Loading..asdas.</span>
+                      <!-- <span class="sr-only"></span> -->
                     </div>
                     <div class="spinner-grow text-primary" role="status">
-                      <span class="sr-only">Loading..asdas.</span>
+                      <!-- <span class="sr-only">Loading..asdas.</span> -->
                     </div>
                     <div class="spinner-grow text-primary" role="status">
-                      <span class="sr-only">Loading..asdas.</span>
+                      <!-- <span class="sr-only">Loading..asdas.</span> -->
                     </div>
                   </div>
                 </div>

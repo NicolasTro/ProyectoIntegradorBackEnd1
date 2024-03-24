@@ -7,6 +7,7 @@ import com.Dh.ProyectoIntegrador.service.IServiceHQL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -65,6 +66,12 @@ public class PacienteService implements IService<Paciente>, IServiceHQL<Paciente
 				break;
 			case 3:
 				pacienteOptional = pacienteRepository.findByApellido(valor);
+				break;
+			case 4:
+				Date fechaValor = Date.valueOf(valor);
+
+
+				pacienteOptional = pacienteRepository.findByFecha(fechaValor);
 				break;
 			default:
 				break;

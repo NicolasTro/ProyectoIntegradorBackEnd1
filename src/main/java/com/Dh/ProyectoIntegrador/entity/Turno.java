@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import lombok.*;
+import org.springframework.cglib.core.Local;
 
 @Entity
 @Table(name = "turnos")
@@ -27,6 +28,6 @@ public class Turno {
     @JoinColumn(name = "odontologo_id")
     @JsonIgnoreProperties("turnoSet")
     private Odontologo odontologo;
-    private Date fechaYHora;
+    private LocalDateTime fechaYHora;
 
 }

@@ -1,5 +1,4 @@
 function noSeEncontraronRegistroPaciente() {
-	
 	clearTabla();
 
 	let sinRegistro = document.createElement("tr");
@@ -91,8 +90,6 @@ window.addEventListener("load", function () {
 		setTimeout(function () {
 			iconosDeCarga.style.visibility = "hidden";
 			obtenerListaPacientes();
-
-			
 		}, 3000);
 	});
 
@@ -125,7 +122,6 @@ function obtenerListaPacientes() {
 	return fetch(url, settings)
 		.then((response) => response.json())
 		.then((data) => {
-			
 			if (data.length > 0) {
 				let body = document.getElementById("cuerpoTabla");
 
@@ -138,11 +134,10 @@ function obtenerListaPacientes() {
 			} else {
 				noSeEncontraronRegistrosPaciente();
 			}
-			
 		})
 		.catch((error) => {
+			console.log(error);
 			noSeEncontraronRegistrosPaciente();
-			
 		});
 }
 
@@ -156,7 +151,7 @@ function cargarEncabezadoTabla() {
 	let pacienteRowHeader = document.getElementById("encabezado");
 	// "<th scope='col'>Apellido</th>" +
 
-	pacienteRowHeader.innerHTML = "<th scope='col'>Id</th>" + "<th scope='col'>Nombre y Apellido" + "<th scope='col'>DNI</th>" + "<th scope='col'>FechaIngreso</th>" + "<th scope='col'>Domicilio</th>" + "<th scope='col'>Gestionar</th></tr></thead>";
+	pacienteRowHeader.innerHTML = "<th scope='col'>Id</th>" + "<th scope='col'>Nombre </th>" + "<th scope='col'>Apellido</th>" + "<th scope='col'>DNI</th>" + "<th scope='col'>FechaIngreso</th>" + "<th scope='col'>Domicilio</th>" + "<th scope='col'>Gestionar</th></tr></thead>";
 }
 
 function cargarCuerpoTabla() {
@@ -198,21 +193,72 @@ function clearTabla() {
 {
 	/* <button type='button' class='btn btn-dark' data-domicilioId=${patient.domicilio.id} id='masInfo'>mas info</button> */
 }
+// 	<button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content="${cardContent}" data-id='${patient.domicilio.id}' id='popo'>
+// 	mas info
+//   </button>
 function cargarRegistro(patient) {
-	return `<td class="td_id align-middle tamanioTexto">${patient.id}</td><td class="td_nombre align-middle tamanioTexto">${patient.nombre.toUpperCase()}${patient.apellido.toUpperCase()}</td>
+	console.log(patient.domicilio);
+	return `<td class="td_id align-middle tamanioTexto">${patient.id}</td><td class="td_nombre align-middle tamanioTexto">${patient.nombre.toUpperCase()}</td><td class="td_apellido align-middle tamanioTexto">${patient.apellido.toUpperCase()}</td>
                                         <td class="td_dni align-middle tamanioTexto">${patient.dni}</td>
                                         <td class="td_fecha align-middle tamanioTexto">${patient.fechaIngreso}</td>
                                         <td class="td_domicilio align-middle tamanioTexto">
                                         
-                                        <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content="aadasdasdasdasdasdasdasdjkasdjkdsjkldasjklasdjklasdjklasdjklsdajklasdjklasdjkldasjkldasjklsdajklsdajkldasjkldasjkl" data-id='${
-																					patient.domicilio.id
-																				}' id='popo'>
-                                        mas info
-                                      </button>
+                                 
+									  
+                                        
+									  
+									  <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modalDomicilio${patient.id}">
+										mas Info
+									  </button>
+									  
+									  
+									  <div class="modal fade " id="modalDomicilio${patient.id}" tabindex="-1" aria-labelledby="titoloDatosDomicilio" aria-hidden="true">
+										<div class="modal-dialog modal-dialog-centered">
+										  <div class="modal-content">
+											<div class="modal-header">
+											  <h5 class="modal-title" id="tituloDatosDomicilio">Datos domicilio</h5>
+											  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											  </button>
+											</div>
+											<div class="modal-body">
+											  
 
-                                        
-                                        
-                                        
+											<div class="form-group">
+											<label class="control-label" for="domicilioCalle">Calle</label>
+											<input type="text" class="form-control" id="domicilioCalle" readonly value="${patient.domicilio.calle}"/>
+										</div>
+										<div class="form-group">
+											<label class="control-label" for="domicilioNumero">Numero de domicilio</label>
+											<input type="text" class="form-control" id="domicilioNumero" readonly value="${patient.domicilio.numero}"/>
+										</div>
+										<div class="form-group">
+											<label class="control-label" for="domicilioLocalidad">Localidad</label>
+											<input type="text" class="form-control" id="domicilioLocalidad" readonly value="${patient.domicilio.localidad}"/>
+										</div>
+										<div class="form-group">
+											<label class="control-label" for="domicilioProvincia">Provincia</label>
+											<input type="text" class="form-control" id="domicilioProvincia" readonly value="${patient.domicilio.provincia}"/>
+										</div>
+
+									
+
+
+											</div>
+											<div class="modal-footer">
+											  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+											  
+											</div>
+										  </div>
+										</div>
+									  </div>
+
+
+
+
+
+
+                                         
                                         
                                         </td>
                                         <td>
@@ -227,6 +273,8 @@ function cargarRegistro(patient) {
                                             </div>
                                           </div>
                                         </td>`;
+
+	
 }
 function busquedaPacientePersonalizado() {
 	let tipoDeBusqueda = document.getElementById("comboBusqueda");
@@ -272,11 +320,9 @@ function busquedaPacientePersonalizado() {
 				}
 			} else {
 				noSeEncontraronRegistrosPaciente();
-				
 			}
 		})
 		.catch((error) => {
-			
 			noSeEncontraronRegistroPaciente();
 		});
 
@@ -297,8 +343,6 @@ function validacionInput() {
 	});
 
 	validacionInputId.addEventListener("keypress", function (event) {
-		
-
 		if (tipoDeBusqueda.value == 1) {
 			const codigoTecla = event.keyCode;
 

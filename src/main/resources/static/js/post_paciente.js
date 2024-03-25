@@ -1,10 +1,8 @@
 window.addEventListener("load", function () {
 
-  const formulario = document.querySelector("#agregarPaciente");
-
-  
+  const formulario = document.querySelector("#agregarPaciente");  
   formulario.addEventListener("submit", function (event) {
-    console.log(document.querySelector("#fechaIngreso").value());
+    
   event.preventDefault();
 
   const formData = {
@@ -21,6 +19,7 @@ window.addEventListener("load", function () {
   };
 
   const url = "/pacientes/registrar";
+  
   const settings = {
     method: "POST",
     headers: {
@@ -32,7 +31,7 @@ window.addEventListener("load", function () {
   fetch(url, settings)
     .then((response)  => response.json())
     .then((data) => {
-    console.log(data);
+    
         let successAlert =
           '<div class="alert alert-success alert-dismissible">' +
           '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
@@ -43,7 +42,7 @@ window.addEventListener("load", function () {
         resetUploadForm();
     })
     .catch((error) => {
-    console.log();
+    
         let errorAlert =
           '<div class="alert alert-danger alert-dismissible">' +
           '<button type="button" class="close" data-dismiss="alert">&times;</button>' +

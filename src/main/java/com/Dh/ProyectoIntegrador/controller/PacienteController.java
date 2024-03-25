@@ -5,6 +5,7 @@ import com.Dh.ProyectoIntegrador.Excepciones.OdontologoException;
 import com.Dh.ProyectoIntegrador.entity.Paciente;
 import com.Dh.ProyectoIntegrador.service.IService;
 import com.Dh.ProyectoIntegrador.service.IServiceHQL;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/pacientes")
+@Slf4j
 public class PacienteController {
 
 	private IService<Paciente> pacienteService;
@@ -62,7 +64,7 @@ public class PacienteController {
 
 
 	@GetMapping("/{id}")
-	public ResponseEntity buscarPorId(@PathVariable Long id) throws OdontologoException, DomicilioException {
+	public ResponseEntity<Paciente> buscarPorId(@PathVariable Long id) throws OdontologoException, DomicilioException {
 		ResponseEntity response = null;
 		try {
 			Paciente pacienteEncontrado = pacienteService.buscarPorId(id);
@@ -104,18 +106,20 @@ public class PacienteController {
 
 
 	@GetMapping("/listar")
-	public ResponseEntity listarTodos() {
+	public ResponseEntity<List<Paciente>> listarTodos() {
 		ResponseEntity response = null;
 		List<Paciente> listaPacientes = null;
 		try {
 			listaPacientes = this.pacienteService.listarTodos();
 			if (listaPacientes.size() > 0) {
-				response = new ResponseEntity(listaPacientes, HttpStatus.FOUND);
+				log.info("tira la lista", listaPacientes);
+				response = new ResponseEntity(listaPacientes, HttpStatus.OK);
 			} else {
 				response = new ResponseEntity("No se encontraron Pacientes", HttpStatus.NOT_FOUND);
 			}
 		} catch (Exception e) {
-			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
+			log.info("aca que sucede", e.getMessage());
+			return new ResponseEntity(HttpStatus.BAD_REQUEST);
 		}
 		return response;
 	}

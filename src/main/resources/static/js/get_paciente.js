@@ -1,3 +1,17 @@
+function noSeEncontraronRegistroPaciente() {
+	
+	clearTabla();
+
+	let sinRegistro = document.createElement("tr");
+	sinRegistro.id = "idSinRegistro";
+
+	document.getElementById("patientTable").appendChild(sinRegistro);
+
+	let filSinRegistro = document.getElementById("idSinRegistro");
+
+	filSinRegistro.innerHTML = "<td></td><td>No se encontraron registros</td><td></td><td></td><td></td>";
+}
+
 window.addEventListener("load", function () {
 	let iconosDeCarga = document.getElementById("cargando");
 	cargarEncabezadoTabla();
@@ -6,9 +20,8 @@ window.addEventListener("load", function () {
 
 	setTimeout(function () {
 		iconosDeCarga.style.visibility = "hidden";
-
 		obtenerListaPacientes();
-	}, 300);
+	}, 3000);
 
 	let formularioBusqueda = document.getElementById("formBusqueda");
 
@@ -23,7 +36,7 @@ window.addEventListener("load", function () {
 		setTimeout(function () {
 			iconosDeCarga.style.visibility = "hidden";
 			busquedaPacientePersonalizado();
-		}, 300);
+		}, 3000);
 	});
 
 	let comboBusqueda = document.getElementById("comboBusqueda");
@@ -59,11 +72,8 @@ window.addEventListener("load", function () {
 	});
 
 	validacionInput();
-  
 
 	let btnReset = document.getElementById("btnReset");
-
-
 
 	btnReset.addEventListener("click", function (event) {
 		let tipoDeBusqueda = document.getElementById("comboBusqueda");
@@ -82,72 +92,28 @@ window.addEventListener("load", function () {
 			iconosDeCarga.style.visibility = "hidden";
 			obtenerListaPacientes();
 
-
-
-
-     
-
-
-      console.log(elementos.tagName);
-
-
-
+			
 		}, 3000);
 	});
 
-	
- 
-  // cargarDomicilio();
-  
-  
-  
-  
-  
-  
-    
-    // elementos.forEach(function(elemento) {
-    //   console.log(elemento);
-    //     let popover = new bootstrap.Popover(elemento);
+	document.addEventListener("click", function (e) {
+		if (e.target instanceof HTMLButtonElement) {
+			var popover = new bootstrap.Popover(e.target);
 
-    // });
+			popover.show();
 
-  
-  
-  
-  
+			setTimeout(function () {
+				popover.hide();
+			}, 1000);
+		}
+	});
 
-    
-
-
-
-    this.document.addEventListener('click', function(event){
-
-console.log(event.target);
-
-    });
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  (function () {
+	(function () {
 		let pathname = window.location.pathname;
 		if (pathname == "/pacienteLista.html") {
 			document.querySelector(".nav .nav-item a:last").addClass("active");
 		}
 	});
-
-
-
-
 });
 
 function obtenerListaPacientes() {
@@ -159,6 +125,7 @@ function obtenerListaPacientes() {
 	return fetch(url, settings)
 		.then((response) => response.json())
 		.then((data) => {
+			
 			if (data.length > 0) {
 				let body = document.getElementById("cuerpoTabla");
 
@@ -167,18 +134,15 @@ function obtenerListaPacientes() {
 					let tr_id = "tr_" + patient.id;
 					patientRow.id = tr_id;
 					patientRow.innerHTML = cargarRegistro(patient);
-
-
-
-
 				}
 			} else {
-				noSeEncontraronRegistro();
+				noSeEncontraronRegistrosPaciente();
 			}
-      cargarDomicilio();
+			
 		})
 		.catch((error) => {
-			noSeEncontraronRegistro();
+			noSeEncontraronRegistrosPaciente();
+			
 		});
 }
 
@@ -215,14 +179,14 @@ function clearTabla() {
 }
 
 // function cargarRegistro(patient) {
-  
+
 // 	return `<td class="td_id align-middle tamanioTexto">${patient.id}</td><td class="td_nombre align-middle tamanioTexto">${patient.nombre.toUpperCase()}${patient.apellido.toUpperCase()}</td>
 //                                         <td class="td_dni align-middle tamanioTexto">${patient.dni}</td>
 //                                         <td class="td_fecha align-middle tamanioTexto">${patient.fechaIngreso}</td>
 //                                         <td class="td_domicilio align-middle tamanioTexto"><button type='button' class='btn btn-dark' data-domicilioId=${patient.domicilio.id} id='masInfo'>mas info</button></td>
 //                                         <td>
 //                                           <div class="dropdown">
-//                                             <button class='btn btn-dark dropdown-toggle' 
+//                                             <button class='btn btn-dark dropdown-toggle'
 //                                             type='button' data-toggle='dropdown' aria-expanded='false'></button>
 //                                             <div class='dropdown-menu'>
 //                                               <button type='button' data-id=${patient.id} data-domicilioId=${patient.domicilio.id} class='btn btn-primary btnTabla dropdown-item' data-toggle='modal' data-target='#staticBackdropPacienteUpdate'>Modificar</button>
@@ -231,15 +195,18 @@ function clearTabla() {
 //                                           </div>
 //                                         </td>`;
 // }
-{/* <button type='button' class='btn btn-dark' data-domicilioId=${patient.domicilio.id} id='masInfo'>mas info</button> */}
+{
+	/* <button type='button' class='btn btn-dark' data-domicilioId=${patient.domicilio.id} id='masInfo'>mas info</button> */
+}
 function cargarRegistro(patient) {
-  
 	return `<td class="td_id align-middle tamanioTexto">${patient.id}</td><td class="td_nombre align-middle tamanioTexto">${patient.nombre.toUpperCase()}${patient.apellido.toUpperCase()}</td>
                                         <td class="td_dni align-middle tamanioTexto">${patient.dni}</td>
                                         <td class="td_fecha align-middle tamanioTexto">${patient.fechaIngreso}</td>
                                         <td class="td_domicilio align-middle tamanioTexto">
                                         
-                                        <button type="button" class="btn btn-secondary popOver" data-container="body" data-toggle="popover" data-placement="top" data-content="Top popover" id='popo'>
+                                        <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content="aadasdasdasdasdasdasdasdjkasdjkdsjkldasjklasdjklasdjklasdjklsdajklasdjklasdjkldasjkldasjklsdajklsdajkldasjkldasjkl" data-id='${
+																					patient.domicilio.id
+																				}' id='popo'>
                                         mas info
                                       </button>
 
@@ -253,8 +220,10 @@ function cargarRegistro(patient) {
                                             <button class='btn btn-dark dropdown-toggle' 
                                             type='button' data-toggle='dropdown' aria-expanded='false'></button>
                                             <div class='dropdown-menu'>
-                                              <button type='button' data-id=${patient.id} data-domicilioId=${patient.domicilio.id} class='btn btn-primary btnTabla dropdown-item' data-toggle='modal' data-target='#staticBackdropPacienteUpdate'>Modificar</button>
-                                              <button type='button' data-id=${patient.id} data-domicilioId=${patient.domicilio.id} class='btn btn-primary dropdown-item btnTabla' data-toggle='modal'>Eliminar</button>
+                                              <button type='button' data-id='${patient.id}' data-domicilioId='${
+		patient.domicilio.id
+	}' class='btn btn-primary btnTabla dropdown-item' data-toggle='modal' data-target='#staticBackdropPacienteUpdate'>Modificar</button>
+                                              <button type='button' data-id='${patient.id}' data-domicilioId='${patient.domicilio.id}' class='btn btn-primary dropdown-item btnTabla' data-toggle='modal'>Eliminar</button>
                                             </div>
                                           </div>
                                         </td>`;
@@ -299,21 +268,15 @@ function busquedaPacientePersonalizado() {
 					patientRow.id = tr_id;
 					patientRow.innerHTML = cargarRegistro(patient);
 
-          let 
+					let;
 				}
-
-
-
-
-
-
 			} else {
 				noSeEncontraronRegistrosPaciente();
-				// noSeEncontraronRegistrosPaciente();
+				
 			}
 		})
 		.catch((error) => {
-			console.log("aca");
+			
 			noSeEncontraronRegistroPaciente();
 		});
 
@@ -325,19 +288,6 @@ function busquedaPacientePersonalizado() {
 		}
 	})();
 }
-function noSeEncontraronRegistroPaciente() {
-	console.log("q pasa");
-	clearTabla();
-
-	let sinRegistro = document.createElement("tr");
-	sinRegistro.id = "idSinRegistro";
-
-	document.getElementById("patientTable").appendChild(sinRegistro);
-
-	let filSinRegistro = document.getElementById("idSinRegistro");
-
-	filSinRegistro.innerHTML = "<td></td><td>No se encontraron registros</td><td></td><td></td><td></td>";
-}
 
 function validacionInput() {
 	let validacionInputId = document.getElementById("search");
@@ -347,7 +297,7 @@ function validacionInput() {
 	});
 
 	validacionInputId.addEventListener("keypress", function (event) {
-		// console.log(tipoDeBusqueda);
+		
 
 		if (tipoDeBusqueda.value == 1) {
 			const codigoTecla = event.keyCode;
@@ -360,24 +310,4 @@ function validacionInput() {
 			}
 		}
 	});
-}
-
-function cargarDomicilio(){
-
-  
-  let btnMasInfo = document.querySelectorAll("#masInfo");
-  
-btnMasInfo.forEach(element => {
-  
-  
-  element.addEventListener('click', function(event){
-   
-   
-
-
-
-
-    
-  })
-});
 }

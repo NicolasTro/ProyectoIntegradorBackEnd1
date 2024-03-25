@@ -64,7 +64,7 @@
                         <legend>Busqueda de pacientes</legend>
                         <div class="formBusqueda">
                           <form class="form-inline my-2 my-lg-0 busqueda" id="formBusqueda">
-                            <input class="form-control mr-sm-2 idBusqueda" id="search" type="search" placeholder="Buscar" aria-label="Search" />
+                            <input class="form-control mr-sm-2 idBusqueda btnListarHeader" id="search" type="search" placeholder="Buscar" aria-label="Search" required />
                             <div class="btn-group">
                               <select class="btn btn-dark dropdown-toggle comboBusqueda" id="comboBusqueda">
                                 <option value="1">Por: Id</option>
@@ -73,7 +73,7 @@
                                 <option value="4">Por: Fecha Ingreso</option>
                               </select>
 
-                              <button type="button" class="btn btn-dark btn-group btnListarHeader">Reset</button>
+                              <button type="reset" class="btn btn-dark btn-group btnListarHeader" id="btnReset">Reset</button>
                               <button class="btn btn-dark btn-group" type="submit">Buscar</button>
                             </div>
                           </form>
@@ -148,7 +148,7 @@
                 </div>
                 <div class="form-group">
                   <label class="control-label" for="fechaIngreso">Fecha de Ingreso:</label>
-                  <input type="text" class="form-control" id="fechaIngreso" placeholder="Ingrese la Fecha de Ingreso" name="fechaIngreso" required />
+                  <input type="date" class="form-control" id="fechaIngreso" name="fechaIngreso" required/>
                 </div>
                 <div class="form-group">
                   <label class="control-label" for="domicilioCalle">Calle</label>
@@ -234,6 +234,7 @@
         </div>
       </div>
     </div>
+    
   </main>
 
   </body>

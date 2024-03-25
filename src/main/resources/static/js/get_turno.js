@@ -47,12 +47,7 @@ function obtenerListaTurnos() {
         document.querySelector(".nav .nav-item a:last").addClass("active");
       }
     });
-    let listado = document.getElementById("listar");
-    listado.addEventListener("click", function (event) {
-      event.preventDefault();
-      clearTabla();
-      obtenerListaTurnos();
-    });
+    
   });
   
   function cargarEncabezadoTabla() {

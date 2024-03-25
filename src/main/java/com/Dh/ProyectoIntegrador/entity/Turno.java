@@ -1,6 +1,7 @@
 package com.Dh.ProyectoIntegrador.entity;
 
 import java.sql.Date;
+import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
@@ -26,6 +27,6 @@ public class Turno {
     @JoinColumn(name = "odontologo_id")
     @JsonIgnoreProperties("turnoSet")
     private Odontologo odontologo;
-    private Date fechaYHora;
+    private LocalDateTime fechaYHora;
 
 }

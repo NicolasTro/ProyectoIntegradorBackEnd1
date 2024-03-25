@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import lombok.*;
+import org.springframework.cglib.core.Local;
 
 @Entity
 @Table(name = "turnos")

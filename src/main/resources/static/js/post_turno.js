@@ -35,7 +35,7 @@ window.addEventListener("load", function () {
           let successAlert =
             '<div class="alert alert-success alert-dismissible">' +
             '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
-            "<strong>Odontólogo agregado </strong> </div>";
+            "<strong>Turno agregado </strong> </div>";
   
           document.querySelector("#responseTurno").innerHTML = successAlert;
           document.querySelector("#responseTurno").style.display = "block";

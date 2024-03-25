@@ -10,9 +10,9 @@ window.addEventListener("load", function () {
       
       //creamos un JSON que tendrá los datos del nuevo odontólogo
       const formData = {
-        paciente: {id: document.querySelector("#odontologoID").value},
-        odontologo:{id: document.querySelector("#pacienteID").value},
-        fechaYHora: document.querySelector("#fechaTurno").value,
+        paciente: {id: document.querySelector("#turnoPaciente").value},
+        odontologo:{id: document.querySelector("#turnoOdontologo").value},
+        fechaYHora: document.querySelector("#turnoFecha").value,
       };
   
       
@@ -37,8 +37,8 @@ window.addEventListener("load", function () {
             '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
             "<strong>Odontólogo agregado </strong> </div>";
   
-          document.querySelector("#responseDentist").innerHTML = successAlert;
-          document.querySelector("#responseDentist").style.display = "block";
+          document.querySelector("#responseTurno").innerHTML = successAlert;
+          document.querySelector("#responseTurno").style.display = "block";
           resetUploadForm();
         })
         .catch((error) => {
@@ -49,17 +49,17 @@ window.addEventListener("load", function () {
             '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
             "<strong> Error intente nuevamente</strong> </div>";
   
-          document.querySelector("#responseDentist").innerHTML = errorAlert;
-          document.querySelector("#responseDentist").style.display = "block";
+          document.querySelector("#responseTurno").innerHTML = errorAlert;
+          document.querySelector("#responseTurno").style.display = "block";
           //se dejan todos los campos vacíos por si se quiere ingresar otro odontólogo
           resetUploadForm();
         });
     });
   
     function resetUploadForm() {
-      document.querySelector("#odontologoID").value = "";
-      document.querySelector("#pacienteID").value = "";
-      document.querySelector("#fechaTurno").value = "";
+      document.querySelector("#turnoPaciente").value = "";
+      document.querySelector("#turnoOdontologo").value = "";
+      document.querySelector("#turnoFecha").value = "";
     }
 //    (function(){
 //        let pathname = window.location.pathname;

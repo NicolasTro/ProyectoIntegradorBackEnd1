@@ -91,6 +91,46 @@
                       <!-- <span class="sr-only">Loading..asdas.</span> -->
                     </div>
                   </div>
+
+
+<!--                  MODAL REGISTRO-->
+                  <div class="modal fade" id="staticBackdropTurno" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelPaciente" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h3 class="modal-title" id="staticBackdropLabelTurno">Registro de Turnos </h3>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <div style="background-color: #e6fffa; padding: 10px; border-radius: 3px">
+                            <h5>Ingreso de datos</h5>
+                            <form id="agregarTurno">
+                              <div class="form-group">
+                                <label class="control-label" for="turnoPaciente">Paciente:</label>
+                                <input type="text" class="form-control" id="turnoPaciente" placeholder="Ingrese el identificador del Paciente" name="turnoPaciente" required />
+                              </div>
+                              <div class="form-group">
+                                <label class="control-label" for="turnoOdontologo">Odontologo:</label>
+                                <input type="text" class="form-control" id="turnoOdontologo" placeholder="Ingrese el identificador del Odontologo" name="turnoOdontologo" required />
+                              </div>
+
+                              <div class="form-group">
+                                <label class="control-label" for="turnoFecha">Fecha Y Hora:</label>
+                                <input type="text" class="form-control" id="turnoFecha" placeholder="Ingrese la fecha para el turno" name="turnoFecha" required />
+                              </div>
+                              <div class="modal-footer">
+                                <button type="submit" class="btn btn-success">Guardar</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                              </div>
+                            </form>
+                            <div id="responseTurno" style="display: none; margin-top: 10px"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

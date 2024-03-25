@@ -27,6 +27,6 @@ public class Turno {
     @JoinColumn(name = "odontologo_id")
     @JsonIgnoreProperties("turnoSet")
     private Odontologo odontologo;
-    private Date fechaYHora;
+    private LocalDateTime fechaYHora;
 
 }

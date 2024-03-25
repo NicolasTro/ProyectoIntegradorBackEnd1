@@ -4,6 +4,7 @@ import com.Dh.ProyectoIntegrador.entity.Odontologo;
 import com.Dh.ProyectoIntegrador.entity.Turno;
 import com.Dh.ProyectoIntegrador.service.IService;
 import com.Dh.ProyectoIntegrador.service.IServiceHQL;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/turnos")
+@Slf4j
 public class TurnoController {
 
 	private IService<Turno> turnoIService;
@@ -59,13 +61,14 @@ public class TurnoController {
 	public ResponseEntity actualizar(@RequestBody Turno turno) {
 		ResponseEntity response = null;
 		try {
-			turnoIService.actualizar(turno);
 			Turno nuevoTurno = turnoIService.buscarPorId(turno.getId());
-			if(nuevoTurno.equals(turno)){
-			response = new ResponseEntity(HttpStatus.ACCEPTED);
-			}else{
-			response = new ResponseEntity("No se pudieron modificar los registros", HttpStatus.CONFLICT);
-			}
+			turnoIService.actualizar(turno);
+//			if(nuevoTurno.equals(turno)){
+			response = new ResponseEntity(turno, HttpStatus.ACCEPTED);
+//			}else{
+//			response = new ResponseEntity("No se pudieron modificar los registros", HttpStatus.CONFLICT);
+//			}
+			log.info("Actualizar turno", turno);
 		} catch (Exception e) {
 			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
 		}

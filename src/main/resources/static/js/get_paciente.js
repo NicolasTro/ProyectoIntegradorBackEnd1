@@ -151,7 +151,8 @@ function cargarEncabezadoTabla() {
 	let pacienteRowHeader = document.getElementById("encabezado");
 	// "<th scope='col'>Apellido</th>" +
 
-	pacienteRowHeader.innerHTML = "<th scope='col'>Id</th>" + "<th scope='col'>Nombre </th>" + "<th scope='col'>Apellido</th>" + "<th scope='col'>DNI</th>" + "<th scope='col'>FechaIngreso</th>" + "<th scope='col'>Domicilio</th>" + "<th scope='col'>Gestionar</th></tr></thead>";
+	pacienteRowHeader.innerHTML =
+		"<th scope='col'>Id</th>" + "<th scope='col'>Nombre </th>" + "<th scope='col'>Apellido</th>" + "<th scope='col'>DNI</th>" + "<th scope='col'>FechaIngreso</th>" + "<th scope='col'>Domicilio</th>" + "<th scope='col'>Gestionar</th></tr></thead>";
 }
 
 function cargarCuerpoTabla() {
@@ -273,8 +274,6 @@ function cargarRegistro(patient) {
                                             </div>
                                           </div>
                                         </td>`;
-
-	
 }
 function busquedaPacientePersonalizado() {
 	let tipoDeBusqueda = document.getElementById("comboBusqueda");
@@ -325,14 +324,6 @@ function busquedaPacientePersonalizado() {
 		.catch((error) => {
 			noSeEncontraronRegistroPaciente();
 		});
-
-	// todo PARA QUE SIRVE ESTA FUNCION
-	(function () {
-		let pathname = window.location.pathname;
-		if (pathname == "/pacienteLista.html") {
-			document.querySelector(".nav .nav-item a:last").addClass("active");
-		}
-	})();
 }
 
 function validacionInput() {

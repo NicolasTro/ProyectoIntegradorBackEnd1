@@ -14,33 +14,191 @@
 }
 
 
-@media (min-width: 0px) and (max-width: 320px) {
+
+
+  @media (min-width: 0px) and (max-width: 320px) {
+    .navbar-toggler {
+      visibility: visible;
+    }
+    .navDeRegistros button,
+    .comboBusqueda {
+      font-size: 12px;
+    }
+    fieldset .busqueda {
+      display: flex;
+      justify-content: center;
+    }
+  
+    .navDeRegistros {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      width: 80%;
+    }
+  
+    .navDeRegistros legend {
+      text-align: center;
+      font-size: 16px;
+    }
+    .tituloTablita {
+      font-size: 22px;
+    }
+  
+    table {
+      font-size: 8px;
+      max-height: calc(100vh - 122px);
+      overflow-y: auto;
+    }
+    .registros {
+      width: calc(100vw - 30%);
+    }
+  }
+
+
+@media (min-width: 321px) and (max-width: 375px) {}
+
+  @media (min-width: 376px) and (max-width: 576px) {
+    .navbar-toggler {
+      visibility: visible;
+    }
+    .navDeRegistros button,
+    .comboBusqueda {
+      font-size: 12px;
+    }
+    fieldset .busqueda {
+      display: flex;
+      justify-content: center;
+    }
+  
+    .navDeRegistros {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      width: 80%;
+    }
+  
+    .navDeRegistros legend {
+      text-align: center;
+      font-size: 16px;
+    }
+    .tituloTablita {
+      font-size: 22px;
+    }
+  
+    table {
+      font-size: 8px;
+      max-height: calc(100vh - 122px);
+      overflow-y: auto;
+    }
+    .registros {
+      
+      width: 80%;
+    }
+  }
+  
+  @media (min-width: 577px) and (max-width: 768px) {
+    
+    
+    .registros {
+      width: calc(100vw - 36%);
+      
+    }
 
 
 
-}
+      }
+
+        @media (min-width: 769px) and (max-width: 990px) {
 
 
 
-  @media (min-width: 0px) and (max-width: 320px) {}
 
-    @media (min-width: 0px) and (max-width: 320px) {}
 
-      @media (min-width: 577px) and (max-width: 768px) {}
+          table {
+            font-size: 14px;
+            max-height: 60%;
+            overflow-y: auto;
+            width: fit-content;
+          }
 
-        @media (min-width: 769px) and (max-width: 990px) {}
 
-          @media (min-width: 991px) and (max-width: 1200px) {}
+
+        }
+
+          @media (min-width: 991px) and (max-width: 1200px) {
+
+            .registros {
+              width: calc(100vw - 55%);
+              width: fit-content;
+              
+            }
+
+            table {
+              font-size: 12px;
+              max-height: 60%;
+              overflow-y: auto;
+              width: fit-content;
+            }
+          }
 
             @media (min-width: 1201px) and (max-width: 1500px) {
+              .listado {
+                display: flex;
+                justify-content: center;
+                width: 64%;
+            }
+              .registros {
+                
+                width: fit-content;
+                
+              }
+  
+              table {
+                font-size: 14px;
+                max-height: 60%;
+                overflow-y: auto;
+                width: fit-content;
+              }
 
             }
 
               @media (min-width: 1501px) and (max-width: 2000px) {
+                .listado {
+                  display: flex;
+                  justify-content: center;
+                  
+              }
+                .registros {
+                  
+                  width: fit-content;
+                  
+                }
+    
+                table {
+                  font-size: 14px;
+                  max-height: 60%;
+                  overflow-y: auto;
+                  width: fit-content;
+                }
 
+                .container-fluid {
+                  display: flex;
+                  justify-content: center;
+                  width: 57vw;
+                }
               }
 
                 @media (min-width: 2001px) {
-
-
+                  .listado {
+                    display: flex;
+                    justify-content: center;
+                     width: 100%; 
+                }
+                  .container-fluid {
+                    display: flex;
+                    justify-content: center;
+                    width: 66vw;
+                  }
                 }

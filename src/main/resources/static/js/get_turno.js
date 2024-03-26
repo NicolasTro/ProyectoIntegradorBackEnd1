@@ -89,8 +89,57 @@ function obtenerListaTurnos() {
   turno.id
   } class='btn btn-primary btnTabla dropdown-item' data-toggle='modal' data-target='#staticBackdropTurnoUpdate'>Modificar</button><button type='button' data-id=${
   turno.id
-  } class='btn btn-primary dropdown-item btnTabla' data-toggle='modal' >Eliminar</button></div></div></td>`;
+  } class='btn btn-primary dropdown-item btnTabla' data-toggle='modal' >Eliminar</button></div></div></td>`; 
+  }
+
+
+  function busquedaPacientePersonalizado() {
+    let tipoDeBusqueda = document.getElementById("comboBusqueda");
+    let valorBusqueda;
+    if (tipoDeBusqueda.value <= 3) {
+      valorBusqueda = document.getElementById("search");
+    } else {
+      valorBusqueda = document.getElementById("searchCalendar");
+    }
   
+    const url = `/pacientes/buscar?valor=${valorBusqueda.value}&tipoDeBusqueda=${tipoDeBusqueda.value}`;
   
+    const settings = {
+      method: "GET",
+    };
   
+    return fetch(url, settings)
+      .then((response) => response.json())
+      .then((data) => {
+        clearTabla();
+        tablaNueva();
+  
+        if (data.length == 1) {
+          let tablaBody = document.getElementById("cuerpoTabla");
+  
+          tablaBody.innerHTML = "";
+          let patientRow = tablaBody.insertRow();
+  
+          let tr_id = "tr_" + data[0].id;
+  
+          patientRow.id = tr_id;
+          patientRow.innerHTML = cargarRegistro(data[0]);
+        } else if (data.length > 1) {
+          let body = document.getElementById("cuerpoTabla");
+  
+          for (patient of data) {
+            patientRow = body.insertRow();
+            let tr_id = "tr_" + patient.id;
+            patientRow.id = tr_id;
+            patientRow.innerHTML = cargarRegistro(patient);
+  
+            let;
+          }
+        } else {
+          noSeEncontraronRegistrosPaciente();
+        }
+      })
+      .catch((error) => {
+        noSeEncontraronRegistroPaciente();
+      });
   }

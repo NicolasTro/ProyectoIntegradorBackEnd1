@@ -54,7 +54,7 @@
 
                     <div class="navDeRegistros">
                       <div class="botones">
-                        <button type="button" class="btn btn-dark tituloTablita btnRegistrarHeader" data-toggle="modal" data-target="#staticBackdropTurno">Registrar Turno</button>
+                        <button type="button" class="btn btn-dark tituloTablita btnRegistrarHeader" data-toggle="modal" data-target="#staticBackdropTurno" id="btnRegistrarTurno">Registrar Turno</button>
                       </div>
 
                       <fieldset>
@@ -82,13 +82,13 @@
                   <table id="turnoTable" class="registros table table-striped table-responsive"></table>
                   <div class="cargando" id="cargando">
                     <div class="spinner-grow text-primary" role="status">
-                      <!-- <span class="sr-only">Loading..asdas.</span> -->
+                      
                     </div>
                     <div class="spinner-grow text-primary" role="status">
-                      <!-- <span class="sr-only">Loading..asdas.</span> -->
+                      
                     </div>
                     <div class="spinner-grow text-primary" role="status">
-                      <!-- <span class="sr-only">Loading..asdas.</span> -->
+                      
                     </div>
                   </div>
 
@@ -108,8 +108,14 @@
                             <h5>Ingreso de datos</h5>
                             <form id="agregarTurno">
                               <div class="form-group">
-                                <label class="control-label" for="turnoPaciente">Paciente:</label>
-                                <input type="text" class="form-control" id="turnoPaciente" placeholder="Ingrese el identificador del Paciente" name="turnoPaciente" required />
+                                <label class="control-label" for="comboTurnoPaciente">Paciente:</label>
+                                <!-- <input type="text" class="form-control" id="turnoPaciente" placeholder="Ingrese el identificador del Paciente" name="turnoPaciente" required /> -->
+                                <select class="btn btn-dark dropdown-toggle comboTurnoPaciente" id="comboTurnoPaciente" required>
+                                  <option value="1">Por: Id</option>
+                                  <option value="2">Por: Nombre</option>
+                                  <option value="3">Por: Apellido</option>
+                                  <option value="4">Por: Fecha Ingreso</option>
+                                </select>
                               </div>
                               <div class="form-group">
                                 <label class="control-label" for="turnoOdontologo">Odontologo:</label>

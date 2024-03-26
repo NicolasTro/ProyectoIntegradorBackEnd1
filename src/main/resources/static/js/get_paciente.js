@@ -202,17 +202,8 @@ function cargarRegistro(patient) {
 	return `<td class="td_id align-middle tamanioTexto">${patient.id}</td><td class="td_nombre align-middle tamanioTexto">${patient.nombre.toUpperCase()}</td><td class="td_apellido align-middle tamanioTexto">${patient.apellido.toUpperCase()}</td>
                                         <td class="td_dni align-middle tamanioTexto">${patient.dni}</td>
                                         <td class="td_fecha align-middle tamanioTexto">${patient.fechaIngreso}</td>
-                                        <td class="td_domicilio align-middle tamanioTexto">
-                                        
-                                 
-									  
-                                        
-									  
-									  <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modalDomicilio${patient.id}">
-										mas Info
-									  </button>
-									  
-									  
+                                        <td class="td_domicilio align-middle tamanioTexto"><button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modalDomicilio${patient.id}">
+										mas Info</button> 
 									  <div class="modal fade " id="modalDomicilio${patient.id}" tabindex="-1" aria-labelledby="titoloDatosDomicilio" aria-hidden="true">
 										<div class="modal-dialog modal-dialog-centered">
 										  <div class="modal-content">
@@ -222,11 +213,7 @@ function cargarRegistro(patient) {
 												<span aria-hidden="true">&times;</span>
 											  </button>
 											</div>
-											<div class="modal-body">
-											  
-
-											<div class="form-group">
-											<label class="control-label" for="domicilioCalle">Calle</label>
+											<div class="modal-body"><div class="form-group"><label class="control-label" for="domicilioCalle">Calle</label>
 											<input type="text" class="form-control" id="domicilioCalle" readonly value="${patient.domicilio.calle}"/>
 										</div>
 										<div class="form-group">

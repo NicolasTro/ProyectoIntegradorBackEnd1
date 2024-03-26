@@ -1,23 +1,24 @@
 package com.Dh.ProyectoIntegrador.service.implementacion;
 
-import com.Dh.ProyectoIntegrador.Excepciones.DomicilioException;
-import com.Dh.ProyectoIntegrador.Excepciones.OdontologoException;
-import com.Dh.ProyectoIntegrador.Excepciones.PacienteException;
-import com.Dh.ProyectoIntegrador.Excepciones.TurnoException;
+import com.Dh.ProyectoIntegrador.dto.response.OdontologoDTO;
 import com.Dh.ProyectoIntegrador.entity.Odontologo;
 
 import com.Dh.ProyectoIntegrador.repository.IOdontologoRepository;
 import com.Dh.ProyectoIntegrador.service.IService;
+import com.Dh.ProyectoIntegrador.service.IServiceDTOHQL;
 import com.Dh.ProyectoIntegrador.service.IServiceHQL;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
+@Slf4j
 @Service
-public class OdontologoService implements IService<Odontologo>, IServiceHQL<Odontologo> {
+public class OdontologoService implements IService<Odontologo>, IServiceHQL<Odontologo>, IServiceDTOHQL<OdontologoDTO> {
 
 	private IOdontologoRepository odontologoRepository;
 
@@ -55,7 +56,10 @@ public class OdontologoService implements IService<Odontologo>, IServiceHQL<Odon
 		return odontologoOptional;
 	}
 
-    // IService
+
+
+
+
 
 	public Odontologo guardar(Odontologo odontologo)  {
 		return odontologoRepository.save(odontologo);
@@ -77,21 +81,39 @@ public class OdontologoService implements IService<Odontologo>, IServiceHQL<Odon
 			return null;
 		}
 	}
-//	public Odontologo buscarPorId(Integer tipoDeBusqueda, String valor) throws OdontologoException, DomicilioException, PacienteException, TurnoException {
-//
-//
-//
-//
-//
-//		if(odontologoOptional.isPresent()) {
-//			return odontologoOptional.get();
-//		} else {
-//			return null;
-//		}
-//	}
 
 	public List<Odontologo> listarTodos()  {
 		return odontologoRepository.findAll();
 	}
+
+	@Override
+	public Optional<List<OdontologoDTO>> listarTodosIDNombre() {
+
+		List<Odontologo> listaOdontologos =this.odontologoRepository.findAll();
+		List<OdontologoDTO> listaOdontologosDTO = new ArrayList<>();
+
+
+		listaOdontologos.forEach(odontologo ->{
+
+
+
+				ObjectMapper mapper = new ObjectMapper();
+				mapper.registerModule(new JavaTimeModule());
+				OdontologoDTO odontologoDTO = mapper.convertValue(odontologo, OdontologoDTO.class);
+		listaOdontologosDTO.add(odontologoDTO);
+				}
+
+
+		);
+
+
+
+		return Optional.of(listaOdontologosDTO);
+	}
+
+
+
+
+
 
 }

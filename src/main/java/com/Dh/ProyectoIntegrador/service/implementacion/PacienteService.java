@@ -78,4 +78,6 @@ public class PacienteService implements IService<Paciente>, IServiceHQL<Paciente
 		}
 		return pacienteOptional;
 	}
+
+
 }

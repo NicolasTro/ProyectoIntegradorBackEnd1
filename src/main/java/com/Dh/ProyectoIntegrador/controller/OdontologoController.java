@@ -4,8 +4,10 @@ import com.Dh.ProyectoIntegrador.Excepciones.DomicilioException;
 import com.Dh.ProyectoIntegrador.Excepciones.OdontologoException;
 import com.Dh.ProyectoIntegrador.Excepciones.PacienteException;
 import com.Dh.ProyectoIntegrador.Excepciones.TurnoException;
+import com.Dh.ProyectoIntegrador.dto.response.OdontologoDTO;
 import com.Dh.ProyectoIntegrador.entity.Odontologo;
 import com.Dh.ProyectoIntegrador.service.IService;
+import com.Dh.ProyectoIntegrador.service.IServiceDTOHQL;
 import com.Dh.ProyectoIntegrador.service.IServiceHQL;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,10 +25,12 @@ public class OdontologoController {
 
 	private IService<Odontologo> odontologoIService;
 	private IServiceHQL<Odontologo> odontologoIServiceHQL;
+	private IServiceDTOHQL<OdontologoDTO> odontologoIServiceDTOHQL;
 	@Autowired
-	public OdontologoController(IService<Odontologo> odontologoIService, IServiceHQL<Odontologo> odontologoIServiceHQL) {
+	public OdontologoController(IService<Odontologo> odontologoIService, IServiceHQL<Odontologo> odontologoIServiceHQL, IServiceDTOHQL<OdontologoDTO> odontologoIServiceDTOHQL) {
 		this.odontologoIService = odontologoIService;
 		this.odontologoIServiceHQL = odontologoIServiceHQL;
+		this.odontologoIServiceDTOHQL = odontologoIServiceDTOHQL;
 	}
 
 	//TODO Preguntarle a la profe sobre los AutoWirdes y si hay dos como en este acso, es nececsario ponerle a ambos?
@@ -119,6 +123,28 @@ public class OdontologoController {
 				response = new ResponseEntity(listaOdontologos, HttpStatus.FOUND);
 			} else {
 				response = new ResponseEntity<List<Odontologo>>(listaOdontologos,  HttpStatus.NOT_FOUND);
+			}
+		} catch (Exception e) {
+			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
+		}
+		return response;
+	}
+
+
+
+	@GetMapping("/listarDTO")
+
+	public ResponseEntity<List<OdontologoDTO>> listarTodosDTO() {
+		ResponseEntity response = null;
+		Optional<List<OdontologoDTO>> listaOdontologos = null;
+		try {
+
+			listaOdontologos = this.odontologoIServiceDTOHQL.listarTodosIDNombre();
+			System.out.println(listaOdontologos.get());
+			if (!listaOdontologos.isEmpty()) {
+				response = new ResponseEntity(listaOdontologos.get(), HttpStatus.FOUND);
+			} else {
+				response = new ResponseEntity<List<Odontologo>>( HttpStatus.NOT_FOUND);
 			}
 		} catch (Exception e) {
 			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);

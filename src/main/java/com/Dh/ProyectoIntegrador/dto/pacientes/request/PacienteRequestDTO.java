@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.sql.Date;
 
 @Getter
 @Setter
@@ -20,7 +21,7 @@ public class PacienteRequestDTO extends PacienteDTO {
     private Long id;
     private String apellido;
     private String dni;
-    private LocalDate fechaIngreso;
+    private Date fechaIngreso;
     private String calle;
     private Integer numero;
     private String localidad;

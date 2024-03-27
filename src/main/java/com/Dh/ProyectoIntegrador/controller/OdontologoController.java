@@ -94,13 +94,11 @@ public class OdontologoController {
 				log.info("estamos logueando actualizar" + actualizarOdontologo);
 
 
+				return  new ResponseEntity(odontologo, HttpStatus.OK);
 
 				} else {
 					return new ResponseEntity( HttpStatus.NOT_FOUND);
 				}
-
-
-		return  new ResponseEntity(odontologo, HttpStatus.OK);
 	}
 
 	//TODO METODO ACTUALIZAR CON VOID? Y EXCEPTION O CAMBIAR EL VOID??

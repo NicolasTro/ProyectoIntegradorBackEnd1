@@ -15,7 +15,6 @@ public class OdontologoResponseDTOName extends OdontologoDTO {
 
 
 	private Long id;
-
-	private String apellido;
+private String apellido;
 
 }

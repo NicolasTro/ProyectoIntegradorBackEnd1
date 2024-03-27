@@ -1,3 +1,6 @@
+
+// ##############################################################################################################################
+//FUNCION OBTENER LISTA DE TURNOS
 function obtenerListaTurnos() {
 	const url = "/turnos/listar";
 	const settings = {
@@ -7,7 +10,7 @@ function obtenerListaTurnos() {
 	return fetch(url, settings)
 		.then((response) => response.json())
 		.then((data) => {
-			console.log(data);
+			
 			if (data.length > 0) {
 				let body = document.getElementById("cuerpoTabla");
 
@@ -26,6 +29,8 @@ function obtenerListaTurnos() {
 		});
 }
 
+// ##############################################################################################################################
+// FUNCION WINDOWS LOAD
 window.addEventListener("load", function () {
 	cargarEncabezadoTabla();
 	cargarCuerpoTabla();
@@ -39,12 +44,9 @@ window.addEventListener("load", function () {
 		obtenerListaTurnos();
 	}, 3000);
 
+	let btnRegistrarTurno = document.getElementById("btnRegistrarTurno");
 
-let btnRegistrarTurno = document.getElementById("btnRegistrarTurno");
-
-console.log(btnRegistrarTurno.id);
-
-
+	
 
 	(function () {
 		let pathname = window.location.pathname;
@@ -53,16 +55,46 @@ console.log(btnRegistrarTurno.id);
 		}
 	});
 
-btnRegistrarTurno.addEventListener('click', function(){
+	btnRegistrarTurno.addEventListener("click", function () {
+		listarPacientes();
+		listarOdontologos();
+	});
+	let comboBusqueda = document.getElementById("comboBusqueda");
+	comboBusqueda.addEventListener("change", function () {
+		let formBusqueda = document.getElementById("formBusqueda");
+		let inputBusqueda = document.getElementById("search");
 
-listarPacientes();
-listarOdontologos();
+		if (inputBusqueda == null && comboBusqueda.value < 4) {
+			let calendario = document.getElementById("searchCalendar");
+			let inputBusqueda = document.createElement("input");
+			inputBusqueda.type = "text";
+			inputBusqueda.className = "form-control mr-sm-2 idBusqueda";
+			inputBusqueda.id = "search";
+			inputBusqueda.type = "search";
+			inputBusqueda.placeholder = "Buscar";
+			inputBusqueda.ariaLabel = "Search";
+			inputBusqueda.required = true;
 
+			formBusqueda.replaceChild(inputBusqueda, calendario);
+			validacionInput();
+		} else if (inputBusqueda != null && comboBusqueda.value < 4) {
+			inputBusqueda.value = "";
+		} else if (comboBusqueda.value == 4) {
+			let calendario = document.createElement("input");
+			calendario.type = "date";
+
+			calendario.className = "form-control mr-sm-2 idBusqueda btnHeaderRegistro";
+			calendario.id = "searchCalendar";
+			calendario.required = true;
+
+			formBusqueda.replaceChild(calendario, inputBusqueda);
+		}
+	});
 	
 });
-	
-});
+validacionInput();
 
+// ##############################################################################################################################
 function cargarEncabezadoTabla() {
 	let tabla = document.getElementById("turnoTable");
 	let encabezadoTabla = document.createElement("thead");
@@ -72,6 +104,9 @@ function cargarEncabezadoTabla() {
 	dentistRowHeader.innerHTML = "<th scope='col'>Id</th>" + "<th scope='col'>Odontologo</th>" + "<th scope='col'>Paciente</th>" + "<th scope='col'>Fecha y hora</th>" + "<th scope='col'>Gestionar </th>";
 }
 
+
+// ##############################################################################################################################
+
 function noSeEncontraronRegistros() {
 	clearTabla();
 	let sinRegistro = document.createElement("tr");
@@ -80,27 +115,27 @@ function noSeEncontraronRegistros() {
 	let filSinRegistro = document.getElementById("idSinRegistro");
 	filSinRegistro.innerHTML = "<td></td><td>No se encontraron registros</td><td></td><td></td><td></td>";
 }
-
+// ##############################################################################################################################
 function cargarCuerpoTabla() {
 	let tabla = document.getElementById("turnoTable");
 	let cuerpoTabla = document.createElement("tbody");
 	cuerpoTabla.id = "cuerpoTabla";
 	tabla.appendChild(cuerpoTabla);
 }
-
+// ##############################################################################################################################
 function clearTabla() {
 	let tabla = document.getElementById("turnoTable");
 	tabla.innerHTML = "";
 	cargarEncabezadoTabla();
 	cargarCuerpoTabla();
 }
-
+// ##############################################################################################################################
 function cargarRegistro(turno) {
-	console.log(turno);
+	
 	return `<td class="td_id align-middle tamanioTexto">${turno.id}</td><td class="td_odontologo align-middle tamanioTexto">${turno.odontologo.nombre}</td>
     <td class="td_paciente align-middle tamanioTexto">${turno.paciente.nombre}</td><td class="td_fechaTurno align-middle tamanioTexto">${turno.fechaYHora}</td><td><div class="dropdown"><button class='btn btn-secondary dropdown-toggle' type='button'data-toggle='dropdown' aria-expanded='false'></button><div class='dropdown-menu'><button type='button' data-id=${turno.id} class='btn btn-primary btnTabla dropdown-item' data-toggle='modal' data-target='#staticBackdropTurnoUpdate'>Modificar</button><button type='button' data-id=${turno.id} class='btn btn-primary dropdown-item btnTabla' data-toggle='modal' >Eliminar</button></div></div></td>`;
 }
-
+// ##############################################################################################################################
 function busquedaPacientePersonalizado() {
 	let tipoDeBusqueda = document.getElementById("comboBusqueda");
 	let valorBusqueda;
@@ -151,9 +186,9 @@ function busquedaPacientePersonalizado() {
 			noSeEncontraronRegistroPaciente();
 		});
 }
-function listarPacientes(){
-	
 
+// ##############################################################################################################################
+function listarPacientes() {
 	const url = `/pacientes/listar`;
 
 	const settings = {
@@ -161,34 +196,24 @@ function listarPacientes(){
 	};
 
 	return fetch(url, settings)
-	.then((response) => response.json())
-	.then((data) => {
-		console.log(data);
-		
-
+		.then((response) => response.json())
+		.then((data) => {
 			
-				let comboPacientes = document.getElementById("comboTurnoPaciente");
-console.log(comboPacientes);
-				for (patient of data) {
-let comboValor = document.createElement("option");
 
-comboValor.value = patient.id;
-comboValor.textContent = patient.nombre;
-comboPacientes.appendChild(comboValor);
-
-
-					
-				}
+			let comboPacientes = document.getElementById("comboTurnoPaciente");
 			
+			for (patient of data) {
+				let comboValor = document.createElement("option");
+
+				comboValor.value = patient.id;
+				comboValor.textContent = patient.nombre;
+				comboPacientes.appendChild(comboValor);
+			}
 		})
-		.catch((error) => {
-			
-		});
-
+		.catch((error) => {});
 }
 
-
-function  listarOdontologos(){
+function listarOdontologos() {
 	const url = `/odontologos/listarDTO`;
 
 	const settings = {
@@ -196,29 +221,39 @@ function  listarOdontologos(){
 	};
 
 	return fetch(url, settings)
-	.then((response) => response.json())
-	.then((data) => {
-		console.log(data);
-		
-
+		.then((response) => response.json())
+		.then((data) => {
 			
-				let comboOdontologo = document.getElementById("comboTurnoOdontologo");
-console.log(comboOdontologo);
-				for (odontologo of data) {
-let comboValor = document.createElement("option");
 
-comboValor.value = odontologo.id;
-comboValor.textContent = odontologo.nombre +  " "  + odontologo.apellido;
-comboOdontologo.appendChild(comboValor);
-
-
-					
-				}
+			let comboOdontologo = document.getElementById("comboTurnoOdontologo");
 			
+			for (odontologo of data) {
+				let comboValor = document.createElement("option");
+
+				comboValor.value = odontologo.id;
+				comboValor.textContent = odontologo.nombre + " " + odontologo.apellido;
+				comboOdontologo.appendChild(comboValor);
+			}
 		})
-		.catch((error) => {
-			
-		});
+		.catch((error) => {});
+}
+function validacionInput() {
+	let validacionInputId = document.getElementById("search");
+	let tipoDeBusqueda = document.getElementById("comboBusqueda");
+	tipoDeBusqueda.addEventListener("change", function () {
+		validacionInputId.value = "";
+	});
 
+	validacionInputId.addEventListener("keypress", function (event) {
+		if (tipoDeBusqueda.value == 1) {
+			const codigoTecla = event.keyCode;
 
+			if (codigoTecla === 8 || (codigoTecla >= 48 && codigoTecla <= 57)) {
+				return true;
+			} else {
+				event.preventDefault();
+				return false;
+			}
+		}
+	});
 }

@@ -3,7 +3,7 @@ package com.Dh.ProyectoIntegrador.controller;
 import com.Dh.ProyectoIntegrador.dto.odontologos.OdontologoDTO;
 import com.Dh.ProyectoIntegrador.dto.odontologos.request.OdontologoRequestDTO;
 import com.Dh.ProyectoIntegrador.dto.odontologos.response.OdontologoResponseDTOFull;
-import com.Dh.ProyectoIntegrador.dto.odontologos.request.OdontologoRequestDTO;
+import com.Dh.ProyectoIntegrador.dto.odontologos.response.OdontologoResponseDTOName;
 import com.Dh.ProyectoIntegrador.entity.Odontologo;
 import com.Dh.ProyectoIntegrador.service.IService;
 import com.Dh.ProyectoIntegrador.service.IServiceHQL;

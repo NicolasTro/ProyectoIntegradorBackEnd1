@@ -208,7 +208,7 @@ console.log(comboOdontologo);
 let comboValor = document.createElement("option");
 
 comboValor.value = odontologo.id;
-comboValor.textContent = odontologo.nombre;
+comboValor.textContent = odontologo.nombre +  " "  + odontologo.apellido;
 comboOdontologo.appendChild(comboValor);
 
 

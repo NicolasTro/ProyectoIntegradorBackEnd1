@@ -1,4 +1,4 @@
-package com.Dh.ProyectoIntegrador.dto;
+package com.Dh.ProyectoIntegrador.dto.odontologos;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -15,10 +15,5 @@ import lombok.Setter;
 
 public class OdontologoDTO {
 
-
 	private String nombre;
-
-
-
-
 }

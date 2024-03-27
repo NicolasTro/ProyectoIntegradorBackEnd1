@@ -10,7 +10,7 @@ import lombok.*;
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 @ToString
-public class OdontologoDTO {
+public class OdontologoResponseDTO {
 
 	private Long id;
 	private String nombre;

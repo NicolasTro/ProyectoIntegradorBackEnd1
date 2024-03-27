@@ -54,7 +54,11 @@ console.log(btnRegistrarTurno.id);
 	});
 
 btnRegistrarTurno.addEventListener('click', function(){
-console.log("asdasd");
+
+listarPacientes();
+listarOdontologos();
+
+	
 });
 	
 });
@@ -146,4 +150,75 @@ function busquedaPacientePersonalizado() {
 		.catch((error) => {
 			noSeEncontraronRegistroPaciente();
 		});
+}
+function listarPacientes(){
+	
+
+	const url = `/pacientes/listar`;
+
+	const settings = {
+		method: "GET",
+	};
+
+	return fetch(url, settings)
+	.then((response) => response.json())
+	.then((data) => {
+		console.log(data);
+		
+
+			
+				let comboPacientes = document.getElementById("comboTurnoPaciente");
+console.log(comboPacientes);
+				for (patient of data) {
+let comboValor = document.createElement("option");
+
+comboValor.value = patient.id;
+comboValor.textContent = patient.nombre;
+comboPacientes.appendChild(comboValor);
+
+
+					
+				}
+			
+		})
+		.catch((error) => {
+			
+		});
+
+}
+
+
+function  listarOdontologos(){
+	const url = `/odontologos/listarDTO`;
+
+	const settings = {
+		method: "GET",
+	};
+
+	return fetch(url, settings)
+	.then((response) => response.json())
+	.then((data) => {
+		console.log(data);
+		
+
+			
+				let comboOdontologo = document.getElementById("comboTurnoOdontologo");
+console.log(comboOdontologo);
+				for (odontologo of data) {
+let comboValor = document.createElement("option");
+
+comboValor.value = odontologo.id;
+comboValor.textContent = odontologo.nombre;
+comboOdontologo.appendChild(comboValor);
+
+
+					
+				}
+			
+		})
+		.catch((error) => {
+			
+		});
+
+
 }

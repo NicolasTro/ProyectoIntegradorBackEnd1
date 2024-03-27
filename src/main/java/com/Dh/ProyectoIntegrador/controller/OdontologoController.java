@@ -4,7 +4,7 @@ import com.Dh.ProyectoIntegrador.Excepciones.DomicilioException;
 import com.Dh.ProyectoIntegrador.Excepciones.OdontologoException;
 import com.Dh.ProyectoIntegrador.Excepciones.PacienteException;
 import com.Dh.ProyectoIntegrador.Excepciones.TurnoException;
-import com.Dh.ProyectoIntegrador.dto.response.OdontologoDTO;
+import com.Dh.ProyectoIntegrador.dto.response.OdontologoResponseDTO;
 import com.Dh.ProyectoIntegrador.entity.Odontologo;
 import com.Dh.ProyectoIntegrador.service.IService;
 import com.Dh.ProyectoIntegrador.service.IServiceDTOHQL;
@@ -25,9 +25,9 @@ public class OdontologoController {
 
 	private IService<Odontologo> odontologoIService;
 	private IServiceHQL<Odontologo> odontologoIServiceHQL;
-	private IServiceDTOHQL<OdontologoDTO> odontologoIServiceDTOHQL;
+	private IServiceDTOHQL<OdontologoResponseDTO> odontologoIServiceDTOHQL;
 	@Autowired
-	public OdontologoController(IService<Odontologo> odontologoIService, IServiceHQL<Odontologo> odontologoIServiceHQL, IServiceDTOHQL<OdontologoDTO> odontologoIServiceDTOHQL) {
+	public OdontologoController(IService<Odontologo> odontologoIService, IServiceHQL<Odontologo> odontologoIServiceHQL, IServiceDTOHQL<OdontologoResponseDTO> odontologoIServiceDTOHQL) {
 		this.odontologoIService = odontologoIService;
 		this.odontologoIServiceHQL = odontologoIServiceHQL;
 		this.odontologoIServiceDTOHQL = odontologoIServiceDTOHQL;
@@ -134,13 +134,13 @@ public class OdontologoController {
 
 	@GetMapping("/listarDTO")
 
-	public ResponseEntity<List<OdontologoDTO>> listarTodosDTO() {
+	public ResponseEntity<List<OdontologoResponseDTO>> listarTodosDTO() {
 		ResponseEntity response = null;
-		Optional<List<OdontologoDTO>> listaOdontologos = null;
+		Optional<List<OdontologoResponseDTO>> listaOdontologos = null;
 		try {
 
 			listaOdontologos = this.odontologoIServiceDTOHQL.listarTodosIDNombre();
-			System.out.println(listaOdontologos.get());
+
 			if (!listaOdontologos.isEmpty()) {
 				response = new ResponseEntity(listaOdontologos.get(), HttpStatus.FOUND);
 			} else {

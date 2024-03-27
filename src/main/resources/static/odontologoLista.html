@@ -102,15 +102,15 @@
       <!--    ACTUALIZAR ODONTOLOGO MODAL-->
       <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelUp" aria-hidden="true">
         <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
+          <div class="modal-content" style=" background-color: #63aae5;">
+            <div class="modal-header" style="color: #ffffff;">
               <h5 class="modal-title" id="staticBackdropLabelUp">Actualizar Odontologo</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <button type="button" class="close" data-dismiss="modal" style="padding: 1.5rem 1.5rem; color:#ffffff;" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-              <form id="formOdontologoUpdate">
+              <form id="formOdontologoUpdate" style="background-color: #c0d6f3;padding: 10px; border-radius: 3px;">
                 <div class="form-group">
                   <label for="nombreUpdate">Ingresa nuevo nombre</label>
                   <input type="text" class="form-control" id="nombreUpdate" aria-describedby="emailHelp" placeholder="Nombre" />
@@ -118,7 +118,7 @@
                 <div class="form-group"><label for="apellidoUpdate">Ingresa nuevo Apellido</label><input type="text" class="form-control" id="apellidoUpdate" placeholder="Apellido" /></div>
                 <div class="form-group"><label for="matriculaUpdate">Ingresa nueva matricula</label><input type="text" class="form-control" id="matriculaUpdate" placeholder="Matricula" /></div>
                 <div class="modal-footer">
-                  <button type="submit" class="btn btn-success" id="actualizarBtn">Actualizar</button><button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar Actualizacion</button>
+                  <button type="submit" class="btn btn-primary" id="actualizarBtn">Actualizar</button><button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar Actualizacion</button>
                 </div>
               </form>
               <div id="responseDentist" style="display: none; margin-top: 10px"></div>
@@ -131,15 +131,15 @@
 <!--MODAL REGISTRO-->
       <div class="modal fade" id="staticBackdropOdontologo" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelOd" aria-hidden="true">
         <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
+          <div class="modal-content" style=" background-color: #63aae5;">
+            <div class="modal-header" style="color: #ffffff;">
               <h3 class="modal-title" id="staticBackdropLabelOd">Registro de odontologos</h3>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <button type="button" class="close" data-dismiss="modal" style="padding: 1.5rem 1.5rem; color:#ffffff;" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-              <div style="background-color: #e6fffa; padding: 10px; border-radius: 3px">
+              <div style="background-color: #c0d6f3;padding: 10px; border-radius: 3px;">
                 <h5>Ingreso de datos</h5>
                 <form id="agregarDentista">
                   <div class="form-group">
@@ -156,8 +156,8 @@
                     <input type="text" class="form-control" id="matriculaOdontologo" placeholder="Ingrese la matrícula" name="matricula" required />
                   </div>
                   <div class="modal-footer">
-                    <button type="submit" class="btn btn-success">Guardar</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                   </div>
                 </form>
                 <div id="responseDentist1" style="display: none; margin-top: 10px"></div>

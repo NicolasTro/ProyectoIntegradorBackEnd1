@@ -10,7 +10,7 @@ function obtenerListaTurnos() {
 	return fetch(url, settings)
 		.then((response) => response.json())
 		.then((data) => {
-			
+			console.log(data);
 			if (data.length > 0) {
 				let body = document.getElementById("cuerpoTabla");
 
@@ -40,7 +40,7 @@ window.addEventListener("load", function () {
 
 	setTimeout(function () {
 		iconosDeCarga.style.visibility = "hidden";
-
+console.log("aver");
 		obtenerListaTurnos();
 	}, 3000);
 
@@ -58,6 +58,27 @@ window.addEventListener("load", function () {
 	btnRegistrarTurno.addEventListener("click", function () {
 		listarPacientes();
 		listarOdontologos();
+	});
+
+
+
+
+
+
+	let formularioBusqueda = document.getElementById("formBusqueda");
+
+	formularioBusqueda.addEventListener("submit", function (event) {
+		event.preventDefault();
+		clearTabla();
+		cargarEncabezadoTabla();
+		cargarCuerpoTabla();
+
+		iconosDeCarga.style.visibility = "visible";
+
+		setTimeout(function () {
+			iconosDeCarga.style.visibility = "hidden";
+			busquedaPacientePersonalizado();
+		}, 3000);
 	});
 	let comboBusqueda = document.getElementById("comboBusqueda");
 	comboBusqueda.addEventListener("change", function () {
@@ -81,7 +102,7 @@ window.addEventListener("load", function () {
 			inputBusqueda.value = "";
 		} else if (comboBusqueda.value == 4) {
 			let calendario = document.createElement("input");
-			calendario.type = "date";
+			calendario.type = "datetime-local";
 
 			calendario.className = "form-control mr-sm-2 idBusqueda btnHeaderRegistro";
 			calendario.id = "searchCalendar";
@@ -90,6 +111,12 @@ window.addEventListener("load", function () {
 			formBusqueda.replaceChild(calendario, inputBusqueda);
 		}
 	});
+
+
+
+
+
+	
 	
 });
 validacionInput();
@@ -126,26 +153,35 @@ function cargarCuerpoTabla() {
 function clearTabla() {
 	let tabla = document.getElementById("turnoTable");
 	tabla.innerHTML = "";
+	
+}
+
+
+function tablaNueva() {
 	cargarEncabezadoTabla();
 	cargarCuerpoTabla();
 }
+
+
+
 // ##############################################################################################################################
 function cargarRegistro(turno) {
 	
-	return `<td class="td_id align-middle tamanioTexto">${turno.id}</td><td class="td_odontologo align-middle tamanioTexto">${turno.odontologo.nombre}</td>
-    <td class="td_paciente align-middle tamanioTexto">${turno.paciente.nombre}</td><td class="td_fechaTurno align-middle tamanioTexto">${turno.fechaYHora}</td><td><div class="dropdown"><button class='btn btn-secondary dropdown-toggle' type='button'data-toggle='dropdown' aria-expanded='false'></button><div class='dropdown-menu'><button type='button' data-id=${turno.id} class='btn btn-primary btnTabla dropdown-item' data-toggle='modal' data-target='#staticBackdropTurnoUpdate'>Modificar</button><button type='button' data-id=${turno.id} class='btn btn-primary dropdown-item btnTabla' data-toggle='modal' >Eliminar</button></div></div></td>`;
+	return `<td class="td_id align-middle tamanioTexto">${turno.id}</td><td class="td_odontologo align-middle tamanioTexto" data-odontologoid='${turno.odontologo_Id}'>${turno.odontologoNombre} ${turno.odontologoApellido}</td>
+    <td class="td_paciente align-middle tamanioTexto" data-pacienteid='${turno.paciente_Id}'>${turno.pacienteNombre} ${turno.pacienteApellido}</td><td class="td_fechaTurno align-middle tamanioTexto">${turno.fechaYHora}</td><td><div class="dropdown"><button class='btn btn-secondary dropdown-toggle' type='button'data-toggle='dropdown' aria-expanded='false'></button><div class='dropdown-menu'><button type='button' data-id=${turno.id} class='btn btn-primary btnTabla dropdown-item' data-toggle='modal' data-target='#staticBackdropTurnoUpdate'>Modificar</button><button type='button' data-id=${turno.id} class='btn btn-primary dropdown-item btnTabla' data-toggle='modal' >Eliminar</button></div></div></td>`;
 }
 // ##############################################################################################################################
 function busquedaPacientePersonalizado() {
 	let tipoDeBusqueda = document.getElementById("comboBusqueda");
+	
 	let valorBusqueda;
 	if (tipoDeBusqueda.value <= 3) {
 		valorBusqueda = document.getElementById("search");
 	} else {
 		valorBusqueda = document.getElementById("searchCalendar");
 	}
-
-	const url = `/pacientes/buscar?valor=${valorBusqueda.value}&tipoDeBusqueda=${tipoDeBusqueda.value}`;
+console.log("valor busqueda " + tipoDeBusqueda.value);
+	const url = `/turnos/buscar?valor=${valorBusqueda.value}&tipoDeBusqueda=${tipoDeBusqueda.value}`;
 
 	const settings = {
 		method: "GET",
@@ -157,6 +193,7 @@ function busquedaPacientePersonalizado() {
 			clearTabla();
 			tablaNueva();
 
+			console.log(data);
 			if (data.length == 1) {
 				let tablaBody = document.getElementById("cuerpoTabla");
 
@@ -176,13 +213,14 @@ function busquedaPacientePersonalizado() {
 					patientRow.id = tr_id;
 					patientRow.innerHTML = cargarRegistro(patient);
 
-					let;
+					
 				}
 			} else {
 				noSeEncontraronRegistrosPaciente();
 			}
 		})
 		.catch((error) => {
+			console.log(error);
 			noSeEncontraronRegistroPaciente();
 		});
 }

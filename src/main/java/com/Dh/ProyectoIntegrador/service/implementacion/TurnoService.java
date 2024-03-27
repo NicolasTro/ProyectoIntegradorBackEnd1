@@ -18,6 +18,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -49,13 +52,19 @@ public class TurnoService implements IService<TurnoDTO>, IServiceHQL<TurnoDTO> {
 
 				break;
 			case 2:
-				turnoOptional = Optional.of(mapearRegistros(turnoRepository.findByPacientes(valor).get()));
-				break;
-			case 3:
 				turnoOptional = Optional.of(mapearRegistros(turnoRepository.findByOdontologo(valor).get()));
 				break;
+			case 3:
+				turnoOptional = Optional.of(mapearRegistros(turnoRepository.findByPacientes(valor).get()));
+				break;
 			case 4:
-				turnoOptional = Optional.of(mapearRegistros(turnoRepository.findByFecha(valor).get()));
+				String valorDatetimeLocal = valor;
+
+DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
+LocalDateTime fechaHora = LocalDateTime.parse(valorDatetimeLocal, formatter);
+
+
+				turnoOptional = Optional.of(mapearRegistros(turnoRepository.findByFecha(fechaHora).get()));
 				break;
 
 			default:

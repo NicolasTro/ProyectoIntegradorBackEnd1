@@ -11,7 +11,7 @@ import lombok.*;
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 @ToString
-public class OdontologoResponseDTO extends OdontologoDTO {
+public class OdontologoResponseDTOFull extends OdontologoDTO {
 
 
 	private Long id;

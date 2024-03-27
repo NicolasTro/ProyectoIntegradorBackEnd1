@@ -1,15 +1,10 @@
 package com.Dh.ProyectoIntegrador.controller;
 
-import com.Dh.ProyectoIntegrador.Excepciones.DomicilioException;
-import com.Dh.ProyectoIntegrador.Excepciones.OdontologoException;
-import com.Dh.ProyectoIntegrador.Excepciones.PacienteException;
-import com.Dh.ProyectoIntegrador.Excepciones.TurnoException;
 import com.Dh.ProyectoIntegrador.dto.OdontologoDTO;
 import com.Dh.ProyectoIntegrador.dto.request.OdontologoRequestDTO;
-import com.Dh.ProyectoIntegrador.dto.response.OdontologoResponseDTO;
+import com.Dh.ProyectoIntegrador.dto.response.OdontologoResponseDTOFull;
 import com.Dh.ProyectoIntegrador.entity.Odontologo;
 import com.Dh.ProyectoIntegrador.service.IService;
-import com.Dh.ProyectoIntegrador.service.IServiceDTOHQL;
 import com.Dh.ProyectoIntegrador.service.IServiceHQL;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,18 +22,17 @@ public class OdontologoController {
 
 	private IService<OdontologoDTO> odontologoIService;
 	private IServiceHQL<OdontologoDTO> odontologoIServiceHQL;
-	private IServiceDTOHQL<OdontologoDTO> odontologoIServiceDTOHQL;
 	@Autowired
-	public OdontologoController(IService<OdontologoDTO> odontologoIService, IServiceHQL<OdontologoDTO> odontologoIServiceHQL, IServiceDTOHQL<OdontologoDTO> odontologoIServiceDTOHQL) {
+	public OdontologoController(IService<OdontologoDTO> odontologoIService, IServiceHQL<OdontologoDTO> odontologoIServiceHQL) {
 		this.odontologoIService = odontologoIService;
 		this.odontologoIServiceHQL = odontologoIServiceHQL;
-		this.odontologoIServiceDTOHQL = odontologoIServiceDTOHQL;
+
 	}
 
 	//TODO Preguntarle a la profe sobre los AutoWirdes y si hay dos como en este acso, es nececsario ponerle a ambos?
 
 	@GetMapping("/buscar")
-	public ResponseEntity<OdontologoResponseDTO> buscar(@RequestParam("valor") String valor,@RequestParam("tipoDeBusqueda") Integer tipoDeBusqueda) {
+	public ResponseEntity<OdontologoDTO> buscar(@RequestParam("valor") String valor, @RequestParam("tipoDeBusqueda") Integer tipoDeBusqueda) {
 		ResponseEntity response =  null;
 		try {
 			Optional<List<OdontologoDTO>> odontologoBuscar = odontologoIServiceHQL.buscarDatosCompletos(tipoDeBusqueda, valor);
@@ -72,7 +66,7 @@ public class OdontologoController {
 
 
 	@GetMapping("/{id}")
-	public ResponseEntity<OdontologoResponseDTO> buscarPorId(@PathVariable Long id) {
+	public ResponseEntity<OdontologoResponseDTOFull> buscarPorId(@PathVariable Long id) {
 		ResponseEntity response = null;
 		OdontologoDTO odontologoEncontrado = null;
 		try {
@@ -141,7 +135,7 @@ public class OdontologoController {
 		Optional<List<OdontologoDTO>> listaOdontologos = null;
 		try {
 
-			listaOdontologos = this.odontologoIServiceDTOHQL.listarTodosIDNombre();
+			listaOdontologos = this.odontologoIServiceHQL.listarTodosIDNombre();
 
 			if (!listaOdontologos.isEmpty()) {
 				response = new ResponseEntity(listaOdontologos.get(), HttpStatus.FOUND);

@@ -56,7 +56,12 @@
   }
 
 
-@media (min-width: 321px) and (max-width: 375px) {}
+@media (min-width: 321px) and (max-width: 375px) {
+
+
+
+  
+}
 
   @media (min-width: 376px) and (max-width: 576px) {
     .navbar-toggler {

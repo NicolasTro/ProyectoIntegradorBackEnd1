@@ -1,13 +1,12 @@
 package com.Dh.ProyectoIntegrador.service.implementacion;
 
 import com.Dh.ProyectoIntegrador.dto.OdontologoDTO;
-import com.Dh.ProyectoIntegrador.dto.request.OdontologoRequestDTO;
-import com.Dh.ProyectoIntegrador.dto.response.OdontologoResponseDTO;
+import com.Dh.ProyectoIntegrador.dto.response.OdontologoResponseDTOFull;
+import com.Dh.ProyectoIntegrador.dto.response.OdontologoResponseDTOName;
 import com.Dh.ProyectoIntegrador.entity.Odontologo;
 
 import com.Dh.ProyectoIntegrador.repository.IOdontologoRepository;
 import com.Dh.ProyectoIntegrador.service.IService;
-import com.Dh.ProyectoIntegrador.service.IServiceDTOHQL;
 import com.Dh.ProyectoIntegrador.service.IServiceHQL;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -21,7 +20,7 @@ import java.util.Optional;
 
 @Slf4j
 @Service
-public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<OdontologoDTO>, IServiceDTOHQL<OdontologoDTO> {
+public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<OdontologoDTO> {
 
 	private IOdontologoRepository odontologoRepository;
 
@@ -30,6 +29,45 @@ public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<O
 		this.odontologoRepository = odontologoRepository;
 	}
 
+	//METODOS CRUD
+	/*###################################################################################################################*/
+	@Override
+	public OdontologoDTO guardar(OdontologoDTO odontologoRequestDTO) {
+		Odontologo odontologoGuardado = odontologoRepository.save(mapeador(odontologoRequestDTO, Odontologo.class));
+		return mapeador(odontologoGuardado, OdontologoResponseDTOFull.class);
+	}
+
+	//METODO ELIMINAR
+	/*###################################################################################################################*/
+	public void eliminar(Long id) {
+		this.odontologoRepository.deleteById(id);
+	}
+
+	//METODO ACTUALIZAR
+	/*###################################################################################################################*/
+	@Override
+	public void actualizar(OdontologoDTO odontologoRequestDTO) {
+		this.odontologoRepository.save(mapeador(odontologoRequestDTO, Odontologo.class));
+	}
+	//METODO BUSCAR POR ID
+	/*###################################################################################################################*/
+
+	public OdontologoDTO buscarPorId(Long id) {
+		Optional<Odontologo> odontologoOptional = odontologoRepository.findById(id);
+		if (odontologoOptional.isPresent()) {
+			OdontologoDTO odontologoDTO = new OdontologoDTO();
+			return this.mapeador(odontologoOptional.get(), OdontologoResponseDTOFull.class);
+		} else {
+			return null;
+		}
+	}
+	//METODO LISTAR
+	/*###################################################################################################################*/
+	@Override
+	public List<OdontologoDTO> listarTodos() {
+		return mapearRegistros(this.odontologoRepository.findAll());
+	}
+	/*###################################################################################################################*/
 
 	public Optional<List<OdontologoDTO>> buscarDatosCompletos(Integer tipoDeBusqueda, String valor) {
 		Optional<List<OdontologoDTO>> odontologoOptional = null;
@@ -39,23 +77,19 @@ public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<O
 				Long id = Long.parseLong(valor);
 				Optional<Odontologo> odontologoEncontrado = this.odontologoRepository.findById(id);
 				if (odontologoEncontrado.isPresent()) {
-
-					ObjectMapper mapper = new ObjectMapper();
-					OdontologoDTO odontologoResponseDTO = mapper.convertValue(odontologoEncontrado.get(), OdontologoDTO.class);
 					List<OdontologoDTO> listaOdontologo = new ArrayList<>();
-					listaOdontologo.add(odontologoResponseDTO);
-
+					listaOdontologo.add(mapeador(odontologoEncontrado.get(), OdontologoResponseDTOFull.class));
 					odontologoOptional = Optional.of(listaOdontologo); // Envuelve la lista en un Optional
 				}
 				break;
 			case 2:
-				odontologoOptional = odontologoRepository.findByNombre(valor);
+				odontologoOptional = Optional.of(mapearRegistros(odontologoRepository.findByNombre(valor).get()));
 				break;
 			case 3:
-				odontologoOptional = odontologoRepository.findByApellido(valor);
+				odontologoOptional = Optional.of(mapearRegistros(odontologoRepository.findByApellido(valor).get()));
 				break;
 			case 4:
-				odontologoOptional = odontologoRepository.findByMatricula(valor);
+				odontologoOptional = Optional.of(mapearRegistros(odontologoRepository.findByMatricula(valor).get()));
 				break;
 			default:
 				break;
@@ -63,73 +97,31 @@ public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<O
 		return odontologoOptional;
 	}
 
-@Override
-	public OdontologoResponseDTO guardar(OdontologoDTO odontologoRequestDTO) {
-		ObjectMapper mapper = new ObjectMapper();
-		Odontologo odontologo = mapper.convertValue(odontologoRequestDTO, Odontologo.class);
-		log.info("odontologo creado", odontologo);
-		Odontologo odontologoGuardado = odontologoRepository.save(odontologo);
-		return mapper.convertValue(odontologoGuardado, OdontologoResponseDTO.class);
-	}
-
-	public void eliminar(Long id) {
-		this.odontologoRepository.deleteById(id);
-	}
-@Override
-	public void actualizar(OdontologoDTO odontologoRequestDTO) {
-		ObjectMapper mapper = new ObjectMapper();
-		Odontologo odontologoAActualizar = mapper.convertValue(odontologoRequestDTO, Odontologo.class);
-
-
-		this.odontologoRepository.save(odontologoAActualizar);
-	}
-
-	public OdontologoResponseDTO buscarPorId(Long id) {
-		//ESTO INGRESA id DEVUELVE
-		Optional<Odontologo> odontologoOptional = odontologoRepository.findById(id);
-
-		if (odontologoOptional.isPresent()) {
-			ObjectMapper mapper = new ObjectMapper();
-			return mapper.convertValue(odontologoOptional.get(), OdontologoResponseDTO.class);
-		} else {
-			return null;
-		}
-	}
-
-@Override
-	public List<OdontologoDTO> listarTodos() {
-		List<Odontologo> listaOdontologos = odontologoRepository.findAll();
-		List<OdontologoDTO> listaDTOOdontologos = new ArrayList<>();
-		listaOdontologos.forEach(odontologo -> {
-			ObjectMapper mapper = new ObjectMapper();
-			mapper.registerModule(new JavaTimeModule());
-			OdontologoDTO odontologoDTO = mapper.convertValue(odontologo, OdontologoResponseDTO.class);
-			listaDTOOdontologos.add(odontologoDTO);
-		});
-		return listaDTOOdontologos;
-	}
-
-
 	public Optional<List<OdontologoDTO>> listarTodosIDNombre() {
-
 		List<Odontologo> listaOdontologos = this.odontologoRepository.findAll();
 		List<OdontologoDTO> listaOdontologosDTO = new ArrayList<>();
-
-
 		listaOdontologos.forEach(odontologo -> {
-
-					ObjectMapper mapper = new ObjectMapper();
-					mapper.registerModule(new JavaTimeModule());
-					OdontologoResponseDTO odontologoDTO = mapper.convertValue(odontologo, OdontologoResponseDTO.class);
-					listaOdontologosDTO.add(odontologoDTO);
-				}
-
-
-		);
-
-
+			listaOdontologosDTO.add(mapeador(odontologo, OdontologoResponseDTOName.class));
+		});
 		return Optional.of(listaOdontologosDTO);
 	}
 
+
+	private List<OdontologoDTO> mapearRegistros(List<Odontologo> listaOdontologos) {
+		if (!listaOdontologos.isEmpty()) {
+			List<OdontologoDTO> listaOdontologosDTO = new ArrayList<>();
+			listaOdontologos.forEach(odontologo -> {
+				listaOdontologosDTO.add(mapeador(odontologo, OdontologoResponseDTOFull.class));
+			});
+			return listaOdontologosDTO;
+		}
+		return null;
+	}
+
+	private static <T> T mapeador(Object objetoAMapear, Class<T> clase) {
+		ObjectMapper mapper = new ObjectMapper();
+		mapper.registerModule(new JavaTimeModule());
+		return mapper.convertValue(objetoAMapear, clase);
+	}
 
 }

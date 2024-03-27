@@ -272,7 +272,7 @@ function busquedaPacientePersonalizado() {
 	}
 
 	const url = `/pacientes/buscar?valor=${valorBusqueda.value}&tipoDeBusqueda=${tipoDeBusqueda.value}`;
-
+console.log(url);
 	const settings = {
 		method: "GET",
 	};
@@ -280,8 +280,10 @@ function busquedaPacientePersonalizado() {
 	return fetch(url, settings)
 		.then((response) => response.json())
 		.then((data) => {
+			console.log(data);
 			clearTabla();
 			tablaNueva();
+			
 
 			if (data.length == 1) {
 				let tablaBody = document.getElementById("cuerpoTabla");
@@ -302,8 +304,9 @@ function busquedaPacientePersonalizado() {
 					patientRow.id = tr_id;
 					patientRow.innerHTML = cargarRegistro(patient);
 
-					let;
+					
 				}
+				console.log("asdasd");
 			} else {
 				noSeEncontraronRegistrosPaciente();
 			}

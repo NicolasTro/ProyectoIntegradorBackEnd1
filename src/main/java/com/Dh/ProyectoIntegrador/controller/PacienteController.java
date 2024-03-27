@@ -27,9 +27,9 @@ public class PacienteController {
 		this.pacienteIServiceHQL = pacienteIServiceHQL;
 	}
 
-	// IServiceHQL
+
 	@GetMapping("/buscar")
-	public ResponseEntity<Paciente> buscar(@RequestParam("valor") String valor, @RequestParam("tipoDeBusqueda") Integer tipoDeBusqueda) {
+	public ResponseEntity<List<Paciente>> buscar(@RequestParam("valor") String valor, @RequestParam("tipoDeBusqueda") Integer tipoDeBusqueda) {
 		ResponseEntity response =  null;
 		try {
 			Optional<List<Paciente>> pacienteBuscar = pacienteIServiceHQL.buscarDatosCompletos(tipoDeBusqueda, valor);
@@ -46,7 +46,7 @@ public class PacienteController {
 		return response;
 	}
 	@PostMapping("/registrar")
-	public ResponseEntity guardar(@RequestBody Paciente paciente) {
+	public ResponseEntity<Paciente> guardar(@RequestBody Paciente paciente) {
 		ResponseEntity response = null;
 		try {
 			paciente = pacienteService.guardar(paciente);
@@ -80,7 +80,7 @@ public class PacienteController {
 
 
 	@PutMapping("/actualizar")
-	public ResponseEntity actualizar(@RequestBody Paciente paciente) {
+	public ResponseEntity<Paciente> actualizar(@RequestBody Paciente paciente) {
 		ResponseEntity response = null;
 		try {
 			this.pacienteService.actualizar(paciente);
@@ -92,7 +92,7 @@ public class PacienteController {
 	}
 
 	@DeleteMapping("/eliminar/{id}")
-	public ResponseEntity eliminar(@PathVariable Long id) throws OdontologoException, DomicilioException {
+	public ResponseEntity<Paciente> eliminar(@PathVariable Long id) throws OdontologoException, DomicilioException {
 		ResponseEntity response = null;
 		try {
 			this.pacienteService.eliminar(id);

@@ -69,14 +69,17 @@ public class PacienteService implements IService<Paciente>, IServiceHQL<Paciente
 				break;
 			case 4:
 				Date fechaValor = Date.valueOf(valor);
-
-
 				pacienteOptional = pacienteRepository.findByFecha(fechaValor);
 				break;
 			default:
 				break;
 		}
 		return pacienteOptional;
+	}
+
+	@Override
+	public Optional<List<Paciente>> listarTodosIDNombre() {
+		return Optional.empty();
 	}
 
 

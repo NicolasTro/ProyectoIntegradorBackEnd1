@@ -42,6 +42,11 @@ public Optional<List<Turno>> buscarDatosCompletos(Integer tipoDeBusqueda, String
 	return turnoOptional;
 }
 
+	@Override
+	public Optional<List<Turno>> listarTodosIDNombre() {
+		return Optional.empty();
+	}
+
 
 	public Turno guardar(Turno turno)  {
 		return turnoRepository.save(turno);

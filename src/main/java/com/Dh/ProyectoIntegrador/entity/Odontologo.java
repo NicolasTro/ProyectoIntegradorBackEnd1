@@ -1,6 +1,7 @@
 package com.Dh.ProyectoIntegrador.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import lombok.*;
@@ -24,6 +25,7 @@ public class Odontologo {
 	private String apellido;
 	private String matricula;
 	@OneToMany(mappedBy = "odontologo")
+//	@JsonIgnoreProperties("turnoSet")
 	private Set<Turno> turnoSet = new HashSet<>();
 
 

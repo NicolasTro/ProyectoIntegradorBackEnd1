@@ -48,7 +48,7 @@ public class PacienteService implements IService<Paciente>, IServiceHQL<Paciente
 	}
 
 	@Override
-	public Optional<List<Paciente>> buscar(Integer tipoDeBusqueda, String valor) {
+	public Optional<List<Paciente>> buscarDatosCompletos(Integer tipoDeBusqueda, String valor) {
 
 		Optional<List<Paciente>> pacienteOptional = null;
 		switch (tipoDeBusqueda) {

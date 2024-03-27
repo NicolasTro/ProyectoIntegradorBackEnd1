@@ -26,7 +26,7 @@ public class TurnoService implements IService<Turno>, IServiceHQL<Turno> {
 
 	// IServiceHQL
 @Override
-public Optional<List<Turno>> buscar(Integer tipoDeBusqueda, String valor) {
+public Optional<List<Turno>> buscarDatosCompletos(Integer tipoDeBusqueda, String valor) {
 	Optional<List<Turno>> turnoOptional = null;
 	switch (tipoDeBusqueda){
 		case 1:

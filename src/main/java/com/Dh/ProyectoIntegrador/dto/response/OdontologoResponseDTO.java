@@ -1,6 +1,7 @@
 package com.Dh.ProyectoIntegrador.dto.response;
 
 
+import com.Dh.ProyectoIntegrador.dto.OdontologoDTO;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
@@ -10,10 +11,12 @@ import lombok.*;
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 @ToString
-public class OdontologoDTO {
+public class OdontologoResponseDTO extends OdontologoDTO {
+
 
 	private Long id;
-	private String nombre;
+	private String apellido;
+	private String matricula;
 
 
 

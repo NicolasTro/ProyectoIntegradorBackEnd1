@@ -6,15 +6,16 @@ window.addEventListener("load", function () {
     
     //Ante un submit del formulario se ejecutará la siguiente funcion
     formulario.addEventListener("submit", function (event) {
-      event.preventDefault();
+      // event.preventDefault();
       
       //creamos un JSON que tendrá los datos del nuevo odontólogo
       const formData = {
-        paciente: {id: document.querySelector("#turnoPaciente").value},
-        odontologo:{id: document.querySelector("#turnoOdontologo").value},
+        paciente: {id: document.querySelector("#comboTurnoPaciente").value},
+        
+        odontologo:{id: document.querySelector("#comboTurnoOdontologo").value},
         fechaYHora: document.querySelector("#turnoFecha").value,
       };
-  
+  console.log(formData);
       
       //invocamos utilizando la función fetch la API odontólogos con el método POST que guardará
       //el odontólogo que enviaremos en formato JSON
@@ -57,8 +58,8 @@ window.addEventListener("load", function () {
     });
   
     function resetUploadForm() {
-      document.querySelector("#turnoPaciente").value = "";
-      document.querySelector("#turnoOdontologo").value = "";
+      document.querySelector("#comboTurnoPaciente").value = "1";
+      document.querySelector("#comboTurnoOdontologo").value = "1";
       document.querySelector("#turnoFecha").value = "";
     }
 //    (function(){

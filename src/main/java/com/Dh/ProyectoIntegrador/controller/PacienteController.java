@@ -11,7 +11,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,7 +32,7 @@ public class PacienteController {
 	public ResponseEntity<Paciente> buscar(@RequestParam("valor") String valor, @RequestParam("tipoDeBusqueda") Integer tipoDeBusqueda) {
 		ResponseEntity response =  null;
 		try {
-			Optional<List<Paciente>> pacienteBuscar = pacienteIServiceHQL.buscar(tipoDeBusqueda, valor);
+			Optional<List<Paciente>> pacienteBuscar = pacienteIServiceHQL.buscarDatosCompletos(tipoDeBusqueda, valor);
 
 			if (pacienteBuscar != null) {
 				response = new ResponseEntity(pacienteBuscar.get(), HttpStatus.FOUND);

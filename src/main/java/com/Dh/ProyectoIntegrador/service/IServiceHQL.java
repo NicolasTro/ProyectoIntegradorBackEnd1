@@ -6,7 +6,7 @@ import java.util.Optional;
 
 public interface IServiceHQL<T> {
 
-    Optional<List<T>> buscar(Integer  tipoDeBusqueda, String valor);
+    Optional<List<T>> buscarDatosCompletos(Integer  tipoDeBusqueda, String valor);
 
 
 }

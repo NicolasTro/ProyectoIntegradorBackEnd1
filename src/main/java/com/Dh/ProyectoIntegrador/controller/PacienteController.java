@@ -1,7 +1,10 @@
 package com.Dh.ProyectoIntegrador.controller;
 
-import com.Dh.ProyectoIntegrador.excepciones.DomicilioException;
-import com.Dh.ProyectoIntegrador.excepciones.OdontologoException;
+import com.Dh.ProyectoIntegrador.Excepciones.DomicilioException;
+import com.Dh.ProyectoIntegrador.Excepciones.OdontologoException;
+import com.Dh.ProyectoIntegrador.dto.pacientes.PacienteDTO;
+import com.Dh.ProyectoIntegrador.dto.pacientes.request.PacienteRequestDTO;
+import com.Dh.ProyectoIntegrador.dto.pacientes.response.PacienteResponseDTOFull;
 import com.Dh.ProyectoIntegrador.entity.Paciente;
 import com.Dh.ProyectoIntegrador.service.IService;
 import com.Dh.ProyectoIntegrador.service.IServiceHQL;
@@ -19,20 +22,20 @@ import java.util.Optional;
 @Slf4j
 public class PacienteController {
 
-	private IService<Paciente> pacienteService;
-	private IServiceHQL<Paciente>pacienteIServiceHQL;
+	private IService<PacienteDTO> pacienteService;
+	private IServiceHQL<PacienteDTO>pacienteIServiceHQL;
 	@Autowired
-	public PacienteController(IService<Paciente> pacienteService, IServiceHQL<Paciente> pacienteIServiceHQL) {
+	public PacienteController(IService<PacienteDTO> pacienteService, IServiceHQL<PacienteDTO> pacienteIServiceHQL) {
 		this.pacienteService = pacienteService;
 		this.pacienteIServiceHQL = pacienteIServiceHQL;
 	}
 
 
 	@GetMapping("/buscar")
-	public ResponseEntity<List<Paciente>> buscar(@RequestParam("valor") String valor, @RequestParam("tipoDeBusqueda") Integer tipoDeBusqueda) {
+	public ResponseEntity<List<PacienteDTO>> buscar(@RequestParam("valor") String valor, @RequestParam("tipoDeBusqueda") Integer tipoDeBusqueda) {
 		ResponseEntity response =  null;
 		try {
-			Optional<List<Paciente>> pacienteBuscar = pacienteIServiceHQL.buscarDatosCompletos(tipoDeBusqueda, valor);
+			Optional<List<PacienteDTO>> pacienteBuscar = pacienteIServiceHQL.buscarDatosCompletos(tipoDeBusqueda, valor);
 
 			if (pacienteBuscar != null) {
 				response = new ResponseEntity(pacienteBuscar.get(), HttpStatus.FOUND);
@@ -46,12 +49,12 @@ public class PacienteController {
 		return response;
 	}
 	@PostMapping("/registrar")
-	public ResponseEntity<Paciente> guardar(@RequestBody Paciente paciente) {
+	public ResponseEntity<PacienteDTO> guardar(@RequestBody PacienteRequestDTO paciente) {
 		ResponseEntity response = null;
 		try {
-			paciente = pacienteService.guardar(paciente);
-			if (paciente != null) {
-				response = new ResponseEntity(paciente, HttpStatus.CREATED);
+			PacienteDTO pacienteGuardado = this.pacienteService.guardar(paciente);
+			if (pacienteGuardado != null) {
+				response = new ResponseEntity(pacienteGuardado, HttpStatus.CREATED);
 			} else {
 				response = new ResponseEntity(HttpStatus.NOT_ACCEPTABLE);
 			}
@@ -63,12 +66,13 @@ public class PacienteController {
 
 
 	@GetMapping("/{id}")
-	public ResponseEntity<Paciente> buscarPorId(@PathVariable Long id) throws OdontologoException, DomicilioException {
+	public ResponseEntity<PacienteResponseDTOFull> buscarPorId(@PathVariable Long id){
 		ResponseEntity response = null;
+		PacienteDTO pacienteEnontrado = null;
 		try {
-			Paciente pacienteEncontrado = pacienteService.buscarPorId(id);
-			if (pacienteEncontrado != null) {
-				response = new ResponseEntity(pacienteEncontrado, HttpStatus.FOUND);
+			pacienteEnontrado = this.pacienteService.buscarPorId(id);
+			if (pacienteEnontrado != null) {
+				response = new ResponseEntity<>(pacienteEnontrado, HttpStatus.FOUND);
 			} else {
 				response = new ResponseEntity("No se encontro el paciente", HttpStatus.NOT_FOUND);
 			}
@@ -80,19 +84,21 @@ public class PacienteController {
 
 
 	@PutMapping("/actualizar")
-	public ResponseEntity<Paciente> actualizar(@RequestBody Paciente paciente) {
+	public ResponseEntity<PacienteDTO> actualizar(@RequestBody PacienteRequestDTO paciente) {
 		ResponseEntity response = null;
-		try {
+		if(paciente != null) {
 			this.pacienteService.actualizar(paciente);
-		} catch (Exception e) {
-			response = new ResponseEntity(e.getMessage(), HttpStatus.CONFLICT);
-			return response;
+
+			PacienteDTO actualizarPaciente = pacienteService.buscarPorId(paciente.getId());
+			log.info("estamos logueando actualizar" + actualizarPaciente);
+			return new ResponseEntity(paciente, HttpStatus.OK);
+		} else {
+			return new ResponseEntity(HttpStatus.CONFLICT);
 		}
-		return new ResponseEntity(paciente, HttpStatus.OK);
 	}
 
 	@DeleteMapping("/eliminar/{id}")
-	public ResponseEntity<Paciente> eliminar(@PathVariable Long id) throws OdontologoException, DomicilioException {
+	public ResponseEntity<String> eliminar(@PathVariable Long id) throws OdontologoException, DomicilioException {
 		ResponseEntity response = null;
 		try {
 			this.pacienteService.eliminar(id);
@@ -105,20 +111,40 @@ public class PacienteController {
 
 
 	@GetMapping("/listar")
-	public ResponseEntity<List<Paciente>> listarTodos() {
+	public ResponseEntity<List<PacienteDTO>> listarTodos() {
 		ResponseEntity response = null;
-		List<Paciente> listaPacientes = null;
+		List<PacienteDTO> listaPacientes = null;
 		try {
 			listaPacientes = this.pacienteService.listarTodos();
-			if (listaPacientes.size() > 0) {
+//			if (listaPacientes.size() > 0) {
 				log.info("tira la lista", listaPacientes);
+
 				response = new ResponseEntity(listaPacientes, HttpStatus.OK);
+//			} else {
+//				response = new ResponseEntity("No se encontraron Pacientes", HttpStatus.NOT_FOUND);
+//			}
+		} catch (Exception e) {
+			log.info("aca que sucede"+ e.getMessage());
+			return new ResponseEntity(HttpStatus.BAD_REQUEST);
+		}
+		return response;
+	}
+	@GetMapping("/listarDTO")
+
+	public ResponseEntity<List<PacienteDTO>> listarTodosDTO() {
+		ResponseEntity response = null;
+		Optional<List<PacienteDTO>> listaPacientes = null;
+		try {
+
+			listaPacientes = this.pacienteIServiceHQL.listarTodosIDNombre();
+
+			if (!listaPacientes.isEmpty()) {
+				response = new ResponseEntity(listaPacientes.get(), HttpStatus.FOUND);
 			} else {
-				response = new ResponseEntity("No se encontraron Pacientes", HttpStatus.NOT_FOUND);
+				response = new ResponseEntity<List<Paciente>>( HttpStatus.NOT_FOUND);
 			}
 		} catch (Exception e) {
-			log.info("aca que sucede", e.getMessage());
-			return new ResponseEntity(HttpStatus.BAD_REQUEST);
+			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
 		}
 		return response;
 	}

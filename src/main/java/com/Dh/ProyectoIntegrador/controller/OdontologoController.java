@@ -95,17 +95,17 @@ public class OdontologoController {
 			OdontologoDTO actualizarOdontologo = odontologoIService.buscarPorId(odontologo.getId());
 			log.info("estamos logueando actualizar" + actualizarOdontologo);
 
-			return new ResponseEntity(odontologo, HttpStatus.OK);
 
+				return  new ResponseEntity(odontologo, HttpStatus.OK);
 
-		} else {
-			return new ResponseEntity(HttpStatus.NOT_FOUND);
-		}
-
-
+				} else {
+					return new ResponseEntity( HttpStatus.NOT_FOUND);
+				}
 	}
 
 	//TODO METODO ACTUALIZAR CON VOID? Y EXCEPTION O CAMBIAR EL VOID??
+
+
 
 
 	@GetMapping("/listar")
@@ -140,7 +140,7 @@ public class OdontologoController {
 			if (!listaOdontologos.isEmpty()) {
 				response = new ResponseEntity(listaOdontologos.get(), HttpStatus.FOUND);
 			} else {
-				response = new ResponseEntity<List<Odontologo>>(HttpStatus.NOT_FOUND);
+				response = new ResponseEntity<List<Odontologo>>( HttpStatus.NOT_FOUND);
 			}
 		} catch (Exception e) {
 			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);

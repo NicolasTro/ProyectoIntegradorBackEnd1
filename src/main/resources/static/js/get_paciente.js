@@ -170,33 +170,10 @@ function tablaNueva() {
 function clearTabla() {
 	let tabla = document.getElementById("patientTable");
 	tabla.innerHTML = "";
-	// cargarEncabezadoTabla();
-	// cargarCuerpoTabla();
+	
 }
 
-// function cargarRegistro(patient) {
 
-// 	return `<td class="td_id align-middle tamanioTexto">${patient.id}</td><td class="td_nombre align-middle tamanioTexto">${patient.nombre.toUpperCase()}${patient.apellido.toUpperCase()}</td>
-//                                         <td class="td_dni align-middle tamanioTexto">${patient.dni}</td>
-//                                         <td class="td_fecha align-middle tamanioTexto">${patient.fechaIngreso}</td>
-//                                         <td class="td_domicilio align-middle tamanioTexto"><button type='button' class='btn btn-dark' data-domicilioId=${patient.domicilio.id} id='masInfo'>mas info</button></td>
-//                                         <td>
-//                                           <div class="dropdown">
-//                                             <button class='btn btn-dark dropdown-toggle'
-//                                             type='button' data-toggle='dropdown' aria-expanded='false'></button>
-//                                             <div class='dropdown-menu'>
-//                                               <button type='button' data-id=${patient.id} data-domicilioId=${patient.domicilio.id} class='btn btn-primary btnTabla dropdown-item' data-toggle='modal' data-target='#staticBackdropPacienteUpdate'>Modificar</button>
-//                                               <button type='button' data-id=${patient.id} data-domicilioId=${patient.domicilio.id} class='btn btn-primary dropdown-item btnTabla' data-toggle='modal'>Eliminar</button>
-//                                             </div>
-//                                           </div>
-//                                         </td>`;
-// }
-{
-	/* <button type='button' class='btn btn-dark' data-domicilioId=${patient.domicilio.id} id='masInfo'>mas info</button> */
-}
-// 	<button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content="${cardContent}" data-id='${patient.domicilio.id}' id='popo'>
-// 	mas info
-//   </button>
 function cargarRegistro(patient) {
 	console.log(patient.domicilio);
 	return `<td class="td_id align-middle tamanioTexto">${patient.id}</td><td class="td_nombre align-middle tamanioTexto">${patient.nombre.toUpperCase()}</td><td class="td_apellido align-middle tamanioTexto">${patient.apellido.toUpperCase()}</td>
@@ -227,27 +204,13 @@ function cargarRegistro(patient) {
 										<div class="form-group">
 											<label class="control-label" for="domicilioProvincia">Provincia</label>
 											<input type="text" class="form-control" id="domicilioProvincia" readonly value="${patient.domicilio.provincia}"/>
-										</div>
-
-									
-
-
-											</div>
+										</div></div>
 											<div class="modal-footer">
-											  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-											  
+											  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>											  
 											</div>
 										  </div>
 										</div>
 									  </div>
-
-
-
-
-
-
-                                         
-                                        
                                         </td>
                                         <td>
                                           <div class="dropdown">

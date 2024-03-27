@@ -1,8 +1,8 @@
 package com.Dh.ProyectoIntegrador.service.implementacion;
 
-import com.Dh.ProyectoIntegrador.dto.OdontologoDTO;
-import com.Dh.ProyectoIntegrador.dto.response.OdontologoResponseDTOFull;
-import com.Dh.ProyectoIntegrador.dto.response.OdontologoResponseDTOName;
+import com.Dh.ProyectoIntegrador.dto.odontologos.OdontologoDTO;
+import com.Dh.ProyectoIntegrador.dto.odontologos.response.OdontologoResponseDTOFull;
+import com.Dh.ProyectoIntegrador.dto.odontologos.response.OdontologoResponseDTOName;
 import com.Dh.ProyectoIntegrador.entity.Odontologo;
 
 import com.Dh.ProyectoIntegrador.repository.IOdontologoRepository;

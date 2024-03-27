@@ -1,7 +1,7 @@
-package com.Dh.ProyectoIntegrador.dto.request;
+package com.Dh.ProyectoIntegrador.dto.odontologos.request;
 
 
-import com.Dh.ProyectoIntegrador.dto.OdontologoDTO;
+import com.Dh.ProyectoIntegrador.dto.odontologos.OdontologoDTO;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

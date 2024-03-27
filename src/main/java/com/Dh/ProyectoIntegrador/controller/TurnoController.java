@@ -1,5 +1,7 @@
 package com.Dh.ProyectoIntegrador.controller;
 
+import com.Dh.ProyectoIntegrador.dto.turnos.TurnoDTO;
+import com.Dh.ProyectoIntegrador.dto.turnos.request.TurnoRequestDTO;
 import com.Dh.ProyectoIntegrador.entity.Turno;
 import com.Dh.ProyectoIntegrador.service.IService;
 import com.Dh.ProyectoIntegrador.service.IServiceHQL;
@@ -17,19 +19,19 @@ import java.util.Optional;
 @Slf4j
 public class TurnoController {
 
-	private IService<Turno> turnoIService;
-	private IServiceHQL<Turno> turnoIServiceHQL;
+	private IService<TurnoDTO> turnoIService;
+	private IServiceHQL<TurnoDTO> turnoIServiceHQL;
 
 	@Autowired
-	public TurnoController(IService<Turno> turnoIService, IServiceHQL<Turno> turnoIServiceHQL) {
+	public TurnoController(IService<TurnoDTO> turnoIService, IServiceHQL<TurnoDTO> turnoIServiceHQL) {
 		this.turnoIService = turnoIService;
 		this.turnoIServiceHQL = turnoIServiceHQL;
 	}
 	@GetMapping("/buscar")
-	public ResponseEntity<Turno> buscar(@RequestParam("valor") String valor, @RequestParam("tipoDeBusqueda") Integer tipoDeBusqueda) {
+	public ResponseEntity<TurnoDTO> buscar(@RequestParam("valor") String valor, @RequestParam("tipoDeBusqueda") Integer tipoDeBusqueda) {
 		ResponseEntity response =  null;
 		try {
-			Optional<List<Turno>> turnoBuscar = turnoIServiceHQL.buscarDatosCompletos(tipoDeBusqueda, valor);
+			Optional<List<TurnoDTO>> turnoBuscar = turnoIServiceHQL.buscarDatosCompletos(tipoDeBusqueda, valor);
 
 			if (turnoBuscar != null) {
 				response = new ResponseEntity(turnoBuscar, HttpStatus.FOUND);
@@ -43,10 +45,11 @@ public class TurnoController {
 	}
 
 	@PostMapping("/registrar")
-	public ResponseEntity guardar(@RequestBody Turno turno) {
-		ResponseEntity response = null;
+	public ResponseEntity<TurnoDTO> guardar(@RequestBody TurnoRequestDTO turnoRequestDTO) {
+		ResponseEntity<TurnoDTO> response = null;
+		TurnoDTO turno = null;
 		try {
-			turno = turnoIService.guardar(turno);
+			turno = turnoIService.guardar(turnoRequestDTO);
 			if (turno != null) {
 				response = new ResponseEntity(turno, HttpStatus.OK);
 			}
@@ -57,17 +60,17 @@ public class TurnoController {
 	}
 
 	@PutMapping("/actualizar")
-	public ResponseEntity actualizar(@RequestBody Turno turno) {
-		ResponseEntity response = null;
+	public ResponseEntity<TurnoDTO> actualizar(@RequestBody TurnoRequestDTO turnoRequestDTO) {
+		ResponseEntity<TurnoDTO> response = null;
 		try {
-			Turno nuevoTurno = turnoIService.buscarPorId(turno.getId());
-			turnoIService.actualizar(turno);
+			TurnoDTO nuevoTurno = turnoIService.buscarPorId(turnoRequestDTO.getId());
+			turnoIService.actualizar(nuevoTurno);
 //			if(nuevoTurno.equals(turno)){
-			response = new ResponseEntity(turno, HttpStatus.ACCEPTED);
+			response = new ResponseEntity(nuevoTurno, HttpStatus.ACCEPTED);
 //			}else{
 //			response = new ResponseEntity("No se pudieron modificar los registros", HttpStatus.CONFLICT);
 //			}
-			log.info("Actualizar turno", turno);
+
 		} catch (Exception e) {
 			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
 		}
@@ -76,8 +79,8 @@ public class TurnoController {
 
 	@DeleteMapping("/eliminar/{id}")
 
-	public ResponseEntity eliminar(@PathVariable Long id) {
-		ResponseEntity response = null;
+	public ResponseEntity<TurnoDTO> eliminar(@PathVariable Long id) {
+		ResponseEntity<TurnoDTO> response = null;
 		try {
 			turnoIService.eliminar(id);
 			response = new ResponseEntity("Registro eliminado correctamente", HttpStatus.OK);
@@ -89,10 +92,10 @@ public class TurnoController {
 
 
 	@GetMapping("{id}")
-	public ResponseEntity buscarPorId(@PathVariable Long id) {
-		ResponseEntity response = null;
+	public ResponseEntity<TurnoDTO> buscarPorId(@PathVariable Long id) {
+		ResponseEntity<TurnoDTO> response = null;
 		try {
-			Turno turnoEncontrado = turnoIService.buscarPorId(id);
+			TurnoDTO turnoEncontrado = turnoIService.buscarPorId(id);
 			if (turnoEncontrado != null) {
 				response = new ResponseEntity(turnoEncontrado, HttpStatus.FOUND);
 			} else {
@@ -106,10 +109,10 @@ public class TurnoController {
 
 	@GetMapping("/listar")
 
-	public ResponseEntity listarTodos() {
-		ResponseEntity response = null;
+	public ResponseEntity<List<TurnoDTO>> listarTodos() {
+		ResponseEntity<List<TurnoDTO>> response = null;
 		try {
-			List<Turno> listaTurnos = this.turnoIService.listarTodos();
+			List<TurnoDTO> listaTurnos = this.turnoIService.listarTodos();
 			if (!listaTurnos.isEmpty()) {
 				response = new ResponseEntity(listaTurnos, HttpStatus.FOUND);
 			} else {

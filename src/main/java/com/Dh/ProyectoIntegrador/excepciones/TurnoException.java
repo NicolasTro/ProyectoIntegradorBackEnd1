@@ -1,4 +1,4 @@
-package com.Dh.ProyectoIntegrador.Excepciones;
+package com.Dh.ProyectoIntegrador.excepciones;
 
 public class TurnoException extends Exception{
 

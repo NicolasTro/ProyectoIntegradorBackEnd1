@@ -23,6 +23,7 @@ public class OdontologoController {
 
 	private IService<OdontologoDTO> odontologoIService;
 	private IServiceHQL<OdontologoDTO> odontologoIServiceHQL;
+
 	@Autowired
 	public OdontologoController(IService<OdontologoDTO> odontologoIService, IServiceHQL<OdontologoDTO> odontologoIServiceHQL) {
 		this.odontologoIService = odontologoIService;
@@ -34,7 +35,7 @@ public class OdontologoController {
 
 	@GetMapping("/buscar")
 	public ResponseEntity<OdontologoDTO> buscar(@RequestParam("valor") String valor, @RequestParam("tipoDeBusqueda") Integer tipoDeBusqueda) {
-		ResponseEntity response =  null;
+		ResponseEntity response = null;
 		try {
 			Optional<List<OdontologoDTO>> odontologoBuscar = odontologoIServiceHQL.buscarDatosCompletos(tipoDeBusqueda, valor);
 
@@ -43,11 +44,12 @@ public class OdontologoController {
 			} else {
 				response = new ResponseEntity(HttpStatus.NOT_FOUND);
 			}
-		}  catch (Exception  e) {
-			return new ResponseEntity( HttpStatus.I_AM_A_TEAPOT);
+		} catch (Exception e) {
+			return new ResponseEntity(HttpStatus.I_AM_A_TEAPOT);
 		}
 		return response;
 	}
+
 	@PostMapping("/registrar")
 	public ResponseEntity<OdontologoDTO> guardar(@RequestBody OdontologoRequestDTO odontologo) {
 		ResponseEntity response = null;
@@ -60,7 +62,7 @@ public class OdontologoController {
 				response = new ResponseEntity(HttpStatus.NOT_ACCEPTABLE);
 			}
 		} catch (Exception e) {
-			return new ResponseEntity(e.getMessage(),  HttpStatus.NO_CONTENT);
+			return new ResponseEntity(e.getMessage(), HttpStatus.NO_CONTENT);
 		}
 		return response;
 	}
@@ -84,28 +86,26 @@ public class OdontologoController {
 	}
 
 	@PutMapping("/actualizar")
-	public ResponseEntity<OdontologoDTO> actualizar(@RequestBody OdontologoRequestDTO odontologo)  {
+	public ResponseEntity<OdontologoDTO> actualizar(@RequestBody OdontologoRequestDTO odontologo) {
 		ResponseEntity response = null;
 
-			if(odontologo != null) {
-				this.odontologoIService.actualizar(odontologo);
+		if (odontologo != null) {
+			this.odontologoIService.actualizar(odontologo);
 
-				OdontologoDTO actualizarOdontologo = odontologoIService.buscarPorId(odontologo.getId());
-				log.info("estamos logueando actualizar" + actualizarOdontologo);
+			OdontologoDTO actualizarOdontologo = odontologoIService.buscarPorId(odontologo.getId());
+			log.info("estamos logueando actualizar" + actualizarOdontologo);
 
-
-
-				} else {
-					return new ResponseEntity( HttpStatus.NOT_FOUND);
-				}
+			return new ResponseEntity(odontologo, HttpStatus.OK);
 
 
-		return  new ResponseEntity(odontologo, HttpStatus.OK);
+		} else {
+			return new ResponseEntity(HttpStatus.NOT_FOUND);
+		}
+
+
 	}
 
 	//TODO METODO ACTUALIZAR CON VOID? Y EXCEPTION O CAMBIAR EL VOID??
-
-
 
 
 	@GetMapping("/listar")
@@ -117,7 +117,7 @@ public class OdontologoController {
 			listaOdontologos = this.odontologoIService.listarTodos();
 //			if (listaOdontologos.size() > 0) {
 			Optional<List<OdontologoDTO>> lista = Optional.of(listaOdontologos);
-				response = new ResponseEntity(lista, HttpStatus.FOUND);
+			response = new ResponseEntity(lista, HttpStatus.FOUND);
 //			} else {
 //				response = new ResponseEntity<List<Odontologo>>(  HttpStatus.NOT_FOUND);
 //			}
@@ -126,7 +126,6 @@ public class OdontologoController {
 		}
 		return response;
 	}
-
 
 
 	@GetMapping("/listarDTO")
@@ -141,7 +140,7 @@ public class OdontologoController {
 			if (!listaOdontologos.isEmpty()) {
 				response = new ResponseEntity(listaOdontologos.get(), HttpStatus.FOUND);
 			} else {
-				response = new ResponseEntity<List<Odontologo>>( HttpStatus.NOT_FOUND);
+				response = new ResponseEntity<List<Odontologo>>(HttpStatus.NOT_FOUND);
 			}
 		} catch (Exception e) {
 			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);

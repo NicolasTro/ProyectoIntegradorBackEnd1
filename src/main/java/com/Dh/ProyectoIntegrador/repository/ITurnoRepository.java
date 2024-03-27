@@ -11,7 +11,8 @@ import java.util.Optional;
 
 @Repository
 public interface ITurnoRepository extends JpaRepository<Turno, Long> {
-    @Query("SELECT t FROM Turno t WHERE t.paciente.id =?1")
+//    @Query("SELECT t FROM Turno t WHERE t.paciente.id =?1")
+@Query("SELECT t FROM Turno t WHERE LOWER(t.paciente.nombre) LIKE LOWER(CONCAT('%', ?1, '%')) OR LOWER(t.paciente.apellido) LIKE LOWER(CONCAT('%', ?1, '%'))")
     Optional<List<Turno>> findByPacientes(String valor);
     @Query("SELECT t FROM Turno t WHERE t.odontologo.id =?1")
     Optional<List<Turno>> findByOdontologo(String valor);

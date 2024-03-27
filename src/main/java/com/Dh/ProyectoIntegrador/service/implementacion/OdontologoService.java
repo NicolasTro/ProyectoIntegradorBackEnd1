@@ -30,6 +30,8 @@ public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<O
 	}
 
 	//METODOS CRUD
+
+	//METODO GUARDAR
 	/*###################################################################################################################*/
 	@Override
 	public OdontologoDTO guardar(OdontologoDTO odontologoRequestDTO) {
@@ -55,12 +57,13 @@ public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<O
 	public OdontologoDTO buscarPorId(Long id) {
 		Optional<Odontologo> odontologoOptional = odontologoRepository.findById(id);
 		if (odontologoOptional.isPresent()) {
-			OdontologoDTO odontologoDTO = new OdontologoDTO();
+
 			return this.mapeador(odontologoOptional.get(), OdontologoResponseDTOFull.class);
 		} else {
 			return null;
 		}
 	}
+
 	//METODO LISTAR
 	/*###################################################################################################################*/
 	@Override

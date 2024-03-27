@@ -1,9 +1,9 @@
 package com.Dh.ProyectoIntegrador;
 
-import com.Dh.ProyectoIntegrador.Excepciones.DomicilioException;
-import com.Dh.ProyectoIntegrador.Excepciones.OdontologoException;
-import com.Dh.ProyectoIntegrador.Excepciones.PacienteException;
-import com.Dh.ProyectoIntegrador.Excepciones.TurnoException;
+import com.Dh.ProyectoIntegrador.excepciones.DomicilioException;
+import com.Dh.ProyectoIntegrador.excepciones.OdontologoException;
+import com.Dh.ProyectoIntegrador.excepciones.PacienteException;
+import com.Dh.ProyectoIntegrador.excepciones.TurnoException;
 
 public class Main {
 	public static void main(String[] args) throws OdontologoException, DomicilioException, PacienteException, TurnoException {

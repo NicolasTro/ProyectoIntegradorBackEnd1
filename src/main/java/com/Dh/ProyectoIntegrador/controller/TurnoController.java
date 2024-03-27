@@ -1,6 +1,5 @@
 package com.Dh.ProyectoIntegrador.controller;
 
-import com.Dh.ProyectoIntegrador.entity.Odontologo;
 import com.Dh.ProyectoIntegrador.entity.Turno;
 import com.Dh.ProyectoIntegrador.service.IService;
 import com.Dh.ProyectoIntegrador.service.IServiceHQL;
@@ -30,7 +29,7 @@ public class TurnoController {
 	public ResponseEntity<Turno> buscar(@RequestParam("valor") String valor, @RequestParam("tipoDeBusqueda") Integer tipoDeBusqueda) {
 		ResponseEntity response =  null;
 		try {
-			Optional<List<Turno>> turnoBuscar = turnoIServiceHQL.buscar(tipoDeBusqueda, valor);
+			Optional<List<Turno>> turnoBuscar = turnoIServiceHQL.buscarDatosCompletos(tipoDeBusqueda, valor);
 
 			if (turnoBuscar != null) {
 				response = new ResponseEntity(turnoBuscar, HttpStatus.FOUND);

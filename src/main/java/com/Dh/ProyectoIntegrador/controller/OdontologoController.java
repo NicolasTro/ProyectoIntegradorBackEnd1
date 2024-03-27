@@ -4,6 +4,8 @@ import com.Dh.ProyectoIntegrador.Excepciones.DomicilioException;
 import com.Dh.ProyectoIntegrador.Excepciones.OdontologoException;
 import com.Dh.ProyectoIntegrador.Excepciones.PacienteException;
 import com.Dh.ProyectoIntegrador.Excepciones.TurnoException;
+import com.Dh.ProyectoIntegrador.dto.OdontologoDTO;
+import com.Dh.ProyectoIntegrador.dto.request.OdontologoRequestDTO;
 import com.Dh.ProyectoIntegrador.dto.response.OdontologoResponseDTO;
 import com.Dh.ProyectoIntegrador.entity.Odontologo;
 import com.Dh.ProyectoIntegrador.service.IService;
@@ -23,11 +25,11 @@ import java.util.Optional;
 @Slf4j
 public class OdontologoController {
 
-	private IService<Odontologo> odontologoIService;
-	private IServiceHQL<Odontologo> odontologoIServiceHQL;
-	private IServiceDTOHQL<OdontologoResponseDTO> odontologoIServiceDTOHQL;
+	private IService<OdontologoDTO> odontologoIService;
+	private IServiceHQL<OdontologoDTO> odontologoIServiceHQL;
+	private IServiceDTOHQL<OdontologoDTO> odontologoIServiceDTOHQL;
 	@Autowired
-	public OdontologoController(IService<Odontologo> odontologoIService, IServiceHQL<Odontologo> odontologoIServiceHQL, IServiceDTOHQL<OdontologoResponseDTO> odontologoIServiceDTOHQL) {
+	public OdontologoController(IService<OdontologoDTO> odontologoIService, IServiceHQL<OdontologoDTO> odontologoIServiceHQL, IServiceDTOHQL<OdontologoDTO> odontologoIServiceDTOHQL) {
 		this.odontologoIService = odontologoIService;
 		this.odontologoIServiceHQL = odontologoIServiceHQL;
 		this.odontologoIServiceDTOHQL = odontologoIServiceDTOHQL;
@@ -36,10 +38,10 @@ public class OdontologoController {
 	//TODO Preguntarle a la profe sobre los AutoWirdes y si hay dos como en este acso, es nececsario ponerle a ambos?
 
 	@GetMapping("/buscar")
-	public ResponseEntity<Odontologo> buscar(@RequestParam("valor") String valor,@RequestParam("tipoDeBusqueda") Integer tipoDeBusqueda) {
+	public ResponseEntity<OdontologoResponseDTO> buscar(@RequestParam("valor") String valor,@RequestParam("tipoDeBusqueda") Integer tipoDeBusqueda) {
 		ResponseEntity response =  null;
 		try {
-			Optional<List<Odontologo>> odontologoBuscar = odontologoIServiceHQL.buscar(tipoDeBusqueda, valor);
+			Optional<List<OdontologoDTO>> odontologoBuscar = odontologoIServiceHQL.buscarDatosCompletos(tipoDeBusqueda, valor);
 
 			if (odontologoBuscar != null) {
 				response = new ResponseEntity<>(odontologoBuscar.get(), HttpStatus.FOUND);
@@ -52,10 +54,10 @@ public class OdontologoController {
 		return response;
 	}
 	@PostMapping("/registrar")
-	public ResponseEntity guardar(@RequestBody Odontologo odontologo) {
+	public ResponseEntity<OdontologoDTO> guardar(@RequestBody OdontologoRequestDTO odontologo) {
 		ResponseEntity response = null;
 		try {
-			Odontologo odontologoGuardado = this.odontologoIService.guardar(odontologo);
+			OdontologoDTO odontologoGuardado = this.odontologoIService.guardar(odontologo);
 			if (odontologoGuardado != null) {
 				response = new ResponseEntity(odontologoGuardado, HttpStatus.CREATED);
 				//TODO ES NECESARIO EL ELSE DEL RESPONSE ENTITY O NO?
@@ -70,9 +72,9 @@ public class OdontologoController {
 
 
 	@GetMapping("/{id}")
-	public ResponseEntity buscarPorId(@PathVariable Long id) {
+	public ResponseEntity<OdontologoResponseDTO> buscarPorId(@PathVariable Long id) {
 		ResponseEntity response = null;
-		Odontologo odontologoEncontrado = null;
+		OdontologoDTO odontologoEncontrado = null;
 		try {
 			odontologoEncontrado = this.odontologoIService.buscarPorId(id);
 			if (odontologoEncontrado != null) {
@@ -85,16 +87,15 @@ public class OdontologoController {
 		}
 		return response;
 	}
-	//TODO CAMBIAR METODO ACTUALIZAR COMO EL DEL TURNO
-	//TODO cuando se ve el ResponseEnntity?
+
 	@PutMapping("/actualizar")
-	public ResponseEntity<Odontologo> actualizar(@RequestBody Odontologo odontologo) throws PacienteException, OdontologoException, DomicilioException, TurnoException {
+	public ResponseEntity<OdontologoDTO> actualizar(@RequestBody OdontologoRequestDTO odontologo)  {
 		ResponseEntity response = null;
 
 			if(odontologo != null) {
 				this.odontologoIService.actualizar(odontologo);
 
-				Odontologo actualizarOdontologo = odontologoIService.buscarPorId(odontologo.getId());
+				OdontologoDTO actualizarOdontologo = odontologoIService.buscarPorId(odontologo.getId());
 				log.info("estamos logueando actualizar" + actualizarOdontologo);
 
 
@@ -114,16 +115,17 @@ public class OdontologoController {
 
 	@GetMapping("/listar")
 
-	public ResponseEntity<List<Odontologo>> listarTodos() {
+	public ResponseEntity<List<OdontologoDTO>> listarTodos() {
 		ResponseEntity response = null;
-		List<Odontologo> listaOdontologos = null;
+		List<OdontologoDTO> listaOdontologos = null;
 		try {
 			listaOdontologos = this.odontologoIService.listarTodos();
-			if (listaOdontologos.size() > 0) {
-				response = new ResponseEntity(listaOdontologos, HttpStatus.FOUND);
-			} else {
-				response = new ResponseEntity<List<Odontologo>>(listaOdontologos,  HttpStatus.NOT_FOUND);
-			}
+//			if (listaOdontologos.size() > 0) {
+			Optional<List<OdontologoDTO>> lista = Optional.of(listaOdontologos);
+				response = new ResponseEntity(lista, HttpStatus.FOUND);
+//			} else {
+//				response = new ResponseEntity<List<Odontologo>>(  HttpStatus.NOT_FOUND);
+//			}
 		} catch (Exception e) {
 			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
 		}
@@ -134,9 +136,9 @@ public class OdontologoController {
 
 	@GetMapping("/listarDTO")
 
-	public ResponseEntity<List<OdontologoResponseDTO>> listarTodosDTO() {
+	public ResponseEntity<List<OdontologoDTO>> listarTodosDTO() {
 		ResponseEntity response = null;
-		Optional<List<OdontologoResponseDTO>> listaOdontologos = null;
+		Optional<List<OdontologoDTO>> listaOdontologos = null;
 		try {
 
 			listaOdontologos = this.odontologoIServiceDTOHQL.listarTodosIDNombre();
@@ -154,7 +156,7 @@ public class OdontologoController {
 
 
 	@DeleteMapping("eliminar/{id}")
-	public ResponseEntity eliminar(@PathVariable Long id) {
+	public ResponseEntity<String> eliminar(@PathVariable Long id) {
 		ResponseEntity response = null;
 		try {
 			this.odontologoIService.eliminar(id);

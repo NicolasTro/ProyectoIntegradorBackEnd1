@@ -80,7 +80,8 @@
 										</div>
 									</div>
 
-									<table id="patientTable" class="registros table table-striped table-responsive"></table>
+									<!-- <table id="patientTable" class="registros table table-striped table-responsive"></table> -->
+									<table id="tablaDeRegistros" class="registros table table-striped table-responsive"></table>
 									<div class="cargando" id="cargando">
 										<div class="spinner-grow text-primary" role="status"></div>
 										<div class="spinner-grow text-primary" role="status"></div>
@@ -93,24 +94,7 @@
 				</div>
 			</div>
 
-			<!-- <div class="fondo">
-      <div class="container-fluid contenedorTablita ">
-        <div class="tablaRegistros ">
-          <div id="div_Paciente" class="tablaRegistros container-fluid">
-            <div class="listado">
-              <div class="headerTablita">
-                <h1 class="tituloTablita">Listado de Pacientes</h1>
-                <button type="button" class="btn btn-dark tituloTablita btnRegistrarHeader" data-toggle="modal" data-target="#staticBackdropPaciente">Registrar paciente</button>
-              </div>
-
-              <table id="tablePaciente" class="table table-striped table-responsive posicionRegistros">
-
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
+	
 			<!--    MODAL DE REGISTRO-->
 			<div class="modal fade" id="staticBackdropPaciente" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelPaciente" aria-hidden="true">
 				<div class="modal-dialog">
@@ -227,9 +211,11 @@
 			</div>
 		</main>
 	</body>
-	<script text="text/javascript" src="js/get_paciente.js"></script>
+	<script text="text/javascript" src="js/paciente/get_paciente.js"></script>
+	<script text="text/javascript" src="js/metodosGenericos.js"></script>
 
-	<script text="text/javascript" src="js/post_paciente.js"></script>
-	<script text="text/javascript" src="js/update_paciente.js"></script>
-	<script text="text/javascript" src="js/delete_paciente.js"></script>
+
+	<script text="text/javascript" src="js/paciente/post_paciente.js"></script>
+	<script text="text/javascript" src="js/paciente/update_paciente.js"></script>
+	<script text="text/javascript" src="js/paciente/delete_paciente.js"></script>
 </html>

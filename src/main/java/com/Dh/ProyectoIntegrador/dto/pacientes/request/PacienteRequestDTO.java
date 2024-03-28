@@ -26,4 +26,5 @@ public class PacienteRequestDTO extends PacienteDTO {
     private Integer numero;
     private String localidad;
     private String provincia;
+
 }

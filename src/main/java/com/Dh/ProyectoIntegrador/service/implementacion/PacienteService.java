@@ -111,16 +111,10 @@ public class PacienteService implements IService<PacienteDTO>, IServiceHQL<Pacie
 	private static <T> T mapeador(Object objetoAMapear, Class<T> clase) {
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.registerModule(new JavaTimeModule());
-//		mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
-//		mapper.setDateFormat(new StdDateFormat().withColonInTimeZone(true));
-//		mapper.disable(DeserializationFeature.ADJUST_DATES_TO_CONTEXT_TIME_ZONE);
+
 		return mapper.convertValue(objetoAMapear, clase);
 	}
 
-//	private static PacienteDTO mapeadorResponseID(Paciente pacienteAMapearID) {
-//		mapeador(pacienteAMapearID,  PacienteResponseDTOName.class);
-//		return pacienteAMapearID;
-//	}
 	private static PacienteDTO mapeadorResponse(Paciente pacienteAMapear) {
 
 		PacienteResponseDTOFull pacienteResponseDTO = new PacienteResponseDTOFull();
@@ -133,6 +127,7 @@ public class PacienteService implements IService<PacienteDTO>, IServiceHQL<Pacie
 		pacienteResponseDTO.setNumero(pacienteAMapear.getDomicilio().getNumero());
 		pacienteResponseDTO.setLocalidad(pacienteAMapear.getDomicilio().getLocalidad());
 		pacienteResponseDTO.setProvincia(pacienteAMapear.getDomicilio().getProvincia());
+		pacienteResponseDTO.setDomicilio_id(pacienteAMapear.getDomicilio().getId());
 
 		return pacienteResponseDTO;
 	}

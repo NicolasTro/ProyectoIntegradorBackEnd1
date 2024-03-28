@@ -123,7 +123,7 @@ validacionInput();
 
 // ##############################################################################################################################
 function cargarEncabezadoTabla() {
-	let tabla = document.getElementById("turnoTable");
+	let tabla = document.getElementById("tablaRegistros");
 	let encabezadoTabla = document.createElement("thead");
 	encabezadoTabla.id = "encabezado";
 	tabla.appendChild(encabezadoTabla);
@@ -144,14 +144,14 @@ function noSeEncontraronRegistros() {
 }
 // ##############################################################################################################################
 function cargarCuerpoTabla() {
-	let tabla = document.getElementById("turnoTable");
+	let tabla = document.getElementById("tablaRegistros");
 	let cuerpoTabla = document.createElement("tbody");
 	cuerpoTabla.id = "cuerpoTabla";
 	tabla.appendChild(cuerpoTabla);
 }
 // ##############################################################################################################################
 function clearTabla() {
-	let tabla = document.getElementById("turnoTable");
+	let tabla = document.getElementById("tablaRegistros");
 	tabla.innerHTML = "";
 	
 }

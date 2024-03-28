@@ -27,4 +27,5 @@ public class PacienteResponseDTOFull extends PacienteDTO {
     private Integer numero;
     private String localidad;
     private String provincia;
+    private Long domicilio_id;
 }

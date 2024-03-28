@@ -61,12 +61,5 @@ window.addEventListener("load", function () {
     document.querySelector("#apellidoOdontologo").value = "";
     document.querySelector("#matriculaOdontologo").value = "";
   }
-//  (function(){
-//      let pathname = window.location.pathname;
-//      if(pathname === "/"){
-//          document.querySelector(".nav .nav-item a:first").addClass("active");
-//      } else if (pathname == "/index.html") {
-//          document.querySelector(".nav .nav-item a:last").addClass("active");
-//      }
-//  })();
+
 });

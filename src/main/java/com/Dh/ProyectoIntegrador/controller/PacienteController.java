@@ -1,7 +1,6 @@
 package com.Dh.ProyectoIntegrador.controller;
 
-import com.Dh.ProyectoIntegrador.Excepciones.DomicilioException;
-import com.Dh.ProyectoIntegrador.Excepciones.OdontologoException;
+
 import com.Dh.ProyectoIntegrador.dto.pacientes.PacienteDTO;
 import com.Dh.ProyectoIntegrador.dto.pacientes.request.PacienteRequestDTO;
 import com.Dh.ProyectoIntegrador.dto.pacientes.response.PacienteResponseDTOFull;
@@ -98,7 +97,7 @@ public class PacienteController {
 	}
 
 	@DeleteMapping("/eliminar/{id}")
-	public ResponseEntity<String> eliminar(@PathVariable Long id) throws OdontologoException, DomicilioException {
+	public ResponseEntity<String> eliminar(@PathVariable Long id)  {
 		ResponseEntity response = null;
 		try {
 			this.pacienteService.eliminar(id);

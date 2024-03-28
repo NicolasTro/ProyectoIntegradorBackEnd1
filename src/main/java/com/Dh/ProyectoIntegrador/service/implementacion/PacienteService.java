@@ -1,17 +1,21 @@
 package com.Dh.ProyectoIntegrador.service.implementacion;
 
 import com.Dh.ProyectoIntegrador.dto.pacientes.PacienteDTO;
+import com.Dh.ProyectoIntegrador.dto.pacientes.PacienteDomicilioDTO;
 import com.Dh.ProyectoIntegrador.dto.pacientes.response.PacienteResponseDTOFull;
 import com.Dh.ProyectoIntegrador.dto.pacientes.response.PacienteResponseDTOName;
+import com.Dh.ProyectoIntegrador.entity.Domicilio;
 import com.Dh.ProyectoIntegrador.entity.Paciente;
 import com.Dh.ProyectoIntegrador.repository.IPacienteRepository;
 import com.Dh.ProyectoIntegrador.service.IService;
+import com.Dh.ProyectoIntegrador.service.IServiceDTO;
 import com.Dh.ProyectoIntegrador.service.IServiceHQL;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.util.StdDateFormat;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +25,8 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class PacienteService implements IService<PacienteDTO>, IServiceHQL<PacienteDTO> {
+@Slf4j
+public class PacienteService implements IService<PacienteDomicilioDTO>, IServiceHQL<PacienteDomicilioDTO>, IServiceDTO<PacienteResponseDTOName> {
 
 
 	private IPacienteRepository pacienteRepository;
@@ -31,13 +36,15 @@ public class PacienteService implements IService<PacienteDTO>, IServiceHQL<Pacie
 		this.pacienteRepository = pacienteRepository;
 	}
 
-	public PacienteDTO guardar(PacienteDTO pacienteRequestDTO) {
+	public PacienteDomicilioDTO guardar(PacienteDomicilioDTO pacienteRequestDTO) {
 
-		Paciente pacienteGuardado = pacienteRepository.save(mapeador(pacienteRequestDTO, Paciente.class));
+		Paciente pacienteGuardado = pacienteRepository.save(mapearPacienteEntidad(pacienteRequestDTO));
 		return mapeadorResponse(pacienteGuardado);
+
+
 	}
 
-	public PacienteDTO buscarPorId(Long id) {
+	public PacienteDomicilioDTO buscarPorId(Long id) {
 		Optional<Paciente> pacienteOptional = pacienteRepository.findById(id);
 		if (pacienteOptional.isPresent()) {
 			return this.mapeadorResponse(pacienteOptional.get());
@@ -45,29 +52,57 @@ public class PacienteService implements IService<PacienteDTO>, IServiceHQL<Pacie
 		return null;
 	}
 
+
+
+
+	private Paciente mapearPacienteEntidad(PacienteDomicilioDTO pacienteDomicilioDTO){
+		Paciente pacienteAGuardarEntity = mapeador(pacienteDomicilioDTO, Paciente.class);
+		Domicilio domicilioPaciente = new Domicilio();
+		domicilioPaciente.setCalle(pacienteDomicilioDTO.getCalle());
+		domicilioPaciente.setLocalidad(pacienteDomicilioDTO.getLocalidad());
+		domicilioPaciente.setNumero(pacienteDomicilioDTO.getNumero());
+		domicilioPaciente.setProvincia(pacienteDomicilioDTO.getProvincia());
+		pacienteAGuardarEntity.setDomicilio(domicilioPaciente);
+		return pacienteAGuardarEntity;
+
+
+	}
 	public void eliminar(Long id) {
 		this.pacienteRepository.deleteById(id);
 	}
 
-	public void actualizar(PacienteDTO pacienteRequestDTO) {
-		this.pacienteRepository.save(mapeador(pacienteRequestDTO, Paciente.class));
-	}
+	@Override
+	public void actualizar(PacienteDomicilioDTO pacienteRequestDTO) {
 
-	public List<PacienteDTO> listarTodos() {
+
+
+
+
+
+
+
+
+
+
+		this.pacienteRepository.save(mapearPacienteEntidad(pacienteRequestDTO));
+	}
+@Override
+	public List<PacienteDomicilioDTO> listarTodos() {
+
 		return mapearRegistros(this.pacienteRepository.findAll());
 	}
 
 	@Override
-	public Optional<List<PacienteDTO>> buscarDatosCompletos(Integer tipoDeBusqueda, String valor) {
+	public Optional<List<PacienteDomicilioDTO>> buscarDatosCompletos(Integer tipoDeBusqueda, String valor) {
 
-		Optional<List<PacienteDTO>> pacienteOptional = null;
+		Optional<List<PacienteDomicilioDTO>> pacienteOptional = null;
 		switch (tipoDeBusqueda) {
 			case 1:
 				Long id = Long.parseLong(valor);
 				Optional<Paciente> pacienteEncontrado = this.pacienteRepository.findById(id);
 //				if (pacienteEncontrado.isPresent()) {
-				List<PacienteDTO> listaPaciente = new ArrayList<>();
-				listaPaciente.add(mapeador(pacienteEncontrado.get(), PacienteResponseDTOFull.class));
+				List<PacienteDomicilioDTO> listaPaciente = new ArrayList<>();
+				listaPaciente.add(mapeador(pacienteEncontrado.get(), PacienteDomicilioDTO.class));
 				pacienteOptional = Optional.of(listaPaciente); // Envuelve la lista en un Optional
 //				}
 				break;
@@ -79,6 +114,9 @@ public class PacienteService implements IService<PacienteDTO>, IServiceHQL<Pacie
 				break;
 			case 4:
 				Date fechaValor = Date.valueOf(valor);
+
+
+
 				pacienteOptional = Optional.of(mapearRegistros(pacienteRepository.findByFecha(fechaValor).get()));
 				break;
 			default:
@@ -88,18 +126,18 @@ public class PacienteService implements IService<PacienteDTO>, IServiceHQL<Pacie
 	}
 
 	@Override
-	public Optional<List<PacienteDTO>> listarTodosIDNombre() {
+	public Optional<List<PacienteResponseDTOName>> listarTodosIDNombre() {
 		List<Paciente> listaPacientes = this.pacienteRepository.findAll();
-		List<PacienteDTO> listaPacientesDTO = new ArrayList<>();
+		List<PacienteResponseDTOName> listaPacientesDTO = new ArrayList<>();
 		listaPacientes.forEach(paciente -> {
 			listaPacientesDTO.add(mapeador(paciente, PacienteResponseDTOName.class));
 		});
 		return Optional.of(listaPacientesDTO);
 	}
 
-	private List<PacienteDTO> mapearRegistros(List<Paciente> listaPacientes) {
+	private List<PacienteDomicilioDTO> mapearRegistros(List<Paciente> listaPacientes) {
 		if (!listaPacientes.isEmpty()) {
-			List<PacienteDTO> listaPacientesDTO = new ArrayList<>();
+			List<PacienteDomicilioDTO> listaPacientesDTO = new ArrayList<>();
 			listaPacientes.forEach(paciente -> {
 				listaPacientesDTO.add(mapeadorResponse(paciente));
 			});
@@ -115,9 +153,9 @@ public class PacienteService implements IService<PacienteDTO>, IServiceHQL<Pacie
 		return mapper.convertValue(objetoAMapear, clase);
 	}
 
-	private static PacienteDTO mapeadorResponse(Paciente pacienteAMapear) {
+	private static PacienteDomicilioDTO mapeadorResponse(Paciente pacienteAMapear) {
 
-		PacienteResponseDTOFull pacienteResponseDTO = new PacienteResponseDTOFull();
+		PacienteDomicilioDTO pacienteResponseDTO = new PacienteDomicilioDTO();
 		pacienteResponseDTO.setId(pacienteAMapear.getId());
 		pacienteResponseDTO.setNombre(pacienteAMapear.getNombre());
 		pacienteResponseDTO.setApellido(pacienteAMapear.getApellido());
@@ -127,6 +165,7 @@ public class PacienteService implements IService<PacienteDTO>, IServiceHQL<Pacie
 		pacienteResponseDTO.setNumero(pacienteAMapear.getDomicilio().getNumero());
 		pacienteResponseDTO.setLocalidad(pacienteAMapear.getDomicilio().getLocalidad());
 		pacienteResponseDTO.setProvincia(pacienteAMapear.getDomicilio().getProvincia());
+
 		pacienteResponseDTO.setDomicilio_id(pacienteAMapear.getDomicilio().getId());
 
 		return pacienteResponseDTO;

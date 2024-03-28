@@ -8,7 +8,7 @@ public interface IServiceHQL<T> {
 
     Optional<List<T>> buscarDatosCompletos(Integer  tipoDeBusqueda, String valor);
 
-    Optional<List<T>> listarTodosIDNombre();
+
 
 
 }

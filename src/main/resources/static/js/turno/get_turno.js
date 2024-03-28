@@ -1,4 +1,3 @@
-
 // ##############################################################################################################################
 //FUNCION OBTENER LISTA DE TURNOS
 function obtenerListaTurnos() {
@@ -10,7 +9,9 @@ function obtenerListaTurnos() {
 	return fetch(url, settings)
 		.then((response) => response.json())
 		.then((data) => {
-			console.log(data);
+			
+
+			
 			if (data.length > 0) {
 				let body = document.getElementById("cuerpoTabla");
 
@@ -40,13 +41,11 @@ window.addEventListener("load", function () {
 
 	setTimeout(function () {
 		iconosDeCarga.style.visibility = "hidden";
-console.log("aver");
+		console.log("aver");
 		obtenerListaTurnos();
 	}, 3000);
 
 	let btnRegistrarTurno = document.getElementById("btnRegistrarTurno");
-
-	
 
 	(function () {
 		let pathname = window.location.pathname;
@@ -59,11 +58,6 @@ console.log("aver");
 		listarPacientes();
 		listarOdontologos();
 	});
-
-
-
-
-
 
 	let formularioBusqueda = document.getElementById("formBusqueda");
 
@@ -111,13 +105,6 @@ console.log("aver");
 			formBusqueda.replaceChild(calendario, inputBusqueda);
 		}
 	});
-
-
-
-
-
-	
-	
 });
 validacionInput();
 
@@ -130,7 +117,6 @@ function cargarEncabezadoTabla() {
 	let dentistRowHeader = document.getElementById("encabezado");
 	dentistRowHeader.innerHTML = "<th scope='col'>Id</th>" + "<th scope='col'>Odontologo</th>" + "<th scope='col'>Paciente</th>" + "<th scope='col'>Fecha y hora</th>" + "<th scope='col'>Gestionar </th>";
 }
-
 
 // ##############################################################################################################################
 
@@ -153,34 +139,29 @@ function cargarCuerpoTabla() {
 function clearTabla() {
 	let tabla = document.getElementById("tablaRegistros");
 	tabla.innerHTML = "";
-	
 }
-
 
 function tablaNueva() {
 	cargarEncabezadoTabla();
 	cargarCuerpoTabla();
 }
 
-
-
 // ##############################################################################################################################
 function cargarRegistro(turno) {
-	
 	return `<td class="td_id align-middle tamanioTexto">${turno.id}</td><td class="td_odontologo align-middle tamanioTexto" data-odontologoid='${turno.odontologo_Id}'>${turno.odontologoNombre} ${turno.odontologoApellido}</td>
     <td class="td_paciente align-middle tamanioTexto" data-pacienteid='${turno.paciente_Id}'>${turno.pacienteNombre} ${turno.pacienteApellido}</td><td class="td_fechaTurno align-middle tamanioTexto">${turno.fechaYHora}</td><td><div class="dropdown"><button class='btn btn-secondary dropdown-toggle' type='button'data-toggle='dropdown' aria-expanded='false'></button><div class='dropdown-menu'><button type='button' data-id=${turno.id} class='btn btn-primary btnTabla dropdown-item' data-toggle='modal' data-target='#staticBackdropTurnoUpdate'>Modificar</button><button type='button' data-id=${turno.id} class='btn btn-primary dropdown-item btnTabla' data-toggle='modal' >Eliminar</button></div></div></td>`;
 }
 // ##############################################################################################################################
 function busquedaPacientePersonalizado() {
 	let tipoDeBusqueda = document.getElementById("comboBusqueda");
-	
+
 	let valorBusqueda;
 	if (tipoDeBusqueda.value <= 3) {
 		valorBusqueda = document.getElementById("search");
 	} else {
 		valorBusqueda = document.getElementById("searchCalendar");
 	}
-console.log("valor busqueda " + tipoDeBusqueda.value);
+	console.log("valor busqueda " + tipoDeBusqueda.value);
 	const url = `/turnos/buscar?valor=${valorBusqueda.value}&tipoDeBusqueda=${tipoDeBusqueda.value}`;
 
 	const settings = {
@@ -212,8 +193,6 @@ console.log("valor busqueda " + tipoDeBusqueda.value);
 					let tr_id = "tr_" + patient.id;
 					patientRow.id = tr_id;
 					patientRow.innerHTML = cargarRegistro(patient);
-
-					
 				}
 			} else {
 				noSeEncontraronRegistrosPaciente();
@@ -236,10 +215,8 @@ function listarPacientes() {
 	return fetch(url, settings)
 		.then((response) => response.json())
 		.then((data) => {
-			
-
 			let comboPacientes = document.getElementById("comboTurnoPaciente");
-			
+
 			for (patient of data) {
 				let comboValor = document.createElement("option");
 
@@ -261,10 +238,8 @@ function listarOdontologos() {
 	return fetch(url, settings)
 		.then((response) => response.json())
 		.then((data) => {
-			
-
 			let comboOdontologo = document.getElementById("comboTurnoOdontologo");
-			
+
 			for (odontologo of data) {
 				let comboValor = document.createElement("option");
 

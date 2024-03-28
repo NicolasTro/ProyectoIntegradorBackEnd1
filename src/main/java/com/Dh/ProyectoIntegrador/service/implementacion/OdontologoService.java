@@ -7,6 +7,7 @@ import com.Dh.ProyectoIntegrador.entity.Odontologo;
 
 import com.Dh.ProyectoIntegrador.repository.IOdontologoRepository;
 import com.Dh.ProyectoIntegrador.service.IService;
+import com.Dh.ProyectoIntegrador.service.IServiceDTO;
 import com.Dh.ProyectoIntegrador.service.IServiceHQL;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -20,7 +21,7 @@ import java.util.Optional;
 
 @Slf4j
 @Service
-public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<OdontologoDTO> {
+public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<OdontologoDTO>, IServiceDTO<OdontologoDTO> {
 
 	private IOdontologoRepository odontologoRepository;
 

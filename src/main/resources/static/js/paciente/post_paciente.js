@@ -10,13 +10,15 @@ window.addEventListener("load", function () {
     apellido: document.querySelector("#apellidoPaciente").value,
     dni: document.querySelector("#dni").value,
     fechaIngreso: document.querySelector("#fechaIngreso").value,
-    domicilio : {
-        calle: document.querySelector("#domicilioCalle").value,
-        numero: document.querySelector("#domicilioNumero").value,
-        localidad: document.querySelector("#domicilioLocalidad").value,
-        provincia: document.querySelector("#domicilioProvincia").value,
-    },
+    calle: document.querySelector("#domicilioCalle").value,
+    numero: document.querySelector("#domicilioNumero").value,
+    localidad: document.querySelector("#domicilioLocalidad").value,
+    provincia: document.querySelector("#domicilioProvincia").value,
+    
   };
+
+
+// console.log(formData);
 
   const url = "/pacientes/registrar";
   
@@ -28,6 +30,8 @@ window.addEventListener("load", function () {
     body: JSON.stringify(formData),
   };
 
+  // console.log(body);
+  console.log("guardar paciente");
   fetch(url, settings)
     .then((response)  => response.json())
     .then((data) => {

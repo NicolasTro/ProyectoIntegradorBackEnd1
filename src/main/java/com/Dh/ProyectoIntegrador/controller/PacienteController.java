@@ -2,10 +2,13 @@ package com.Dh.ProyectoIntegrador.controller;
 
 
 import com.Dh.ProyectoIntegrador.dto.pacientes.PacienteDTO;
+import com.Dh.ProyectoIntegrador.dto.pacientes.PacienteDomicilioDTO;
 import com.Dh.ProyectoIntegrador.dto.pacientes.request.PacienteRequestDTO;
 import com.Dh.ProyectoIntegrador.dto.pacientes.response.PacienteResponseDTOFull;
+import com.Dh.ProyectoIntegrador.dto.pacientes.response.PacienteResponseDTOName;
 import com.Dh.ProyectoIntegrador.entity.Paciente;
 import com.Dh.ProyectoIntegrador.service.IService;
+import com.Dh.ProyectoIntegrador.service.IServiceDTO;
 import com.Dh.ProyectoIntegrador.service.IServiceHQL;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,12 +24,14 @@ import java.util.Optional;
 @Slf4j
 public class PacienteController {
 
-	private IService<PacienteDTO> pacienteService;
-	private IServiceHQL<PacienteDTO>pacienteIServiceHQL;
+	private IService<PacienteDomicilioDTO> pacienteService;
+	private IServiceHQL<PacienteDomicilioDTO>pacienteIServiceHQL;
+	private IServiceDTO<PacienteResponseDTOName> pacienteIServiceDTO;
 	@Autowired
-	public PacienteController(IService<PacienteDTO> pacienteService, IServiceHQL<PacienteDTO> pacienteIServiceHQL) {
+	public PacienteController(IService<PacienteDomicilioDTO> pacienteService, IServiceHQL<PacienteDomicilioDTO> pacienteIServiceHQL, IServiceDTO<PacienteResponseDTOName> pacienteIServiceDTO) {
 		this.pacienteService = pacienteService;
 		this.pacienteIServiceHQL = pacienteIServiceHQL;
+		this.pacienteIServiceDTO = pacienteIServiceDTO;
 	}
 
 
@@ -34,7 +39,7 @@ public class PacienteController {
 	public ResponseEntity<List<PacienteDTO>> buscar(@RequestParam("valor") String valor, @RequestParam("tipoDeBusqueda") Integer tipoDeBusqueda) {
 		ResponseEntity response =  null;
 		try {
-			Optional<List<PacienteDTO>> pacienteBuscar = pacienteIServiceHQL.buscarDatosCompletos(tipoDeBusqueda, valor);
+			Optional<List<PacienteDomicilioDTO>> pacienteBuscar = pacienteIServiceHQL.buscarDatosCompletos(tipoDeBusqueda, valor);
 
 			if (pacienteBuscar != null) {
 				response = new ResponseEntity(pacienteBuscar.get(), HttpStatus.FOUND);
@@ -48,10 +53,10 @@ public class PacienteController {
 		return response;
 	}
 	@PostMapping("/registrar")
-	public ResponseEntity<PacienteDTO> guardar(@RequestBody PacienteRequestDTO paciente) {
-		ResponseEntity response = null;
+	public ResponseEntity<PacienteDTO> guardar(@RequestBody PacienteDomicilioDTO paciente) {
+		ResponseEntity<PacienteDTO> response = null;
 		try {
-			PacienteDTO pacienteGuardado = this.pacienteService.guardar(paciente);
+			PacienteDomicilioDTO pacienteGuardado = this.pacienteService.guardar(paciente);
 			if (pacienteGuardado != null) {
 				response = new ResponseEntity(pacienteGuardado, HttpStatus.CREATED);
 			} else {
@@ -83,7 +88,7 @@ public class PacienteController {
 
 
 	@PutMapping("/actualizar")
-	public ResponseEntity<PacienteDTO> actualizar(@RequestBody PacienteRequestDTO paciente) {
+	public ResponseEntity<PacienteDTO> actualizar(@RequestBody PacienteDomicilioDTO paciente) {
 		ResponseEntity response = null;
 		if(paciente != null) {
 			this.pacienteService.actualizar(paciente);
@@ -112,7 +117,7 @@ public class PacienteController {
 	@GetMapping("/listar")
 	public ResponseEntity<List<PacienteDTO>> listarTodos() {
 		ResponseEntity response = null;
-		List<PacienteDTO> listaPacientes = null;
+		List<PacienteDomicilioDTO> listaPacientes = null;
 		try {
 			listaPacientes = this.pacienteService.listarTodos();
 //			if (listaPacientes.size() > 0) {
@@ -130,12 +135,12 @@ public class PacienteController {
 	}
 	@GetMapping("/listarDTO")
 
-	public ResponseEntity<List<PacienteDTO>> listarTodosDTO() {
+	public ResponseEntity<List<PacienteDomicilioDTO>> listarTodosDTO() {
 		ResponseEntity response = null;
-		Optional<List<PacienteDTO>> listaPacientes = null;
+		Optional<List<PacienteResponseDTOName>> listaPacientes = null;
 		try {
 
-			listaPacientes = this.pacienteIServiceHQL.listarTodosIDNombre();
+			listaPacientes = this.pacienteIServiceDTO.listarTodosIDNombre();
 
 			if (!listaPacientes.isEmpty()) {
 				response = new ResponseEntity(listaPacientes.get(), HttpStatus.FOUND);

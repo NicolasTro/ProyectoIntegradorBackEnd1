@@ -6,6 +6,7 @@ import com.Dh.ProyectoIntegrador.dto.odontologos.response.OdontologoResponseDTOF
 import com.Dh.ProyectoIntegrador.dto.odontologos.response.OdontologoResponseDTOName;
 import com.Dh.ProyectoIntegrador.entity.Odontologo;
 import com.Dh.ProyectoIntegrador.service.IService;
+import com.Dh.ProyectoIntegrador.service.IServiceDTO;
 import com.Dh.ProyectoIntegrador.service.IServiceHQL;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,11 +24,13 @@ public class OdontologoController {
 
 	private IService<OdontologoDTO> odontologoIService;
 	private IServiceHQL<OdontologoDTO> odontologoIServiceHQL;
+	private IServiceDTO<OdontologoDTO> odontologoIServiceDTO;
 
 	@Autowired
-	public OdontologoController(IService<OdontologoDTO> odontologoIService, IServiceHQL<OdontologoDTO> odontologoIServiceHQL) {
+	public OdontologoController(IService<OdontologoDTO> odontologoIService, IServiceHQL<OdontologoDTO> odontologoIServiceHQL, IServiceDTO<OdontologoDTO> odontologoIServiceDTO) {
 		this.odontologoIService = odontologoIService;
 		this.odontologoIServiceHQL = odontologoIServiceHQL;
+		this.odontologoIServiceDTO = odontologoIServiceDTO;
 
 	}
 
@@ -135,7 +138,7 @@ public class OdontologoController {
 		Optional<List<OdontologoDTO>> listaOdontologos = null;
 		try {
 
-			listaOdontologos = this.odontologoIServiceHQL.listarTodosIDNombre();
+			listaOdontologos = this.odontologoIServiceDTO.listarTodosIDNombre();
 
 			if (!listaOdontologos.isEmpty()) {
 				response = new ResponseEntity(listaOdontologos.get(), HttpStatus.FOUND);

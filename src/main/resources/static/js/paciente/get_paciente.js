@@ -1,16 +1,18 @@
 
-
-
 function obtenerListaPacientes() {
 	const url = "/pacientes/listar";
 	const settings = {
 		method: "GET",
 	};
 
-	return fetch(url, settings)
-		.then((response) => response.json())
-		.then((data) => {
 
+
+
+return fetch(url, settings)
+.then((response) => response.json())
+.then((data) => {
+	console.log("metodo listaPacientes");
+	
 			console.log(data);
 			if (data.length > 0) {
 				let body = document.getElementById("cuerpoTabla");
@@ -26,12 +28,10 @@ function obtenerListaPacientes() {
 			}
 		})
 		.catch((error) => {
-			console.log(error);
-			noSeEncontraronRegistrosPaciente();
+			console.log(error.body);
+			// noSeEncontraronRegistrosPaciente();
 		});
 }
-
-
 
 
 function busquedaPacientePersonalizado() {
@@ -54,20 +54,17 @@ console.log(url);
 		.then((data) => {
 			console.log(data);
 			clearTabla();
-			tablaNueva();
-			
+			tablaNueva();			
 
-			if (data.length == 1) {
-				let tablaBody = document.getElementById("cuerpoTabla");
+			// if (data.length == 1) {
+			// 	let tablaBody = document.getElementById("cuerpoTabla");
 
-				tablaBody.innerHTML = "";
-				let patientRow = tablaBody.insertRow();
-
-				let tr_id = "tr_" + data[0].id;
-
-				patientRow.id = tr_id;
-				patientRow.innerHTML = cargarRegistro(data[0]);
-			} else if (data.length > 1) {
+			// 	tablaBody.innerHTML = "";
+			// 	let patientRow = tablaBody.insertRow();
+			// 	let tr_id = "tr_" + data[0].id;
+			// 	patientRow.id = tr_id;
+			// 	patientRow.innerHTML = cargarRegistro(data[0]);
+			if (data.length > 0) {
 				let body = document.getElementById("cuerpoTabla");
 
 				for (patient of data) {
@@ -75,7 +72,6 @@ console.log(url);
 					let tr_id = "tr_" + patient.id;
 					patientRow.id = tr_id;
 					patientRow.innerHTML = cargarRegistro(patient);
-
 					
 				}
 				console.log("asdasd");
@@ -87,8 +83,6 @@ console.log(url);
 			noSeEncontraronRegistroPaciente();
 		});
 }
-
-
 
 
 let tituloTablaPacientes = "<th scope='col'>Id</th>" + "<th scope='col'>Nombre </th>" + "<th scope='col'>Apellido</th>" + "<th scope='col'>DNI</th>" + "<th scope='col'>FechaIngreso</th>" + "<th scope='col'>Domicilio</th>" + "<th scope='col'>Gestionar</th></tr></thead>";

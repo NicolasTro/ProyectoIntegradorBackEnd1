@@ -16,7 +16,7 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString(exclude = {"turnoSet", "domicilio"})
+//@ToString(exclude = {"turnoSet", "domicilio"})
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Paciente {
     @Id

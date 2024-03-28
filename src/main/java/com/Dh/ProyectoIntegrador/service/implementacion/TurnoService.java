@@ -1,8 +1,6 @@
 package com.Dh.ProyectoIntegrador.service.implementacion;
 
 
-import com.Dh.ProyectoIntegrador.dto.odontologos.OdontologoDTO;
-import com.Dh.ProyectoIntegrador.dto.odontologos.response.OdontologoResponseDTOFull;
 import com.Dh.ProyectoIntegrador.dto.turnos.TurnoDTO;
 import com.Dh.ProyectoIntegrador.dto.turnos.request.TurnoRequestDTO;
 import com.Dh.ProyectoIntegrador.dto.turnos.response.TurnoResponseDTO;
@@ -12,13 +10,10 @@ import com.Dh.ProyectoIntegrador.entity.Turno;
 import com.Dh.ProyectoIntegrador.repository.ITurnoRepository;
 import com.Dh.ProyectoIntegrador.service.IService;
 import com.Dh.ProyectoIntegrador.service.IServiceHQL;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.Date;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -35,7 +30,7 @@ public class TurnoService implements IService<TurnoDTO>, IServiceHQL<TurnoDTO> {
 		this.turnoRepository = turnoRepository;
 	}
 
-	// IServiceHQL
+
 	@Override
 	public Optional<List<TurnoDTO>> buscarDatosCompletos(Integer tipoDeBusqueda, String valor) {
 		Optional<List<TurnoDTO>> turnoOptional = null;
@@ -47,7 +42,7 @@ public class TurnoService implements IService<TurnoDTO>, IServiceHQL<TurnoDTO> {
 				if (turnoEncontrado.isPresent()) {
 					List<TurnoDTO> listaTurnosDTO = new ArrayList<>();
 					listaTurnosDTO.add(mapeadorResponse(turnoEncontrado.get()));
-					turnoOptional = Optional.of(listaTurnosDTO); // Envuelve la lista en un Optional
+					turnoOptional = Optional.of(listaTurnosDTO);
 				}
 
 				break;
@@ -60,8 +55,8 @@ public class TurnoService implements IService<TurnoDTO>, IServiceHQL<TurnoDTO> {
 			case 4:
 				String valorDatetimeLocal = valor;
 
-DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
-LocalDateTime fechaHora = LocalDateTime.parse(valorDatetimeLocal, formatter);
+				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
+				LocalDateTime fechaHora = LocalDateTime.parse(valorDatetimeLocal, formatter);
 
 
 				turnoOptional = Optional.of(mapearRegistros(turnoRepository.findByFecha(fechaHora).get()));
@@ -73,7 +68,7 @@ LocalDateTime fechaHora = LocalDateTime.parse(valorDatetimeLocal, formatter);
 		return turnoOptional;
 	}
 
-	@Override
+
 	public Optional<List<TurnoDTO>> listarTodosIDNombre() {
 		return Optional.empty();
 	}

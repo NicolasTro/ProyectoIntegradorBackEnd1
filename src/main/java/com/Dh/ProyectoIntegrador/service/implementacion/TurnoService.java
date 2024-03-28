@@ -96,7 +96,15 @@ public class TurnoService implements IService<TurnoDTO>, IServiceHQL<TurnoDTO> {
 
 	@Override
 	public void actualizar(TurnoDTO turnoRequestDTO) {
-		this.turnoRepository.save(mapeadorRequest((TurnoRequestDTO) turnoRequestDTO));
+
+
+
+
+
+
+
+
+		this.turnoRepository.save(mapeadorRequest(turnoRequestDTO));
 	}
 
 
@@ -137,14 +145,14 @@ public class TurnoService implements IService<TurnoDTO>, IServiceHQL<TurnoDTO> {
 
 	//	MAPEADOR TURNO REQUEST DTO
 	//###########################################################################################
-	private static Turno mapeadorRequest(TurnoRequestDTO turnoRequestDTO) {
+	private static Turno mapeadorRequest(TurnoDTO turnoRequestDTO) {
 
 		Turno turno = new Turno();
 		Odontologo odontologo = new Odontologo();
 		Paciente paciente = new Paciente();
 
 		turno.setId(turnoRequestDTO.getId());
-		odontologo.setId(turnoRequestDTO.getId());
+		odontologo.setId(turnoRequestDTO.getOdontologo_Id());
 		turno.setOdontologo(odontologo);
 		paciente.setId(turnoRequestDTO.getPaciente_Id());
 		turno.setPaciente(paciente);

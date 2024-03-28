@@ -63,13 +63,12 @@ public class TurnoController {
 	public ResponseEntity<TurnoDTO> actualizar(@RequestBody TurnoRequestDTO turnoRequestDTO) {
 		ResponseEntity<TurnoDTO> response = null;
 		try {
-			TurnoDTO nuevoTurno = turnoIService.buscarPorId(turnoRequestDTO.getId());
-			turnoIService.actualizar(nuevoTurno);
-//			if(nuevoTurno.equals(turno)){
-			response = new ResponseEntity(nuevoTurno, HttpStatus.ACCEPTED);
-//			}else{
-//			response = new ResponseEntity("No se pudieron modificar los registros", HttpStatus.CONFLICT);
-//			}
+		TurnoDTO nuevoTurno = turnoIService.buscarPorId(turnoRequestDTO.getId());
+			turnoIService.actualizar(turnoRequestDTO);
+
+
+
+			response = new ResponseEntity(turnoRequestDTO, HttpStatus.ACCEPTED);
 
 		} catch (Exception e) {
 			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);

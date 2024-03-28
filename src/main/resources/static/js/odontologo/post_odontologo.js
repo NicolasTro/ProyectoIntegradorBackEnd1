@@ -7,8 +7,15 @@ window.addEventListener("load", function () {
   //Ante un submit del formulario se ejecutará la siguiente funcion
   formulario.addEventListener("submit", function (event) {
     event.preventDefault();
-    validarCamposIngresados();
+
+let bandera = validarCamposIngresados();
+console.log(bandera);
+
+    if(bandera){
+
     //creamos un JSON que tendrá los datos del nuevo odontólogo
+
+    
     const formData = {
       nombre: document.querySelector("#nombreOdontologo").value,
       apellido: document.querySelector("#apellidoOdontologo").value,
@@ -54,6 +61,10 @@ window.addEventListener("load", function () {
         //se dejan todos los campos vacíos por si se quiere ingresar otro odontólogo
         resetUploadForm();
       });
+    }
+
+
+
   });
 
   function resetUploadForm() {

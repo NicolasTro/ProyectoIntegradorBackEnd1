@@ -33,10 +33,15 @@ window.addEventListener("load", function () {
 	let formularioBusqueda = document.getElementById("formBusqueda");
 	formularioBusqueda.addEventListener("submit", function (event) {
 		event.preventDefault();
+
+
+
+
+
+
 		clearTabla();
 		tablaNueva(tituloTabla);
-		// cargarEncabezadoTabla(tituloTabla);
-		// cargarCuerpoTabla();
+		
 		//ICONOS DE LOADING
 		let iconosDeCarga = document.getElementById("cargando");
 		iconosDeCarga.style.visibility = "visible";
@@ -83,7 +88,7 @@ window.addEventListener("load", function () {
 
 function cargarRegistro(dentist) {
 	return `<td class="td_id align-middle tamanioTexto">${dentist.id}</td><td class="td_nombre align-middle tamanioTexto">${dentist.nombre.toUpperCase()}</td>
-  <td class="td_apellido align-middle tamanioTexto">${dentist.apellido.toUpperCase()}</td><td class="td_matricula align-middle tamanioTexto">${dentist.matricula}</td><td>
+  <td class="td_apellido align-middle tamanioTexto">${dentist.apellido.toUpperCase()}</td><td class="td_matricula align-middle tamanioTexto">${dentist.matricula}</td><td class='align-middle tamanioTexto'>
     <div class="dropdown"><button class='btn btn-dark dropdown-toggle' type='button'data-toggle='dropdown' aria-expanded='false'></button><div class='dropdown-menu'><button type='button' data-id=${
 			dentist.id
 		} class='btn btn-primary btnTabla dropdown-item' data-toggle='modal' data-target='#staticBackdrop'>Modificar</button><button type='button' data-id=${
@@ -97,6 +102,23 @@ let tituloTabla = "<th scope='col'>Id</th>" + "<th scope='col'>Nombre</th>" + "<
 
 
 
+function validarCamposIngresados(){
 
+let nombreOdontologo = document.getElementById("nombreOdontologo");
+let apellidoOdontologo = document.getElementById("apellidoOdontologo");
+let matriculaOdontologo = document.getElementById("matriculaOdontologo");
+console.log(nombreOdontologo);
+
+if(nombreOdontologo.value.trim()===""){
+	console.log(nombreOdontologo);
+	nombreOdontologo.classList.add("alert-danger");
+	console.log(nombreOdontologo);
+}
+
+
+
+
+
+}
 
 

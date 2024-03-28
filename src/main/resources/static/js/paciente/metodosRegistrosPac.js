@@ -142,11 +142,11 @@ function cargarRegistro(patient) {
 										</div>
 									  </div>
                                         </td>
-                                        <td>
+                                        <td td_btn align-middle tamanioTexto>
                                           <div class="dropdown">
                                             <button class='btn btn-dark dropdown-toggle' 
                                             type='button' data-toggle='dropdown' aria-expanded='false'></button>
-                                            <div class='dropdown-menu'>
+                                            <div class='dropdown-menu traerAlFrente'>
                                               <button type='button' data-id='${patient.id}' data-domicilioId='${
 		patient.id
 	}' class='btn btn-primary btnTabla dropdown-item' data-toggle='modal' data-target='#staticBackdropPacienteUpdate'>Modificar</button>

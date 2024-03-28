@@ -7,14 +7,14 @@ window.addEventListener("load", function () {
   //Ante un submit del formulario se ejecutará la siguiente funcion
   formulario.addEventListener("submit", function (event) {
     event.preventDefault();
-    
+    validarCamposIngresados();
     //creamos un JSON que tendrá los datos del nuevo odontólogo
     const formData = {
       nombre: document.querySelector("#nombreOdontologo").value,
       apellido: document.querySelector("#apellidoOdontologo").value,
       matricula: document.querySelector("#matriculaOdontologo").value,
     };
-
+    
     
     //invocamos utilizando la función fetch la API odontólogos con el método POST que guardará
     //el odontólogo que enviaremos en formato JSON

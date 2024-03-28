@@ -76,14 +76,6 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 
 
 
-
-
-
-
-
-
-
-
 		this.pacienteRepository.save(mapearPacienteEntidad(pacienteRequestDTO));
 	}
 @Override

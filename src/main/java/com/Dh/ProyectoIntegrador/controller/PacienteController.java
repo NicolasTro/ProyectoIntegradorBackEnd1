@@ -40,15 +40,16 @@ public class PacienteController {
 		ResponseEntity response =  null;
 		try {
 			Optional<List<PacienteDomicilioDTO>> pacienteBuscar = pacienteIServiceHQL.buscarDatosCompletos(tipoDeBusqueda, valor);
-
-			if (pacienteBuscar != null) {
+log.info("asdasd"+pacienteBuscar);
+			if (pacienteBuscar.isPresent()) {
 				response = new ResponseEntity(pacienteBuscar.get(), HttpStatus.FOUND);
 			} else {
 				response = new ResponseEntity(HttpStatus.NOT_FOUND);
 
 			}
 		}  catch (Exception  e) {
-			return new ResponseEntity(e.getMessage(), HttpStatus.I_AM_A_TEAPOT);
+
+			return new ResponseEntity(HttpStatus.I_AM_A_TEAPOT);
 		}
 		return response;
 	}
@@ -71,14 +72,14 @@ public class PacienteController {
 
 	@GetMapping("/{id}")
 	public ResponseEntity<PacienteResponseDTOFull> buscarPorId(@PathVariable Long id){
-		ResponseEntity response = null;
+		ResponseEntity<PacienteResponseDTOFull> response = null;
 		PacienteDTO pacienteEnontrado = null;
 		try {
 			pacienteEnontrado = this.pacienteService.buscarPorId(id);
-			if (pacienteEnontrado != null) {
-				response = new ResponseEntity<>(pacienteEnontrado, HttpStatus.FOUND);
+			if (pacienteEnontrado!=null) {
+				response = new ResponseEntity(pacienteEnontrado, HttpStatus.FOUND);
 			} else {
-				response = new ResponseEntity("No se encontro el paciente", HttpStatus.NOT_FOUND);
+				response = new ResponseEntity(HttpStatus.NOT_FOUND);
 			}
 		} catch (Exception e) {
 			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
@@ -120,13 +121,13 @@ public class PacienteController {
 		List<PacienteDomicilioDTO> listaPacientes = null;
 		try {
 			listaPacientes = this.pacienteService.listarTodos();
-//			if (listaPacientes.size() > 0) {
+			if (listaPacientes.size() > 0) {
 				log.info("tira la lista", listaPacientes);
 
 				response = new ResponseEntity(listaPacientes, HttpStatus.OK);
-//			} else {
-//				response = new ResponseEntity("No se encontraron Pacientes", HttpStatus.NOT_FOUND);
-//			}
+			} else {
+				response = new ResponseEntity("No se encontraron Pacientes", HttpStatus.NOT_FOUND);
+			}
 		} catch (Exception e) {
 			log.info("aca que sucede"+ e.getMessage());
 			return new ResponseEntity(HttpStatus.BAD_REQUEST);

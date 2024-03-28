@@ -1,4 +1,3 @@
-
 function obtenerListaPacientes() {
 	const url = "/pacientes/listar";
 	const settings = {
@@ -8,8 +7,6 @@ function obtenerListaPacientes() {
 	return fetch(url, settings)
 		.then((response) => response.json())
 		.then((data) => {
-
-			console.log(data);
 			if (data.length > 0) {
 				let body = document.getElementById("cuerpoTabla");
 
@@ -24,11 +21,10 @@ function obtenerListaPacientes() {
 			}
 		})
 		.catch((error) => {
-			console.log(error);
+			// console.log(error);
 			noSeEncontraronRegistros();
 		});
 }
-
 
 function busquedaPacientePersonalizado() {
 	let tipoDeBusqueda = document.getElementById("comboBusqueda");
@@ -40,19 +36,15 @@ function busquedaPacientePersonalizado() {
 	}
 
 	const url = `/pacientes/buscar?valor=${valorBusqueda.value}&tipoDeBusqueda=${tipoDeBusqueda.value}`;
-console.log(url);
+
 	const settings = {
 		method: "GET",
 	};
 
 	return fetch(url, settings)
 		.then((response) => response.json())
-		.then((data) => {
-			console.log(data);
-			clearTabla();
-			tablaNueva(tituloTablaPacientes);
-			
 
+		.then((data) => {
 			// if (data.length == 1) {
 			// 	let tablaBody = document.getElementById("cuerpoTabla");
 
@@ -62,6 +54,8 @@ console.log(url);
 			// 	patientRow.id = tr_id;
 			// 	patientRow.innerHTML = cargarRegistro(data[0]);
 			if (data.length > 0) {
+				clearTabla();
+				tablaNueva(tituloTablaPacientes);
 				let body = document.getElementById("cuerpoTabla");
 
 				for (patient of data) {
@@ -69,17 +63,15 @@ console.log(url);
 					let tr_id = "tr_" + patient.id;
 					patientRow.id = tr_id;
 					patientRow.innerHTML = cargarRegistro(patient);
-					
 				}
-				console.log("asdasd");
 			} else {
 				noSeEncontraronRegistros();
 			}
 		})
 		.catch((error) => {
-			noSeEncontraronRegistro();
+			noSeEncontraronRegistros();
 		});
 }
 
-
-let tituloTablaPacientes = "<th scope='col'>Id</th>" + "<th scope='col'>Nombre </th>" + "<th scope='col'>Apellido</th>" + "<th scope='col'>DNI</th>" + "<th scope='col'>FechaIngreso</th>" + "<th scope='col'>Domicilio</th>" + "<th scope='col'>Gestionar</th></tr></thead>";
+let tituloTablaPacientes =
+	"<th scope='col'>Id</th>" + "<th scope='col'>Nombre </th>" + "<th scope='col'>Apellido</th>" + "<th scope='col'>DNI</th>" + "<th scope='col'>FechaIngreso</th>" + "<th scope='col'>Domicilio</th>" + "<th scope='col'>Gestionar</th></tr></thead>";

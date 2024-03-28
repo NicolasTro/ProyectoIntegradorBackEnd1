@@ -100,11 +100,13 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 			case 1:
 				Long id = Long.parseLong(valor);
 				Optional<Paciente> pacienteEncontrado = this.pacienteRepository.findById(id);
-//				if (pacienteEncontrado.isPresent()) {
+				if (pacienteEncontrado.isPresent()) {
 				List<PacienteDomicilioDTO> listaPaciente = new ArrayList<>();
 				listaPaciente.add(mapeador(pacienteEncontrado.get(), PacienteDomicilioDTO.class));
 				pacienteOptional = Optional.of(listaPaciente); // Envuelve la lista en un Optional
-//				}
+				}else{
+					return Optional.empty();
+				}
 				break;
 			case 2:
 				pacienteOptional = Optional.of(mapearRegistros(pacienteRepository.findByNombre(valor).get()));

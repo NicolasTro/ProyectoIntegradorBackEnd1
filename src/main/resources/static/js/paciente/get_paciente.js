@@ -22,12 +22,12 @@ function obtenerListaPacientes() {
 					patientRow.innerHTML = cargarRegistro(patient);
 				}
 			} else {
-				noSeEncontraronRegistrosPaciente();
+				noSeEncontraronRegistros();
 			}
 		})
 		.catch((error) => {
 			console.log(error);
-			noSeEncontraronRegistrosPaciente();
+			noSeEncontraronRegistros();
 		});
 }
 
@@ -54,7 +54,7 @@ console.log(url);
 		.then((data) => {
 			console.log(data);
 			clearTabla();
-			tablaNueva();
+			tablaNueva(tituloTablaPacientes);
 			
 
 			if (data.length == 1) {
@@ -80,11 +80,11 @@ console.log(url);
 				}
 				console.log("asdasd");
 			} else {
-				noSeEncontraronRegistrosPaciente();
+				noSeEncontraronRegistros();
 			}
 		})
 		.catch((error) => {
-			noSeEncontraronRegistroPaciente();
+			noSeEncontraronRegistro();
 		});
 }
 

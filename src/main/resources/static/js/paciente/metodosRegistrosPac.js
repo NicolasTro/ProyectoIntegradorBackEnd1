@@ -1,8 +1,10 @@
 window.addEventListener("load", function () {
-	let iconosDeCarga = document.getElementById("cargando");
 	// cargarEncabezadoTabla(tituloTablaPacientes);
 	// cargarCuerpoTabla();
+
     tablaNueva(tituloTablaPacientes);
+
+	let iconosDeCarga = document.getElementById("cargando");
 	iconosDeCarga.style.visibility = "visible";
 
 	setTimeout(function () {

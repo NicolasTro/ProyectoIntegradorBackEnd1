@@ -5,14 +5,10 @@ function obtenerListaPacientes() {
 		method: "GET",
 	};
 
+	return fetch(url, settings)
+		.then((response) => response.json())
+		.then((data) => {
 
-
-
-return fetch(url, settings)
-.then((response) => response.json())
-.then((data) => {
-	console.log("metodo listaPacientes");
-	
 			console.log(data);
 			if (data.length > 0) {
 				let body = document.getElementById("cuerpoTabla");
@@ -24,12 +20,12 @@ return fetch(url, settings)
 					patientRow.innerHTML = cargarRegistro(patient);
 				}
 			} else {
-				noSeEncontraronRegistrosPaciente();
+				noSeEncontraronRegistros();
 			}
 		})
 		.catch((error) => {
-			console.log(error.body);
-			// noSeEncontraronRegistrosPaciente();
+			console.log(error);
+			noSeEncontraronRegistros();
 		});
 }
 
@@ -54,7 +50,8 @@ console.log(url);
 		.then((data) => {
 			console.log(data);
 			clearTabla();
-			tablaNueva();			
+			tablaNueva(tituloTablaPacientes);
+			
 
 			// if (data.length == 1) {
 			// 	let tablaBody = document.getElementById("cuerpoTabla");
@@ -76,11 +73,11 @@ console.log(url);
 				}
 				console.log("asdasd");
 			} else {
-				noSeEncontraronRegistrosPaciente();
+				noSeEncontraronRegistros();
 			}
 		})
 		.catch((error) => {
-			noSeEncontraronRegistroPaciente();
+			noSeEncontraronRegistro();
 		});
 }
 

@@ -9,7 +9,10 @@ import com.Dh.ProyectoIntegrador.entity.Paciente;
 import com.Dh.ProyectoIntegrador.entity.Turno;
 import com.Dh.ProyectoIntegrador.repository.ITurnoRepository;
 import com.Dh.ProyectoIntegrador.service.IService;
+import com.Dh.ProyectoIntegrador.service.IServiceDTO;
 import com.Dh.ProyectoIntegrador.service.IServiceHQL;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +25,7 @@ import java.util.Optional;
 
 @Service
 @Slf4j
-public class TurnoService implements IService<TurnoDTO>, IServiceHQL<TurnoDTO> {
+public class TurnoService implements IService<TurnoDTO>, IServiceHQL<TurnoDTO>, IServiceDTO<TurnoResponseDTO> {
 	private ITurnoRepository turnoRepository;
 
 	@Autowired
@@ -69,8 +72,14 @@ public class TurnoService implements IService<TurnoDTO>, IServiceHQL<TurnoDTO> {
 	}
 
 
-	public Optional<List<TurnoDTO>> listarTodosIDNombre() {
-		return Optional.empty();
+	public Optional<List<TurnoResponseDTO>> listarTodosIDNombre() {
+//		List<Turno> listaTurnos = this.turnoRepository.findAll();
+//		List<TurnoResponseDTO> listaTurnosDTO = new ArrayList<>();
+//		listaTurnos.forEach(turno -> {
+//			listaTurnosDTO.add(mapeador(turno, TurnoResponseDTO.class ));
+//		});
+
+		return null;
 	}
 
 	@Override
@@ -128,6 +137,12 @@ public class TurnoService implements IService<TurnoDTO>, IServiceHQL<TurnoDTO> {
 	}
 
 	//	METODO MAPEADOR
+	private static <T> T mapeador(Object objetoAMapear, Class<T> clase) {
+		ObjectMapper mapper = new ObjectMapper();
+		mapper.registerModule(new JavaTimeModule());
+
+		return mapper.convertValue(objetoAMapear, clase);
+	}
 	//	#############################################################################
 	private static TurnoDTO mapeadorResponse(Turno turnoAMapear) {
 

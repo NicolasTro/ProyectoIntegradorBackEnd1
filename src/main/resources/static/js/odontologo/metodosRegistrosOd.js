@@ -4,7 +4,7 @@ window.addEventListener("load", function () {
 	$(document).ready(function () {
 		// Configurar popovers
 		$('[data-toggle="popover"]').popover();
-		console.log($('[data-toggle="popover"]'));
+		
 		// $('[data-toggle="popover"]').contentText="asdasd";
 	});
 	// cargarEncabezadoTabla(tituloTabla);
@@ -54,8 +54,8 @@ window.addEventListener("load", function () {
 	//DISPARA EL EVENGO CHANGE DEL COMBOBOX DE BUSQUEDA PARA RESETEAR EL FILTRO DE BUSQUEDA
 	//################################################################################
 	let validacionInputId = document.getElementById("search");
+	let tipoDeBusqueda = document.getElementById("comboBusqueda");
 	if (validacionInputId !== null) {
-		let tipoDeBusqueda = document.getElementById("comboBusqueda");
 		tipoDeBusqueda.addEventListener("change", function () {
 			validacionInputId.value = "";
 		});
@@ -98,58 +98,53 @@ function cargarRegistro(dentist) {
 let tituloTabla = "<th scope='col'>Id</th>" + "<th scope='col'>Nombre</th>" + "<th scope='col'>Apellido</th>" + "<th scope='col'>Matrícula</th>" + "<th scope='col'>Gestionar </th>";
 
 function validarCamposIngresados(formularioGenerico) {
-	let formEspecifico = "#"+formularioGenerico.id;
+	let formEspecifico = "#" + formularioGenerico.id;
 	
+
 	let listaInputsAValidar = document.querySelectorAll(".validacion");
 	let camposRequeridos = document.querySelectorAll(`${formEspecifico} [required]`);
-	
+
 	// let camposRequeridos = document.querySelectorAll("#agregarDentista [required]");
 	let contador = 0;
 	let retorno = false;
 
 	let idInput = 0;
-listaInputsAValidar.forEach((input)=>{
-idInput++;
-input.id = idInput;
-
-
-
-});
-
+	listaInputsAValidar.forEach((input) => {
+		idInput++;
+		input.id = idInput;
+	});
 
 	camposRequeridos.forEach((campo) => {
 		let algo = document.getElementById(campo.id);
-		
+
 		algo.setAttribute("data-content", "Campos invalidos");
 		if (campo.value.trim() == "") {
 			campo.style.border = "solid red 3px";
-			
-			$("#"+campo.id).popover("show");
+
+			$("#" + campo.id).popover("show");
 		} else {
-			$("#"+campo.id).popover("hide");
+			$("#" + campo.id).popover("hide");
 			campo.style.border = "none";
 			contador += 1;
 		}
+	});
 
-		
 		if (contador == camposRequeridos.length) {
 			retorno = true;
 		} else {
-			
 			let errorAlert = '<div class="alert alert-danger alert-dismissible">' + '<button type="button" class="close" data-dismiss="alert">&times;</button>' + "<strong> Datos incorrectos</strong> </div>";
 
-			let bloqueMensaje = document.querySelector(".response");
-			console.log(bloqueMensaje);
+			let bloqueMensaje = document.querySelector(".responseDentist");
+
 			bloqueMensaje.innerHTML = errorAlert;
-			let mostrarMensaje = document.querySelector(".response");
+			let mostrarMensaje = document.querySelector(".responseDentist");
 			mostrarMensaje.style.display = "block";
 			setTimeout(function () {
 				bloqueMensaje.innerHTML = "";
 				mostrarMensaje.style.display = "none";
-$('#input1Popover').popover("hide");
-			}, 1000);
+				$("#" + campo.id).popover("hide");
+			}, 3000);
 		}
-	});
 
 	return retorno;
 }

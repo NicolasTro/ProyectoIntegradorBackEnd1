@@ -1,3 +1,12 @@
+let formularioOd= null;
+let formularioPaciente= null;
+let formularioTurno= null;
+window.addEventListener('load', function(){
+	 formularioOd = document.querySelector("#agregarDentista");
+	 formularioPaciente = document.querySelector("#agregarPaciente");
+	 formularioTurno = document.querySelector("#agregarTurno");
+});
+
 function cargarEncabezadoTabla(tituloTabla) {
 	let tabla = document.getElementById("tablaDeRegistros");
 	if (tabla != null) {

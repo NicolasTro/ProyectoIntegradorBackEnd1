@@ -1,7 +1,12 @@
 window.addEventListener("load", function () {
 	//CARGA DE CABEZAL Y CUERPO DE TABLA DE REGISTROS
 	//################################################################################
-
+	$(document).ready(function () {
+		// Configurar popovers
+		$('[data-toggle="popover"]').popover();
+		console.log($('[data-toggle="popover"]'));
+		// $('[data-toggle="popover"]').contentText="asdasd";
+	});
 	// cargarEncabezadoTabla(tituloTabla);
 	// cargarCuerpoTabla();
 	tablaNueva(tituloTabla);
@@ -92,70 +97,59 @@ function cargarRegistro(dentist) {
 
 let tituloTabla = "<th scope='col'>Id</th>" + "<th scope='col'>Nombre</th>" + "<th scope='col'>Apellido</th>" + "<th scope='col'>Matrícula</th>" + "<th scope='col'>Gestionar </th>";
 
-function validarCamposIngresados() {
-	let nombreValido = false;
-	let apellidoValido = false;
-	let matriculaValida = false;
-
-	let nombreOdontologo = document.getElementById("nombreOdontologo");
-	let apellidoOdontologo = document.getElementById("apellidoOdontologo");
-	let matriculaOdontologo = document.getElementById("matriculaOdontologo");
-
-
-	let camposRequeridos = document.querySelectorAll('[required]');
-
-	camposRequeridos.forEach(campo =>{
-
-if(campo.value.trim()==""){
-
-	campo.style.border = "solid red 3px";
-	campo.textContent="";
+function validarCamposIngresados(formularioGenerico) {
+	let formEspecifico = "#"+formularioGenerico.id;
 	
-}else{
+	let listaInputsAValidar = document.querySelectorAll(".validacion");
+	let camposRequeridos = document.querySelectorAll(`${formEspecifico} [required]`);
+	
+	// let camposRequeridos = document.querySelectorAll("#agregarDentista [required]");
+	let contador = 0;
+	let retorno = false;
 
-	campo.style.border ="none";
-}
+	let idInput = 0;
+listaInputsAValidar.forEach((input)=>{
+idInput++;
+input.id = idInput;
 
 
-	})
+
+});
 
 
-
-	if (nombreOdontologo.value.trim() === "") {
-		// nombreOdontologo.classList.add("alert-danger");
-		// nombreOdontologo.classList.add("border-danger");
+	camposRequeridos.forEach((campo) => {
+		let algo = document.getElementById(campo.id);
 		
+		algo.setAttribute("data-content", "Campos invalidos");
+		if (campo.value.trim() == "") {
+			campo.style.border = "solid red 3px";
+			
+			$("#"+campo.id).popover("show");
+		} else {
+			$("#"+campo.id).popover("hide");
+			campo.style.border = "none";
+			contador += 1;
+		}
+
 		
+		if (contador == camposRequeridos.length) {
+			retorno = true;
+		} else {
+			
+			let errorAlert = '<div class="alert alert-danger alert-dismissible">' + '<button type="button" class="close" data-dismiss="alert">&times;</button>' + "<strong> Datos incorrectos</strong> </div>";
 
-		nombreValido = false;
-	} else {
-		nombreOdontologo.classList.remove("alert-danger");
-		nombreOdontologo.classList.remove("border-danger");
-		nombreOdontologo.ariaPlaceholder = "";
-		nombreValido = true;
-	}
+			let bloqueMensaje = document.querySelector(".response");
+			console.log(bloqueMensaje);
+			bloqueMensaje.innerHTML = errorAlert;
+			let mostrarMensaje = document.querySelector(".response");
+			mostrarMensaje.style.display = "block";
+			setTimeout(function () {
+				bloqueMensaje.innerHTML = "";
+				mostrarMensaje.style.display = "none";
+$('#input1Popover').popover("hide");
+			}, 1000);
+		}
+	});
 
-	if (apellidoOdontologo.value.trim() === "") {
-		apellidoOdontologo.classList.add("alert-danger");
-		apellidoOdontologo.classList.add("border-danger");
-		apellidoValido = false;
-	} else {
-		apellidoOdontologo.classList.remove("alert-danger");
-		apellidoOdontologo.classList.remove("border-danger");
-		apellidoValido = true;
-	}
-	if (matriculaOdontologo.value.trim() === "") {
-		matriculaOdontologo.classList.add("alert-danger");
-		matriculaOdontologo.classList.add("border-danger");
-		matriculaValido = false;
-	} else {
-		matriculaOdontologo.classList.remove("alert-danger");
-		matriculaOdontologo.classList.remove("border-danger");
-		matriculaValido = true;
-	}
-	if (nombreValido && apellidoValido && matriculaValida) {
-		return true;
-	} else {
-		return false;
-	}
+	return retorno;
 }

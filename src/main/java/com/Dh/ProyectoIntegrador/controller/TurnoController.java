@@ -1,9 +1,14 @@
 package com.Dh.ProyectoIntegrador.controller;
 
+import com.Dh.ProyectoIntegrador.dto.pacientes.PacienteDomicilioDTO;
+import com.Dh.ProyectoIntegrador.dto.pacientes.response.PacienteResponseDTOName;
 import com.Dh.ProyectoIntegrador.dto.turnos.TurnoDTO;
 import com.Dh.ProyectoIntegrador.dto.turnos.request.TurnoRequestDTO;
+import com.Dh.ProyectoIntegrador.dto.turnos.response.TurnoResponseDTO;
+import com.Dh.ProyectoIntegrador.entity.Paciente;
 import com.Dh.ProyectoIntegrador.entity.Turno;
 import com.Dh.ProyectoIntegrador.service.IService;
+import com.Dh.ProyectoIntegrador.service.IServiceDTO;
 import com.Dh.ProyectoIntegrador.service.IServiceHQL;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,11 +26,13 @@ public class TurnoController {
 
 	private IService<TurnoDTO> turnoIService;
 	private IServiceHQL<TurnoDTO> turnoIServiceHQL;
+	private IServiceDTO<TurnoResponseDTO> turnoIServiceDTO;
 
 	@Autowired
-	public TurnoController(IService<TurnoDTO> turnoIService, IServiceHQL<TurnoDTO> turnoIServiceHQL) {
+	public TurnoController(IService<TurnoDTO> turnoIService, IServiceHQL<TurnoDTO> turnoIServiceHQL, IServiceDTO<TurnoResponseDTO> turnoIServiceDTO) {
 		this.turnoIService = turnoIService;
 		this.turnoIServiceHQL = turnoIServiceHQL;
+		this.turnoIServiceDTO = turnoIServiceDTO;
 	}
 	@GetMapping("/buscar")
 	public ResponseEntity<TurnoDTO> buscar(@RequestParam("valor") String valor, @RequestParam("tipoDeBusqueda") Integer tipoDeBusqueda) {
@@ -121,5 +128,25 @@ public class TurnoController {
 			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
 		}
 		return response;
+	}@GetMapping("/listarDTO")
+
+	public ResponseEntity<List<TurnoDTO>> listarTodosDTO() {
+		ResponseEntity response = null;
+		Optional<List<TurnoResponseDTO>> listaTurnos = null;
+		try {
+
+			listaTurnos = this.turnoIServiceDTO.listarTodosIDNombre();
+
+			if (!listaTurnos.isEmpty()) {
+				response = new ResponseEntity(listaTurnos.get(), HttpStatus.FOUND);
+			} else {
+				response = new ResponseEntity<List<Paciente>>( HttpStatus.NOT_FOUND);
+			}
+		} catch (Exception e) {
+			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
+		}
+		return response;
 	}
+
+
 }

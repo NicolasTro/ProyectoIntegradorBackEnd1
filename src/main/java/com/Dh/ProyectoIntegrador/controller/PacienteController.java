@@ -101,7 +101,7 @@ log.info("asdasd"+pacienteBuscar);
 			return new ResponseEntity(HttpStatus.CONFLICT);
 		}
 	}
-
+//TODO agarrar la exception de Odontologo y Paciente que tengan un turno agendado.
 	@DeleteMapping("/eliminar/{id}")
 	public ResponseEntity<String> eliminar(@PathVariable Long id)  {
 		ResponseEntity response = null;

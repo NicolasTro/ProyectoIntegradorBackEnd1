@@ -151,6 +151,7 @@ public class TurnoService implements IService<TurnoDTO>, IServiceHQL<TurnoDTO> {
 		Odontologo odontologo = new Odontologo();
 		Paciente paciente = new Paciente();
 
+		turno.setId(turnoRequestDTO.getId());
 		odontologo.setId(turnoRequestDTO.getOdontologo_Id());
 		turno.setOdontologo(odontologo);
 		paciente.setId(turnoRequestDTO.getPaciente_Id());

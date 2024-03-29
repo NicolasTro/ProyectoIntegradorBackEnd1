@@ -61,48 +61,46 @@
 			</div>
 
 			<section class="imagenPrincipal">
-        
-
-				
-
-
-
-
-
-        
-        <!-- ACA VA MODAL DE REGISTRAR ODONTOLOGO -->
+				<!-- ACA VA MODAL DE REGISTRAR ODONTOLOGO -->
 				<section class="modal fade" id="staticBackdropOdontologo" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 					<div class="modal-dialog">
-						<div class="modal-content" style=" background-color: #63aae5;">
-							<div class="modal-header" style="color: #ffffff;">
+						<div class="modal-content" style="background-color: #63aae5">
+							<div class="modal-header" style="color: #ffffff">
 								<h3 class="modal-title" id="staticBackdropLabelOdontologo">Registro de odontologos</h3>
-								<button type="button" class="close" data-dismiss="modal" style="padding: 1.5rem 1.5rem; color:#ffffff;"  aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
+								<button type="button" class="close" data-dismiss="modal" style="padding: 1.5rem 1.5rem; color: #ffffff" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
 								</button>
 							</div>
 							<div class="modal-body">
-								<div style="background-color: #c0d6f3;padding: 10px; border-radius: 3px;">
+								<div style="background-color: #c0d6f3; padding: 10px; border-radius: 3px">
 									<h5>Ingreso de datos</h5>
 									<form id="agregarDentista">
 										<div class="form-group">
 											<label class="control-label" for="nombreOdontologo">Nombre:</label>
-											<input type="text" class="form-control" id="nombreOdontologo" placeholder="Ingrese el nombre" name="nombreOdontologo" required />
+											<div class="validacion" data-container="body" data-toggle="popover" data-placement="top" >
+												<input type="text" class="form-control" id="nombreOdontologo" placeholder="Ingrese el nombre" name="nombreOdontologo" required />
+											</div>
 										</div>
+
 										<div class="form-group">
 											<label class="control-label" for="apellidoOdontologo">Apellido:</label>
-											<input type="text" class="form-control" id="apellidoOdontologo" placeholder="Ingrese el apellido" name="apellidoOdontologo" required />
+											<div class="validacion" data-container="body" data-toggle="popover" data-placement="top" >
+												<input type="text" class="form-control" id="apellidoOdontologo" placeholder="Ingrese el apellido" name="apellidoOdontologo" required />
+											</div>
 										</div>
 
 										<div class="form-group">
 											<label class="control-label" for="matriculaOdontologo">Matrícula:</label>
-											<input type="text" class="form-control" id="matriculaOdontologo" placeholder="Ingrese la matrícula" name="matricula" required />
+											<div class="validacion" data-container="body" data-toggle="popover" data-placement="top" >
+												<input type="text" class="form-control" id="matriculaOdontologo" placeholder="Ingrese la matrícula" name="matricula" required />
+											</div>
 										</div>
 										<div class="modal-footer">
 											<button type="submit" class="btn btn-primary">Guardar</button>
 											<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 										</div>
 									</form>
-									<div id="responseDentist" style="display: none; margin-top: 10px"></div>
+									<div id="responseDentist" class="response" style="display: none; margin-top: 10px"></div>
 								</div>
 							</div>
 						</div>
@@ -113,15 +111,15 @@
 				<!--TODO AGREGAR DATOS DE DOMICILIO PARA PACIENTES-->
 				<section class="modal fade" id="staticBackdropPacientes" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelPacientes" aria-hidden="true">
 					<div class="modal-dialog">
-						<div class="modal-content" style=" background-color: #63aae5;">
-							<div class="modal-header" style="color: #ffffff;">
+						<div class="modal-content" style="background-color: #63aae5">
+							<div class="modal-header" style="color: #ffffff">
 								<h3 class="modal-title" id="staticBackdropLabelPaciente">Registro de pacientes</h3>
-								<button type="button" class="close" data-dismiss="modal" style="padding: 1.5rem 1.5rem; color:#ffffff;"  aria-label="Close">
+								<button type="button" class="close" data-dismiss="modal" style="padding: 1.5rem 1.5rem; color: #ffffff" aria-label="Close">
 									<span aria-hidden="true">&times;</span>
 								</button>
 							</div>
 							<div class="modal-body">
-								<div style="background-color: #c0d6f3;padding: 10px; border-radius: 3px;">
+								<div style="background-color: #c0d6f3; padding: 10px; border-radius: 3px">
 									<h5>Ingreso de datos</h5>
 									<form id="agregarPaciente">
 										<div class="form-group">
@@ -161,7 +159,7 @@
 											<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 										</div>
 									</form>
-									<div id="responsePatient" style="display: none; margin-top: 10px"></div>
+									<div id="responsePatient" class="response" style="display: none; margin-top: 10px"></div>
 								</div>
 							</div>
 						</div>
@@ -172,15 +170,15 @@
 
 				<section class="modal fade" id="staticBackdropTurno" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelTurno" aria-hidden="true">
 					<div class="modal-dialog">
-						<div class="modal-content" style=" background-color: #63aae5;">
-							<div class="modal-header" style="color: #ffffff;">
+						<div class="modal-content" style="background-color: #63aae5">
+							<div class="modal-header" style="color: #ffffff">
 								<h3 class="modal-title" id="staticBackdropLabelTurno">Registro de turnos</h3>
-								<button type="button" class="close" data-dismiss="modal" style="padding: 1.5rem 1.5rem; color:#ffffff;" aria-label="Close">
+								<button type="button" class="close" data-dismiss="modal" style="padding: 1.5rem 1.5rem; color: #ffffff" aria-label="Close">
 									<span aria-hidden="true">&times;</span>
 								</button>
 							</div>
 							<div class="modal-body">
-								<div style="background-color: #c0d6f3;padding: 10px; border-radius: 3px;">
+								<div style="background-color: #c0d6f3; padding: 10px; border-radius: 3px">
 									<h3>Ingreso de datos</h3>
 									<form id="agregarTurno">
 										<div class="form-group">
@@ -202,7 +200,7 @@
 											<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 										</div>
 									</form>
-									<div id="responseTurno" style="display: none; margin-top: 10px;"></div>
+									<div id="responseTurno" class="response" style="display: none; margin-top: 10px"></div>
 								</div>
 							</div>
 						</div>
@@ -211,7 +209,6 @@
 			</section>
 		</main>
 	</body>
-
 
 	<script text="text/javascript" src="js/metodosGenericos.js"></script>
 	<script text="text/javascript" src="js/odontologo/metodosRegistrosOd.js"></script>

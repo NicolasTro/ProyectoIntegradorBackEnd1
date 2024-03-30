@@ -137,7 +137,7 @@ public class TurnoService implements IService<TurnoDTO>, IServiceHQL<TurnoDTO>, 
 				this.turnoRepository.save(turnoAGuardar);
 			}
 		} else {
-			log.warn("Ha ocurrido un error al actualizar el Turno con ID" + turnoRequestDTO.getID());
+			log.warn("Ha ocurrido un error al actualizar el Turno con ID" + turnoRequestDTO.getId());
 			throw new ResourceNotUpdatedException("No se pudo actualizar el Turno con el ID" + turnoRequestDTO.getId());
 		}
 	}

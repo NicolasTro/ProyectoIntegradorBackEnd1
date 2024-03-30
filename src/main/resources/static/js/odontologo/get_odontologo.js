@@ -20,7 +20,7 @@ function obtenerListaOdontologos() {
 				let listaBtnModificar = document.querySelectorAll(".btnTablaModificar");
 
 				
-				console.log(listaBtnModificar);
+				
 				let listaBtnEliminar = document.querySelectorAll(".btnTablaEliminar");
 
 				actualizarOdontologo(listaBtnModificar);

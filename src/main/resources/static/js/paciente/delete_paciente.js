@@ -1,5 +1,5 @@
 function eliminarPaciente(listaBtnEliminar) {
-	listaBtnEliminar.forEach((botonEliminar) => {
+	listaBtnEliminar.forEach(botonEliminar => {
 		let idBtn;
 		idBtn = botonEliminar.dataset.id;
 
@@ -24,23 +24,28 @@ function eliminarPaciente(listaBtnEliminar) {
 				};
 
 				fetch(url, settings)
-					.then((response) => response.json())
-					.then((data) => {
-						
-						let successAlert = '<div class="alert alert-success alert-dismissible">' + '<button type="button" class="close" data-dismiss="alert">&times;</button>' + "<strong></strong> Paciente Actualizado </div>";
-
-						document.querySelector("#responsePatient").innerHTML = successAlert;
-						document.querySelector("#responsePatient").style.display = "block";
+					.then(response => {
+						$("#staticBackdropPacienteDelete").modal("hide");
+						if (!response.ok) {
+							return response.text().then(text => Promise.reject(text));
+						} else {
+							response.json();
+						}
 					})
-					.catch((error) => {
-						let errorAlert = "<div class='alert alert-danger alert-dismissible'>" + "<button type='button' class='close' data-dismiss='alert'>&times;</button>" + "<strong> Error intente nuevamente</strong></div>";
-
-						document.querySelector("#responsePatient").innerHTML = errorAlert;
-						document.querySelector("#responsePatient").style.display = "block";
+					.then(data => {
+						setTimeout(function () {
+							location.reload();
+						}, 2000);
+					})
+					.catch(error => {
+						alert(error);
+						setTimeout(function () {
+							location.reload();
+						}, 1000);
 					});
 
-				location.reload();
-				$("#staticBackdropPacienteDelete").modal("hide");
+				// location.reload();
+				// $("#staticBackdropPacienteDelete").modal("hide");
 			});
 		});
 	});

@@ -1,19 +1,16 @@
 package com.Dh.ProyectoIntegrador.service.implementacion;
 
-import com.Dh.ProyectoIntegrador.dto.pacientes.PacienteDTO;
 import com.Dh.ProyectoIntegrador.dto.pacientes.PacienteDomicilioDTO;
-import com.Dh.ProyectoIntegrador.dto.pacientes.response.PacienteResponseDTOFull;
 import com.Dh.ProyectoIntegrador.dto.pacientes.response.PacienteResponseDTOName;
 import com.Dh.ProyectoIntegrador.entity.Domicilio;
 import com.Dh.ProyectoIntegrador.entity.Paciente;
+import com.Dh.ProyectoIntegrador.excepciones.PacienteNotFoundException;
+import com.Dh.ProyectoIntegrador.excepciones.PacienteNotSavedException;
 import com.Dh.ProyectoIntegrador.repository.IPacienteRepository;
 import com.Dh.ProyectoIntegrador.service.IService;
 import com.Dh.ProyectoIntegrador.service.IServiceDTO;
 import com.Dh.ProyectoIntegrador.service.IServiceHQL;
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.databind.util.StdDateFormat;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +36,11 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 	public PacienteDomicilioDTO guardar(PacienteDomicilioDTO pacienteRequestDTO) {
 
 		Paciente pacienteGuardado = pacienteRepository.save(mapearPacienteEntidad(pacienteRequestDTO));
-		return mapeadorResponse(pacienteGuardado);
+		if (pacienteGuardado != null) {
+			return mapeadorResponse(pacienteGuardado);
+		} else {
+			throw new PacienteNotSavedException("No se pudo guardar el paciente.");
+		}
 
 
 	}
@@ -48,41 +49,40 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 		Optional<Paciente> pacienteOptional = pacienteRepository.findById(id);
 		if (pacienteOptional.isPresent()) {
 			return this.mapeadorResponse(pacienteOptional.get());
+		}else {
+			throw new PacienteNotFoundException("No se encuentra Paciente con el ID proporcionado: " + id);
 		}
-		return null;
 	}
 
 
 
 
-	private Paciente mapearPacienteEntidad(PacienteDomicilioDTO pacienteDomicilioDTO){
-		Paciente pacienteAGuardarEntity = mapeador(pacienteDomicilioDTO, Paciente.class);
-		Domicilio domicilioPaciente = new Domicilio();
-		domicilioPaciente.setCalle(pacienteDomicilioDTO.getCalle());
-		domicilioPaciente.setLocalidad(pacienteDomicilioDTO.getLocalidad());
-		domicilioPaciente.setNumero(pacienteDomicilioDTO.getNumero());
-		domicilioPaciente.setProvincia(pacienteDomicilioDTO.getProvincia());
-		pacienteAGuardarEntity.setDomicilio(domicilioPaciente);
-		return pacienteAGuardarEntity;
 
-
-	}
 	public void eliminar(Long id) {
+		if (!pacienteRepository.existsById(id)) {
+			throw new PacienteNotFoundException("No se puede eliminar el Paciente con id:");
+		}
 		this.pacienteRepository.deleteById(id);
 	}
 
 	@Override
 	public void actualizar(PacienteDomicilioDTO pacienteRequestDTO) {
 
-
-
-		this.pacienteRepository.save(mapearPacienteEntidad(pacienteRequestDTO));
+		if (pacienteRequestDTO != null) {
+			this.pacienteRepository.save(mapearPacienteEntidad(pacienteRequestDTO));
+		} else {
+			throw new PacienteNotSavedException("No se pudo actualizar el paciente con el ID:" + pacienteRequestDTO.getId());
+		}
 	}
 @Override
 	public List<PacienteDomicilioDTO> listarTodos() {
+		List<Paciente> pacientes = pacienteRepository.findAll();
+		if (!pacientes.isEmpty()) {
 
-		return mapearRegistros(this.pacienteRepository.findAll());
-	}
+			return mapearRegistros((pacientes));
+		}
+		throw new PacienteNotFoundException("No se pueden listar los pacientes.");
+}
 
 	@Override
 	public Optional<List<PacienteDomicilioDTO>> buscarDatosCompletos(Integer tipoDeBusqueda, String valor) {
@@ -108,9 +108,6 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 				break;
 			case 4:
 				Date fechaValor = Date.valueOf(valor);
-
-
-
 				pacienteOptional = Optional.of(mapearRegistros(pacienteRepository.findByFecha(fechaValor).get()));
 				break;
 			default:
@@ -122,6 +119,10 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 	@Override
 	public Optional<List<PacienteResponseDTOName>> listarTodosIDNombre() {
 		List<Paciente> listaPacientes = this.pacienteRepository.findAll();
+		if (listaPacientes == null || listaPacientes.isEmpty()) {
+			throw new PacienteNotFoundException("Error en el metodo listarTodosIDNombre. No se pudo listar los Pacientes");
+		}
+
 		List<PacienteResponseDTOName> listaPacientesDTO = new ArrayList<>();
 		listaPacientes.forEach(paciente -> {
 			listaPacientesDTO.add(mapeador(paciente, PacienteResponseDTOName.class));
@@ -129,6 +130,10 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 		return Optional.of(listaPacientesDTO);
 	}
 
+
+
+	// Controladores/Mappers del Service.
+	// ######################################################################################
 	private List<PacienteDomicilioDTO> mapearRegistros(List<Paciente> listaPacientes) {
 		if (!listaPacientes.isEmpty()) {
 			List<PacienteDomicilioDTO> listaPacientesDTO = new ArrayList<>();
@@ -145,6 +150,19 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 		mapper.registerModule(new JavaTimeModule());
 
 		return mapper.convertValue(objetoAMapear, clase);
+	}
+	private Paciente mapearPacienteEntidad(PacienteDomicilioDTO pacienteDomicilioDTO){
+		Paciente pacienteAGuardarEntity = mapeador(pacienteDomicilioDTO, Paciente.class);
+		Domicilio domicilioPaciente = new Domicilio();
+		domicilioPaciente.setId(pacienteDomicilioDTO.getId());
+		domicilioPaciente.setCalle(pacienteDomicilioDTO.getCalle());
+		domicilioPaciente.setLocalidad(pacienteDomicilioDTO.getLocalidad());
+		domicilioPaciente.setNumero(pacienteDomicilioDTO.getNumero());
+		domicilioPaciente.setProvincia(pacienteDomicilioDTO.getProvincia());
+		pacienteAGuardarEntity.setDomicilio(domicilioPaciente);
+		return pacienteAGuardarEntity;
+
+
 	}
 
 	private static PacienteDomicilioDTO mapeadorResponse(Paciente pacienteAMapear) {

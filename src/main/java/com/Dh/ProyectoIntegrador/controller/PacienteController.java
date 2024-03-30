@@ -40,7 +40,6 @@ public class PacienteController {
 		ResponseEntity response =  null;
 		try {
 			Optional<List<PacienteDomicilioDTO>> pacienteBuscar = pacienteIServiceHQL.buscarDatosCompletos(tipoDeBusqueda, valor);
-log.info("asdasd"+pacienteBuscar);
 			if (pacienteBuscar.isPresent()) {
 				response = new ResponseEntity(pacienteBuscar.get(), HttpStatus.FOUND);
 			} else {
@@ -122,14 +121,12 @@ log.info("asdasd"+pacienteBuscar);
 		try {
 			listaPacientes = this.pacienteService.listarTodos();
 			if (listaPacientes.size() > 0) {
-				log.info("tira la lista", listaPacientes);
 
 				response = new ResponseEntity(listaPacientes, HttpStatus.OK);
 			} else {
 				response = new ResponseEntity("No se encontraron Pacientes", HttpStatus.NOT_FOUND);
 			}
 		} catch (Exception e) {
-			log.info("aca que sucede"+ e.getMessage());
 			return new ResponseEntity(HttpStatus.BAD_REQUEST);
 		}
 		return response;

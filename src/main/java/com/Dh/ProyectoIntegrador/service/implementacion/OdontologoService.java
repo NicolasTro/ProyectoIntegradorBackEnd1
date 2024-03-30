@@ -5,6 +5,8 @@ import com.Dh.ProyectoIntegrador.dto.odontologos.response.OdontologoResponseDTOF
 import com.Dh.ProyectoIntegrador.dto.odontologos.response.OdontologoResponseDTOName;
 import com.Dh.ProyectoIntegrador.entity.Odontologo;
 
+import com.Dh.ProyectoIntegrador.excepciones.OdontologoNotFoundException;
+import com.Dh.ProyectoIntegrador.excepciones.OdontologoNotSavedException;
 import com.Dh.ProyectoIntegrador.repository.IOdontologoRepository;
 import com.Dh.ProyectoIntegrador.service.IService;
 import com.Dh.ProyectoIntegrador.service.IServiceDTO;
@@ -37,12 +39,20 @@ public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<O
 	@Override
 	public OdontologoDTO guardar(OdontologoDTO odontologoRequestDTO) {
 		Odontologo odontologoGuardado = odontologoRepository.save(mapeador(odontologoRequestDTO, Odontologo.class));
-		return mapeador(odontologoGuardado, OdontologoResponseDTOFull.class);
+		if (odontologoGuardado != null) {
+			return mapeador(odontologoGuardado, OdontologoResponseDTOFull.class);
+		} else {
+			throw new OdontologoNotSavedException("No se pudo guardar el Odontologo")
+		}
 	}
 
 	//METODO ELIMINAR
 	/*###################################################################################################################*/
 	public void eliminar(Long id) {
+		if (!odontologoRepository.existsById(id)){
+
+			throw new OdontologoNotFoundException("No se puede eliminar el Odontologo");
+		}
 		this.odontologoRepository.deleteById(id);
 	}
 
@@ -50,7 +60,11 @@ public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<O
 	/*###################################################################################################################*/
 	@Override
 	public void actualizar(OdontologoDTO odontologoRequestDTO) {
-		this.odontologoRepository.save(mapeador(odontologoRequestDTO, Odontologo.class));
+		if (odontologoRequestDTO != null) {
+			this.odontologoRepository.save(mapeador(odontologoRequestDTO, Odontologo.class));
+		} else {
+			throw new OdontologoNotSavedException("No se pudo actualizar el Odontologo");
+		}
 	}
 	//METODO BUSCAR POR ID
 	/*###################################################################################################################*/
@@ -58,10 +72,9 @@ public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<O
 	public OdontologoDTO buscarPorId(Long id) {
 		Optional<Odontologo> odontologoOptional = odontologoRepository.findById(id);
 		if (odontologoOptional.isPresent()) {
-
 			return this.mapeador(odontologoOptional.get(), OdontologoResponseDTOFull.class);
 		} else {
-			return null;
+			throw new OdontologoNotFoundException("No se encuentra Odontologo con el ID proporcionado: " + id);
 		}
 	}
 
@@ -69,7 +82,11 @@ public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<O
 	/*###################################################################################################################*/
 	@Override
 	public List<OdontologoDTO> listarTodos() {
-		return mapearRegistros(this.odontologoRepository.findAll());
+		List<Odontologo> odontologos = odontologoRepository.findAll();
+		if (!odontologos.isEmpty()) {
+			return mapearRegistros(odontologos);
+		}
+		throw new OdontologoNotFoundException("No se pueden listar los Odontologos")
 	}
 	/*###################################################################################################################*/
 
@@ -103,6 +120,9 @@ public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<O
 
 	public Optional<List<OdontologoDTO>> listarTodosIDNombre() {
 		List<Odontologo> listaOdontologos = this.odontologoRepository.findAll();
+		if (listaOdontologos == null || listaOdontologos.isEmpty()) {
+			throw new OdontologoNotFoundException("Error en el metodo listarTodosIDNombre. No se pudo listar los Odontologos.")
+		}
 		List<OdontologoDTO> listaOdontologosDTO = new ArrayList<>();
 		listaOdontologos.forEach(odontologo -> {
 			listaOdontologosDTO.add(mapeador(odontologo, OdontologoResponseDTOName.class));

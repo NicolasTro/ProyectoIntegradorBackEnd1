@@ -94,6 +94,19 @@ window.addEventListener("load", function () {
 	// 		}, 1000);
 	// 	}
 	// });
+
+
+document.querySelector('#btnRegistroPacienteLista').addEventListener('click', function(){
+
+
+resetUploadForm();
+
+
+
+});
+
+
+
 });
 
 function cargarRegistro(patient) {
@@ -128,4 +141,17 @@ function cargarMasInfo(listaBtnDomicilios) {
 			document.querySelector("#domicilioProvinciaModal").value = boton.dataset.provincia;
 		});
 	});
+}
+
+
+
+function resetUploadForm() {
+	document.querySelector("#nombrePaciente").value = "";
+	document.querySelector("#apellidoPaciente").value = "";
+	document.querySelector("#dni").value = "";
+	document.querySelector("#fechaIngreso").value = "";
+	document.querySelector("#domicilioCalle").value = "";
+	document.querySelector("#domicilioNumero").value = "";
+	document.querySelector("#domicilioLocalidad").value = "";
+	document.querySelector("#domicilioProvincia").value = "";
 }

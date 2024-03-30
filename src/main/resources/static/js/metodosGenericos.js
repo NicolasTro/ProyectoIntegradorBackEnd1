@@ -83,7 +83,31 @@ function validarCamposIngresados(formularioGenerico, mensaje) {
 		input.id = idInput;
 	});
 
+
+
+
 	camposRequeridos.forEach(campo => {
+
+campo.addEventListener("change", function(){
+
+if(campo.value.trim() == ""){
+
+
+	 let algo = document.getElementById(campo.id);
+
+	algo.setAttribute("data-content", "Campos invalidos");
+	campo.style.border = "solid red 3px";
+
+		$("#" + campo.id).popover("show");
+}else{
+
+	$("#" + campo.id).popover("hide");
+		campo.style.border = "none";
+	}
+
+});
+
+
 		let algo = document.getElementById(campo.id);
 
 		algo.setAttribute("data-content", "Campos invalidos");
@@ -96,6 +120,15 @@ function validarCamposIngresados(formularioGenerico, mensaje) {
 			campo.style.border = "none";
 			contador += 1;
 		}
+
+		setTimeout(function () {
+			$("#" + campo.id).popover("hide");
+			campo.style.border = "none";
+			
+		}, 2000);
+
+
+
 	});
 
 	if (contador == camposRequeridos.length) {
@@ -112,9 +145,32 @@ function validarCamposIngresados(formularioGenerico, mensaje) {
 		setTimeout(function () {
 			bloqueMensaje.innerHTML = "";
 			mostrarMensaje.style.display = "none";
-			// $("#" + campo.id).popover("hide");
+			
 		}, 3000);
 	}
 
 	return retorno;
+}
+
+
+
+function validarInputNumerico(campoNumerico){
+
+	campoNumerico.addEventListener("keypress", function (event) {
+		
+			const codigoTecla = event.keyCode;
+
+			if (codigoTecla === 8 || (codigoTecla >= 48 && codigoTecla <= 57)) {
+				return true;
+			} else {
+				event.preventDefault();
+				return false;
+			}
+		
+	});
+
+
+
+
+
 }

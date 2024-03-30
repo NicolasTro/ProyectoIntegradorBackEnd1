@@ -51,8 +51,8 @@ function busquedaPacientePersonalizado() {
 	return fetch(url, settings)
 		.then((response) => response.json())
 		.then((data) => {
-			//clearTabla();
-			//tablaNueva(tituloTablaTurnos);
+			// clearTabla();
+			// tablaNueva();
 
 			if (data.length == 1) {
 				let tablaBody = document.getElementById("cuerpoTabla");
@@ -82,7 +82,7 @@ function busquedaPacientePersonalizado() {
 			}
 		})
 		.catch((error) => {
-			noSeEncontraronRegistro();
+			noSeEncontraronRegistros();
 		});
 }
 

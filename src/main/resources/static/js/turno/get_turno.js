@@ -51,8 +51,8 @@ function busquedaPacientePersonalizado() {
 	return fetch(url, settings)
 		.then((response) => response.json())
 		.then((data) => {
-			clearTabla();
-			tablaNueva();
+			// clearTabla();
+			// tablaNueva();
 
 			if (data.length == 1) {
 				let tablaBody = document.getElementById("cuerpoTabla");
@@ -78,11 +78,11 @@ function busquedaPacientePersonalizado() {
 
 				
 			} else {
-				noSeEncontraronRegistrosPaciente();
+				noSeEncontraronRegistros();
 			}
 		})
 		.catch((error) => {
-			noSeEncontraronRegistroPaciente();
+			noSeEncontraronRegistros();
 		});
 }
 
@@ -133,4 +133,3 @@ function listarOdontologos() {
 		.catch((error) => {});
 }
 
-let tituloTablaTurno = "<th scope='col'>Id</th>" + "<th scope='col'>Odontologo</th>" + "<th scope='col'>Paciente</th>" + "<th scope='col'>Fecha y hora</th>" + "<th scope='col'>Gestionar </th>";

@@ -22,9 +22,9 @@ function resetUploadForm() {
 	document.querySelector("#matriculaOdontologo").value = "";
 }
 function formularioInsertar(event, form) {
-	// event.preventDefault();
+	
 
-	let bandera = validarCamposIngresados(form);
+	let bandera = validarCamposIngresados(form, '.responseDentist');
 
 	if (bandera) {
 		//creamos un JSON que tendrá los datos del nuevo odontólogo

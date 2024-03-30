@@ -1,6 +1,4 @@
 window.addEventListener("load", function () {
-	
-
 	tablaNueva(tituloTablaPacientes);
 
 	let iconosDeCarga = document.getElementById("cargando");
@@ -19,8 +17,7 @@ window.addEventListener("load", function () {
 			event.preventDefault();
 			clearTabla();
 			tablaNueva(tituloTablaPacientes);
-			// cargarEncabezadoTabla(tituloTablaPacientes);
-			// cargarCuerpoTabla();
+			
 
 			iconosDeCarga.style.visibility = "visible";
 
@@ -78,9 +75,7 @@ window.addEventListener("load", function () {
 
 			clearTabla();
 			tablaNueva(tituloTablaPacientes);
-			// cargarEncabezadoTabla(tituloTablaPacientes);
-			// cargarCuerpoTabla();
-			// let iconosDeCarga = document.getElementById("cargando");
+			
 			iconosDeCarga.style.visibility = "visible";
 
 			setTimeout(function () {
@@ -101,9 +96,6 @@ window.addEventListener("load", function () {
 		}
 	});
 
-
-
-
 	(function () {
 		let pathname = window.location.pathname;
 		if (pathname == "/pacienteLista.html") {
@@ -112,49 +104,19 @@ window.addEventListener("load", function () {
 	});
 });
 
+
+
+
+
 function cargarRegistro(patient) {
+	console.log(patient);
 	return `<td class="td_id align-middle tamanioTexto">${patient.id}</td><td class="td_nombre align-middle tamanioTexto">${patient.nombre.toUpperCase()}</td><td class="td_apellido align-middle tamanioTexto">${patient.apellido.toUpperCase()}</td>
                                         <td class="td_dni align-middle tamanioTexto">${patient.dni}</td>
                                         <td class="td_fecha align-middle tamanioTexto">${patient.fechaIngreso}</td>
-                                        <td class="td_domicilio align-middle tamanioTexto"><button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modalDomicilio${patient.id}">
-										mas Info</button> 
-									  <div class="modal fade " id="modalDomicilio${patient.id}" tabindex="-1" aria-labelledby="titoloDatosDomicilio" aria-hidden="true">
-										<div class="modal-dialog modal-dialog-centered">
-										  <div class="modal-content">
-											<div class="modal-header">
-											  <h5 class="modal-title" id="tituloDatosDomicilio">Datos domicilio</h5>
-											  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-												<span aria-hidden="true">&times;</span>
-											  </button>
-											</div>
-											<div class="modal-body"><div class="form-group"><label class="control-label" for="domicilioCalle">Calle</label>
-											<input type="text" class="form-control" id="domicilioCalle" readonly value="${patient.calle}"/>
-										</div>
-										<div class="form-group">
-											<label class="control-label" for="domicilioNumero">Numero de domicilio</label>
-											<input type="text" class="form-control" id="domicilioNumero" readonly value="${patient.numero}"/>
-										</div>
-										<div class="form-group">
-											<label class="control-label" for="domicilioLocalidad">Localidad</label>
-											<input type="text" class="form-control" id="domicilioLocalidad" readonly value="${patient.localidad}"/>
-										</div>
-										<div class="form-group">
-											<label class="control-label" for="domicilioProvincia">Provincia</label>
-											<input type="text" class="form-control" id="domicilioProvincia" readonly value="${patient.provincia}"/>
-										</div></div>
-											<div class="modal-footer">
-											  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>											  
-											</div>
-										  </div>
-										</div>
-									  </div>
-                                        </td>
-                                        <td td_btn align-middle tamanioTexto>
-                                          <div class="dropdown">
-                                            <button class='btn btn-dark dropdown-toggle' 
-                                            type='button' data-toggle='dropdown' aria-expanded='false'></button>
+                                        <td class="td_domicilio align-middle tamanioTexto"><button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modalDomicilio">
+										mas Info</button></td><td td_btn align-middle tamanioTexto><div class="dropdown"><button class='btn btn-dark dropdown-toggle' type='button' data-toggle='dropdown' aria-expanded='false'></button>
                                             <div class='dropdown-menu traerAlFrente'>
-											<button type='button' data-id='${patient.id}' data-domicilioId='${patient.id}' class='btn btn-primary btnTabla dropdown-item' data-toggle='modal' data-target='#staticBackdropPacienteUpdate'>Modificar</button>
+											<button type='button' data-id='${patient.id}' data-nombre='${patient.nombre}' data-apellido='${patient.apellido}' data-dni='${patient.dni}' data-fechaIngreso='${patient.fechaIngreso}' data-domicilioid='${patient.domicilio_id}' data-calle='${patient.calle}' data-numero='${patient.localidad}' data-provincia='${patient.provincia}'  class='btn btn-primary btnTabla btnTablaModificar dropdown-item' data-toggle='modal' data-target='#staticBackdropPacienteUpdate'>Modificar</button>
                                             <button type='button' data-id='${patient.id}'  class='btn btn-primary dropdown-item btnTablaEliminar' data-target='#staticBackdropPacienteDelete' data-toggle='modal'>Eliminar</button>
                                             </div>
                                           </div>

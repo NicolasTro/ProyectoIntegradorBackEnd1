@@ -154,7 +154,7 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 	private Paciente mapearPacienteEntidad(PacienteDomicilioDTO pacienteDomicilioDTO){
 		Paciente pacienteAGuardarEntity = mapeador(pacienteDomicilioDTO, Paciente.class);
 		Domicilio domicilioPaciente = new Domicilio();
-		domicilioPaciente.setId(pacienteDomicilioDTO.getId());
+		domicilioPaciente.setId(pacienteDomicilioDTO.getDomicilio_id());
 		domicilioPaciente.setCalle(pacienteDomicilioDTO.getCalle());
 		domicilioPaciente.setLocalidad(pacienteDomicilioDTO.getLocalidad());
 		domicilioPaciente.setNumero(pacienteDomicilioDTO.getNumero());

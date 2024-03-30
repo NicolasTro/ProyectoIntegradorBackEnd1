@@ -129,7 +129,7 @@ public class TurnoService implements IService<TurnoDTO>, IServiceHQL<TurnoDTO>, 
 		if (!turnos.isEmpty()) {
 			return mapearRegistros(turnos);
 		}
-		throw new TurnoNotFoundException("No se pueden listar los turnos.")
+		throw new TurnoNotFoundException("No se pueden listar los turnos.");
 	}
 
 

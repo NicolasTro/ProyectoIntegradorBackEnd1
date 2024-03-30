@@ -42,7 +42,7 @@ public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<O
 		if (odontologoGuardado != null) {
 			return mapeador(odontologoGuardado, OdontologoResponseDTOFull.class);
 		} else {
-			throw new OdontologoNotSavedException("No se pudo guardar el Odontologo")
+			throw new OdontologoNotSavedException("No se pudo guardar el Odontologo");
 		}
 	}
 
@@ -86,7 +86,7 @@ public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<O
 		if (!odontologos.isEmpty()) {
 			return mapearRegistros(odontologos);
 		}
-		throw new OdontologoNotFoundException("No se pueden listar los Odontologos")
+		throw new OdontologoNotFoundException("No se pueden listar los Odontologos");
 	}
 	/*###################################################################################################################*/
 
@@ -121,7 +121,7 @@ public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<O
 	public Optional<List<OdontologoDTO>> listarTodosIDNombre() {
 		List<Odontologo> listaOdontologos = this.odontologoRepository.findAll();
 		if (listaOdontologos == null || listaOdontologos.isEmpty()) {
-			throw new OdontologoNotFoundException("Error en el metodo listarTodosIDNombre. No se pudo listar los Odontologos.")
+			throw new OdontologoNotFoundException("Error en el metodo listarTodosIDNombre. No se pudo listar los Odontologos.");
 		}
 		List<OdontologoDTO> listaOdontologosDTO = new ArrayList<>();
 		listaOdontologos.forEach(odontologo -> {

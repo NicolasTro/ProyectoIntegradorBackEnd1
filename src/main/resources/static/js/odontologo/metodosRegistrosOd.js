@@ -21,13 +21,7 @@ window.addEventListener("load", function () {
 		}, 3000);
 	}
 
-	//################################################################################
-	(function () {
-		let pathname = window.location.pathname;
-		if (pathname == "/odontologoLista.html") {
-			document.querySelector(".nav .nav-item a:last").addClass("active");
-		}
-	});
+	
 
 	//################################################################################
 	// DISPARA EL EVENTO SUBMIT DEL FORMULARIO DE BUSQUEDA PERSONALIZADA
@@ -83,8 +77,6 @@ window.addEventListener("load", function () {
 	}
 
 	validacionInput();
-
-
 });
 
 function cargarRegistro(dentist) {
@@ -92,30 +84,31 @@ function cargarRegistro(dentist) {
   <td class="td_apellido align-middle tamanioTexto">${dentist.apellido.toUpperCase()}</td><td class="td_matricula align-middle tamanioTexto">${dentist.matricula}</td><td class='align-middle tamanioTexto'>
     <div class="dropdown"><button class='btn btn-dark dropdown-toggle' type='button'data-toggle='dropdown' aria-expanded='false'></button><div class='dropdown-menu'><button type='button' data-id=${
 			dentist.id
-		} class='btn btn-primary btnTabla dropdown-item' data-toggle='modal' data-target='#staticBackdrop'>Modificar</button><button type='button' data-id=${
+		} class='btn btn-primary btnTabla btnTablaModificar dropdown-item' data-toggle='modal' data-target='#staticBackdrop' data-id='${dentist.id}' data-nombre='${dentist.nombre}'data-apellido='${dentist.apellido}' data-matricula='${dentist.matricula}'>Modificar</button><button type='button' data-id=${
 		dentist.id
 	} class='btn btn-primary dropdown-item btnTabla btnTablaEliminar' data-toggle='modal' data-target='#staticBackdropOdontologoDelete' >Eliminar</button></div></div></td>`;
 }
 
 let tituloTabla = "<th scope='col'>Id</th>" + "<th scope='col'>Nombre</th>" + "<th scope='col'>Apellido</th>" + "<th scope='col'>Matrícula</th>" + "<th scope='col'>Gestionar </th>";
 
-function validarCamposIngresados(formularioGenerico) {
+
+
+function validarCamposIngresados(formularioGenerico, mensaje) {
 	let formEspecifico = "#" + formularioGenerico.id;
 
 	let listaInputsAValidar = document.querySelectorAll(".validacion");
 	let camposRequeridos = document.querySelectorAll(`${formEspecifico} [required]`);
 
-	
 	let contador = 0;
 	let retorno = false;
 
 	let idInput = 0;
-	listaInputsAValidar.forEach((input) => {
+	listaInputsAValidar.forEach(input => {
 		idInput++;
 		input.id = idInput;
 	});
 
-	camposRequeridos.forEach((campo) => {
+	camposRequeridos.forEach(campo => {
 		let algo = document.getElementById(campo.id);
 
 		algo.setAttribute("data-content", "Campos invalidos");
@@ -135,10 +128,11 @@ function validarCamposIngresados(formularioGenerico) {
 	} else {
 		let errorAlert = '<div class="alert alert-danger alert-dismissible">' + '<button type="button" class="close" data-dismiss="alert">&times;</button>' + "<strong> Datos incorrectos</strong> </div>";
 
-		let bloqueMensaje = document.querySelector(".responseDentist");
+		
+		let bloqueMensaje = document.querySelector(mensaje);
 
 		bloqueMensaje.innerHTML = errorAlert;
-		let mostrarMensaje = document.querySelector(".responseDentist");
+		let mostrarMensaje = document.querySelector(mensaje);
 		mostrarMensaje.style.display = "block";
 		setTimeout(function () {
 			bloqueMensaje.innerHTML = "";

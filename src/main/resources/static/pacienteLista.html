@@ -180,7 +180,7 @@
 									</div>
 									<div class="form-group">
 										<label class="control-label" for="fechaIngresoUpdate">Fecha de Ingreso:</label>
-										<input type="text" class="form-control" id="fechaIngresoUpdate" placeholder="Actualiza la Fecha de Ingreso" name="fechaIngreso" required />
+										<input type="date" class="form-control" id="fechaIngresoUpdate" placeholder="Actualiza la Fecha de Ingreso" name="fechaIngreso" required />
 									</div>
 									<div class="form-group">
 										<label class="control-label" for="domicilioCalle">Calle</label>
@@ -210,6 +210,67 @@
 				</div>
 			</div>
 
+
+
+<!-- MODAL MAS INFO DOMICILIO -->
+
+
+			<div class="modal fade " id="modalDomicilio" tabindex="-1" aria-labelledby="titoloDatosDomicilio" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered">
+				  <div class="modal-content">
+					<div class="modal-header">
+					  <h5 class="modal-title" id="tituloDatosDomicilio">Datos domicilio</h5>
+					  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					  </button>
+					</div>
+					<div class="modal-body"><div class="form-group"><label class="control-label" for="domicilioCalle">Calle</label>
+					<input type="text" class="form-control" id="domicilioCalle" readonly value="${patient.calle}"/>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="domicilioNumero">Numero de domicilio</label>
+					<input type="text" class="form-control" id="domicilioNumero" readonly value="${patient.numero}"/>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="domicilioLocalidad">Localidad</label>
+					<input type="text" class="form-control" id="domicilioLocalidad" readonly value="${patient.localidad}"/>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="domicilioProvincia">Provincia</label>
+					<input type="text" class="form-control" id="domicilioProvincia" readonly value="${patient.provincia}"/>
+				</div></div>
+					<div class="modal-footer">
+					  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>											  
+					</div>
+				  </div>
+				</div>
+			  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
 			<div class="modal fade" id="staticBackdropPacienteDelete" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelDelete" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">

@@ -5,8 +5,8 @@ function obtenerListaOdontologos() {
 	};
 
 	return fetch(url, settings)
-		.then((response) => response.json())
-		.then((data) => {
+		.then(response => response.json())
+		.then(data => {
 			if (data.length > 0) {
 				let body = document.getElementById("cuerpoTabla");
 
@@ -17,16 +17,19 @@ function obtenerListaOdontologos() {
 					dentistRow.innerHTML = cargarRegistro(dentist);
 				}
 
-				let listaBtnEliminar = document.querySelectorAll(".btnTablaEliminar");
-
-				eliminarOdontologo(listaBtnEliminar);
+				let listaBtnModificar = document.querySelectorAll(".btnTablaModificar");
 
 				
+				console.log(listaBtnModificar);
+				let listaBtnEliminar = document.querySelectorAll(".btnTablaEliminar");
+
+				actualizarOdontologo(listaBtnModificar);
+				eliminarOdontologo(listaBtnEliminar);
 			} else {
 				noSeEncontraronRegistros();
 			}
 		})
-		.catch((error) => {
+		.catch(error => {
 			noSeEncontraronRegistros();
 		});
 }
@@ -42,8 +45,8 @@ function busquedaOdontologoPersonalizada() {
 	};
 
 	return fetch(url, settings)
-		.then((response) => response.json())
-		.then((data) => {
+		.then(response => response.json())
+		.then(data => {
 			clearTabla();
 			tablaNueva(tituloTabla);
 
@@ -70,7 +73,7 @@ function busquedaOdontologoPersonalizada() {
 				noSeEncontraronRegistros();
 			}
 		})
-		.catch((error) => {
+		.catch(error => {
 			noSeEncontraronRegistros();
 		});
 }

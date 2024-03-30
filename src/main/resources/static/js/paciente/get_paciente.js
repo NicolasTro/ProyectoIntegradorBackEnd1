@@ -5,8 +5,8 @@ function obtenerListaPacientes() {
 	};
 
 	return fetch(url, settings)
-		.then((response) => response.json())
-		.then((data) => {
+		.then(response => response.json())
+		.then(data => {
 			if (data.length > 0) {
 				let body = document.getElementById("cuerpoTabla");
 
@@ -17,14 +17,17 @@ function obtenerListaPacientes() {
 					patientRow.innerHTML = cargarRegistro(patient);
 				}
 
+				let listaBtnModificarRegistros = document.querySelectorAll(".btnTablaModificar");
+				console.log(listaBtnModificarRegistros);
 				let listaBtnEliminarRegistros = document.querySelectorAll(".btnTablaEliminar");
 
+				actualizarPaciente(listaBtnModificarRegistros);
 				eliminarPaciente(listaBtnEliminarRegistros);
 			} else {
 				noSeEncontraronRegistros();
 			}
 		})
-		.catch((error) => {
+		.catch(error => {
 			noSeEncontraronRegistros();
 		});
 }
@@ -45,10 +48,9 @@ function busquedaPacientePersonalizado() {
 	};
 
 	return fetch(url, settings)
-		.then((response) => response.json())
+		.then(response => response.json())
 
-		.then((data) => {
-			
+		.then(data => {
 			if (data.length > 0) {
 				clearTabla();
 				tablaNueva(tituloTablaPacientes);
@@ -64,10 +66,9 @@ function busquedaPacientePersonalizado() {
 				noSeEncontraronRegistros();
 			}
 		})
-		.catch((error) => {
+		.catch(error => {
 			noSeEncontraronRegistros();
 		});
 }
 
-let tituloTablaPacientes =
-	"<th scope='col'>Id</th>" + "<th scope='col'>Nombre </th>" + "<th scope='col'>Apellido</th>" + "<th scope='col'>DNI</th>" + "<th scope='col'>FechaIngreso</th>" + "<th scope='col'>Domicilio</th>" + "<th scope='col'>Gestionar</th></tr></thead>";
+let tituloTablaPacientes = "<th scope='col'>Id</th>" + "<th scope='col'>Nombre </th>" + "<th scope='col'>Apellido</th>" + "<th scope='col'>DNI</th>" + "<th scope='col'>FechaIngreso</th>" + "<th scope='col'>Domicilio</th>" + "<th scope='col'>Gestionar</th></tr></thead>";

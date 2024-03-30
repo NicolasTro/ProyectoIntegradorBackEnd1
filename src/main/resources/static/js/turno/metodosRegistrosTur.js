@@ -1,6 +1,6 @@
 // FUNCION WINDOWS LOAD
 window.addEventListener("load", function () {
-	tablaNueva(tituloTablaTurno);
+	tablaNueva(tituloTablaTurnos);
 
 	let iconosDeCarga = document.getElementById("cargando");
 	if (iconosDeCarga !== null) {
@@ -77,3 +77,4 @@ function cargarRegistro(turno) {
 	return `<td class="td_id align-middle tamanioTexto">${turno.id}</td><td class="td_odontologo align-middle tamanioTexto" data-odontologoid='${turno.odontologo_Id}'>${turno.odontologoNombre} ${turno.odontologoApellido}</td>
     <td class="td_paciente align-middle tamanioTexto" data-pacienteid='${turno.paciente_Id}'>${turno.pacienteNombre} ${turno.pacienteApellido}</td><td class="td_fechaTurno align-middle tamanioTexto">${turno.fechaYHora}</td><td><div class="dropdown"><button class='btn btn-secondary dropdown-toggle' type='button'data-toggle='dropdown' aria-expanded='false'></button><div class='dropdown-menu'><button type='button' data-id=${turno.id} class='btn btn-primary btnTabla dropdown-item' data-toggle='modal' data-target='#staticBackdropTurnoUpdate'>Modificar</button><button type='button' data-id=${turno.id} class='btn btn-primary dropdown-item btnTabla btnTablaEliminar' data-toggle='modal'>Eliminar</button></div></div></td>`;
 }
+let tituloTablaTurnos = "<th scope='col'>Id</th>" + "<th scope='col'>Odontologo</th>" + "<th scope='col'>Paciente</th>" + "<th scope='col'>Fecha y hora</th>" + "<th scope='col'>Gestionar </th>";

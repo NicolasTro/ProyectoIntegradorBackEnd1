@@ -67,7 +67,7 @@ public class TurnoController {
 		return new ResponseEntity(turno, HttpStatus.CREATED);
 	}
 
-	//TODO arreglar actualizar y envido de datos vacio. Y validar campos
+	//TODO arreglar actualizar y envido de datos vacio.
 	@PutMapping("/actualizar")
 	public ResponseEntity<TurnoDTO> actualizar(@RequestBody TurnoRequestDTO turnoRequestDTO) {
 	//	ResponseEntity<TurnoDTO> response = null;

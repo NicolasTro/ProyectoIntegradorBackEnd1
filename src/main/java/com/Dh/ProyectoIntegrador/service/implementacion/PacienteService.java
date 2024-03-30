@@ -12,6 +12,7 @@ import com.Dh.ProyectoIntegrador.service.IServiceHQL;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import lombok.extern.slf4j.Slf4j;
+import org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -58,9 +59,13 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 
 	public void eliminar(Long id) {
 		if (!pacienteRepository.existsById(id)) {
-			throw new ResourceNotDeletedException("No se puede eliminar el Paciente con id:");
+			throw new ResourceNotDeletedException("El Paciente no existe en la base de datos");
+		} else {
+			if ( pacienteRepository.findByPacienteTurno(id) > 0) {
+				throw new IntegrityConstraintViolationException("No se puede eliminar el Paciente porque tiene un Turno agendado.");
+			}
+			this.pacienteRepository.deleteById(id);
 		}
-		this.pacienteRepository.deleteById(id);
 	}
 
 	@Override

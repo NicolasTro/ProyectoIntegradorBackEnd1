@@ -5,10 +5,7 @@ import com.Dh.ProyectoIntegrador.dto.odontologos.response.OdontologoResponseDTOF
 import com.Dh.ProyectoIntegrador.dto.odontologos.response.OdontologoResponseDTOName;
 import com.Dh.ProyectoIntegrador.entity.Odontologo;
 
-import com.Dh.ProyectoIntegrador.excepciones.ResourceNotDeletedException;
-import com.Dh.ProyectoIntegrador.excepciones.ResourceNotFoundException;
-import com.Dh.ProyectoIntegrador.excepciones.ResourceNotSavedException;
-import com.Dh.ProyectoIntegrador.excepciones.ResourceNotUpdatedException;
+import com.Dh.ProyectoIntegrador.excepciones.*;
 import com.Dh.ProyectoIntegrador.repository.IOdontologoRepository;
 import com.Dh.ProyectoIntegrador.service.IService;
 import com.Dh.ProyectoIntegrador.service.IServiceDTO;
@@ -53,7 +50,11 @@ public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<O
 	public void eliminar(Long id) {
 		if (!odontologoRepository.existsById(id)){
 
-			throw new ResourceNotDeletedException("No se puede eliminar el Odontologo");
+			throw new ResourceNotDeletedException("El Odontologo no existe en la Base de Datos.");
+		} else {
+			if (odontologoRepository.findByOdontologoTurno(id) > 0) {
+				throw new IntegrityConstraintViolationException("No se puede eliminar Odontologo porque tiene un Turno Agendado.");
+			}
 		}
 		this.odontologoRepository.deleteById(id);
 	}

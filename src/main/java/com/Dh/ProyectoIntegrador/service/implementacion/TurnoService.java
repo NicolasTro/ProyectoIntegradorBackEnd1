@@ -75,7 +75,10 @@ public class TurnoService implements IService<TurnoDTO>, IServiceHQL<TurnoDTO>, 
 			default:
 				break;
 		}
-		return turnoOptional;
+        if (turnoOptional.isPresent()){
+			return turnoOptional;
+		}
+		throw new ResourceNotFoundException("Error en la busqueda de Turnos.");
 	}
 
 	public Optional<List<TurnoResponseDTO>> listarTodosIDNombre() {

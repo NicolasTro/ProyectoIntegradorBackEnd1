@@ -18,4 +18,6 @@ public interface IOdontologoRepository extends JpaRepository<Odontologo, Long> {
     @Query("SELECT o FROM Odontologo o WHERE LOWER(o.matricula) LIKE LOWER(concat('%', ?1, '%'))")
     Optional<List<Odontologo>> findByMatricula(String valor);
 
+    @Query("SELECT COUNT(t) FROM Turno t WHERE t.odontologo.id = :id")
+    Long findByOdontologoTurno(Long id);
 }

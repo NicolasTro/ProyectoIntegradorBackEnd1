@@ -19,5 +19,7 @@ public interface IPacienteRepository extends JpaRepository<Paciente, Long> {
     @Query("SELECT p FROM Paciente p WHERE p.fechaIngreso =?1")
     Optional<List<Paciente>> findByFecha(Date valor);
 
+    @Query("SELECT COUNT(t) FROM Turno t WHERE t.paciente.id = :id")
+    Long findByPacienteTurno(Long id);
 
 }

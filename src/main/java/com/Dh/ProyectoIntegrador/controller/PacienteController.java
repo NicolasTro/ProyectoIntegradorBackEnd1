@@ -70,7 +70,7 @@ public class PacienteController {
 		return new ResponseEntity(pacienteEnontrado, HttpStatus.FOUND);
 	}
 
-
+//TODO Input domicilio que solo acepte num.
 	@PutMapping("/actualizar")
 	public ResponseEntity<PacienteDTO> actualizar(@RequestBody PacienteDomicilioDTO paciente) {
 	//	ResponseEntity response = null;

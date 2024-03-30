@@ -116,7 +116,10 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 			default:
 				break;
 		}
-		return pacienteOptional;
+		if (pacienteOptional.isPresent()){
+			return pacienteOptional;
+		}
+		throw new ResourceNotFoundException("Error en la busqueda de Pacientes.");
 	}
 
 	@Override

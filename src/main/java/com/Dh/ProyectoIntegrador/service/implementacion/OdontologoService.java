@@ -118,7 +118,10 @@ public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<O
 			default:
 				break;
 		}
-		return odontologoOptional;
+		if (odontologoOptional.isPresent()){
+			return odontologoOptional;
+		}
+		throw new ResourceNotFoundException("Error en la busqueda de Odontologos.");
 	}
 
 	public Optional<List<OdontologoDTO>> listarTodosIDNombre() {

@@ -70,7 +70,6 @@ public class PacienteController {
 		return new ResponseEntity(pacienteEnontrado, HttpStatus.FOUND);
 	}
 
-//TODO Input domicilio que solo acepte num.
 	@PutMapping("/actualizar")
 	public ResponseEntity<PacienteDTO> actualizar(@RequestBody PacienteDomicilioDTO paciente) {
 	//	ResponseEntity response = null;
@@ -84,7 +83,6 @@ public class PacienteController {
 	//		return new ResponseEntity(HttpStatus.CONFLICT);
 	//	}
 	}
-//TODO agarrar la exception de Odontologo y Paciente que tengan un turno agendado.
 	@DeleteMapping("/eliminar/{id}")
 	public ResponseEntity<String> eliminar(@PathVariable Long id)  {
 	//	ResponseEntity response = null;

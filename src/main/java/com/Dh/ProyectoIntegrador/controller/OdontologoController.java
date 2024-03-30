@@ -34,7 +34,6 @@ public class OdontologoController {
 
 	}
 
-	//TODO Preguntarle a la profe sobre los AutoWirdes y si hay dos como en este acso, es nececsario ponerle a ambos?
 
 	@GetMapping("/buscar")
 	public ResponseEntity<OdontologoDTO> buscar(@RequestParam("valor") String valor, @RequestParam("tipoDeBusqueda") Integer tipoDeBusqueda) {
@@ -106,7 +105,6 @@ public class OdontologoController {
 				}
 	}
 
-	//TODO METODO ACTUALIZAR CON VOID? Y EXCEPTION O CAMBIAR EL VOID??
 
 
 

@@ -7,9 +7,10 @@ import com.Dh.ProyectoIntegrador.dto.turnos.response.TurnoResponseDTO;
 import com.Dh.ProyectoIntegrador.entity.Odontologo;
 import com.Dh.ProyectoIntegrador.entity.Paciente;
 import com.Dh.ProyectoIntegrador.entity.Turno;
-import com.Dh.ProyectoIntegrador.excepciones.OdontologoNotFoundException;
-import com.Dh.ProyectoIntegrador.excepciones.TurnoNotFoundException;
-import com.Dh.ProyectoIntegrador.excepciones.TurnoNotSavedException;
+import com.Dh.ProyectoIntegrador.excepciones.ResourceNotDeletedException;
+import com.Dh.ProyectoIntegrador.excepciones.ResourceNotFoundException;
+import com.Dh.ProyectoIntegrador.excepciones.ResourceNotSavedException;
+import com.Dh.ProyectoIntegrador.excepciones.ResourceNotUpdatedException;
 import com.Dh.ProyectoIntegrador.repository.ITurnoRepository;
 import com.Dh.ProyectoIntegrador.service.IService;
 import com.Dh.ProyectoIntegrador.service.IServiceDTO;
@@ -92,22 +93,22 @@ public class TurnoService implements IService<TurnoDTO>, IServiceHQL<TurnoDTO>, 
 		if (turno != null) {
 			return mapeadorResponse(turno);
 		} else {
-			throw new TurnoNotSavedException("No se pudo guardar el Turno." );
+			throw new ResourceNotSavedException("No se pudo guardar el Turno." );
 		}
 	}
 
-	public TurnoDTO buscarPorId(Long id) throws OdontologoNotFoundException {
+	public TurnoDTO buscarPorId(Long id) {
 		Optional<Turno> turnoOptional = turnoRepository.findById(id);
 		if (turnoOptional.isPresent()) {
 			return mapeadorResponse(turnoOptional.get());
 		} else {
-			throw new TurnoNotFoundException("No existe Turno con el ID especificado." + id);
+			throw new ResourceNotUpdatedException("No existe Turno con el ID especificado." + id);
 		}
 	}
 
 	public void eliminar(Long id) {
 		if (!turnoRepository.existsById(id)) {
-			throw new TurnoNotFoundException("No se puede eliminar Turno" + id);
+			throw new ResourceNotDeletedException("No se puede eliminar Turno" + id);
 		}
 		this.turnoRepository.deleteById(id);
 	}
@@ -116,10 +117,16 @@ public class TurnoService implements IService<TurnoDTO>, IServiceHQL<TurnoDTO>, 
 	@Override
 	public void actualizar(TurnoDTO turnoRequestDTO) {
 
-		if (turnoRequestDTO != null) {
-			this.turnoRepository.save(mapeadorRequest(turnoRequestDTO));
+		Optional<Turno> turnoABuscar = turnoRepository.findById(turnoRequestDTO.getId());
+		if (turnoABuscar.isPresent()) {
+			Turno turnoAGuardar = mapeadorRequest(turnoRequestDTO);
+			if (turnoABuscar.isEmpty()) {
+				throw new EntityNotFoundException("No se pudo mapear la entidad");
+			} else {
+				this.turnoRepository.save(turnoAGuardar);
+			}
 		} else {
-			throw  new TurnoNotSavedException("No se pudo actualizar el Turno con el ID" + turnoRequestDTO.getId());
+			throw new ResourceNotUpdatedException("No se pudo actualizar el Turno con el ID" + turnoRequestDTO.getId());
 		}
 	}
 
@@ -129,7 +136,7 @@ public class TurnoService implements IService<TurnoDTO>, IServiceHQL<TurnoDTO>, 
 		if (!turnos.isEmpty()) {
 			return mapearRegistros(turnos);
 		}
-		throw new TurnoNotFoundException("No se pueden listar los turnos.");
+		throw new ResourceNotFoundException("No se pueden listar los turnos.");
 	}
 
 

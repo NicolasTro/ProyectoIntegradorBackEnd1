@@ -2,8 +2,6 @@ window.addEventListener("load", function () {
 	let formularioODIndex = document.getElementById("agregarDentista");
 	let formularioODLista = document.getElementById("agregarDentistaLista");
 
-
-
 	if (formularioODIndex !== null) {
 		formularioODIndex.addEventListener("submit", function (event) {
 			event.preventDefault();
@@ -51,7 +49,7 @@ function formularioInsertar(event, form) {
 		fetch(url, settings)
 			.then((response) => response.json())
 			.then((data) => {
-        console.log(data);
+				console.log(data);
 				//Si no hay ningun error se muestra un mensaje diciendo que el odontólogo
 				//se agrego bien
 				let successAlert = '<div class="alert alert-success alert-dismissible">' + '<button type="button" class="close" data-dismiss="alert">&times;</button>' + "<strong>Odontólogo agregado </strong> </div>";
@@ -63,7 +61,7 @@ function formularioInsertar(event, form) {
 					$("#staticBackdropOdontologo").modal("hide");
 					resetUploadForm();
 				}, 1000);
-        location.reload();
+				location.reload();
 			})
 			.catch((error) => {
 				//Si hay algun error se muestra un mensaje diciendo que el odontólogo
@@ -71,10 +69,7 @@ function formularioInsertar(event, form) {
 
 				let errorAlert = '<div class="alert alert-danger alert-dismissible">' + '<button type="button" class="close" data-dismiss="alert">&times;</button>' + "<strong> Error intente nuevamente</strong> </div>";
 
-
-console.log(error);
-                
-        document.querySelector(".responseDentist").innerHTML = errorAlert;
+				document.querySelector(".responseDentist").innerHTML = errorAlert;
 				document.querySelector(".responseDentist").style.display = "block";
 				//se dejan todos los campos vacíos por si se quiere ingresar otro odontólogo
 				resetUploadForm();

@@ -77,8 +77,10 @@ public class TurnoService implements IService<TurnoDTO>, IServiceHQL<TurnoDTO>, 
 		}
         if (turnoOptional.isPresent()){
 			return turnoOptional;
+		} else {
+			log.warn("Ha ocurrido un error en la busqueda de Turnos.");
+			throw new ResourceNotFoundException("Error en la busqueda de Turnos.");
 		}
-		throw new ResourceNotFoundException("Error en la busqueda de Turnos.");
 	}
 
 	public Optional<List<TurnoResponseDTO>> listarTodosIDNombre() {
@@ -97,6 +99,7 @@ public class TurnoService implements IService<TurnoDTO>, IServiceHQL<TurnoDTO>, 
 		if (turno != null) {
 			return mapeadorResponse(turno);
 		} else {
+			log.warn("Ha ocurrido un error al guardar el Turno.");
 			throw new ResourceNotSavedException("No se pudo guardar el Turno." );
 		}
 	}
@@ -106,15 +109,18 @@ public class TurnoService implements IService<TurnoDTO>, IServiceHQL<TurnoDTO>, 
 		if (turnoOptional.isPresent()) {
 			return mapeadorResponse(turnoOptional.get());
 		} else {
+			log.warn("Ha ocurrido un error al buscar el Turno con ID:" + id);
 			throw new ResourceNotUpdatedException("No existe Turno con el ID especificado." + id);
 		}
 	}
 
 	public void eliminar(Long id) {
 		if (!turnoRepository.existsById(id)) {
+			log.warn("Ha ocurrido un error al eliminar el Turno con ID:" + id);
 			throw new ResourceNotDeletedException("No se puede eliminar Turno" + id);
+		} else {
+			this.turnoRepository.deleteById(id);
 		}
-		this.turnoRepository.deleteById(id);
 	}
 
 
@@ -125,11 +131,13 @@ public class TurnoService implements IService<TurnoDTO>, IServiceHQL<TurnoDTO>, 
 		if (turnoABuscar.isPresent()) {
 			Turno turnoAGuardar = mapeadorRequest(turnoRequestDTO);
 			if (turnoABuscar.isEmpty()) {
+				log.warn("Ha ocurrido un error al mapear el Turno");
 				throw new EntityNotFoundException("No se pudo mapear la entidad");
 			} else {
 				this.turnoRepository.save(turnoAGuardar);
 			}
 		} else {
+			log.warn("Ha ocurrido un error al actualizar el Turno con ID" + turnoRequestDTO.getID());
 			throw new ResourceNotUpdatedException("No se pudo actualizar el Turno con el ID" + turnoRequestDTO.getId());
 		}
 	}
@@ -139,8 +147,10 @@ public class TurnoService implements IService<TurnoDTO>, IServiceHQL<TurnoDTO>, 
 		List<Turno> turnos = turnoRepository.findAll();
 		if (!turnos.isEmpty()) {
 			return mapearRegistros(turnos);
+		} else {
+			log.warn("Ha ocurrido un error al listar todos los Turnos");
+			throw new ResourceNotFoundException("No se pueden listar los turnos.");
 		}
-		throw new ResourceNotFoundException("No se pueden listar los turnos.");
 	}
 
 

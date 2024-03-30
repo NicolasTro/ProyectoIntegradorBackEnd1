@@ -41,6 +41,7 @@ public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<O
 		if (odontologoGuardado != null) {
 			return mapeador(odontologoGuardado, OdontologoResponseDTOFull.class);
 		} else {
+			log.warn("Ha ocurrido un error guardando Odontologo");
 			throw new ResourceNotSavedException("No se pudo guardar el Odontologo");
 		}
 	}
@@ -50,9 +51,11 @@ public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<O
 	public void eliminar(Long id) {
 		if (!odontologoRepository.existsById(id)){
 
+			log.warn("Ha ocurrido un error eliminando el Odontologo con ID: " + id);
 			throw new ResourceNotDeletedException("El Odontologo no existe en la Base de Datos.");
 		} else {
 			if (odontologoRepository.findByOdontologoTurno(id) > 0) {
+				log.warn("El Odontologo no se puede eliminar porque tiene un Turno. ID del turno: " + id);
 				throw new IntegrityConstraintViolationException("No se puede eliminar Odontologo porque tiene un Turno Agendado.");
 			}
 		}
@@ -66,6 +69,7 @@ public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<O
 		if (odontologoRequestDTO != null) {
 			this.odontologoRepository.save(mapeador(odontologoRequestDTO, Odontologo.class));
 		} else {
+			log.warn("Ha ocurrido un error actualizando el Odontologo");
 			throw new ResourceNotUpdatedException("No se pudo actualizar el Odontologo");
 		}
 	}
@@ -77,6 +81,7 @@ public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<O
 		if (odontologoOptional.isPresent()) {
 			return this.mapeador(odontologoOptional.get(), OdontologoResponseDTOFull.class);
 		} else {
+			log.warn("Ha ocurrido un error buscando el Odontologo con ID: " + id);
 			throw new ResourceNotFoundException("No se encuentra Odontologo con el ID proporcionado: " + id);
 		}
 	}
@@ -88,8 +93,10 @@ public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<O
 		List<Odontologo> odontologos = odontologoRepository.findAll();
 		if (!odontologos.isEmpty()) {
 			return mapearRegistros(odontologos);
+		} else {
+			log.warn("Ha ocurrido un error listando todos los Odontologos");
+			throw new ResourceNotFoundException("No se pueden listar los Odontologos");
 		}
-		throw new ResourceNotFoundException("No se pueden listar los Odontologos");
 	}
 	/*###################################################################################################################*/
 
@@ -120,13 +127,16 @@ public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<O
 		}
 		if (odontologoOptional.isPresent()){
 			return odontologoOptional;
+		} else {
+			log.warn("Ha ocurrido un error en la busqueda personalizada de los Odontologos");
+			throw new ResourceNotFoundException("Error en la busqueda de Odontologos.");
 		}
-		throw new ResourceNotFoundException("Error en la busqueda de Odontologos.");
 	}
 
 	public Optional<List<OdontologoDTO>> listarTodosIDNombre() {
 		List<Odontologo> listaOdontologos = this.odontologoRepository.findAll();
 		if (listaOdontologos == null || listaOdontologos.isEmpty()) {
+			log.warn("Ha ocurrido un error listando los OdontologosDTO");
 			throw new ResourceNotFoundException("Error en el metodo listarTodosIDNombre. No se pudo listar los Odontologos.");
 		}
 		List<OdontologoDTO> listaOdontologosDTO = new ArrayList<>();

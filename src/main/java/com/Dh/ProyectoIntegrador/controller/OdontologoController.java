@@ -49,6 +49,7 @@ public class OdontologoController {
 	//	} catch (Exception e) {
 	//		return new ResponseEntity(HttpStatus.I_AM_A_TEAPOT);
 	//	}
+		log.info("Buscando Odontologo con valor: " + valor + " y tipo de Busqueda: " + tipoDeBusqueda);
 		return new ResponseEntity(odontologoBuscar, HttpStatus.FOUND);
 	}
 
@@ -64,6 +65,7 @@ public class OdontologoController {
 	//			response = new ResponseEntity(HttpStatus.NOT_ACCEPTABLE);
 	//		}
 	//	} catch (Exception e) {
+		log.info("Guardando Odontologo.");
 			return new ResponseEntity(odontologoGuardado, HttpStatus.CREATED);
 	//	}
 	//	return response;
@@ -82,6 +84,7 @@ public class OdontologoController {
 	//			response = new ResponseEntity(HttpStatus.NOT_FOUND);
 	//		}
 	//	} catch (Exception e) {
+		log.info("Buscando Odontologo con ID: "+ id);
 			return new ResponseEntity(odontologoEncontrado, HttpStatus.FOUND);
 	//	}
 	//	return response;
@@ -95,9 +98,9 @@ public class OdontologoController {
 			this.odontologoIService.actualizar(odontologo);
 
 			OdontologoDTO actualizarOdontologo = odontologoIService.buscarPorId(odontologo.getId());
-			log.info("estamos logueando actualizar" + actualizarOdontologo);
 
 
+			log.info("Actualizando Odontologo.");
 			return new ResponseEntity(actualizarOdontologo, HttpStatus.OK);
 
 	//			} else {
@@ -125,6 +128,7 @@ public class OdontologoController {
 	//	} catch (Exception e) {
 	//		return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
 	//	}
+		log.info("Listando Odontologos");
 		return new ResponseEntity(listaOdontologos, HttpStatus.FOUND);
 	}
 
@@ -144,6 +148,7 @@ public class OdontologoController {
 	//			response = new ResponseEntity<List<Odontologo>>( HttpStatus.NOT_FOUND);
 	//		}
 	//	} catch (Exception e) {
+		log.info("Listando OdontologosDTO");
 			return new ResponseEntity(listaOdontologos, HttpStatus.FOUND);
 	//	}
 	//	return response;
@@ -158,6 +163,7 @@ public class OdontologoController {
 	//	} catch (Exception e) {
 	//		return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
 	//	}
+		log.info("Eliminando Odontologo con ID:" + id);
 		return new ResponseEntity("Odontologo eliminado correctamente", HttpStatus.OK);
 	}
 

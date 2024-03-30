@@ -4,7 +4,7 @@ window.addEventListener("load", function () {
 	$(document).ready(function () {
 		// Configurar popovers
 		$('[data-toggle="popover"]').popover();
-		
+
 		// $('[data-toggle="popover"]').contentText="asdasd";
 	});
 	// cargarEncabezadoTabla(tituloTabla);
@@ -83,6 +83,8 @@ window.addEventListener("load", function () {
 	}
 
 	validacionInput();
+
+
 });
 
 function cargarRegistro(dentist) {
@@ -92,19 +94,18 @@ function cargarRegistro(dentist) {
 			dentist.id
 		} class='btn btn-primary btnTabla dropdown-item' data-toggle='modal' data-target='#staticBackdrop'>Modificar</button><button type='button' data-id=${
 		dentist.id
-	} class='btn btn-primary dropdown-item btnTabla' data-toggle='modal' >Eliminar</button></div></div></td>`;
+	} class='btn btn-primary dropdown-item btnTabla btnTablaEliminar' data-toggle='modal' data-target='#staticBackdropOdontologoDelete' >Eliminar</button></div></div></td>`;
 }
 
 let tituloTabla = "<th scope='col'>Id</th>" + "<th scope='col'>Nombre</th>" + "<th scope='col'>Apellido</th>" + "<th scope='col'>Matrícula</th>" + "<th scope='col'>Gestionar </th>";
 
 function validarCamposIngresados(formularioGenerico) {
 	let formEspecifico = "#" + formularioGenerico.id;
-	
 
 	let listaInputsAValidar = document.querySelectorAll(".validacion");
 	let camposRequeridos = document.querySelectorAll(`${formEspecifico} [required]`);
 
-	// let camposRequeridos = document.querySelectorAll("#agregarDentista [required]");
+	
 	let contador = 0;
 	let retorno = false;
 
@@ -129,22 +130,22 @@ function validarCamposIngresados(formularioGenerico) {
 		}
 	});
 
-		if (contador == camposRequeridos.length) {
-			retorno = true;
-		} else {
-			let errorAlert = '<div class="alert alert-danger alert-dismissible">' + '<button type="button" class="close" data-dismiss="alert">&times;</button>' + "<strong> Datos incorrectos</strong> </div>";
+	if (contador == camposRequeridos.length) {
+		retorno = true;
+	} else {
+		let errorAlert = '<div class="alert alert-danger alert-dismissible">' + '<button type="button" class="close" data-dismiss="alert">&times;</button>' + "<strong> Datos incorrectos</strong> </div>";
 
-			let bloqueMensaje = document.querySelector(".responseDentist");
+		let bloqueMensaje = document.querySelector(".responseDentist");
 
-			bloqueMensaje.innerHTML = errorAlert;
-			let mostrarMensaje = document.querySelector(".responseDentist");
-			mostrarMensaje.style.display = "block";
-			setTimeout(function () {
-				bloqueMensaje.innerHTML = "";
-				mostrarMensaje.style.display = "none";
-				$("#" + campo.id).popover("hide");
-			}, 3000);
-		}
+		bloqueMensaje.innerHTML = errorAlert;
+		let mostrarMensaje = document.querySelector(".responseDentist");
+		mostrarMensaje.style.display = "block";
+		setTimeout(function () {
+			bloqueMensaje.innerHTML = "";
+			mostrarMensaje.style.display = "none";
+			$("#" + campo.id).popover("hide");
+		}, 3000);
+	}
 
 	return retorno;
 }

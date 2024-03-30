@@ -16,12 +16,15 @@ function obtenerListaPacientes() {
 					patientRow.id = tr_id;
 					patientRow.innerHTML = cargarRegistro(patient);
 				}
+
+				let listaBtnEliminarRegistros = document.querySelectorAll(".btnTablaEliminar");
+
+				eliminarPaciente(listaBtnEliminarRegistros);
 			} else {
 				noSeEncontraronRegistros();
 			}
 		})
 		.catch((error) => {
-			// console.log(error);
 			noSeEncontraronRegistros();
 		});
 }
@@ -45,14 +48,7 @@ function busquedaPacientePersonalizado() {
 		.then((response) => response.json())
 
 		.then((data) => {
-			// if (data.length == 1) {
-			// 	let tablaBody = document.getElementById("cuerpoTabla");
-
-			// 	tablaBody.innerHTML = "";
-			// 	let patientRow = tablaBody.insertRow();
-			// 	let tr_id = "tr_" + data[0].id;
-			// 	patientRow.id = tr_id;
-			// 	patientRow.innerHTML = cargarRegistro(data[0]);
+			
 			if (data.length > 0) {
 				clearTabla();
 				tablaNueva(tituloTablaPacientes);

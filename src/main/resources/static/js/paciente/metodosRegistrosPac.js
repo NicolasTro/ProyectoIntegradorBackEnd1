@@ -1,6 +1,5 @@
 window.addEventListener("load", function () {
-	// cargarEncabezadoTabla(tituloTablaPacientes);
-	// cargarCuerpoTabla();
+	
 
 	tablaNueva(tituloTablaPacientes);
 
@@ -102,6 +101,9 @@ window.addEventListener("load", function () {
 		}
 	});
 
+
+
+
 	(function () {
 		let pathname = window.location.pathname;
 		if (pathname == "/pacienteLista.html") {
@@ -152,8 +154,8 @@ function cargarRegistro(patient) {
                                             <button class='btn btn-dark dropdown-toggle' 
                                             type='button' data-toggle='dropdown' aria-expanded='false'></button>
                                             <div class='dropdown-menu traerAlFrente'>
-                                              <button type='button' data-id='${patient.id}' data-domicilioId='${patient.id}' class='btn btn-primary btnTabla dropdown-item' data-toggle='modal' data-target='#staticBackdropPacienteUpdate'>Modificar</button>
-                                              <button type='button' data-id='${patient.id}'  class='btn btn-primary dropdown-item btnTabla' data-toggle='modal'>Eliminar</button>
+											<button type='button' data-id='${patient.id}' data-domicilioId='${patient.id}' class='btn btn-primary btnTabla dropdown-item' data-toggle='modal' data-target='#staticBackdropPacienteUpdate'>Modificar</button>
+                                            <button type='button' data-id='${patient.id}'  class='btn btn-primary dropdown-item btnTablaEliminar' data-target='#staticBackdropPacienteDelete' data-toggle='modal'>Eliminar</button>
                                             </div>
                                           </div>
                                         </td>`;

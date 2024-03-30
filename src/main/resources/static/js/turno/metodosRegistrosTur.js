@@ -1,9 +1,7 @@
 // FUNCION WINDOWS LOAD
 window.addEventListener("load", function () {
-//	cargarEncabezadoTabla();
-//	cargarCuerpoTabla();
 
-    tablaNueva(tituloTablaTurno);
+	tablaNueva(tituloTablaTurno);
 
 	let iconosDeCarga = document.getElementById("cargando");
 	iconosDeCarga.style.visibility = "visible";
@@ -14,15 +12,12 @@ window.addEventListener("load", function () {
 	}, 3000);
 
 	let btnRegistrarTurno = document.getElementById("btnRegistrarTurno");
-    console.log(btnRegistrarTurno);
-
-
+	console.log(btnRegistrarTurno);
 
 	btnRegistrarTurno.addEventListener("click", function () {
 		listarPacientes();
 		listarOdontologos();
 	});
-
 
 	let formularioBusqueda = document.getElementById("formBusqueda");
 
@@ -30,8 +25,7 @@ window.addEventListener("load", function () {
 		event.preventDefault();
 		clearTabla();
 		tablaNueva(tituloTablaTurnos);
-//		cargarEncabezadoTabla();
-//		cargarCuerpoTabla();
+		
 
 		iconosDeCarga.style.visibility = "visible";
 
@@ -75,26 +69,20 @@ window.addEventListener("load", function () {
 
 	validacionInput();
 
-	document.addEventListener("click", function (e) {
-		if (e.target instanceof HTMLButtonElement) {
-			var popover = new bootstrap.Popover(e.target);
+	// document.addEventListener("click", function (e) {
+	// 	if (e.target instanceof HTMLButtonElement) {
+	// 		var popover = new bootstrap.Popover(e.target);
 
-			popover.show();
+	// 		popover.show();
 
-			setTimeout(function () {
-				popover.hide();
-			}, 1000);
-		}
-	});
-	(function () {
-		let pathname = window.location.pathname;
-		if (pathname == "/turnoLista.html") {
-			document.querySelector(".nav .nav-item a:last").addClass("active");
-		}
-	});
+	// 		setTimeout(function () {
+	// 			popover.hide();
+	// 		}, 1000);
+	// 	}
+	// });
+	
 });
 function cargarRegistro(turno) {
-
 	return `<td class="td_id align-middle tamanioTexto">${turno.id}</td><td class="td_odontologo align-middle tamanioTexto" data-odontologoid='${turno.odontologo_Id}'>${turno.odontologoNombre} ${turno.odontologoApellido}</td>
-    <td class="td_paciente align-middle tamanioTexto" data-pacienteid='${turno.paciente_Id}'>${turno.pacienteNombre} ${turno.pacienteApellido}</td><td class="td_fechaTurno align-middle tamanioTexto">${turno.fechaYHora}</td><td><div class="dropdown"><button class='btn btn-secondary dropdown-toggle' type='button'data-toggle='dropdown' aria-expanded='false'></button><div class='dropdown-menu'><button type='button' data-id=${turno.id} class='btn btn-primary btnTabla dropdown-item' data-toggle='modal' data-target='#staticBackdropTurnoUpdate'>Modificar</button><button type='button' data-id=${turno.id} class='btn btn-primary dropdown-item btnTabla' data-toggle='modal' >Eliminar</button></div></div></td>`;
+    <td class="td_paciente align-middle tamanioTexto" data-pacienteid='${turno.paciente_Id}'>${turno.pacienteNombre} ${turno.pacienteApellido}</td><td class="td_fechaTurno align-middle tamanioTexto">${turno.fechaYHora}</td><td><div class="dropdown"><button class='btn btn-secondary dropdown-toggle' type='button'data-toggle='dropdown' aria-expanded='false'></button><div class='dropdown-menu'><button type='button' data-id=${turno.id} class='btn btn-primary btnTabla dropdown-item' data-toggle='modal' data-target='#staticBackdropTurnoUpdate'>Modificar</button><button type='button' data-id=${turno.id} class='btn btn-primary dropdown-item btnTabla btnTablaEliminar' data-toggle='modal'>Eliminar</button></div></div></td>`;
 }

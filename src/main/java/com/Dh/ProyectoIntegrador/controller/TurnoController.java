@@ -129,21 +129,21 @@ public class TurnoController {
 	}@GetMapping("/listarDTO")
 
 	public ResponseEntity<List<TurnoDTO>> listarTodosDTO() {
-		ResponseEntity response = null;
+	//	ResponseEntity response = null;
 		Optional<List<TurnoResponseDTO>> listaTurnos = null;
-		try {
+	//	try {
 
 			listaTurnos = this.turnoIServiceDTO.listarTodosIDNombre();
 
-			if (!listaTurnos.isEmpty()) {
-				response = new ResponseEntity(listaTurnos.get(), HttpStatus.FOUND);
-			} else {
-				response = new ResponseEntity<List<Paciente>>( HttpStatus.NOT_FOUND);
-			}
-		} catch (Exception e) {
-			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
-		}
-		return response;
+	//		if (!listaTurnos.isEmpty()) {
+	//			response = new ResponseEntity(listaTurnos.get(), HttpStatus.FOUND);
+	//		} else {
+	//			response = new ResponseEntity<List<Paciente>>( HttpStatus.NOT_FOUND);
+	//		}
+	//	} catch (Exception e) {
+			return new ResponseEntity(listaTurnos, HttpStatus.FOUND);
+	//	}
+	//	return response;
 	}
 
 

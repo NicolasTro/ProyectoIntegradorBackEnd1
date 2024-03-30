@@ -54,55 +54,55 @@ public class OdontologoController {
 
 	@PostMapping("/registrar")
 	public ResponseEntity<OdontologoDTO> guardar(@RequestBody OdontologoRequestDTO odontologo) {
-		ResponseEntity response = null;
-		try {
+	//	ResponseEntity response = null;
+	//	try {
 			OdontologoDTO odontologoGuardado = this.odontologoIService.guardar(odontologo);
-			if (odontologoGuardado != null) {
-				response = new ResponseEntity(odontologoGuardado, HttpStatus.CREATED);
-				//TODO ES NECESARIO EL ELSE DEL RESPONSE ENTITY O NO?
-			} else {
-				response = new ResponseEntity(HttpStatus.NOT_ACCEPTABLE);
-			}
-		} catch (Exception e) {
-			return new ResponseEntity(e.getMessage(), HttpStatus.NO_CONTENT);
-		}
-		return response;
+	//		if (odontologoGuardado != null) {
+	//			response = new ResponseEntity(odontologoGuardado, HttpStatus.CREATED);
+	//			//TODO ES NECESARIO EL ELSE DEL RESPONSE ENTITY O NO?
+	//		} else {
+	//			response = new ResponseEntity(HttpStatus.NOT_ACCEPTABLE);
+	//		}
+	//	} catch (Exception e) {
+			return new ResponseEntity(odontologoGuardado, HttpStatus.CREATED);
+	//	}
+	//	return response;
 	}
 
 
 	@GetMapping("/{id}")
 	public ResponseEntity<OdontologoResponseDTOFull> buscarPorId(@PathVariable Long id) {
-		ResponseEntity response = null;
+	//	ResponseEntity response = null;
 		OdontologoDTO odontologoEncontrado = null;
-		try {
+	//	try {
 			odontologoEncontrado = this.odontologoIService.buscarPorId(id);
-			if (odontologoEncontrado != null) {
-				response = new ResponseEntity<>(odontologoEncontrado, HttpStatus.FOUND);
-			} else {
-				response = new ResponseEntity(HttpStatus.NOT_FOUND);
-			}
-		} catch (Exception e) {
-			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
-		}
-		return response;
+	//		if (odontologoEncontrado != null) {
+	//			response = new ResponseEntity<>(odontologoEncontrado, HttpStatus.FOUND);
+	//		} else {
+	//			response = new ResponseEntity(HttpStatus.NOT_FOUND);
+	//		}
+	//	} catch (Exception e) {
+			return new ResponseEntity(odontologoEncontrado, HttpStatus.FOUND);
+	//	}
+	//	return response;
 	}
 
 	@PutMapping("/actualizar")
 	public ResponseEntity<OdontologoDTO> actualizar(@RequestBody OdontologoRequestDTO odontologo) {
 		ResponseEntity response = null;
 
-		if (odontologo != null) {
+	//	if (odontologo != null) {
 			this.odontologoIService.actualizar(odontologo);
 
 			OdontologoDTO actualizarOdontologo = odontologoIService.buscarPorId(odontologo.getId());
 			log.info("estamos logueando actualizar" + actualizarOdontologo);
 
 
-				return  new ResponseEntity(odontologo, HttpStatus.OK);
+			return new ResponseEntity(actualizarOdontologo, HttpStatus.OK);
 
-				} else {
-					return new ResponseEntity( HttpStatus.NOT_FOUND);
-				}
+	//			} else {
+	//				return new ResponseEntity( HttpStatus.NOT_FOUND);
+	//			}
 	}
 
 
@@ -112,52 +112,52 @@ public class OdontologoController {
 	@GetMapping("/listar")
 
 	public ResponseEntity<List<OdontologoDTO>> listarTodos() {
-		ResponseEntity response = null;
+	//	ResponseEntity response = null;
 		List<OdontologoDTO> listaOdontologos = null;
-		try {
+	//	try {
 			listaOdontologos = this.odontologoIService.listarTodos();
 //			if (listaOdontologos.size() > 0) {
 			Optional<List<OdontologoDTO>> lista = Optional.of(listaOdontologos);
-			response = new ResponseEntity(lista, HttpStatus.FOUND);
+	//		response = new ResponseEntity(lista, HttpStatus.FOUND);
 //			} else {
 //				response = new ResponseEntity<List<Odontologo>>(  HttpStatus.NOT_FOUND);
 //			}
-		} catch (Exception e) {
-			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
-		}
-		return response;
+	//	} catch (Exception e) {
+	//		return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
+	//	}
+		return new ResponseEntity(listaOdontologos, HttpStatus.FOUND);
 	}
 
 
 	@GetMapping("/listarDTO")
 
 	public ResponseEntity<List<OdontologoDTO>> listarTodosDTO() {
-		ResponseEntity response = null;
+	//	ResponseEntity response = null;
 		Optional<List<OdontologoDTO>> listaOdontologos = null;
-		try {
+	//	try {
 
 			listaOdontologos = this.odontologoIServiceDTO.listarTodosIDNombre();
 
-			if (!listaOdontologos.isEmpty()) {
-				response = new ResponseEntity(listaOdontologos.get(), HttpStatus.FOUND);
-			} else {
-				response = new ResponseEntity<List<Odontologo>>( HttpStatus.NOT_FOUND);
-			}
-		} catch (Exception e) {
-			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
-		}
-		return response;
+	//		if (!listaOdontologos.isEmpty()) {
+	//			response = new ResponseEntity(listaOdontologos.get(), HttpStatus.FOUND);
+	//		} else {
+	//			response = new ResponseEntity<List<Odontologo>>( HttpStatus.NOT_FOUND);
+	//		}
+	//	} catch (Exception e) {
+			return new ResponseEntity(listaOdontologos, HttpStatus.FOUND);
+	//	}
+	//	return response;
 	}
 
 
 	@DeleteMapping("eliminar/{id}")
 	public ResponseEntity<String> eliminar(@PathVariable Long id) {
-		ResponseEntity response = null;
-		try {
+	//	ResponseEntity response = null;
+	//	try {
 			this.odontologoIService.eliminar(id);
-		} catch (Exception e) {
-			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
-		}
+	//	} catch (Exception e) {
+	//		return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
+	//	}
 		return new ResponseEntity("Odontologo eliminado correctamente", HttpStatus.OK);
 	}
 

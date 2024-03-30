@@ -17,6 +17,7 @@ import com.Dh.ProyectoIntegrador.service.IServiceDTO;
 import com.Dh.ProyectoIntegrador.service.IServiceHQL;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -117,10 +118,16 @@ public class TurnoService implements IService<TurnoDTO>, IServiceHQL<TurnoDTO>, 
 	@Override
 	public void actualizar(TurnoDTO turnoRequestDTO) {
 
-		if (turnoRequestDTO != null) {
-			this.turnoRepository.save(mapeadorRequest(turnoRequestDTO));
+		Optional<Turno> turnoABuscar = turnoRepository.findById(turnoRequestDTO.getId());
+		if (turnoABuscar.isPresent()) {
+			Turno turnoAGuardar = mapeadorRequest(turnoRequestDTO);
+			if (turnoABuscar.isEmpty()) {
+				throw new EntityNotFoundException("No se pudo mapear la entidad");
+			} else {
+				this.turnoRepository.save(turnoAGuardar);
+			}
 		} else {
-			throw  new ResourceNotUpdatedException("No se pudo actualizar el Turno con el ID" + turnoRequestDTO.getId());
+			throw new ResourceNotUpdatedException("No se pudo actualizar el Turno con el ID" + turnoRequestDTO.getId());
 		}
 	}
 

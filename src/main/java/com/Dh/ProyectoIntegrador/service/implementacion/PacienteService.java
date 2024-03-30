@@ -37,9 +37,8 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 		Paciente pacienteGuardado = pacienteRepository.save(mapearPacienteEntidad(pacienteRequestDTO));
 		if (pacienteGuardado != null) {
 			return mapeadorResponse(pacienteGuardado);
-		} else {
-			throw new ResourceNotSavedException("No se pudo guardar el paciente.");
 		}
+		throw new ResourceNotSavedException("No se pudo guardar el paciente.");
 
 
 	}

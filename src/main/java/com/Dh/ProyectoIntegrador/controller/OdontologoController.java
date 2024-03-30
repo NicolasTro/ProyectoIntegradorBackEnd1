@@ -38,19 +38,19 @@ public class OdontologoController {
 
 	@GetMapping("/buscar")
 	public ResponseEntity<OdontologoDTO> buscar(@RequestParam("valor") String valor, @RequestParam("tipoDeBusqueda") Integer tipoDeBusqueda) {
-		ResponseEntity response = null;
-		try {
+	//	ResponseEntity response = null;
+	//	try {
 			Optional<List<OdontologoDTO>> odontologoBuscar = odontologoIServiceHQL.buscarDatosCompletos(tipoDeBusqueda, valor);
 
-			if (odontologoBuscar != null) {
-				response = new ResponseEntity<>(odontologoBuscar.get(), HttpStatus.FOUND);
-			} else {
-				response = new ResponseEntity(HttpStatus.NOT_FOUND);
-			}
-		} catch (Exception e) {
-			return new ResponseEntity(HttpStatus.I_AM_A_TEAPOT);
-		}
-		return response;
+	//		if (odontologoBuscar != null) {
+	//			response = new ResponseEntity<>(odontologoBuscar.get(), HttpStatus.FOUND);
+	//		} else {
+	//			response = new ResponseEntity(HttpStatus.NOT_FOUND);
+	//		}
+	//	} catch (Exception e) {
+	//		return new ResponseEntity(HttpStatus.I_AM_A_TEAPOT);
+	//	}
+		return new ResponseEntity(odontologoBuscar, HttpStatus.FOUND);
 	}
 
 	@PostMapping("/registrar")

@@ -37,99 +37,96 @@ public class TurnoController {
 	//TODO QUE PASA CON ESTO!!!!!!!!!!!!!!
 	@GetMapping("/buscar")
 	public ResponseEntity<TurnoDTO> buscar(@RequestParam("valor") String valor, @RequestParam("tipoDeBusqueda") Integer tipoDeBusqueda) {
-		ResponseEntity response =  null;
-		try {
+	//	ResponseEntity response =  null;
+	//	try {
 			Optional<List<TurnoDTO>> turnoBuscar = turnoIServiceHQL.buscarDatosCompletos(tipoDeBusqueda, valor);
 
-			if (turnoBuscar != null) {
-				response = new ResponseEntity(turnoBuscar, HttpStatus.FOUND);
-			} else {
-				response = new ResponseEntity(HttpStatus.NOT_FOUND);
-			}
-		}  catch (Exception  e) {
-			return new ResponseEntity(e.getMessage(), HttpStatus.I_AM_A_TEAPOT);
-		}
-		return response;
+	//		if (turnoBuscar != null) {
+	//			response = new ResponseEntity(turnoBuscar, HttpStatus.FOUND);
+	//		} else {
+	//			response = new ResponseEntity(HttpStatus.NOT_FOUND);
+	//		}
+	//	}  catch (Exception  e) {
+	//		return new ResponseEntity(e.getMessage(), HttpStatus.I_AM_A_TEAPOT);
+	//	}
+		return new ResponseEntity(turnoBuscar, HttpStatus.FOUND);
 	}
 
 	@PostMapping("/registrar")
 	public ResponseEntity<TurnoDTO> guardar(@RequestBody TurnoRequestDTO turnoRequestDTO) {
-		ResponseEntity<TurnoDTO> response = null;
+	//	ResponseEntity<TurnoDTO> response = null;
 		TurnoDTO turno = null;
-		try {
+	//	try {
 			turno = turnoIService.guardar(turnoRequestDTO);
-			if (turno != null) {
-				response = new ResponseEntity(turno, HttpStatus.OK);
-			}
-		} catch (Exception e) {
-			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
-		}
-		return response;
+	//		if (turno != null) {
+	//			response = new ResponseEntity(turno, HttpStatus.OK);
+	//		}
+	//	} catch (Exception e) {
+	//		return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
+	//	}
+		return new ResponseEntity(turno, HttpStatus.CREATED);
 	}
 
 	//TODO arreglar actualizar y envido de datos vacio. Y validar campos
 	@PutMapping("/actualizar")
 	public ResponseEntity<TurnoDTO> actualizar(@RequestBody TurnoRequestDTO turnoRequestDTO) {
-		ResponseEntity<TurnoDTO> response = null;
-		try {
-		TurnoDTO nuevoTurno = turnoIService.buscarPorId(turnoRequestDTO.getId());
+	//	ResponseEntity<TurnoDTO> response = null;
+	//	try {
+		TurnoDTO turnoActualizar = turnoIService.buscarPorId(turnoRequestDTO.getId());
 			turnoIService.actualizar(turnoRequestDTO);
+	//		response = new ResponseEntity(turnoRequestDTO, HttpStatus.ACCEPTED);
 
-
-
-			response = new ResponseEntity(turnoRequestDTO, HttpStatus.ACCEPTED);
-
-		} catch (Exception e) {
-			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
-		}
-		return response;
+	//	} catch (Exception e) {
+	//		return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
+	//	}
+		return new ResponseEntity(turnoActualizar, HttpStatus.OK);
 	}
 
 	@DeleteMapping("/eliminar/{id}")
 
 	public ResponseEntity<TurnoDTO> eliminar(@PathVariable Long id) {
-		ResponseEntity<TurnoDTO> response = null;
-		try {
+	//	ResponseEntity<TurnoDTO> response = null;
+	//	try {
 			turnoIService.eliminar(id);
-			response = new ResponseEntity("Registro eliminado correctamente", HttpStatus.OK);
-		} catch (Exception e) {
-			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
-		}
-		return response;
+	//		response = new ResponseEntity("Registro eliminado correctamente", HttpStatus.OK);
+	//	} catch (Exception e) {
+	//		return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
+	//	}
+		return new ResponseEntity("Turno eliminado", HttpStatus.OK);
 	}
 
 
 	@GetMapping("{id}")
 	public ResponseEntity<TurnoDTO> buscarPorId(@PathVariable Long id) {
-		ResponseEntity<TurnoDTO> response = null;
-		try {
+	//	ResponseEntity<TurnoDTO> response = null;
+	//	try {
 			TurnoDTO turnoEncontrado = turnoIService.buscarPorId(id);
-			if (turnoEncontrado != null) {
-				response = new ResponseEntity(turnoEncontrado, HttpStatus.FOUND);
-			} else {
-				response = new ResponseEntity("No se encontro el registro", HttpStatus.NOT_FOUND);
-			}
-		} catch (Exception e) {
-			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
-		}
-		return response;
+	//		if (turnoEncontrado != null) {
+	//			response = new ResponseEntity(turnoEncontrado, HttpStatus.FOUND);
+	//		} else {
+	//			response = new ResponseEntity("No se encontro el registro", HttpStatus.NOT_FOUND);
+	//		}
+	//	} catch (Exception e) {
+	//		return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
+	//	}
+		return new ResponseEntity(turnoEncontrado, HttpStatus.FOUND);
 	}
 
 	@GetMapping("/listar")
 
 	public ResponseEntity<List<TurnoDTO>> listarTodos() {
-		ResponseEntity<List<TurnoDTO>> response = null;
-		try {
+	//	ResponseEntity<List<TurnoDTO>> response = null;
+	//	try {
 			List<TurnoDTO> listaTurnos = this.turnoIService.listarTodos();
-			if (!listaTurnos.isEmpty()) {
-				response = new ResponseEntity(listaTurnos, HttpStatus.FOUND);
-			} else {
-				response = new ResponseEntity("No se encontraron registros", HttpStatus.NOT_FOUND);
-			}
-		} catch (Exception e) {
-			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
-		}
-		return response;
+	//		if (!listaTurnos.isEmpty()) {
+	//			response = new ResponseEntity(listaTurnos, HttpStatus.FOUND);
+	//		} else {
+	//			response = new ResponseEntity("No se encontraron registros", HttpStatus.NOT_FOUND);
+	//		}
+	//	} catch (Exception e) {
+	//		return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
+	//	}
+		return new ResponseEntity(listaTurnos, HttpStatus.FOUND);
 	}@GetMapping("/listarDTO")
 
 	public ResponseEntity<List<TurnoDTO>> listarTodosDTO() {

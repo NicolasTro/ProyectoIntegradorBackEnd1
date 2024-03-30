@@ -1,5 +1,6 @@
 package com.Dh.ProyectoIntegrador.excepciones;
 
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -26,6 +27,11 @@ public class GlobalException {
     @ExceptionHandler(ResourceNotDeletedException.class)
     public ResponseEntity<String> recursoNoEliminado(ResourceNotDeletedException e) {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
+    }
+
+    @ExceptionHandler(EntityNotFoundException.class)
+    public ResponseEntity<String> entidadNoEncontrada(EntityNotFoundException e) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
     }
 
 }

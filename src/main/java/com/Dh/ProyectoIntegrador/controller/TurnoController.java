@@ -48,6 +48,7 @@ public class TurnoController {
 	//	}  catch (Exception  e) {
 	//		return new ResponseEntity(e.getMessage(), HttpStatus.I_AM_A_TEAPOT);
 	//	}
+		log.info("Busqueda personalizada de Turnos con valor: " + valor + " y tipo de busqueda: " + tipoDeBusqueda);
 		return new ResponseEntity(turnoBuscar, HttpStatus.FOUND);
 	}
 
@@ -63,6 +64,7 @@ public class TurnoController {
 	//	} catch (Exception e) {
 	//		return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
 	//	}
+		log.info("Guardando el Odontologo");
 		return new ResponseEntity(turno, HttpStatus.CREATED);
 	}
 
@@ -78,6 +80,7 @@ public class TurnoController {
 	//	} catch (Exception e) {
 	//		return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
 	//	}
+		log.info("Actualizando el Odontologo con ID:" + turnoRequestDTO.getId());
 		return new ResponseEntity(turnoActualizar, HttpStatus.OK);
 	}
 
@@ -91,6 +94,7 @@ public class TurnoController {
 	//	} catch (Exception e) {
 	//		return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
 	//	}
+		log.info("Eliminando el Odontologo con ID:" + id);
 		return new ResponseEntity("Turno eliminado", HttpStatus.OK);
 	}
 
@@ -108,6 +112,7 @@ public class TurnoController {
 	//	} catch (Exception e) {
 	//		return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
 	//	}
+		log.info("Buscando el Odontologo con ID:" + id);
 		return new ResponseEntity(turnoEncontrado, HttpStatus.FOUND);
 	}
 
@@ -125,25 +130,27 @@ public class TurnoController {
 	//	} catch (Exception e) {
 	//		return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
 	//	}
+		log.info("Listando todos los Odontologos");
 		return new ResponseEntity(listaTurnos, HttpStatus.FOUND);
 	}@GetMapping("/listarDTO")
 
 	public ResponseEntity<List<TurnoDTO>> listarTodosDTO() {
-		ResponseEntity response = null;
+	//	ResponseEntity response = null;
 		Optional<List<TurnoResponseDTO>> listaTurnos = null;
-		try {
+	//	try {
 
 			listaTurnos = this.turnoIServiceDTO.listarTodosIDNombre();
 
-			if (!listaTurnos.isEmpty()) {
-				response = new ResponseEntity(listaTurnos.get(), HttpStatus.FOUND);
-			} else {
-				response = new ResponseEntity<List<Paciente>>( HttpStatus.NOT_FOUND);
-			}
-		} catch (Exception e) {
-			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
-		}
-		return response;
+	//		if (!listaTurnos.isEmpty()) {
+	//			response = new ResponseEntity(listaTurnos.get(), HttpStatus.FOUND);
+	//		} else {
+	//			response = new ResponseEntity<List<Paciente>>( HttpStatus.NOT_FOUND);
+	//		}
+	//	} catch (Exception e) {
+		log.info("Listando los OdontologoDTO");
+			return new ResponseEntity(listaTurnos, HttpStatus.FOUND);
+	//	}
+	//	return response;
 	}
 
 

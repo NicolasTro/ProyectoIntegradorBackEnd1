@@ -38,8 +38,12 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 		Paciente pacienteGuardado = pacienteRepository.save(mapearPacienteEntidad(pacienteRequestDTO));
 		if (pacienteGuardado != null) {
 			return mapeadorResponse(pacienteGuardado);
+		} else {
+			log.warn("Ha ocurrido un error al guardar Paciente");
+			throw new ResourceNotSavedException("No se pudo guardar el paciente.");
+
 		}
-		throw new ResourceNotSavedException("No se pudo guardar el paciente.");
+
 
 
 	}
@@ -49,6 +53,7 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 		if (pacienteOptional.isPresent()) {
 			return this.mapeadorResponse(pacienteOptional.get());
 		}else {
+			log.warn("Ha ocurrido un error buscando al Paciente con id:" + id);
 			throw new ResourceNotFoundException("No se encuentra Paciente con el ID proporcionado: " + id);
 		}
 	}
@@ -62,6 +67,7 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 			throw new ResourceNotDeletedException("El Paciente no existe en la base de datos");
 		} else {
 			if ( pacienteRepository.findByPacienteTurno(id) > 0) {
+				log.warn("Ha ocurrido un error eliminando al Paciente con id:" + id);
 				throw new IntegrityConstraintViolationException("No se puede eliminar el Paciente porque tiene un Turno agendado.");
 			}
 			this.pacienteRepository.deleteById(id);
@@ -74,6 +80,7 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 		if (pacienteRequestDTO != null) {
 			this.pacienteRepository.save(mapearPacienteEntidad(pacienteRequestDTO));
 		} else {
+			log.warn("Ha ocurrido un error actualizando al Paciente.");
 			throw new ResourceNotUpdatedException("No se pudo actualizar el paciente con el ID:" + pacienteRequestDTO.getId());
 		}
 	}
@@ -83,8 +90,10 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 		if (!pacientes.isEmpty()) {
 
 			return mapearRegistros((pacientes));
+		} else {
+			log.warn("Ha ocurrido un error listando los Pacientes");
+			throw new ResourceNotFoundException("No se pueden listar los pacientes.");
 		}
-		throw new ResourceNotFoundException("No se pueden listar los pacientes.");
 }
 
 	@Override
@@ -118,14 +127,17 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 		}
 		if (pacienteOptional.isPresent()){
 			return pacienteOptional;
+		} else {
+			log.warn("Ha ocurrido un error en la busqueda personalizada de Pacientes");
+			throw new ResourceNotFoundException("Error en la busqueda personalizada de Pacientes.");
 		}
-		throw new ResourceNotFoundException("Error en la busqueda de Pacientes.");
 	}
 
 	@Override
 	public Optional<List<PacienteResponseDTOName>> listarTodosIDNombre() {
 		List<Paciente> listaPacientes = this.pacienteRepository.findAll();
 		if (listaPacientes == null || listaPacientes.isEmpty()) {
+			log.warn("Ha ocurrido un error en listando PacientesDTO");
 			throw new ResourceNotFoundException("Error en el metodo listarTodosIDNombre. No se pudo listar los Pacientes");
 		}
 

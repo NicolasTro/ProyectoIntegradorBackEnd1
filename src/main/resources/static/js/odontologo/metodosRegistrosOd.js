@@ -93,53 +93,53 @@ let tituloTabla = "<th scope='col'>Id</th>" + "<th scope='col'>Nombre</th>" + "<
 
 
 
-function validarCamposIngresados(formularioGenerico, mensaje) {
-	let formEspecifico = "#" + formularioGenerico.id;
+// function validarCamposIngresados(formularioGenerico, mensaje) {
+// 	let formEspecifico = "#" + formularioGenerico.id;
 
-	let listaInputsAValidar = document.querySelectorAll(".validacion");
-	let camposRequeridos = document.querySelectorAll(`${formEspecifico} [required]`);
+// 	let listaInputsAValidar = document.querySelectorAll(".validacion");
+// 	let camposRequeridos = document.querySelectorAll(`${formEspecifico} [required]`);
 
-	let contador = 0;
-	let retorno = false;
+// 	let contador = 0;
+// 	let retorno = false;
 
-	let idInput = 0;
-	listaInputsAValidar.forEach(input => {
-		idInput++;
-		input.id = idInput;
-	});
+// 	let idInput = 0;
+// 	listaInputsAValidar.forEach(input => {
+// 		idInput++;
+// 		input.id = idInput;
+// 	});
 
-	camposRequeridos.forEach(campo => {
-		let algo = document.getElementById(campo.id);
+// 	camposRequeridos.forEach(campo => {
+// 		let algo = document.getElementById(campo.id);
 
-		algo.setAttribute("data-content", "Campos invalidos");
-		if (campo.value.trim() == "") {
-			campo.style.border = "solid red 3px";
+// 		algo.setAttribute("data-content", "Campos invalidos");
+// 		if (campo.value.trim() == "") {
+// 			campo.style.border = "solid red 3px";
 
-			$("#" + campo.id).popover("show");
-		} else {
-			$("#" + campo.id).popover("hide");
-			campo.style.border = "none";
-			contador += 1;
-		}
-	});
+// 			$("#" + campo.id).popover("show");
+// 		} else {
+// 			$("#" + campo.id).popover("hide");
+// 			campo.style.border = "none";
+// 			contador += 1;
+// 		}
+// 	});
 
-	if (contador == camposRequeridos.length) {
-		retorno = true;
-	} else {
-		let errorAlert = '<div class="alert alert-danger alert-dismissible">' + '<button type="button" class="close" data-dismiss="alert">&times;</button>' + "<strong> Datos incorrectos</strong> </div>";
+// 	if (contador == camposRequeridos.length) {
+// 		retorno = true;
+// 	} else {
+// 		let errorAlert = '<div class="alert alert-danger alert-dismissible">' + '<button type="button" class="close" data-dismiss="alert">&times;</button>' + "<strong> Datos incorrectos</strong> </div>";
 
 		
-		let bloqueMensaje = document.querySelector(mensaje);
+// 		let bloqueMensaje = document.querySelector(mensaje);
 
-		bloqueMensaje.innerHTML = errorAlert;
-		let mostrarMensaje = document.querySelector(mensaje);
-		mostrarMensaje.style.display = "block";
-		setTimeout(function () {
-			bloqueMensaje.innerHTML = "";
-			mostrarMensaje.style.display = "none";
-			$("#" + campo.id).popover("hide");
-		}, 3000);
-	}
+// 		bloqueMensaje.innerHTML = errorAlert;
+// 		let mostrarMensaje = document.querySelector(mensaje);
+// 		mostrarMensaje.style.display = "block";
+// 		setTimeout(function () {
+// 			bloqueMensaje.innerHTML = "";
+// 			mostrarMensaje.style.display = "none";
+// 			$("#" + campo.id).popover("hide");
+// 		}, 3000);
+// 	}
 
-	return retorno;
-}
+// 	return retorno;
+// }

@@ -21,7 +21,7 @@ public class PacienteRequestDTO extends PacienteDTO {
     private Long id;
     private String apellido;
     private String dni;
-    private Date fechaIngreso;
+    private LocalDate fechaIngreso;
     private String calle;
     private Integer numero;
     private String localidad;

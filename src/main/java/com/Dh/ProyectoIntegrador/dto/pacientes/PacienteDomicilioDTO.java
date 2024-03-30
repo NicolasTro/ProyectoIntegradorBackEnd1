@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.sql.Date;
-
+import java.time.LocalDate;
 
 
 @Getter
@@ -22,7 +22,8 @@ public class PacienteDomicilioDTO extends PacienteDTO{
 	private Long id;
 	private String apellido;
 	private String dni;
-	private Date fechaIngreso;
+	//TODO hay que cambiar la fecha a string
+	private LocalDate fechaIngreso;
 	private String calle;
 	private Integer numero;
 	private String localidad;

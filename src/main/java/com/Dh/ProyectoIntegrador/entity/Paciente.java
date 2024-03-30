@@ -1,6 +1,7 @@
 package com.Dh.ProyectoIntegrador.entity;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -25,7 +26,7 @@ public class Paciente {
     private String nombre;
     private String apellido;
     private String dni;
-    private Date fechaIngreso;
+    private LocalDate fechaIngreso;
     @OneToOne(cascade = CascadeType.ALL)
 
     @JoinColumn(name = "domicilio_id")

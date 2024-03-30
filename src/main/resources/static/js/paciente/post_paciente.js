@@ -31,7 +31,7 @@ window.addEventListener("load", function () {
   };
 
   // console.log(body);
-  console.log("guardar paciente");
+  
   fetch(url, settings)
     .then((response)  => response.json())
     .then((data) => {

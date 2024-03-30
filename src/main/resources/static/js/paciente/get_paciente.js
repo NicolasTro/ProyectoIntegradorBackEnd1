@@ -18,8 +18,15 @@ function obtenerListaPacientes() {
 				}
 
 				let listaBtnModificarRegistros = document.querySelectorAll(".btnTablaModificar");
-				console.log(listaBtnModificarRegistros);
+				// console.log(listaBtnModificarRegistros);
 				let listaBtnEliminarRegistros = document.querySelectorAll(".btnTablaEliminar");
+				let listaBtnDomicilios = document.querySelectorAll("#masInfo");
+				// console.log(listaBtnDomicilios);
+
+
+cargarMasInfo(listaBtnDomicilios);
+
+
 
 				actualizarPaciente(listaBtnModificarRegistros);
 				eliminarPaciente(listaBtnEliminarRegistros);

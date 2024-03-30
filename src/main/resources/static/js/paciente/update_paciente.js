@@ -20,9 +20,14 @@ function actualizarPaciente(listaBtnModificarRegistros) {
 			$("#staticBackdropPacienteUpdate").modal("show");
 
 
-console.log(nombre);
-console.log(apellido);
-console.log(fechaIngreso);
+// console.log(nombre);
+// console.log(apellido);
+// console.log(dni);
+// console.log(fechaIngreso);
+// console.log(calle);
+// console.log(numero);
+// console.log(localidad);
+// console.log(provincia);
 
 			document.querySelector("#nombrePacienteUpdate").value = nombre;
 			document.querySelector("#apellidoPacienteUpdate").value = apellido;
@@ -35,9 +40,28 @@ console.log(fechaIngreso);
 			// document.querySelector("#domicilioProvinciaUpdate").value = provincia;
 
 			let formulario = document.querySelector("#updatePaciente");
+			// console.log(formulario);
 			if (formulario !== null) {
 				formulario.addEventListener("submit", function (event) {
 					event.preventDefault();
+
+
+
+
+
+
+
+let bandera = validarCamposIngresados(formulario, "#responsePatientUpdate");
+
+if(bandera){
+
+
+
+
+
+
+
+
 
 					const formData = {
 						id,
@@ -52,7 +76,9 @@ console.log(fechaIngreso);
 						provincia: document.querySelector("#domicilioProvinciaUpdate").value,
 					};
 
-					console.log(formData);
+					// console.log(formData);
+					
+
 					const url = "/pacientes/actualizar";
 					const settings = {
 						method: "PUT",
@@ -65,7 +91,7 @@ console.log(fechaIngreso);
 					fetch(url, settings)
 						.then(response => response.json())
 						.then(data => {
-							console.log(data);
+							
 							let successAlert = '<div class="alert alert-success alert-dismissible">' + '<button type="button" class="close" data-dismiss="alert">&times;</button>' + "<strong></strong> Paciente Actualizado </div>";
 
 							document.querySelector("#responsePatientUpdate").innerHTML = successAlert;
@@ -76,6 +102,11 @@ console.log(fechaIngreso);
 							document.querySelector("#responsePatientUpdate").innerHTML = errorAlert;
 							document.querySelector("#responsePatientUpdate").style.display = "block";
 						});
+
+					}
+
+
+
 				});
 			}
 		});

@@ -17,7 +17,6 @@ window.addEventListener("load", function () {
 			event.preventDefault();
 			clearTabla();
 			tablaNueva(tituloTablaPacientes);
-			
 
 			iconosDeCarga.style.visibility = "visible";
 
@@ -75,7 +74,7 @@ window.addEventListener("load", function () {
 
 			clearTabla();
 			tablaNueva(tituloTablaPacientes);
-			
+
 			iconosDeCarga.style.visibility = "visible";
 
 			setTimeout(function () {
@@ -84,41 +83,49 @@ window.addEventListener("load", function () {
 			}, 3000);
 		});
 	}
-	document.addEventListener("click", function (e) {
-		if (e.target instanceof HTMLButtonElement) {
-			var popover = new bootstrap.Popover(e.target);
+	// document.addEventListener("click", function (e) {
+	// 	if (e.target instanceof HTMLButtonElement) {
+	// 		var popover = new bootstrap.Popover(e.target);
 
-			popover.show();
+	// 		popover.show();
 
-			setTimeout(function () {
-				popover.hide();
-			}, 1000);
-		}
-	});
-
-	(function () {
-		let pathname = window.location.pathname;
-		if (pathname == "/pacienteLista.html") {
-			document.querySelector(".nav .nav-item a:last").addClass("active");
-		}
-	});
+	// 		setTimeout(function () {
+	// 			popover.hide();
+	// 		}, 1000);
+	// 	}
+	// });
 });
 
-
-
-
-
 function cargarRegistro(patient) {
-	console.log(patient);
+	
 	return `<td class="td_id align-middle tamanioTexto">${patient.id}</td><td class="td_nombre align-middle tamanioTexto">${patient.nombre.toUpperCase()}</td><td class="td_apellido align-middle tamanioTexto">${patient.apellido.toUpperCase()}</td>
                                         <td class="td_dni align-middle tamanioTexto">${patient.dni}</td>
                                         <td class="td_fecha align-middle tamanioTexto">${patient.fechaIngreso}</td>
-                                        <td class="td_domicilio align-middle tamanioTexto"><button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modalDomicilio">
+                                        <td class="td_domicilio align-middle tamanioTexto"><button type="button" class="btn btn-dark masInfo" data-toggle="modal" data-target="#modalDomicilio" id='masInfo'     data-calle='${patient.calle}'  data-numero='${patient.numero}' data-localidad='${
+		patient.localidad
+	}' data-provincia='${patient.provincia}'>
 										mas Info</button></td><td td_btn align-middle tamanioTexto><div class="dropdown"><button class='btn btn-dark dropdown-toggle' type='button' data-toggle='dropdown' aria-expanded='false'></button>
                                             <div class='dropdown-menu traerAlFrente'>
-											<button type='button' data-id='${patient.id}' data-nombre='${patient.nombre}' data-apellido='${patient.apellido}' data-dni='${patient.dni}' data-fechaIngreso='${patient.fechaIngreso}' data-domicilioid='${patient.domicilio_id}' data-calle='${patient.calle}' data-numero='${patient.localidad}' data-provincia='${patient.provincia}'  class='btn btn-primary btnTabla btnTablaModificar dropdown-item' data-toggle='modal' data-target='#staticBackdropPacienteUpdate'>Modificar</button>
+											<button type='button' data-id='${patient.id}' data-nombre='${patient.nombre}' data-apellido='${patient.apellido}' data-dni='${patient.dni}' data-fechaIngreso='${patient.fechaIngreso}' data-domicilioid='${patient.domicilio_id}' data-calle='${patient.calle}' data-numero='${
+		patient.numero
+	}' data-localidad='${patient.localidad}' data-provincia='${patient.provincia}'  class='btn btn-primary btnTabla btnTablaModificar dropdown-item' data-toggle='modal' data-target='#staticBackdropPacienteUpdate'>Modificar</button>
                                             <button type='button' data-id='${patient.id}'  class='btn btn-primary dropdown-item btnTablaEliminar' data-target='#staticBackdropPacienteDelete' data-toggle='modal'>Eliminar</button>
                                             </div>
                                           </div>
                                         </td>`;
+}
+
+function cargarMasInfo(listaBtnDomicilios) {
+	listaBtnDomicilios.forEach(boton => {
+		
+		boton.addEventListener("click", function () {
+			$("#modalDomicilio").modal("show");
+
+			document.querySelector("#domicilioCalleModal").value = boton.dataset.calle;
+
+			document.querySelector("#domicilioNumeroModal").value = boton.dataset.numero;
+			document.querySelector("#domicilioLocalidadModal").value = boton.dataset.localidad;
+			document.querySelector("#domicilioProvinciaModal").value = boton.dataset.provincia;
+		});
+	});
 }

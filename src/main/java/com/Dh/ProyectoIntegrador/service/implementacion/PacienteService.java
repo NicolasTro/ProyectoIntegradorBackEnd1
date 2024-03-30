@@ -4,8 +4,7 @@ import com.Dh.ProyectoIntegrador.dto.pacientes.PacienteDomicilioDTO;
 import com.Dh.ProyectoIntegrador.dto.pacientes.response.PacienteResponseDTOName;
 import com.Dh.ProyectoIntegrador.entity.Domicilio;
 import com.Dh.ProyectoIntegrador.entity.Paciente;
-import com.Dh.ProyectoIntegrador.excepciones.PacienteNotFoundException;
-import com.Dh.ProyectoIntegrador.excepciones.PacienteNotSavedException;
+import com.Dh.ProyectoIntegrador.excepciones.*;
 import com.Dh.ProyectoIntegrador.repository.IPacienteRepository;
 import com.Dh.ProyectoIntegrador.service.IService;
 import com.Dh.ProyectoIntegrador.service.IServiceDTO;
@@ -39,7 +38,7 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 		if (pacienteGuardado != null) {
 			return mapeadorResponse(pacienteGuardado);
 		} else {
-			throw new PacienteNotSavedException("No se pudo guardar el paciente.");
+			throw new ResourceNotSavedException("No se pudo guardar el paciente.");
 		}
 
 
@@ -50,7 +49,7 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 		if (pacienteOptional.isPresent()) {
 			return this.mapeadorResponse(pacienteOptional.get());
 		}else {
-			throw new PacienteNotFoundException("No se encuentra Paciente con el ID proporcionado: " + id);
+			throw new ResourceNotFoundException("No se encuentra Paciente con el ID proporcionado: " + id);
 		}
 	}
 
@@ -60,7 +59,7 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 
 	public void eliminar(Long id) {
 		if (!pacienteRepository.existsById(id)) {
-			throw new PacienteNotFoundException("No se puede eliminar el Paciente con id:");
+			throw new ResourceNotDeletedException("No se puede eliminar el Paciente con id:");
 		}
 		this.pacienteRepository.deleteById(id);
 	}
@@ -71,7 +70,7 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 		if (pacienteRequestDTO != null) {
 			this.pacienteRepository.save(mapearPacienteEntidad(pacienteRequestDTO));
 		} else {
-			throw new PacienteNotSavedException("No se pudo actualizar el paciente con el ID:" + pacienteRequestDTO.getId());
+			throw new ResourceNotUpdatedException("No se pudo actualizar el paciente con el ID:" + pacienteRequestDTO.getId());
 		}
 	}
 @Override
@@ -81,7 +80,7 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 
 			return mapearRegistros((pacientes));
 		}
-		throw new PacienteNotFoundException("No se pueden listar los pacientes.");
+		throw new ResourceNotFoundException("No se pueden listar los pacientes.");
 }
 
 	@Override
@@ -120,7 +119,7 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 	public Optional<List<PacienteResponseDTOName>> listarTodosIDNombre() {
 		List<Paciente> listaPacientes = this.pacienteRepository.findAll();
 		if (listaPacientes == null || listaPacientes.isEmpty()) {
-			throw new PacienteNotFoundException("Error en el metodo listarTodosIDNombre. No se pudo listar los Pacientes");
+			throw new ResourceNotFoundException("Error en el metodo listarTodosIDNombre. No se pudo listar los Pacientes");
 		}
 
 		List<PacienteResponseDTOName> listaPacientesDTO = new ArrayList<>();

@@ -34,6 +34,7 @@ public class TurnoController {
 		this.turnoIServiceHQL = turnoIServiceHQL;
 		this.turnoIServiceDTO = turnoIServiceDTO;
 	}
+	//TODO QUE PASA CON ESTO!!!!!!!!!!!!!!
 	@GetMapping("/buscar")
 	public ResponseEntity<TurnoDTO> buscar(@RequestParam("valor") String valor, @RequestParam("tipoDeBusqueda") Integer tipoDeBusqueda) {
 		ResponseEntity response =  null;
@@ -66,6 +67,7 @@ public class TurnoController {
 		return response;
 	}
 
+	//TODO arreglar actualizar y envido de datos vacio. Y validar campos
 	@PutMapping("/actualizar")
 	public ResponseEntity<TurnoDTO> actualizar(@RequestBody TurnoRequestDTO turnoRequestDTO) {
 		ResponseEntity<TurnoDTO> response = null;

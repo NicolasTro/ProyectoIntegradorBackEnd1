@@ -1,9 +1,5 @@
 package com.Dh.ProyectoIntegrador;
 
-import com.Dh.ProyectoIntegrador.excepciones.OdontologoNotFoundException;
-import com.Dh.ProyectoIntegrador.excepciones.PacienteNotFoundException;
-import com.Dh.ProyectoIntegrador.excepciones.TurnoNotFoundException;
-
 public class Main {
 	public static void main(String[] args){
 //		BD.crearTablas();

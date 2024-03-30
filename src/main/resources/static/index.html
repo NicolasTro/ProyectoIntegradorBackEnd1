@@ -51,7 +51,7 @@
 							<li class="nav-item dropdown">
 								<a class="nav-link active dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false"> Gestion Turnos </a>
 								<div class="dropdown-menu">
-									<button type="button" class="btn dropdown-item" data-toggle="modal" data-target="#staticBackdropTurno">Registrar</button>
+									<button type="button" id="btnRegistrarTurnos" class="btn dropdown-item" data-toggle="modal" data-target="#staticBackdropTurno">Registrar</button>
 									<a class="dropdown-item" href="turnoLista.html">Listar</a>
 								</div>
 							</li>
@@ -182,18 +182,24 @@
 									<h3>Ingreso de datos</h3>
 									<form id="agregarTurno">
 										<div class="form-group">
-											<label class="control-label" for="odontologoID">ID del Odontologo:</label>
-											<input type="text" class="form-control" id="odontologoID" placeholder="Ingrese el ID del Odontologo" name="odontologoID" required />
+											<label class="control-label" for="comboTurnoPaciente">Paciente:</label>
+											<!-- <input type="text" class="form-control" id="turnoPaciente" placeholder="Ingrese el identificador del Paciente" name="turnoPaciente" required /> -->
+											<div class="contenedorComboPacientes">
+												<select class="comboTurnoPaciente form-control" id="comboTurnoPaciente" required></select>
+											</div>
 										</div>
 										<div class="form-group">
-											<label class="control-label" for="pacienteID">ID del Paciente:</label>
-											<input type="text" class="form-control" id="pacienteID" placeholder="Ingrese el ID del Paciente" name="pacienteID" required />
+											<label class="control-label" for="comboTurnoOdontologo">Odontologo:</label>
+											<!-- <input type="text" class="form-control" id="turnoOdontologo" placeholder="Ingrese el identificador del Odontologo" name="turnoOdontologo" required /> -->
+											<div class="contenedorComboOdontologo">
+												<select class="comboTurnoOdontologo form-control" id="comboTurnoOdontologo" required></select>
+											</div>
 										</div>
 
 										<div class="form-group">
 											<label class="control-label" for="fechaTurno">FechaYHora:</label>
 
-											<input type="datetime-local" class="form-control" id="fechaTurno" name="fechaTurno" required />
+											<input type="datetime-local" class="form-control" id="turnoFecha" name="fechaTurno" required />
 										</div>
 										<div class="modal-footer">
 											<button type="submit" class="btn btn-primary">Guardar</button>
@@ -216,4 +222,6 @@
 	<script text="text/javascript" src="js/odontologo/post_odontologo.js"></script>
 	<script text="text/javascript" src="js/paciente/post_paciente.js"></script>
 	<script text="text/javascript" src="js/turno/post_turno.js"></script>
+	<script text="text/javascript" src="js/turno/get_turno.js"></script>
+
 </html>

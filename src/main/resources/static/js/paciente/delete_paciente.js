@@ -1,52 +1,47 @@
-window.addEventListener('load', function(e){
+function eliminarPaciente(listaBtnEliminar) {
+	listaBtnEliminar.forEach((botonEliminar) => {
+		let idBtn;
+		idBtn = botonEliminar.dataset.id;
 
-    let id;
+		botonEliminar.addEventListener("click", function () {
+			$("#staticBackdropPacienteDelete").modal("show");
 
-    let listaBtnEliminar = document.querySelectorAll("btnTabla")
-    document.addEventListener('click', function(e){
+			let btnConfirmarEliminar = document.querySelector("#confirmarPacienteDelete");
 
-        if(e.target instanceof(HTMLButtonElement)){
+			btnConfirmarEliminar.addEventListener("click", function (event) {
+				event.preventDefault();
 
-            if(e.target.textContent=="Eliminar"){
-                id = e.target.dataset.id;
+				// eliminarPaciente(idBtn);
+				console.log("entro a eliminar");
+				const url = "/pacientes/eliminar/" + idBtn;
 
-                const url = '/pacientes/eliminar/' + id;
-                const settings = {
-                    method: 'DELETE',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                };
+				console.log(url);
+				const settings = {
+					method: "DELETE",
+					headers: {
+						"Content-Type": "application/json",
+					},
+				};
 
-                fetch(url, settings)
-                    .then(response => response.json())
-                    .then(data => {
-                        cargarLista();
-                        let successAlert = '<div class="alert alert-success alert-dismissible">' +
-                            '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
-                            '<strong></strong> Paciente Actualizado </div>';
+				fetch(url, settings)
+					.then((response) => response.json())
+					.then((data) => {
+						
+						let successAlert = '<div class="alert alert-success alert-dismissible">' + '<button type="button" class="close" data-dismiss="alert">&times;</button>' + "<strong></strong> Paciente Actualizado </div>";
 
-                        document.querySelector('#responsePatient').innerHTML = successAlert;
-                        document.querySelector('#responsePatient').style.display = "block";
-                    })
-                    .catch(error => {
-                        let errorAlert = "<div class='alert alert-danger alert-dismissible'>" +
-                            "<button type='button' class='close' data-dismiss='alert'>&times;</button>" +
-                            "<strong> Error intente nuevamente</strong></div>";
+						document.querySelector("#responsePatient").innerHTML = successAlert;
+						document.querySelector("#responsePatient").style.display = "block";
+					})
+					.catch((error) => {
+						let errorAlert = "<div class='alert alert-danger alert-dismissible'>" + "<button type='button' class='close' data-dismiss='alert'>&times;</button>" + "<strong> Error intente nuevamente</strong></div>";
 
-                        document.querySelector('#responsePatient').innerHTML = errorAlert;
-                        document.querySelector('#responsePatient').style.display = "block";
-                    });
-            }
-        }
-    });
+						document.querySelector("#responsePatient").innerHTML = errorAlert;
+						document.querySelector("#responsePatient").style.display = "block";
+					});
 
-    (function(){
-        let pathname = window.location.pathname;
-        if(pathname === "/"){
-            document.querySelector(".nav .nav-item a:first").addClass("active");
-        } else if (pathname == "/odotologoLista.html") {
-            document.querySelector(".nav .nav-item a:last").addClass("active");
-        }
-    });
-});
+				location.reload();
+				$("#staticBackdropPacienteDelete").modal("hide");
+			});
+		});
+	});
+}

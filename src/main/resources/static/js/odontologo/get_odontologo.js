@@ -1,4 +1,3 @@
-
 function obtenerListaOdontologos() {
 	const url = "/odontologos/listar";
 	const settings = {
@@ -10,13 +9,18 @@ function obtenerListaOdontologos() {
 		.then((data) => {
 			if (data.length > 0) {
 				let body = document.getElementById("cuerpoTabla");
-				
+
 				for (dentist of data) {
 					dentistRow = body.insertRow();
 					let tr_id = "tr_" + dentist.id;
 					dentistRow.id = tr_id;
 					dentistRow.innerHTML = cargarRegistro(dentist);
 				}
+
+				let listaBtnEliminar = document.querySelectorAll(".btnTablaEliminar");
+
+				eliminarOdontologo(listaBtnEliminar);
+
 				
 			} else {
 				noSeEncontraronRegistros();
@@ -30,10 +34,9 @@ function obtenerListaOdontologos() {
 function busquedaOdontologoPersonalizada() {
 	let tipoDeBusqueda = document.getElementById("comboBusqueda");
 	let valorBusqueda = document.getElementById("search");
-	
 
 	const url = `/odontologos/buscar?valor=${valorBusqueda.value}&tipoDeBusqueda=${tipoDeBusqueda.value}`;
-	
+
 	const settings = {
 		method: "GET",
 	};
@@ -43,12 +46,10 @@ function busquedaOdontologoPersonalizada() {
 		.then((data) => {
 			clearTabla();
 			tablaNueva(tituloTabla);
-			
 
 			if (data.length == 1) {
-				
 				let tablaBody = document.getElementById("cuerpoTabla");
-				
+
 				tablaBody.innerHTML = "";
 				let dentistRow = tablaBody.insertRow();
 
@@ -58,7 +59,7 @@ function busquedaOdontologoPersonalizada() {
 				dentistRow.innerHTML = cargarRegistro(data[0]);
 			} else if (data.length > 1) {
 				let body = document.getElementById("cuerpoTabla");
-				
+
 				for (dentist of data) {
 					dentistRow = body.insertRow();
 					let tr_id = "tr_" + dentist.id;
@@ -71,8 +72,5 @@ function busquedaOdontologoPersonalizada() {
 		})
 		.catch((error) => {
 			noSeEncontraronRegistros();
-			
 		});
-
-
-    }
+}

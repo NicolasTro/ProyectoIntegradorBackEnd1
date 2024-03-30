@@ -1,183 +1,201 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <title>Clinica Odontologica</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="./css/stylesTurno.css" />
+	<head>
+		<title>Clinica Odontologica</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="./css/stylesTurno.css" />
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-  </head>
-  <body>
-    <header>
-      <nav class="navbar navbar-dark bg-dark">
-        <a class="navbar-brand" href="index.html">
-          <img src="./images/Logo_Muela-removebg-preview.png" width="70" height="70" class="d-inline-block align-center" alt="" />
-          Clinica Odontologica
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </nav>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<header>
+			<nav class="navbar navbar-dark bg-dark">
+				<a class="navbar-brand" href="index.html">
+					<img src="./images/Logo_Muela-removebg-preview.png" width="70" height="70" class="d-inline-block align-center" alt="" />
+					Clinica Odontologica
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+			</nav>
 
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-        <a class="navbar-brand" href="#"></a>
+			<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+				<a class="navbar-brand" href="#"></a>
 
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-              <!-- <a class="nav-link" href="./index.html">Inicio <span class="sr-only">(current)</span></a> -->
-              <a class="nav-link active" href="./index.html" role="button" aria-expanded="false"> Inicio </a>
-            </li>
-            <li>
-              <a class="nav-link active" href="./odontologoLista.html" role="button" aria-expanded="false"> Gestion Odontologos </a>
-            </li>
-            <li>
-              <a class="nav-link active" href="./pacienteLista.html" role="button" aria-expanded="false"> Gestion Pacientes </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </header>
-    <main>
-      <div class="contenedor">
-        <div class="fondo">
-          <div class="container-fluid contenedorTablita">
-            <div class="tablaRegistros">
-              <div class="tablaRegistros container-fluid">
-                <div id="listado" class="listado">
-                  <div class="headerTablita">
-                    <h1 class="tituloTablita">Listado de Turnos</h1>
+				<div class="collapse navbar-collapse" id="navbarNavDropdown">
+					<ul class="navbar-nav">
+						<li class="nav-item active">
+							<!-- <a class="nav-link" href="./index.html">Inicio <span class="sr-only">(current)</span></a> -->
+							<a class="nav-link active" href="./index.html" role="button" aria-expanded="false"> Inicio </a>
+						</li>
+						<li>
+							<a class="nav-link active" href="./odontologoLista.html" role="button" aria-expanded="false"> Gestion Odontologos </a>
+						</li>
+						<li>
+							<a class="nav-link active" href="./pacienteLista.html" role="button" aria-expanded="false"> Gestion Pacientes </a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		<main>
+			<div class="contenedor">
+				<div class="fondo">
+					<div class="container-fluid contenedorTablita">
+						<div class="tablaRegistros">
+							<div class="tablaRegistros container-fluid">
+								<div id="listado" class="listado">
+									<div class="headerTablita">
+										<h1 class="tituloTablita">Listado de Turnos</h1>
 
-                    <div class="navDeRegistros">
-                      <div class="botones">
-                        <button type="button" class="btn btn-dark tituloTablita btnRegistrarHeader" data-toggle="modal" data-target="#staticBackdropTurno" id="btnRegistrarTurno">Registrar Turno</button>
-                      </div>
+										<div class="navDeRegistros">
+											<div class="botones">
+												<button type="button" class="btn btn-dark tituloTablita btnRegistrarHeader" data-toggle="modal" data-target="#staticBackdropTurno" id="btnRegistrarTurno">Registrar Turno</button>
+											</div>
 
-                      <fieldset>
-                        <legend>Busqueda de turnos</legend>
-                        <div class="formBusqueda">
-                          <form class="form-inline my-2 my-lg-0 busqueda" id="formBusqueda">
-                            <input class="form-control mr-sm-2 idBusqueda" id="search" type="search" placeholder="Buscar" aria-label="Search" />
-                            <div class="btn-group">
-                              <select class="btn btn-dark dropdown-toggle comboBusqueda" id="comboBusqueda">
-                                <option value="1">Por: Id</option>
-                                <option value="2">Por: Odontologo</option>
-                                <option value="3">Por: Paciente</option>
-                                <option value="4">Por: Fecha y hora</option>
-                              </select>
+											<fieldset>
+												<legend>Busqueda de turnos</legend>
+												<div class="formBusqueda">
+													<form class="form-inline my-2 my-lg-0 busqueda" id="formBusqueda">
+														<input class="form-control mr-sm-2 idBusqueda" id="search" type="search" placeholder="Buscar" aria-label="Search" />
+														<div class="btn-group">
+															<select class="btn btn-dark dropdown-toggle comboBusqueda" id="comboBusqueda">
+																<option value="1">Por: Id</option>
+																<option value="2">Por: Odontologo</option>
+																<option value="3">Por: Paciente</option>
+																<option value="4">Por: Fecha y hora</option>
+															</select>
 
-                              <button type="button" class="btn btn-dark btn-group btnListarHeader">Reset</button>
-                              <button class="btn btn-dark btn-group" type="submit">Buscar</button>
-                            </div>
-                          </form>
-                        </div>
-                      </fieldset>
-                    </div>
-                  </div>
+															<button type="button" class="btn btn-dark btn-group btnListarHeader">Reset</button>
+															<button class="btn btn-dark btn-group" type="submit">Buscar</button>
+														</div>
+													</form>
+												</div>
+											</fieldset>
+										</div>
+									</div>
 
-                  <!-- <table id="turnoTable" class="registros table table-striped table-responsive"></table> -->
-                  <table id="tablaDeRegistros" class="registros table table-striped table-responsive"></table>
-                  <div class="cargando" id="cargando">
-                    <div class="spinner-grow text-primary" role="status">
+									<!-- <table id="turnoTable" class="registros table table-striped table-responsive"></table> -->
+									<table id="tablaDeRegistros" class="registros table table-striped table-responsive"></table>
+									<div class="cargando" id="cargando">
+										<div class="spinner-grow text-primary" role="status"></div>
+										<div class="spinner-grow text-primary" role="status"></div>
+										<div class="spinner-grow text-primary" role="status"></div>
+									</div>
 
-                    </div>
-                    <div class="spinner-grow text-primary" role="status">
+									<!--                  MODAL REGISTRO-->
+									<div class="modal fade" id="staticBackdropTurno" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelTurno" aria-hidden="true">
+										<div class="modal-dialog">
+											<div class="modal-content" style="background-color: #63aae5">
+												<div class="modal-header" style="color: #ffffff">
+													<h3 class="modal-title" id="staticBackdropLabelTurno">Registro de Turnos</h3>
+													<button type="button" class="close" data-dismiss="modal" style="padding: 1.5rem 1.5rem; color: #ffffff" aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
+												</div>
+												<div class="modal-body">
+													<div style="background-color: #c0d6f3; padding: 10px; border-radius: 3px">
+														<h5>Ingreso de datos</h5>
+														<form id="agregarTurno">
+															<div class="form-group">
+																<label class="control-label" for="comboTurnoPaciente">Paciente:</label>
+																<!-- <input type="text" class="form-control" id="turnoPaciente" placeholder="Ingrese el identificador del Paciente" name="turnoPaciente" required /> -->
+																<div class="contenedorComboPacientes">
+																	<select class="comboTurnoPaciente form-control" id="comboTurnoPaciente" required></select>
+																</div>
+															</div>
+															<div class="form-group">
+																<label class="control-label" for="comboTurnoOdontologo">Odontologo:</label>
+																<!-- <input type="text" class="form-control" id="turnoOdontologo" placeholder="Ingrese el identificador del Odontologo" name="turnoOdontologo" required /> -->
+																<div class="contenedorComboOdontologo">
+																	<select class="comboTurnoOdontologo form-control" id="comboTurnoOdontologo" required></select>
+																</div>
+															</div>
 
-                    </div>
-                    <div class="spinner-grow text-primary" role="status">
+															<div class="form-group">
+																<label class="control-label" for="turnoFecha">Fecha Y Hora:</label>
+																<input type="datetime-local" class="form-control" id="turnoFecha" placeholder="Ingrese la fecha para el turno" name="turnoFecha" required />
+															</div>
+															<div class="modal-footer">
+																<button type="submit" class="btn btn-primary">Guardar</button>
+																<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+															</div>
+														</form>
+														<div id="responseTurno" style="display: none; margin-top: 10px"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!--                  MODAL ACTUALIZAR-->
+									<div class="modal fade" id="staticBackdropTurnoUpdate" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelUpTurno" aria-hidden="true">
+										<div class="modal-dialog">
+											<div class="modal-content" style="background-color: #63aae5">
+												<div class="modal-header" style="color: #ffffff">
+													<h5 class="modal-title" id="staticBackdropLabelUp">Actualizar Turno</h5>
+													<button type="button" class="close" data-dismiss="modal" style="padding: 1.5rem 1.5rem; color: #ffffff" aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
+												</div>
+												<div class="modal-body">
+													<form id="formTurnoUpdate" style="background-color: #c0d6f3; padding: 10px; border-radius: 3px">
+														<div class="form-group">
+															<label for="pacienteUpdate">Ingresa el nuevo paciente</label>
+															<input type="text" class="form-control" id="pacienteUpdate" aria-describedby="emailHelp" placeholder="Paciente" />
+														</div>
+														<div class="form-group"><label for="odontologoUpdate">Ingresa el nuevo Odontologo</label><input type="text" class="form-control" id="odontologoUpdate" placeholder="Odontologo" /></div>
+														<div class="form-group"><label for="fechaUpdate">Ingresa la nueva Fecha</label><input type="datetime-local" class="form-control" id="fechaUpdate" placeholder="Fecha" /></div>
+														<div class="modal-footer"><button type="submit" class="btn btn-primary" id="actualizarBtn">Actualizar</button><button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar Actualizacion</button></div>
+													</form>
+													<div id="responseTurnoUpdate" style="display: none; margin-top: 10px"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
-                    </div>
-                  </div>
-
-
-<!--                  MODAL REGISTRO-->
-                  <div class="modal fade" id="staticBackdropTurno" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelTurno" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content " style="background-color: #63aae5;">
-                        <div class="modal-header" style="color: #ffffff;">
-                          <h3 class="modal-title" id="staticBackdropLabelTurno">Registro de Turnos </h3>
-                          <button type="button" class="close" data-dismiss="modal" style="padding: 1.5rem 1.5rem; color:#ffffff;"  aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
+			<div class="modal fade" id="staticBackdropTurnoDelete" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelDelete" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabelDelete">Eliminar Paciente</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
                         <div class="modal-body">
-                          <div style="background-color: #c0d6f3; padding: 10px; border-radius: 3px">
-                            <h5>Ingreso de datos</h5>
-                            <form id="agregarTurno">
-                              <div class="form-group">
-                                <label class="control-label" for="comboTurnoPaciente">Paciente:</label>
-                                <!-- <input type="text" class="form-control" id="turnoPaciente" placeholder="Ingrese el identificador del Paciente" name="turnoPaciente" required /> -->
-                                <select class=" comboTurnoPaciente" id="comboTurnoPaciente" required>
-                                  
-                                </select>
-                              </div>
-                              <div class="form-group">
-                                <label class="control-label" for="comboTurnoOdontologo">Odontologo:</label>
-                                <!-- <input type="text" class="form-control" id="turnoOdontologo" placeholder="Ingrese el identificador del Odontologo" name="turnoOdontologo" required /> -->
-                                <select class=" comboTurnoOdontologo" id="comboTurnoOdontologo" required>
-                                  
-                                </select>
-                              </div>
-
-                              <div class="form-group">
-                                <label class="control-label" for="turnoFecha">Fecha Y Hora:</label>
-                                <input type="datetime-local" class="form-control" id="turnoFecha" placeholder="Ingrese la fecha para el turno" name="turnoFecha" required />
-                              </div>
-                              <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary">Guardar</button>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                              </div>
-                            </form>
-                            <div id="responseTurno" style="display: none; margin-top: 10px"></div>
-                          </div>
+                            Seguro que desea eliminar el turno seleccionado?
                         </div>
-                      </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary btnCancelarTurno" data-dismiss="modal">No</button>
+                            <button type="submit" id="confirmarTurnoDelete" class="btn btn-danger btnTabla">Eliminar</button>
+                        </div>                        
                     </div>
-                  </div>
-<!--                  MODAL ACTUALIZAR-->
-                  <div class="modal fade" id="staticBackdropTurnoUpdate" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelUpTurno" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content" style=" background-color: #63aae5;">
-                        <div class="modal-header" style="color: #ffffff;">
-                          <h5 class="modal-title" id="staticBackdropLabelUp">Actualizar Turno</h5>
-                          <button type="button" class="close" data-dismiss="modal" style="padding: 1.5rem 1.5rem; color:#ffffff;" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body" >
-                          <form id="formTurnoUpdate" style="background-color: #c0d6f3;padding: 10px; border-radius: 3px;">
-                            <div class="form-group">
-                              <label for="pacienteUpdate">Ingresa el nuevo paciente</label>
-                              <input type="text" class="form-control" id="pacienteUpdate" aria-describedby="emailHelp" placeholder="Paciente" />
-                            </div>
-                            <div class="form-group"><label for="odontologoUpdate">Ingresa el nuevo Odontologo</label><input type="text" class="form-control" id="odontologoUpdate" placeholder="Odontologo" /></div>
-                            <div class="form-group"><label for="fechaUpdate">Ingresa la nueva Fecha</label><input type="datetime-local" class="form-control" id="fechaUpdate" placeholder="Fecha" /></div>
-                            <div class="modal-footer">
-                              <button type="submit" class="btn btn-primary" id="actualizarBtn">Actualizar</button><button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar Actualizacion</button>
-                            </div>
-                          </form>
-                          <div id="responseTurnoUpdate" style="display: none; margin-top: 10px"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
-              </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </main>
-  </body>
 
-  <script text="text/javascript" src="js/metodosGenericos.js"></script>
-  <script text="text/javascript" src="js/turno/metodosRegistrosTur.js"></script>
-  <script text="text/javascript" src="js/turno/get_turno.js"></script>
-  <script text="text/javascript" src="js/turno/post_turno.js"></script>
-  <script text="text/javascript" src="js/turno/update_turno.js"></script>
-  <script text="text/javascript" src="js/turno/delete_turno.js"></script>
+
+
+
+
+
+
+		</main>
+	</body>
+
+	<script text="text/javascript" src="js/metodosGenericos.js"></script>
+	<script text="text/javascript" src="js/turno/metodosRegistrosTur.js"></script>
+	<script text="text/javascript" src="js/turno/get_turno.js"></script>
+	<script text="text/javascript" src="js/turno/post_turno.js"></script>
+	<script text="text/javascript" src="js/turno/update_turno.js"></script>
+	<script text="text/javascript" src="js/turno/delete_turno.js"></script>
 </html>

@@ -2,8 +2,7 @@ window.addEventListener("load", function () {
 	let formularioODIndex = document.getElementById("agregarDentista");
 	let formularioODLista = document.getElementById("agregarDentistaLista");
 
-	console.log(formularioODIndex);
-	console.log(formularioODLista);
+
 
 	if (formularioODIndex !== null) {
 		formularioODIndex.addEventListener("submit", function (event) {

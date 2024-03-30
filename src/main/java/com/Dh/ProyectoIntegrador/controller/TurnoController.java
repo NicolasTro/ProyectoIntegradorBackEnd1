@@ -64,7 +64,7 @@ public class TurnoController {
 	//	} catch (Exception e) {
 	//		return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
 	//	}
-		log.info("Guardando el Odontologo");
+		log.info("Guardando el Turno");
 		return new ResponseEntity(turno, HttpStatus.CREATED);
 	}
 
@@ -80,7 +80,7 @@ public class TurnoController {
 	//	} catch (Exception e) {
 	//		return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
 	//	}
-		log.info("Actualizando el Odontologo con ID:" + turnoRequestDTO.getId());
+		log.info("Actualizando el Turno con ID:" + turnoRequestDTO.getId());
 		return new ResponseEntity(turnoActualizar, HttpStatus.OK);
 	}
 
@@ -94,8 +94,8 @@ public class TurnoController {
 	//	} catch (Exception e) {
 	//		return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
 	//	}
-		log.info("Eliminando el Odontologo con ID:" + id);
-		return new ResponseEntity("Turno eliminado", HttpStatus.OK);
+		log.info("Eliminando el Turno con ID:" + id);
+		return new ResponseEntity(HttpStatus.OK);
 	}
 
 
@@ -112,7 +112,7 @@ public class TurnoController {
 	//	} catch (Exception e) {
 	//		return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
 	//	}
-		log.info("Buscando el Odontologo con ID:" + id);
+		log.info("Buscando el Turno con ID:" + id);
 		return new ResponseEntity(turnoEncontrado, HttpStatus.FOUND);
 	}
 
@@ -130,7 +130,7 @@ public class TurnoController {
 	//	} catch (Exception e) {
 	//		return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
 	//	}
-		log.info("Listando todos los Odontologos");
+		log.info("Listando todos los Turnos");
 		return new ResponseEntity(listaTurnos, HttpStatus.FOUND);
 	}@GetMapping("/listarDTO")
 
@@ -147,7 +147,7 @@ public class TurnoController {
 	//			response = new ResponseEntity<List<Paciente>>( HttpStatus.NOT_FOUND);
 	//		}
 	//	} catch (Exception e) {
-		log.info("Listando los OdontologoDTO");
+		log.info("Listando los PacientesDTO");
 			return new ResponseEntity(listaTurnos, HttpStatus.FOUND);
 	//	}
 	//	return response;

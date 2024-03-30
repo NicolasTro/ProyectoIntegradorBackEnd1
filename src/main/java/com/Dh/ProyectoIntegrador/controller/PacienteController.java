@@ -49,7 +49,7 @@ public class PacienteController {
 	//	} catch (Exception e) {
 	//		return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
 	//	}
-		log.info("Guardando Odontologo");
+		log.info("Guardando Pacientes");
 		return new ResponseEntity(pacienteGuardado, HttpStatus.CREATED);
 	}
 
@@ -68,7 +68,7 @@ public class PacienteController {
 	//	} catch (Exception e) {
 	//		return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
 	//	}
-		log.info("Buscando el Odontologo con ID:" + id);
+		log.info("Buscando el Pacientes con ID:" + id);
 		return new ResponseEntity(pacienteEnontrado, HttpStatus.FOUND);
 	}
 
@@ -79,7 +79,7 @@ public class PacienteController {
 			this.pacienteService.actualizar(paciente);
 
 			PacienteDTO actualizarPaciente = pacienteService.buscarPorId(paciente.getId());
-		log.info("Actualizando el Odontologo con ID:" + paciente.getId());
+		log.info("Actualizando el Pacientes con ID:" + paciente.getId());
 			return new ResponseEntity(actualizarPaciente, HttpStatus.OK);
 	//	} else {
 	//		return new ResponseEntity(HttpStatus.CONFLICT);
@@ -94,8 +94,8 @@ public class PacienteController {
 	//		response = new ResponseEntity("Error al eliminar Paciente.", HttpStatus.BAD_REQUEST);
 	//		return response;
 	//	}
-		log.info("Eliminando el Odontologo con ID:" + id);
-		return new ResponseEntity("Paciente eliminado correctamente.", HttpStatus.OK);
+		log.info("Eliminando el Pacientes con ID:" + id);
+		return new ResponseEntity(HttpStatus.OK);
 	}
 
 
@@ -114,7 +114,7 @@ public class PacienteController {
 	//	} catch (Exception e) {
 	//		return new ResponseEntity(HttpStatus.BAD_REQUEST);
 	//	}
-		log.info("Listando todos los Odontologos");
+		log.info("Listando todos los Pacientes");
 		return new ResponseEntity(listaPacientes, HttpStatus.FOUND);
 	}
 	@GetMapping("/listarDTO")
@@ -134,7 +134,7 @@ public class PacienteController {
 	//	} catch (Exception e) {
 	//		return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
 	//	}
-		log.info("Listando OdontologosDTO");
+		log.info("Listando PacientesDTO");
 		return new ResponseEntity(listaPacientes, HttpStatus.FOUND);
 	}
 
@@ -150,7 +150,7 @@ public class PacienteController {
 	//		}
 	//	}  catch (Exception  e) {
 
-		log.info("Busqueda personalizada de Odontologos con valor: " + valor + " y tipo de busqueda: " + tipoDeBusqueda);
+		log.info("Busqueda personalizada de  con valor: " + valor + " y tipo de busqueda: " + tipoDeBusqueda);
 			return new ResponseEntity(pacienteBuscar, HttpStatus.FOUND);
 	//	}
 	//	return response;

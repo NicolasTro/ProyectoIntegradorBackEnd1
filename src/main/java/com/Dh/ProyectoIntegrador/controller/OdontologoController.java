@@ -42,7 +42,6 @@ public class OdontologoController {
 			Optional<List<OdontologoDTO>> odontologoBuscar = odontologoIServiceHQL.buscarDatosCompletos(tipoDeBusqueda, valor);
 
 
-//		return new ResponseEntity<List<OdontologoDTO>>(odontologoBuscar.get(), HttpStatus.FOUND);
 	//		if (odontologoBuscar != null) {
 	//			response = new ResponseEntity<>(odontologoBuscar.get(), HttpStatus.FOUND);
 	//		} else {
@@ -166,7 +165,7 @@ public class OdontologoController {
 	//		return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
 	//	}
 		log.info("Eliminando Odontologo con ID:" + id);
-		return new ResponseEntity("Odontologo eliminado correctamente", HttpStatus.OK);
+		return new ResponseEntity(HttpStatus.OK);
 	}
 
 }

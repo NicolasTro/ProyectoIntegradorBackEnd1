@@ -217,17 +217,10 @@
 							<div style="background-color: #c0d6f3; padding: 10px; border-radius: 3px">
 								<h3>Ingreso de datos</h3>
 								<form id="agregarTurno">
-									<div class="form-group">
-										<label class="control-label" for="comboTurnoPaciente">Paciente:</label>
-										<!-- <input type="text" class="form-control" id="turnoPaciente" placeholder="Ingrese el identificador del Paciente" name="turnoPaciente" required /> -->
-										<div class="contenedorComboPacientes">
-											<select class="comboTurnoPaciente form-control" id="comboTurnoPaciente"
-												required></select>
-										</div>
-									</div>
+
 									<div class="form-group">
 										<label class="control-label" for="comboTurnoOdontologo">Odontologo:</label>
-										<!-- <input type="text" class="form-control" id="turnoOdontologo" placeholder="Ingrese el identificador del Odontologo" name="turnoOdontologo" required /> -->
+
 										<div class="contenedorComboOdontologo">
 											<select class="comboTurnoOdontologo form-control" id="comboTurnoOdontologo"
 												required></select>
@@ -235,9 +228,18 @@
 									</div>
 
 									<div class="form-group">
+										<label class="control-label" for="comboTurnoPaciente">Paciente:</label>
+
+										<div class="contenedorComboPacientes">
+											<select class="comboTurnoPaciente form-control" id="comboTurnoPaciente"
+												required></select>
+										</div>
+									</div>
+
+									<div class="form-group">
 										<label class="control-label" for="fechaTurno">FechaYHora:</label>
 
-										<input type="datetime-local" class="form-control" id="turnoFecha"
+										<input type="datetime-local" class="form-control inputFecha" id="turnoFecha"
 											name="fechaTurno" required />
 									</div>
 									<div class="modal-footer">

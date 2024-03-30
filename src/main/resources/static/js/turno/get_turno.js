@@ -7,8 +7,8 @@ function obtenerListaTurnos() {
 	};
 
 	return fetch(url, settings)
-		.then((response) => response.json())
-		.then((data) => {
+		.then(response => response.json())
+		.then(data => {
 			if (data.length > 0) {
 				let body = document.getElementById("cuerpoTabla");
 
@@ -19,13 +19,16 @@ function obtenerListaTurnos() {
 					turnoRow.innerHTML = cargarRegistro(turno);
 				}
 
+				let listaBtnModificarRegistros = document.querySelectorAll(".btnTablaModificar");
 				let listaBtnEliminarRegistros = document.querySelectorAll(".btnTablaEliminar");
+				// console.log(listaBtnModificarRegistros);
+				modificarTurno(listaBtnModificarRegistros);
 				eliminarTurno(listaBtnEliminarRegistros);
 			} else {
 				noSeEncontraronRegistros();
 			}
 		})
-		.catch((error) => {
+		.catch(error => {
 			noSeEncontraronRegistros();
 		});
 }
@@ -49,8 +52,8 @@ function busquedaPacientePersonalizado() {
 	};
 
 	return fetch(url, settings)
-		.then((response) => response.json())
-		.then((data) => {
+		.then(response => response.json())
+		.then(data => {
 			// clearTabla();
 			// tablaNueva();
 
@@ -73,21 +76,17 @@ function busquedaPacientePersonalizado() {
 					patientRow.id = tr_id;
 					patientRow.innerHTML = cargarRegistro(patient);
 				}
-
-
-
-				
 			} else {
 				noSeEncontraronRegistros();
 			}
 		})
-		.catch((error) => {
+		.catch(error => {
 			noSeEncontraronRegistros();
 		});
 }
 
 // ##############################################################################################################################
-function listarPacientes() {
+function listarPacientes(combolistaPacientes) {
 	const url = `/pacientes/listar`;
 
 	const settings = {
@@ -95,9 +94,10 @@ function listarPacientes() {
 	};
 
 	return fetch(url, settings)
-		.then((response) => response.json())
-		.then((data) => {
-			let comboPacientes = document.getElementById("comboTurnoPaciente");
+		.then(response => response.json())
+		.then(data => {
+			let comboPacientes = document.querySelector(combolistaPacientes);
+			// let comboPacientes = document.querySelector(".comboTurnoPaciente");
 
 			for (patient of data) {
 				let comboValor = document.createElement("option");
@@ -107,10 +107,10 @@ function listarPacientes() {
 				comboPacientes.appendChild(comboValor);
 			}
 		})
-		.catch((error) => {});
+		.catch(error => {});
 }
 
-function listarOdontologos() {
+function listarOdontologos(comboListaOdontologos) {
 	const url = `/odontologos/listarDTO`;
 
 	const settings = {
@@ -118,9 +118,11 @@ function listarOdontologos() {
 	};
 
 	return fetch(url, settings)
-		.then((response) => response.json())
-		.then((data) => {
-			let comboOdontologo = document.getElementById("comboTurnoOdontologo");
+		.then(response => response.json())
+		.then(data => {
+			let comboOdontologo = document.querySelector(comboListaOdontologos);
+			
+			
 
 			for (odontologo of data) {
 				let comboValor = document.createElement("option");
@@ -130,6 +132,5 @@ function listarOdontologos() {
 				comboOdontologo.appendChild(comboValor);
 			}
 		})
-		.catch((error) => {});
+		.catch(error => {});
 }
-

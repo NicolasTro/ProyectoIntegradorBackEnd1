@@ -1,15 +1,15 @@
 package com.Dh.ProyectoIntegrador.dto.pacientes.response;
 
 import com.Dh.ProyectoIntegrador.dto.pacientes.PacienteDTO;
-import com.Dh.ProyectoIntegrador.entity.Domicilio;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonUnwrapped;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.sql.Date;
+
 import java.time.LocalDate;
 
 @Getter

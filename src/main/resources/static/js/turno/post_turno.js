@@ -2,9 +2,16 @@ window.addEventListener("load", function () {
 	//Al cargar la pagina buscamos y obtenemos el formulario donde estarán
 	//los datos que el usuario cargará del nuevo odontólogo
 	const formulario = document.querySelector("#agregarTurno");
+	// const formularioIndex = document.querySelector("#");
+	
 
+
+
+
+	
 	//Ante un submit del formulario se ejecutará la siguiente funcion
 	formulario.addEventListener("submit", function (event) {
+		validarFecha();
 		event.preventDefault();
 
 		//creamos un JSON que tendrá los datos del nuevo odontólogo
@@ -27,8 +34,8 @@ window.addEventListener("load", function () {
 		};
 
 		fetch(url, settings)
-			.then((response) => response.json())
-			.then((data) => {
+			.then(response => response.json())
+			.then(data => {
 				//Si no hay ningun error se muestra un mensaje diciendo que el odontólogo
 				//se agrego bien
 				let successAlert = '<div class="alert alert-success alert-dismissible">' + '<button type="button" class="close" data-dismiss="alert">&times;</button>' + "<strong>Turno agregado </strong> </div>";
@@ -41,7 +48,7 @@ window.addEventListener("load", function () {
 				}, 1000);
 				location.reload();
 			})
-			.catch((error) => {
+			.catch(error => {
 				//Si hay algun error se muestra un mensaje diciendo que el odontólogo
 				//no se pudo guardar y se intente nuevamente
 				let errorAlert = '<div class="alert alert-danger alert-dismissible">' + '<button type="button" class="close" data-dismiss="alert">&times;</button>' + "<strong> Error intente nuevamente</strong> </div>";

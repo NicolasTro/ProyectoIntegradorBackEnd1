@@ -1,6 +1,7 @@
-
 window.addEventListener("load", function () {
-	
+
+
+
 });
 
 function cargarEncabezadoTabla(tituloTabla) {
@@ -83,30 +84,20 @@ function validarCamposIngresados(formularioGenerico, mensaje) {
 		input.id = idInput;
 	});
 
-
-
-
 	camposRequeridos.forEach(campo => {
+		campo.addEventListener("change", function () {
+			if (campo.value.trim() == "") {
+				let algo = document.getElementById(campo.id);
 
-campo.addEventListener("change", function(){
+				algo.setAttribute("data-content", "Campos invalidos");
+				campo.style.border = "solid red 3px";
 
-if(campo.value.trim() == ""){
-
-
-	 let algo = document.getElementById(campo.id);
-
-	algo.setAttribute("data-content", "Campos invalidos");
-	campo.style.border = "solid red 3px";
-
-		$("#" + campo.id).popover("show");
-}else{
-
-	$("#" + campo.id).popover("hide");
-		campo.style.border = "none";
-	}
-
-});
-
+				$("#" + campo.id).popover("show");
+			} else {
+				$("#" + campo.id).popover("hide");
+				campo.style.border = "none";
+			}
+		});
 
 		let algo = document.getElementById(campo.id);
 
@@ -124,11 +115,7 @@ if(campo.value.trim() == ""){
 		setTimeout(function () {
 			$("#" + campo.id).popover("hide");
 			campo.style.border = "none";
-			
 		}, 2000);
-
-
-
 	});
 
 	if (contador == camposRequeridos.length) {
@@ -136,7 +123,6 @@ if(campo.value.trim() == ""){
 	} else {
 		let errorAlert = '<div class="alert alert-danger alert-dismissible">' + '<button type="button" class="close" data-dismiss="alert">&times;</button>' + "<strong> Datos incorrectos</strong> </div>";
 
-		
 		let bloqueMensaje = document.querySelector(mensaje);
 
 		bloqueMensaje.innerHTML = errorAlert;
@@ -145,32 +131,45 @@ if(campo.value.trim() == ""){
 		setTimeout(function () {
 			bloqueMensaje.innerHTML = "";
 			mostrarMensaje.style.display = "none";
-			
 		}, 3000);
 	}
 
 	return retorno;
 }
 
-
-
-function validarInputNumerico(campoNumerico){
-
+function validarInputNumerico(campoNumerico) {
 	campoNumerico.addEventListener("keypress", function (event) {
-		
-			const codigoTecla = event.keyCode;
+		const codigoTecla = event.keyCode;
 
-			if (codigoTecla === 8 || (codigoTecla >= 48 && codigoTecla <= 57)) {
-				return true;
-			} else {
-				event.preventDefault();
-				return false;
-			}
-		
+		if (codigoTecla === 8 || (codigoTecla >= 48 && codigoTecla <= 57)) {
+			return true;
+		} else {
+			event.preventDefault();
+			return false;
+		}
 	});
+}
 
+function validarFecha() {
+	const ahora = new Date();
 
+	ahora.setMinutes(ahora.getMinutes() + 1);
 
+	const formatNumber = num => (num < 10 ? "0" + num : num);
 
+	const year = ahora.getFullYear();
+	const month = formatNumber(ahora.getMonth() + 1);
+	const day = formatNumber(ahora.getDate());
+	const hours = formatNumber(ahora.getHours());
+	const minutes = formatNumber(ahora.getMinutes());
 
+	const formattedDateTime = `${year}-${month}-${day}T${hours}:${minutes}`;
+
+	let inputFecha = document.querySelectorAll(".inputFecha");
+	
+
+	inputFecha.forEach(fecha => {
+		
+		fecha.min = formattedDateTime;
+	});
 }

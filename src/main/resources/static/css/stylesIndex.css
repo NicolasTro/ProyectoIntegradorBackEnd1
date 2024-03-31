@@ -5,12 +5,17 @@
   position: relative;
 }
 
+
+
 .imagenPrincipal {
   background-image: url("../images/beautiful-spacious-office-dentist.jpg");
   background-size: cover;
   background-position: center;
   height: 100vh;
 }
+
+
+
 
 @media (min-width: 0px) and (max-width: 991px) {  
   .navbar-toggler {

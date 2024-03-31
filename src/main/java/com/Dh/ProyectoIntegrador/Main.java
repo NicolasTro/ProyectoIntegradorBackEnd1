@@ -1,12 +1,7 @@
 package com.Dh.ProyectoIntegrador;
 
-import com.Dh.ProyectoIntegrador.Excepciones.DomicilioException;
-import com.Dh.ProyectoIntegrador.Excepciones.OdontologoException;
-import com.Dh.ProyectoIntegrador.Excepciones.PacienteException;
-import com.Dh.ProyectoIntegrador.Excepciones.TurnoException;
-
 public class Main {
-	public static void main(String[] args) throws OdontologoException, DomicilioException, PacienteException, TurnoException {
+	public static void main(String[] args){
 //		BD.crearTablas();
 
 

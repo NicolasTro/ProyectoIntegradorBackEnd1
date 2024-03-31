@@ -16,6 +16,12 @@
   visibility: hidden;
 }
 
+
+
+.dropdown .dropdown-toggle .dropdown-menu{
+  z-index: 1050;
+}
+
 .listado {
   box-shadow: 10px 10px 5px 5px rgba(0, 0, 0, 0.5);
   background-color: rgba(251, 251, 251, 0.7);

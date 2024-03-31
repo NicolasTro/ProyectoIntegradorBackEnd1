@@ -1,11 +1,15 @@
 package com.Dh.ProyectoIntegrador.service.implementacion;
 
-import com.Dh.ProyectoIntegrador.dto.response.OdontologoResponseDTO;
+import com.Dh.ProyectoIntegrador.dto.odontologos.OdontologoDTO;
+import com.Dh.ProyectoIntegrador.dto.odontologos.request.OdontologoRequestDTO;
+import com.Dh.ProyectoIntegrador.dto.odontologos.response.OdontologoResponseDTOFull;
+import com.Dh.ProyectoIntegrador.dto.odontologos.response.OdontologoResponseDTOName;
 import com.Dh.ProyectoIntegrador.entity.Odontologo;
 
+import com.Dh.ProyectoIntegrador.excepciones.*;
 import com.Dh.ProyectoIntegrador.repository.IOdontologoRepository;
 import com.Dh.ProyectoIntegrador.service.IService;
-import com.Dh.ProyectoIntegrador.service.IServiceDTOHQL;
+import com.Dh.ProyectoIntegrador.service.IServiceDTO;
 import com.Dh.ProyectoIntegrador.service.IServiceHQL;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -14,12 +18,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
 @Slf4j
 @Service
-public class OdontologoService implements IService<Odontologo>, IServiceHQL<Odontologo>, IServiceDTOHQL<OdontologoResponseDTO> {
+public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<OdontologoDTO>, IServiceDTO<OdontologoDTO> {
 
 	private IOdontologoRepository odontologoRepository;
 
@@ -28,87 +33,166 @@ public class OdontologoService implements IService<Odontologo>, IServiceHQL<Odon
 		this.odontologoRepository = odontologoRepository;
 	}
 
-	//  IServiceHQL
+	//METODOS CRUD
+
+	//##########################################################################################
+	// Método para guardar un nuevo Odontologo
 	@Override
-	public Optional<List<Odontologo>> buscar(Integer tipoDeBusqueda, String valor) {
-		Optional<List<Odontologo>> odontologoOptional = null;
-		switch (tipoDeBusqueda) {
+	public OdontologoDTO guardar(OdontologoDTO odontologoRequestDTO) {
+		Odontologo odontologoGuardado = odontologoRepository.save(mapeador(odontologoRequestDTO, Odontologo.class));
+		if (odontologoGuardado != null) {
+			return mapeador(odontologoGuardado, OdontologoResponseDTOFull.class);
+		} else {
+			log.warn("Ha ocurrido un error guardando Odontologo");
+			throw new ResourceNotSavedException("No se pudo guardar el Odontologo");
+		}
+	}
+
+	//##########################################################################################
+	// Método para eliminar un Odontologo por su ID
+	public void eliminar(Long id) {
+		if (!odontologoRepository.existsById(id)) {
+
+			log.warn("Ha ocurrido un error eliminando el Odontologo con ID: " + id);
+			throw new ResourceNotDeletedException("El Odontologo no existe en la Base de Datos.");
+		} else {
+			if (odontologoRepository.findByOdontologoTurno(id) > 0) {
+				log.warn("El Odontologo no se puede eliminar porque tiene un Turno. ID del turno: " + id);
+				throw new IntegrityConstraintViolationException("No se puede eliminar Odontologo porque tiene un Turno Agendado.");
+			}
+		}
+		this.odontologoRepository.deleteById(id);
+	}
+
+	//##########################################################################################
+	// Método para actualizar un Odontologo
+	@Override
+	public void actualizar(OdontologoDTO odontologoRequestDTO) {
+		if (odontologoRequestDTO != null) {
+
+			OdontologoRequestDTO odontologoABuscar = (OdontologoRequestDTO) odontologoRequestDTO;
+
+			OdontologoResponseDTOFull odontologBuscado = (OdontologoResponseDTOFull) this.buscarPorId(odontologoABuscar.getId());
+
+			if (odontologBuscado.getId()==odontologoABuscar.getId()) {
+
+				this.odontologoRepository.save(mapeador(odontologoRequestDTO, Odontologo.class));
+			} else {
+				log.warn("No se encuentra el registro para actualizar");
+				throw new ResourceNotFoundException("No se pudo encontrar el Odontologo");
+			}
+		} else {
+			log.warn("Ha ocurrido un error actualizando el Odontologo");
+			throw new ResourceNotUpdatedException("No se pudo actualizar el Odontologo");
+		}
+	}
+
+	//##########################################################################################
+	// Método para buscar un Odontologo por su ID
+	public OdontologoDTO buscarPorId(Long id) {
+		Optional<Odontologo> odontologoOptional = odontologoRepository.findById(id);
+		if (odontologoOptional.isPresent()) {
+			return this.mapeador(odontologoOptional.get(), OdontologoResponseDTOFull.class);
+		} else {
+			log.warn("Ha ocurrido un error buscando el Odontologo con ID: " + id);
+			throw new ResourceNotFoundException("No se encuentra Odontologo con el ID proporcionado: " + id);
+		}
+	}
+
+	//##########################################################################################
+	// Método para listar todos los Odontologos
+	@Override
+	public List<OdontologoDTO> listarTodos() {
+		List<Odontologo> odontologos = odontologoRepository.findAll();
+		if (!odontologos.isEmpty()) {
+			return mapearRegistros(odontologos);
+		} else {
+			log.warn("Ha ocurrido un error listando todos los Odontologos");
+			throw new ResourceNotFoundException("No se pueden listar los Odontologos");
+		}
+	}
+
+	//##########################################################################################
+	// Método para buscar Odontologos por parámetros personalizados
+	public Optional<List<OdontologoDTO>> buscarDatosCompletos(Integer tipoDeBusqueda, String valor) {
+		if(!valor.trim().equals("")){
+
+
+			Optional<List<OdontologoDTO>> odontologoOptional = null;
+			switch (tipoDeBusqueda) {
 
 			case 1:
 				Long id = Long.parseLong(valor);
 				Optional<Odontologo> odontologoEncontrado = this.odontologoRepository.findById(id);
-//				if (odontologoEncontrado.isPresent()) {
-				List<Odontologo> listaOdontologo = new ArrayList<>();
-				listaOdontologo.add(odontologoEncontrado.get());
-				odontologoOptional = Optional.of(listaOdontologo); // Envuelve la lista en un Optional
-//				}
+				if (odontologoEncontrado.isPresent()) {
+					List<OdontologoDTO> listaOdontologo = new ArrayList<>();
+					listaOdontologo.add(mapeador(odontologoEncontrado.get(), OdontologoResponseDTOFull.class));
+					odontologoOptional = Optional.of(listaOdontologo);
+				} else {
+					odontologoOptional = Optional.empty();
+				}
 				break;
 			case 2:
-				odontologoOptional = odontologoRepository.findByNombre(valor);
+				odontologoOptional = Optional.of(mapearRegistros(odontologoRepository.findByNombre(valor).get()));
 				break;
 			case 3:
-				odontologoOptional = odontologoRepository.findByApellido(valor);
+				odontologoOptional = Optional.of(mapearRegistros(odontologoRepository.findByApellido(valor).get()));
 				break;
 			case 4:
-				odontologoOptional = odontologoRepository.findByMatricula(valor);
+				odontologoOptional = Optional.of(mapearRegistros(odontologoRepository.findByMatricula(valor).get()));
 				break;
 			default:
 				break;
 		}
-		return odontologoOptional;
-	}
-
-
-	public Odontologo guardar(Odontologo odontologo) {
-		return odontologoRepository.save(odontologo);
-	}
-
-	public void eliminar(Long id) {
-		this.odontologoRepository.deleteById(id);
-	}
-
-	public void actualizar(Odontologo odontologo) {
-		this.odontologoRepository.save(odontologo);
-	}
-
-	public Odontologo buscarPorId(Long id) {
-		Optional<Odontologo> odontologoOptional = odontologoRepository.findById(id);
-		if (odontologoOptional.isPresent()) {
-			return odontologoOptional.get();
+		if (odontologoOptional.isPresent() && !odontologoOptional.get().isEmpty()) {
+			return odontologoOptional;
 		} else {
-			return null;
+			log.warn("Ha ocurrido un error en la busqueda personalizada de los Odontologos");
+			throw new ResourceNotFoundException("Error en la busqueda de Odontologos.");
+		}
+
+		}else{
+			log.warn("Ha ocurrido un error en la busqueda personalizada de los Odontologos");
+			throw new ResourceNotFoundException("Error en la busqueda de Odontologos.");
+
+
 		}
 	}
 
-
-
-
-	public List<Odontologo> listarTodos() {
-		return odontologoRepository.findAll();
-	}
-
-	@Override
-	public Optional<List<OdontologoResponseDTO>> listarTodosIDNombre() {
-
+	//##########################################################################################
+	// Método para listar todos los Odontologos en formato DTO
+	public Optional<List<OdontologoDTO>> listarTodosIDNombre() {
 		List<Odontologo> listaOdontologos = this.odontologoRepository.findAll();
-		List<OdontologoResponseDTO> listaOdontologosDTO = new ArrayList<>();
-
-
+		if (listaOdontologos == null || listaOdontologos.isEmpty()) {
+			log.warn("Ha ocurrido un error listando los OdontologosDTO");
+			throw new ResourceNotFoundException("Error en el metodo listarTodosIDNombre. No se pudo listar los Odontologos.");
+		}
+		List<OdontologoDTO> listaOdontologosDTO = new ArrayList<>();
 		listaOdontologos.forEach(odontologo -> {
-
-
-					ObjectMapper mapper = new ObjectMapper();
-					mapper.registerModule(new JavaTimeModule());
-					OdontologoResponseDTO odontologoDTO = mapper.convertValue(odontologo, OdontologoResponseDTO.class);
-					listaOdontologosDTO.add(odontologoDTO);
-				}
-
-
-		);
-
-
+			listaOdontologosDTO.add(mapeador(odontologo, OdontologoResponseDTOName.class));
+		});
 		return Optional.of(listaOdontologosDTO);
 	}
 
+
+	// Controladores/Mappers del Service.
+	// ######################################################################################
+	// Implementación de métodos privados de mapeo y controladores adicionales
+	private List<OdontologoDTO> mapearRegistros(List<Odontologo> listaOdontologos) {
+		if (!listaOdontologos.isEmpty()) {
+			List<OdontologoDTO> listaOdontologosDTO = new ArrayList<>();
+			listaOdontologos.forEach(odontologo -> {
+				listaOdontologosDTO.add(mapeador(odontologo, OdontologoResponseDTOFull.class));
+			});
+			return listaOdontologosDTO;
+		}
+		return Collections.emptyList();
+	}
+
+	private static <T> T mapeador(Object objetoAMapear, Class<T> clase) {
+		ObjectMapper mapper = new ObjectMapper();
+		mapper.registerModule(new JavaTimeModule());
+		return mapper.convertValue(objetoAMapear, clase);
+	}
 
 }

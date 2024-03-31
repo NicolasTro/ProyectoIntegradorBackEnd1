@@ -15,7 +15,7 @@ import org.springframework.cglib.core.Local;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
+//@ToString
 public class Turno {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

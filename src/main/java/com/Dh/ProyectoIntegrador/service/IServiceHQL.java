@@ -6,7 +6,10 @@ import java.util.Optional;
 
 public interface IServiceHQL<T> {
 
-    Optional<List<T>> buscar(Integer  tipoDeBusqueda, String valor);
+    // Este service es para el Endpoint de busqueda personalizada
+    Optional<List<T>> buscarDatosCompletos(Integer  tipoDeBusqueda, String valor);
+
+
 
 
 }

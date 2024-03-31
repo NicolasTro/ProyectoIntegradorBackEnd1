@@ -25,7 +25,7 @@ public class Odontologo {
 	private String apellido;
 	private String matricula;
 	@OneToMany(mappedBy = "odontologo")
-//	@JsonIgnoreProperties("turnoSet")
+	@JsonIgnoreProperties(ignoreUnknown = true)
 	private Set<Turno> turnoSet = new HashSet<>();
 
 

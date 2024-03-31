@@ -1,6 +1,7 @@
 package com.Dh.ProyectoIntegrador.service.implementacion;
 
 import com.Dh.ProyectoIntegrador.dto.odontologos.OdontologoDTO;
+import com.Dh.ProyectoIntegrador.dto.odontologos.request.OdontologoRequestDTO;
 import com.Dh.ProyectoIntegrador.dto.odontologos.response.OdontologoResponseDTOFull;
 import com.Dh.ProyectoIntegrador.dto.odontologos.response.OdontologoResponseDTOName;
 import com.Dh.ProyectoIntegrador.entity.Odontologo;
@@ -49,7 +50,7 @@ public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<O
 	//METODO ELIMINAR
 	/*###################################################################################################################*/
 	public void eliminar(Long id) {
-		if (!odontologoRepository.existsById(id)){
+		if (!odontologoRepository.existsById(id)) {
 
 			log.warn("Ha ocurrido un error eliminando el Odontologo con ID: " + id);
 			throw new ResourceNotDeletedException("El Odontologo no existe en la Base de Datos.");
@@ -67,7 +68,18 @@ public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<O
 	@Override
 	public void actualizar(OdontologoDTO odontologoRequestDTO) {
 		if (odontologoRequestDTO != null) {
-			this.odontologoRepository.save(mapeador(odontologoRequestDTO, Odontologo.class));
+
+			OdontologoRequestDTO odontologoABuscar = (OdontologoRequestDTO) odontologoRequestDTO;
+
+			OdontologoRequestDTO odontologBuscado = (OdontologoRequestDTO) this.buscarPorId(odontologoABuscar.getId());
+
+			if (odontologBuscado.getId()==odontologoABuscar.getId()) {
+
+				this.odontologoRepository.save(mapeador(odontologoRequestDTO, Odontologo.class));
+			} else {
+				log.warn("No se encuentra el registro para actualizar");
+				throw new ResourceNotFoundException("No se pudo encontrar el Odontologo");
+			}
 		} else {
 			log.warn("Ha ocurrido un error actualizando el Odontologo");
 			throw new ResourceNotUpdatedException("No se pudo actualizar el Odontologo");
@@ -127,7 +139,7 @@ public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<O
 			default:
 				break;
 		}
-		if (odontologoOptional.isPresent()){
+		if (odontologoOptional.isPresent()) {
 			return odontologoOptional;
 		} else {
 			log.warn("Ha ocurrido un error en la busqueda personalizada de los Odontologos");

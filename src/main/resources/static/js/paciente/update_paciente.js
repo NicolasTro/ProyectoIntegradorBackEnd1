@@ -18,9 +18,7 @@ function actualizarPaciente(listaBtnModificarRegistros) {
 			$("#staticBackdropPacienteUpdate").modal("show");
 			let inputNumericoAValidar = document.querySelector("#domicilioNumeroUpdate");
 			
-			validarInputNumerico(inputNumericoAValidar);
-
-			
+			validarInputNumerico(inputNumericoAValidar);			
 
 			document.querySelector("#nombrePacienteUpdate").value = nombre;
 			document.querySelector("#apellidoPacienteUpdate").value = apellido;

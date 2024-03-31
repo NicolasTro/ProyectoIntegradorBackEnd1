@@ -28,6 +28,15 @@ El proyecto está desarrollado en Java utilizando el framework Spring Boot.
 4. Ejecuta la aplicación desde tu IDE o utilizando Maven (`mvn spring-boot:run`).
 5. La aplicación estará disponible en `http://localhost:8080`.
 
+## Tests
+
+Puede ejecutar los test unitarios que se encuentran dentro de la carpeta `test`.
+
+Para visualizar las pruebas realizadas desde Postman:
+
+1. Abrir Postman.
+2. Importar el archivo `CRUD .postman_collection.json`.
+3. Ejecutar la colección.
 
 ### Características principales:
 

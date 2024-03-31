@@ -35,7 +35,7 @@ Puede ejecutar los test unitarios que se encuentran dentro de la carpeta `test`.
 Para visualizar las pruebas realizadas desde Postman:
 
 1. Abrir Postman.
-2. Importar el archivo `CRUD .postman_collection.json`.
+2. Importar el archivo `TestsProyectoIntegrador.postman_collection.json`.
 3. Ejecutar la colección.
 
 ### Características principales:

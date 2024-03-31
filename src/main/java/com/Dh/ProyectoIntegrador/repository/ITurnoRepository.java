@@ -15,11 +15,13 @@ import java.util.Optional;
 @Repository
 public interface ITurnoRepository extends JpaRepository<Turno, Long> {
 
+    // Consulta HQL para buscar turnos por los pacientes agendados
 @Query("SELECT t FROM Turno t WHERE LOWER(t.paciente.nombre) LIKE LOWER(CONCAT('%', ?1, '%')) OR LOWER(t.paciente.apellido) LIKE LOWER(CONCAT('%', ?1, '%'))")
     Optional<List<Turno>> findByPacientes(String valor);
+    // Consulta HQL para buscar turnos por los odontologos agendados
     @Query("SELECT t FROM Turno t WHERE LOWER(t.odontologo.nombre) LIKE LOWER(CONCAT('%', ?1, '%')) OR LOWER(t.odontologo.apellido) LIKE LOWER(CONCAT('%', ?1, '%'))")
     Optional<List<Turno>> findByOdontologo(String valor);
-//    @Query("SELECT t FROM Turno t WHERE DATE_TRUNC('second', t.fechaYHora) = DATE_TRUNC('second', ?1)")
+    // Consulta HQL para encontrar los turnos asociados a una fecha especifica.
     @Query("SELECT t FROM Turno t WHERE t.fechaYHora = :valor")
     Optional<List<Turno>> findByFecha(LocalDateTime valor);
 }

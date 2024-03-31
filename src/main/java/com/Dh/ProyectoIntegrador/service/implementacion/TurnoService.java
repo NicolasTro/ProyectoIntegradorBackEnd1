@@ -38,8 +38,8 @@ public class TurnoService implements IService<TurnoDTO>, IServiceHQL<TurnoDTO>, 
 	}
 
 
-	// Metodo de busqueda para el endpoint /turno/buscar
-	// #################################################
+	//##########################################################################################
+	// Método para buscar Turnos por parámetros personalizados
 	@Override
 	public Optional<List<TurnoDTO>> buscarDatosCompletos(Integer tipoDeBusqueda, String valor) {
 		if (valor.trim() != "") {
@@ -99,6 +99,8 @@ public class TurnoService implements IService<TurnoDTO>, IServiceHQL<TurnoDTO>, 
 
 	}
 
+	//##########################################################################################
+	// NOT IMPLEMENTED // Método para listar todos los Turnos en formato DTO
 	public Optional<List<TurnoResponseDTO>> listarTodosIDNombre() {
 //		List<Turno> listaTurnos = this.turnoRepository.findAll();
 //		List<TurnoResponseDTO> listaTurnosDTO = new ArrayList<>();
@@ -109,6 +111,8 @@ public class TurnoService implements IService<TurnoDTO>, IServiceHQL<TurnoDTO>, 
 		return null;
 	}
 
+	//##########################################################################################
+	// Método para guardar un nuevo Turno
 	@Override
 	public TurnoDTO guardar(TurnoDTO turnoRequestDTO) {
 		Turno turno = this.turnoRepository.save(mapeadorRequest((TurnoRequestDTO) turnoRequestDTO));
@@ -120,6 +124,8 @@ public class TurnoService implements IService<TurnoDTO>, IServiceHQL<TurnoDTO>, 
 		}
 	}
 
+	//##########################################################################################
+	// Método para buscar un Turno por su ID
 	public TurnoDTO buscarPorId(Long id) {
 		Optional<Turno> turnoOptional = turnoRepository.findById(id);
 		if (turnoOptional.isPresent()) {
@@ -130,6 +136,8 @@ public class TurnoService implements IService<TurnoDTO>, IServiceHQL<TurnoDTO>, 
 		}
 	}
 
+	//##########################################################################################
+	// Método para eliminar un Turno por su ID
 	public void eliminar(Long id) {
 		if (!turnoRepository.existsById(id)) {
 			log.warn("Ha ocurrido un error al eliminar el Turno con ID:" + id);
@@ -139,7 +147,8 @@ public class TurnoService implements IService<TurnoDTO>, IServiceHQL<TurnoDTO>, 
 		}
 	}
 
-
+	//##########################################################################################
+	// Método para actualizar un Odontologo
 	@Override
 	public void actualizar(TurnoDTO turnoRequestDTO) {
 
@@ -158,7 +167,8 @@ public class TurnoService implements IService<TurnoDTO>, IServiceHQL<TurnoDTO>, 
 		}
 	}
 
-
+	//##########################################################################################
+	// Método para listar todos los Turnos
 	public List<TurnoDTO> listarTodos() {
 		List<Turno> turnos = turnoRepository.findAll();
 		if (!turnos.isEmpty()) {
@@ -170,8 +180,9 @@ public class TurnoService implements IService<TurnoDTO>, IServiceHQL<TurnoDTO>, 
 	}
 
 
-	//	METODO MAPEAR REGISTROS
-	//	########################################################################################
+	// Controladores/Mappers del Service.
+	// ######################################################################################
+	// Implementación de métodos privados de mapeo y controladores adicionales
 	private List<TurnoDTO> mapearRegistros(List<Turno> listaTurnos) {
 		if (!listaTurnos.isEmpty()) {
 			List<TurnoDTO> listaTurnosDTO = new ArrayList<>();

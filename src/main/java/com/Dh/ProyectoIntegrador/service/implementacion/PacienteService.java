@@ -48,28 +48,24 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 		}
 
 
-
 	}
 
 	public PacienteDomicilioDTO buscarPorId(Long id) {
 		Optional<Paciente> pacienteOptional = pacienteRepository.findById(id);
 		if (pacienteOptional.isPresent()) {
 			return this.mapeadorResponse(pacienteOptional.get());
-		}else {
+		} else {
 			log.warn("Ha ocurrido un error buscando al Paciente con id:" + id);
 			throw new ResourceNotFoundException("No se encuentra Paciente con el ID proporcionado: " + id);
 		}
 	}
 
 
-
-
-
 	public void eliminar(Long id) {
 		if (!pacienteRepository.existsById(id)) {
 			throw new ResourceNotDeletedException("El Paciente no existe en la base de datos");
 		} else {
-			if ( pacienteRepository.findByPacienteTurno(id) > 0) {
+			if (pacienteRepository.findByPacienteTurno(id) > 0) {
 				log.warn("Ha ocurrido un error eliminando al Paciente con id:" + id);
 				throw new IntegrityConstraintViolationException("No se puede eliminar el Paciente porque tiene un Turno agendado.");
 			}
@@ -81,13 +77,27 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 	public void actualizar(PacienteDomicilioDTO pacienteRequestDTO) {
 
 		if (pacienteRequestDTO != null) {
-			this.pacienteRepository.save(mapearPacienteEntidad(pacienteRequestDTO));
+			PacienteDomicilioDTO pacienteDomicilioDTO = this.buscarPorId(pacienteRequestDTO.getId());
+
+			if (pacienteDomicilioDTO.getId() == pacienteDomicilioDTO.getId()) {
+				this.pacienteRepository.save(mapearPacienteEntidad(pacienteRequestDTO));
+
+
+			} else {
+				log.warn("No se encuentra el paciente seleccionado");
+				throw new ResourceNotFoundException("No se encuentra el paciente seleccionado" + pacienteRequestDTO.getId());
+
+			}
+
+
 		} else {
 			log.warn("Ha ocurrido un error actualizando al Paciente.");
 			throw new ResourceNotUpdatedException("No se pudo actualizar el paciente con el ID:" + pacienteRequestDTO.getId());
 		}
 	}
-@Override
+
+
+	@Override
 	public List<PacienteDomicilioDTO> listarTodos() {
 		List<Paciente> pacientes = pacienteRepository.findAll();
 		if (!pacientes.isEmpty()) {
@@ -97,7 +107,7 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 			log.warn("Ha ocurrido un error listando los Pacientes");
 			throw new ResourceNotFoundException("No se pueden listar los pacientes.");
 		}
-}
+	}
 
 	@Override
 	public Optional<List<PacienteDomicilioDTO>> buscarDatosCompletos(Integer tipoDeBusqueda, String valor) {
@@ -108,10 +118,10 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 				Long id = Long.parseLong(valor);
 				Optional<Paciente> pacienteEncontrado = this.pacienteRepository.findById(id);
 				if (pacienteEncontrado.isPresent()) {
-				List<PacienteDomicilioDTO> listaPaciente = new ArrayList<>();
-				listaPaciente.add(mapeador(pacienteEncontrado.get(), PacienteDomicilioDTO.class));
-				pacienteOptional = Optional.of(listaPaciente); // Envuelve la lista en un Optional
-				}else{
+					List<PacienteDomicilioDTO> listaPaciente = new ArrayList<>();
+					listaPaciente.add(mapeador(pacienteEncontrado.get(), PacienteDomicilioDTO.class));
+					pacienteOptional = Optional.of(listaPaciente); // Envuelve la lista en un Optional
+				} else {
 					pacienteOptional = Optional.empty();
 				}
 				break;
@@ -131,7 +141,7 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 			default:
 				break;
 		}
-		if (pacienteOptional.isPresent()){
+		if (pacienteOptional.isPresent()) {
 			return pacienteOptional;
 		} else {
 			log.warn("Ha ocurrido un error en la busqueda personalizada de Pacientes");
@@ -155,7 +165,6 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 	}
 
 
-
 	// Controladores/Mappers del Service.
 	// ######################################################################################
 	private List<PacienteDomicilioDTO> mapearRegistros(List<Paciente> listaPacientes) {
@@ -175,7 +184,8 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 
 		return mapper.convertValue(objetoAMapear, clase);
 	}
-	private Paciente mapearPacienteEntidad(PacienteDomicilioDTO pacienteDomicilioDTO){
+
+	private Paciente mapearPacienteEntidad(PacienteDomicilioDTO pacienteDomicilioDTO) {
 		Paciente pacienteAGuardarEntity = mapeador(pacienteDomicilioDTO, Paciente.class);
 		Domicilio domicilioPaciente = new Domicilio();
 		domicilioPaciente.setId(pacienteDomicilioDTO.getDomicilio_id());

@@ -49,7 +49,7 @@ public class TurnoController {
 	//		return new ResponseEntity(e.getMessage(), HttpStatus.I_AM_A_TEAPOT);
 	//	}
 		log.info("Busqueda personalizada de Turnos con valor: " + valor + " y tipo de busqueda: " + tipoDeBusqueda);
-		return new ResponseEntity(turnoBuscar, HttpStatus.FOUND);
+		return new ResponseEntity(turnoBuscar.get(), HttpStatus.FOUND);
 	}
 
 	@PostMapping("/registrar")

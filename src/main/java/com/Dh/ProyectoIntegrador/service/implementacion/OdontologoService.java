@@ -111,6 +111,8 @@ public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<O
 					List<OdontologoDTO> listaOdontologo = new ArrayList<>();
 					listaOdontologo.add(mapeador(odontologoEncontrado.get(), OdontologoResponseDTOFull.class));
 					odontologoOptional = Optional.of(listaOdontologo); // Envuelve la lista en un Optional
+				} else {
+					odontologoOptional = Optional.empty();
 				}
 				break;
 			case 2:

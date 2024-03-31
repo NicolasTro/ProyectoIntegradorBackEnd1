@@ -53,6 +53,8 @@ public class TurnoService implements IService<TurnoDTO>, IServiceHQL<TurnoDTO>, 
 					List<TurnoDTO> listaTurnosDTO = new ArrayList<>();
 					listaTurnosDTO.add(mapeadorResponse(turnoEncontrado.get()));
 					turnoOptional = Optional.of(listaTurnosDTO);
+				} else {
+					turnoOptional = Optional.empty();
 				}
 
 				break;

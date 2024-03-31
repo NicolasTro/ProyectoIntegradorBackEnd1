@@ -109,7 +109,7 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 				listaPaciente.add(mapeador(pacienteEncontrado.get(), PacienteDomicilioDTO.class));
 				pacienteOptional = Optional.of(listaPaciente); // Envuelve la lista en un Optional
 				}else{
-					return Optional.empty();
+					pacienteOptional = Optional.empty();
 				}
 				break;
 			case 2:

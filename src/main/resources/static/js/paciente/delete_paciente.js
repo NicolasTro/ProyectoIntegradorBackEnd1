@@ -11,11 +11,11 @@ function eliminarPaciente(listaBtnEliminar) {
 			btnConfirmarEliminar.addEventListener("click", function (event) {
 				event.preventDefault();
 
-				// eliminarPaciente(idBtn);
-				console.log("entro a eliminar");
+				
+				
 				const url = "/pacientes/eliminar/" + idBtn;
 
-				console.log(url);
+				
 				const settings = {
 					method: "DELETE",
 					headers: {
@@ -44,8 +44,7 @@ function eliminarPaciente(listaBtnEliminar) {
 						}, 1000);
 					});
 
-				// location.reload();
-				// $("#staticBackdropPacienteDelete").modal("hide");
+				
 			});
 		});
 	});

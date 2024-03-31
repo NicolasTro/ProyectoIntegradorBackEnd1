@@ -8,10 +8,6 @@ function modificarTurno(listaBtnModificar) {
 		let odontologo_Id = botonModificar.dataset.odontologoid;
 		let fechaYHora = botonModificar.dataset.fechayhora;
 
-		console.log(idTurno);
-		console.log(paciente_Id);
-		console.log(odontologo_Id);
-		console.log(fechaYHora);
 
 		botonModificar.addEventListener("click", function () {
 			$("#staticBackdropTurnoUpdate").modal("show");
@@ -41,12 +37,12 @@ function modificarTurno(listaBtnModificar) {
 						},
 						body: JSON.stringify(formData),
 					};
-					console.log(formData);
+					
 
 					fetch(url, settings)
 						.then(response => response.json())
 						.then(data => {
-							console.log(data);
+							
 							let successAlert = '<div class="alert alert-success alert-dismissible">' + '<button type="button" class="close" data-dismiss="alert">&times;</button>' + "<strong></strong> Turno Actualizado </div>";
 
 							document.querySelector("#responseTurnoUpdate").innerHTML = successAlert;

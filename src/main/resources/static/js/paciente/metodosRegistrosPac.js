@@ -70,7 +70,32 @@ window.addEventListener("load", function () {
 			let tipoDeBusqueda = document.getElementById("comboBusqueda");
 			let validacionInputId = document.getElementById("search");
 			tipoDeBusqueda.value = 1;
-			validacionInputId.value = "";
+
+			if(validacionInputId!==null){
+
+
+				validacionInputId.value = "";
+
+
+			}else{
+
+
+				let calendario = document.getElementById("searchCalendar");
+				let inputBusqueda = document.createElement("input");
+				inputBusqueda.type = "text";
+				inputBusqueda.className = "form-control mr-sm-2 idBusqueda";
+				inputBusqueda.id = "search";
+				inputBusqueda.type = "search";
+				inputBusqueda.placeholder = "Buscar";
+				inputBusqueda.ariaLabel = "Search";
+				inputBusqueda.required = true;
+
+				formBusqueda.replaceChild(inputBusqueda, calendario);
+				validacionInput();
+
+
+
+			}
 
 			clearTabla();
 			tablaNueva(tituloTablaPacientes);
@@ -83,17 +108,7 @@ window.addEventListener("load", function () {
 			}, 3000);
 		});
 	}
-	// document.addEventListener("click", function (e) {
-	// 	if (e.target instanceof HTMLButtonElement) {
-	// 		var popover = new bootstrap.Popover(e.target);
 
-	// 		popover.show();
-
-	// 		setTimeout(function () {
-	// 			popover.hide();
-	// 		}, 1000);
-	// 	}
-	// });
 
 
 document.querySelector('#btnRegistroPacienteLista').addEventListener('click', function(){

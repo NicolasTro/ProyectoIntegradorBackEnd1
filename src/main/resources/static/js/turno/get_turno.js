@@ -21,7 +21,7 @@ function obtenerListaTurnos() {
 
 				let listaBtnModificarRegistros = document.querySelectorAll(".btnTablaModificar");
 				let listaBtnEliminarRegistros = document.querySelectorAll(".btnTablaEliminar");
-				// console.log(listaBtnModificarRegistros);
+				
 				modificarTurno(listaBtnModificarRegistros);
 				eliminarTurno(listaBtnEliminarRegistros);
 			} else {

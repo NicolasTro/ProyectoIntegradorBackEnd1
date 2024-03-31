@@ -22,7 +22,6 @@ public class PacienteDomicilioDTO extends PacienteDTO{
 	private Long id;
 	private String apellido;
 	private String dni;
-	//TODO hay que cambiar la fecha a string
 	private LocalDate fechaIngreso;
 	private String calle;
 	private Integer numero;

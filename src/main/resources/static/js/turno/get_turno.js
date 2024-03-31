@@ -18,10 +18,10 @@ function obtenerListaTurnos() {
 					turnoRow.id = tr_id;
 					turnoRow.innerHTML = cargarRegistro(turno);
 				}
-
+				//TRAEMOS UNA LISTA DE BOTONES DE MODIFICAR Y ELIMINAR REGISTROS TURNO
 				let listaBtnModificarRegistros = document.querySelectorAll(".btnTablaModificar");
 				let listaBtnEliminarRegistros = document.querySelectorAll(".btnTablaEliminar");
-
+				//PASAMOS LOS BOTONES POR PARAMETRO A SUS RESPECTIVAS FUNCIONES
 				modificarTurno(listaBtnModificarRegistros);
 				eliminarTurno(listaBtnEliminarRegistros);
 			} else {
@@ -54,20 +54,7 @@ function busquedaTurnosPersonalizado() {
 	return fetch(url, settings)
 		.then(response => response.json())
 		.then(data => {
-			// clearTabla();
-			// tablaNueva();
-
-			// if (data.length == 1) {
-			// 	let tablaBody = document.getElementById("cuerpoTabla");
-
-			// 	tablaBody.innerHTML = "";
-			// 	let patientRow = tablaBody.insertRow();
-
-			// 	let tr_id = "tr_" + data[0].id;
-
-			// 	patientRow.id = tr_id;
-			// 	patientRow.innerHTML = cargarRegistro(data[0]);
-			// } else if (data.length > 1) {
+			//ACA ESTA FUNCION FUE SIMPLIFICADA PORQUE ERA SIMILIAR EN LAS OTRAS VISTAS DE PACIENTE Y ODONTOLOG, FALTA SIMPLIFICAR MAS
 			if (data.length > 0) {
 				let body = document.getElementById("cuerpoTabla");
 				console.log(body);
@@ -78,10 +65,10 @@ function busquedaTurnosPersonalizado() {
 					turnoRow.id = tr_id;
 					turnoRow.innerHTML = cargarRegistro(turno);
 				}
-
+				//LISTA DE BOTONES MODIFICAR Y ELIMINAR
 				let listaBtnModificarRegistros = document.querySelectorAll(".btnTablaModificar");
 				let listaBtnEliminarRegistros = document.querySelectorAll(".btnTablaEliminar");
-
+				//LOS PASAMOS POR PARAMETRO A LAS FUNCIONES
 				modificarTurno(listaBtnModificarRegistros);
 				eliminarTurno(listaBtnEliminarRegistros);
 			} else {
@@ -94,6 +81,7 @@ function busquedaTurnosPersonalizado() {
 }
 
 // ##############################################################################################################################
+//LISTAMOS LOS PACIENTES Y LOS CARGAMOS EN LOS COMBOBOX DE LOS MODALES DE TURNO
 function listarPacientes(combolistaPacientes) {
 	const url = `/pacientes/listar`;
 
@@ -105,7 +93,6 @@ function listarPacientes(combolistaPacientes) {
 		.then(response => response.json())
 		.then(data => {
 			let comboPacientes = document.querySelector(combolistaPacientes);
-			// let comboPacientes = document.querySelector(".comboTurnoPaciente");
 
 			for (patient of data) {
 				let comboValor = document.createElement("option");
@@ -118,6 +105,8 @@ function listarPacientes(combolistaPacientes) {
 		.catch(error => {});
 }
 
+// ##############################################################################################################################
+//LISTAMOS LOS ODONTOLOGOS Y LOS CARGAMOS EN LOS COMBOBOX DE LOS MODALES DE TURNO
 function listarOdontologos(comboListaOdontologos) {
 	const url = `/odontologos/listarDTO`;
 

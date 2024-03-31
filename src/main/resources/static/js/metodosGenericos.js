@@ -1,7 +1,8 @@
 window.addEventListener("load", function () {
+	//CARGA LA VENTANA Y LLAMAMOS A VALIDAR FECHA PARA QUE NO PERMITA CARGAR UNA FECHA MENOR A LA ACTUAL EN PACIENTE Y TURNO
 	validarFecha();
 });
-
+//FUNCION PARA CARGAR EL ENCABEZADO DE LA TABLA DE REGISROS, RECIBE UN HEADER POR PARAMETRO
 function cargarEncabezadoTabla(tituloTabla) {
 	let tabla = document.getElementById("tablaDeRegistros");
 	if (tabla != null) {
@@ -14,7 +15,7 @@ function cargarEncabezadoTabla(tituloTabla) {
 		dentistRowHeader.innerHTML = tituloTabla;
 	}
 }
-
+//LIMPIA LA TABLA Y CARGA UNA FILA CON EL MENSAJE NO SE ENCONTRARON REGISTROS
 function noSeEncontraronRegistros() {
 	clearTabla();
 	let sinRegistro = document.createElement("tr");
@@ -23,7 +24,7 @@ function noSeEncontraronRegistros() {
 	let filSinRegistro = document.getElementById("idSinRegistro");
 	filSinRegistro.innerHTML = "<td></td><td>No se encontraron registros</td><td></td><td></td><td></td>";
 }
-
+//CARGA UN CUERPO A LA TABLA DE REGISTROS
 function cargarCuerpoTabla() {
 	let tabla = document.getElementById("tablaDeRegistros");
 	if (tabla !== null) {
@@ -33,11 +34,13 @@ function cargarCuerpoTabla() {
 	}
 }
 
+//LLAMA A CARGAR ENCABEZADO TABLA PASANDOLE EL HEADER Y CARGA CUERPO DE TABLA
 function tablaNueva(tituloTabla) {
 	cargarEncabezadoTabla(tituloTabla);
 	cargarCuerpoTabla();
 }
 
+//ELIMINA LA TABLA 
 function clearTabla() {
 	let tabla = document.getElementById("tablaDeRegistros");
 	if (tabla !== null) {
@@ -45,6 +48,8 @@ function clearTabla() {
 	}
 }
 
+
+//VALIDA CAMPOS DE BUSQUEDA Y NO PERMITE INGRESAR LETRAS SI EL TIPO DE BUSQUEDA ES 1
 function validacionInput() {
 	let validacionInputId = document.getElementById("search");
 	if (validacionInputId !== null) {
@@ -67,6 +72,8 @@ function validacionInput() {
 		});
 	}
 }
+
+//VALIDA CAMPOS INGRESADOS RECIBE UN FORMULARIO Y UN TIPO DE ELEMENTO PARA MOSTRAR LOS MENSAJES
 function validarCamposIngresados(formularioGenerico, mensaje) {
 	let formEspecifico = "#" + formularioGenerico.id;
 
@@ -98,6 +105,7 @@ function validarCamposIngresados(formularioGenerico, mensaje) {
 		});
 
 		let algo = document.getElementById(campo.id);
+		//SI LOS CAMPOS ESTAN INVALIDOS MUESTRO POPUP MOSTRANDO ERROR
 
 		algo.setAttribute("data-content", "Campos invalidos");
 		if (campo.value.trim() == "") {
@@ -135,6 +143,8 @@ function validarCamposIngresados(formularioGenerico, mensaje) {
 	return retorno;
 }
 
+
+//VALIDA EL INPUT TIPO TEXTO PARA QUE NO PERMITA INGRESAR LETRAS
 function validarInputNumerico(campoNumerico) {
 	campoNumerico.addEventListener("keypress", function (event) {
 		const codigoTecla = event.keyCode;
@@ -147,6 +157,8 @@ function validarInputNumerico(campoNumerico) {
 		}
 	});
 }
+
+//VALIDA INPUT FECHA NO PERMITE INGRESAR FECHA MENOR QUE LA ACTUAL
 
 function validarFecha() {
 	const ahora = new Date();

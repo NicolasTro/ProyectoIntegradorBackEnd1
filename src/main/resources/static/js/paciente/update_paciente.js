@@ -1,6 +1,6 @@
 function actualizarPaciente(listaBtnModificarRegistros) {
 	listaBtnModificarRegistros.forEach(botonModificar => {
-		
+		//POR CADA BOTON MODIFICAR, SE OBTIENEN LOS DATOS QUE VIENEN DENTRO DE LAS VARIABLES DATA
 		let id = botonModificar.dataset.id;
 		let nombre = botonModificar.dataset.nombre;
 		let apellido = botonModificar.dataset.apellido;
@@ -11,14 +11,13 @@ function actualizarPaciente(listaBtnModificarRegistros) {
 		let localidad = botonModificar.dataset.localidad;
 		let provincia = botonModificar.dataset.provincia;
 		let domicilio_id = botonModificar.dataset.domicilioid;
-
+		//AGREGAMOS UN EVENT LISTENER POR CADA BOTON
 		botonModificar.addEventListener("click", function (e) {
-		
 			$("#staticBackdropPacienteUpdate").modal("show");
 			let inputNumericoAValidar = document.querySelector("#domicilioNumeroUpdate");
-					
+
 			validarInputNumerico(inputNumericoAValidar);
-			
+			//AGREGA LOS DATOS A LOS CAMPOS DEL MODAL DE MODIFICAR
 			document.querySelector("#nombrePacienteUpdate").value = nombre;
 			document.querySelector("#apellidoPacienteUpdate").value = apellido;
 			document.querySelector("#dniUpdate").value = dni;
@@ -27,14 +26,13 @@ function actualizarPaciente(listaBtnModificarRegistros) {
 			document.querySelector("#domicilioNumeroUpdate").value = numero;
 			document.querySelector("#domicilioLocalidadUpdate").value = localidad;
 			document.querySelector("#domicilioProvinciaUpdate").value = provincia;
-			
 
 			let formulario = document.querySelector("#updatePaciente");
 
 			if (formulario !== null) {
 				formulario.addEventListener("submit", function (event) {
 					event.preventDefault();
-
+					//VALIDA CAMPOS CON LA FUNCION VALIDAR CAMPOS INGRESADOS QUE RECIBE FORMULARIO Y ELEMENTO PARA MOSTRAR MENSAJES
 					let bandera = validarCamposIngresados(formulario, "#responsePatientUpdate");
 
 					if (bandera) {
@@ -64,10 +62,9 @@ function actualizarPaciente(listaBtnModificarRegistros) {
 							.then(response => response.json())
 							.then(data => {
 								let successAlert = '<div class="alert alert-success alert-dismissible">' + '<button type="button" class="close" data-dismiss="alert">&times;</button>' + "<strong></strong> Paciente Actualizado </div>";
-
 								document.querySelector("#responsePatientUpdate").innerHTML = successAlert;
 								document.querySelector("#responsePatientUpdate").style.display = "block";
-
+								//SI LA PROMESA ES CORRECTA CIERRA MODAL, RESETEA CAMPOS, Y RECARGA LA PAGINA
 								setTimeout(function () {
 									$("#staticBackdropPacienteUpdate").modal("hide");
 									resetUploadForm();

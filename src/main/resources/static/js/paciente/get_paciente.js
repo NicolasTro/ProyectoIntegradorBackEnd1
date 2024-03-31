@@ -17,13 +17,12 @@ function obtenerListaPacientes() {
 					patientRow.innerHTML = cargarRegistro(patient);
 				}
 
+				//TRAEMOS 3 LISTAS, 1 DE BOTONES A MODIFICAR, OTRA DE ELIMINAR Y OTRA DE BOTONS DE DOMICILIO SEGUN LOS REGISTROS EXISTENTES
 				let listaBtnModificarRegistros = document.querySelectorAll(".btnTablaModificar");
-				
 				let listaBtnEliminarRegistros = document.querySelectorAll(".btnTablaEliminar");
 				let listaBtnDomicilios = document.querySelectorAll("#masInfo");
-
+				//FUNCION PARA CARGAR INFORMACION DE DOMICILIOS DE CADA PACIENTE
 				cargarMasInfo(listaBtnDomicilios);
-
 				actualizarPaciente(listaBtnModificarRegistros);
 				eliminarPaciente(listaBtnEliminarRegistros);
 			} else {
@@ -58,7 +57,7 @@ function busquedaPacientePersonalizado() {
 				clearTabla();
 				tablaNueva(tituloTablaPacientes);
 				let body = document.getElementById("cuerpoTabla");
-
+				//ESTE METODO DE BUSQUEDA PERSONALIZADA SE PODRIA SIMPLIFICAR TAMBIEN CON EL METODO GET DE LISTAR PACIENTES
 				for (patient of data) {
 					patientRow = body.insertRow();
 					let tr_id = "tr_" + patient.id;
@@ -73,4 +72,3 @@ function busquedaPacientePersonalizado() {
 			noSeEncontraronRegistros();
 		});
 }
-

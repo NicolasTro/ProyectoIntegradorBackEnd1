@@ -1,5 +1,6 @@
 function modificarTurno(listaBtnModificar) {
 	listaBtnModificar.forEach(botonModificar => {
+		//POR CADA BOTON MODIFICAR, CARGAMOS LOS ODONTOLOGOS Y LOS PACIENTES EN CADA MODAL
 		listarOdontologos("#comboTurnoOdontologoUpdate");
 		listarPacientes("#comboTurnoPacienteUpdate");
 
@@ -10,7 +11,7 @@ function modificarTurno(listaBtnModificar) {
 
 		botonModificar.addEventListener("click", function () {
 			$("#staticBackdropTurnoUpdate").modal("show");
-			// validarFecha();
+			//MOSTRAMOS EL MODAL Y CARGAMOS LOS DATOS
 			document.querySelector("#comboTurnoPacienteUpdate").value = paciente_Id;
 			document.querySelector("#comboTurnoOdontologoUpdate").value = odontologo_Id;
 			document.querySelector("#fechaUpdate").value = fechaYHora;
@@ -19,11 +20,9 @@ function modificarTurno(listaBtnModificar) {
 			if (formulario !== null) {
 				formulario.addEventListener("submit", function (event) {
 					event.preventDefault();
-
 					const formData = {
 						id: idTurno,
 						paciente_Id: document.querySelector("#comboTurnoPacienteUpdate").value,
-
 						odontologo_Id: document.querySelector("#comboTurnoOdontologoUpdate").value,
 						fechaYHora: document.querySelector("#fechaUpdate").value,
 					};
@@ -44,17 +43,15 @@ function modificarTurno(listaBtnModificar) {
 
 							document.querySelector("#responseTurnoUpdate").innerHTML = successAlert;
 							document.querySelector("#responseTurnoUpdate").style.display = "block";
-
+							//SI SE ACTUALIZO CORRECTAMENTE, CIERRO MODAL Y REFRESCO PAGINA
 							setTimeout(function () {
 								$("#staticBackdropTurnoUpdate").modal("hide");
-
 								location.reload();
 							}, 1000);
 						})
 						.catch(error => {
 							alert(error);
 							let errorAlert = "<div class='alert alert-danger alert-dismissible'>" + "<button type='button' class='close' data-dismiss='alert'>&times;</button>" + "<strong> Error intente nuevamente</strong></div>";
-
 							document.querySelector("#responseTurnoUpdate").innerHTML = errorAlert;
 							document.querySelector("#responseTurnoUpdate").style.display = "block";
 						});

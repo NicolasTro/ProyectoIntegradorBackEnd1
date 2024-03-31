@@ -2,16 +2,19 @@ window.addEventListener("load", function () {
 	let formularioODIndex = document.getElementById("agregarDentista");
 	let formularioODLista = document.getElementById("agregarDentistaLista");
 
+	//CAPTURAMOS LOS FORMULARIOS DE INDEX.HTML Y DE ODONTOLOGOLISTA.HTML,
+	//LOS PASAMOS POR PARAMETRO EN FORMULARIO INSERTAR Y ALLI HACEMOS EL POST DE ODONTOLOGO EN SUS RESPECTIVOS FORMULARIOS
+
 	if (formularioODIndex !== null) {
 		formularioODIndex.addEventListener("submit", function (event) {
 			event.preventDefault();
-			formularioInsertar(event, formularioODIndex);
+			formularioInsertar(formularioODIndex);
 		});
 	}
 	if (formularioODLista !== null) {
 		formularioODLista.addEventListener("submit", function (event) {
 			event.preventDefault();
-			formularioInsertar(event, formularioODLista);
+			formularioInsertar(formularioODLista);
 		});
 	}
 });
@@ -21,10 +24,9 @@ function resetUploadForm() {
 	document.querySelector("#apellidoOdontologo").value = "";
 	document.querySelector("#matriculaOdontologo").value = "";
 }
-function formularioInsertar(event, form) {
-	
 
-	let bandera = validarCamposIngresados(form, '.responseDentist');
+function formularioInsertar(form) {
+	let bandera = validarCamposIngresados(form, ".responseDentist");
 
 	if (bandera) {
 		//creamos un JSON que tendrá los datos del nuevo odontólogo
@@ -47,23 +49,22 @@ function formularioInsertar(event, form) {
 		};
 
 		fetch(url, settings)
-			.then((response) => response.json())
-			.then((data) => {
-				
+			.then(response => response.json())
+			.then(data => {
 				//Si no hay ningun error se muestra un mensaje diciendo que el odontólogo
 				//se agrego bien
 				let successAlert = '<div class="alert alert-success alert-dismissible">' + '<button type="button" class="close" data-dismiss="alert">&times;</button>' + "<strong>Odontólogo agregado </strong> </div>";
 
 				document.querySelector(".responseDentist").innerHTML += successAlert;
 				document.querySelector(".responseDentist").style.display = "block";
-
+				//CIERRA FORMULARIO RESETEA LOS CAMPOS Y RECARGA LA PAGINA
 				setTimeout(function () {
 					$("#staticBackdropOdontologo").modal("hide");
 					resetUploadForm();
 				}, 1000);
 				location.reload();
 			})
-			.catch((error) => {
+			.catch(error => {
 				//Si hay algun error se muestra un mensaje diciendo que el odontólogo
 				//no se pudo guardar y se intente nuevamente
 

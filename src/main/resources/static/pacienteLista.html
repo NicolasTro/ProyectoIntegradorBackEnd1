@@ -1,235 +1,348 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>Clinica Odontologica</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
-		<link rel="stylesheet" href="./css/stylesListPacientes.css" />
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-	</head>
 
-	<body>
-		<header>
-			<nav class="navbar navbar-dark bg-dark">
-				<a class="navbar-brand">
-					<img src="./images/Logo_Muela-removebg-preview.png" width="70" height="70" class="d-inline-block align-center" alt="Logo" />
-					Clinica Odontologica
-				</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-			</nav>
+<head>
+	<title>Clinica Odontologica</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="./css/stylesListPacientes.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
 
-			<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-				<a class="navbar-brand" href="#"></a>
+<body>
+	<header>
+		<nav class="navbar navbar-dark bg-dark">
+			<a class="navbar-brand">
+				<img src="./images/Logo_Muela-removebg-preview.png" width="70" height="70"
+					class="d-inline-block align-center" alt="Logo" />
+				Clinica Odontologica
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+				aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+		</nav>
 
-				<div class="collapse navbar-collapse" id="navbarNavDropdown">
-					<ul class="navbar-nav">
-						<li class="nav-item active">
-							<a class="nav-link active" href="./index.html" role="button" aria-expanded="false"> Inicio </a>
-						</li>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+			<a class="navbar-brand" href="#"></a>
 
-						<li>
-							<a class="nav-link active" href="./odontologoLista.html" role="button" aria-expanded="false"> Gestion Odontologos </a>
-						</li>
-						<li>
-							<a class="nav-link active" href="./turnoLista.html" role="button" aria-expanded="false"> Gestion Turnos </a>
-						</li>
-					</ul>
-				</div>
-			</nav>
-		</header>
+			<div class="collapse navbar-collapse" id="navbarNavDropdown">
+				<ul class="navbar-nav">
+					<li class="nav-item active">
+						<a class="nav-link active" href="./index.html" role="button" aria-expanded="false"> Inicio </a>
+					</li>
 
-		<main>
-			<div class="contenedorFondo">
-				<div class="fondo">
-					<div class="container-fluid contenedorTablita">
-						<div class="algo">
-							<div id="div_paciente_table" class="container-fluid">
-								<div id="listado" class="listado">
-									<div class="headerTablita">
-										<h1 class="tituloTablita">Listado de Pacientes</h1>
+					<li>
+						<a class="nav-link active" href="./odontologoLista.html" role="button" aria-expanded="false">
+							Gestion Odontologos </a>
+					</li>
+					<li>
+						<a class="nav-link active" href="./turnoLista.html" role="button" aria-expanded="false"> Gestion
+							Turnos </a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
 
-										<div class="navDeRegistros">
-											<div class="botones">
-												<button type="button" class="btn btn-dark btnRegistrarHeader" data-toggle="modal" data-target="#staticBackdropPaciente">Registrar paciente</button>
-											</div>
+	<main>
+		<div class="contenedorFondo">
+			<div class="fondo">
+				<div class="container-fluid contenedorTablita">
+					<div class="algo">
+						<div id="div_paciente_table" class="container-fluid">
+							<div id="listado" class="listado">
+								<div class="headerTablita">
+									<h1 class="tituloTablita">Listado de Pacientes</h1>
 
-											<fieldset>
-												<legend>Busqueda de pacientes</legend>
-												<div class="formBusqueda">
-													<form class="form-inline my-2 my-lg-0 busqueda" id="formBusqueda">
-														<input class="form-control mr-sm-2 idBusqueda btnListarHeader" id="search" type="search" placeholder="Buscar" aria-label="Search" required />
-														<div class="btn-group">
-															<select class="btn btn-dark dropdown-toggle comboBusqueda" id="comboBusqueda">
-																<option value="1">Por: Id</option>
-																<option value="2">Por: Nombre</option>
-																<option value="3">Por: Apellido</option>
-																<option value="4">Por: Fecha Ingreso</option>
-															</select>
-
-															<button type="reset" class="btn btn-dark btn-group btnListarHeader" id="btnReset">Reset</button>
-															<button class="btn btn-dark btn-group" type="submit">Buscar</button>
-														</div>
-													</form>
-												</div>
-											</fieldset>
+									<div class="navDeRegistros">
+										<div class="botones">
+											<button type="button" class="btn btn-dark btnRegistrarHeader"
+												data-toggle="modal" data-target="#staticBackdropPaciente"
+												id="btnRegistroPacienteLista">Registrar paciente</button>
 										</div>
-									</div>
 
-									<table id="patientTable" class="registros table table-striped table-responsive"></table>
-									<div class="cargando" id="cargando">
-										<div class="spinner-grow text-primary" role="status"></div>
-										<div class="spinner-grow text-primary" role="status"></div>
-										<div class="spinner-grow text-primary" role="status"></div>
+										<fieldset>
+											<legend>Busqueda de pacientes</legend>
+											<div class="formBusqueda">
+												<form class="form-inline my-2 my-lg-0 busqueda" id="formBusqueda">
+													<input class="form-control mr-sm-2 idBusqueda btnListarHeader"
+														id="search" type="search" placeholder="Buscar"
+														aria-label="Search" required />
+													<div class="btn-group">
+														<select class="btn btn-dark dropdown-toggle comboBusqueda"
+															id="comboBusqueda">
+															<option value="1">Por: Id</option>
+															<option value="2">Por: Nombre</option>
+															<option value="3">Por: Apellido</option>
+															<option value="4">Por: Fecha Ingreso</option>
+														</select>
+
+														<button type="reset"
+															class="btn btn-dark btn-group btnListarHeader"
+															id="btnReset">Reset</button>
+														<button class="btn btn-dark btn-group"
+															type="submit">Buscar</button>
+													</div>
+												</form>
+											</div>
+										</fieldset>
 									</div>
+								</div>
+
+								<!-- <table id="patientTable" class="registros table table-striped table-responsive"></table> -->
+								<table id="tablaDeRegistros" class="registros table table-striped table-responsive">
+								</table>
+								<div class="cargando" id="cargando">
+									<div class="spinner-grow text-primary" role="status"></div>
+									<div class="spinner-grow text-primary" role="status"></div>
+									<div class="spinner-grow text-primary" role="status"></div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+		</div>
 
-			<!-- <div class="fondo">
-      <div class="container-fluid contenedorTablita ">
-        <div class="tablaRegistros ">
-          <div id="div_Paciente" class="tablaRegistros container-fluid">
-            <div class="listado">
-              <div class="headerTablita">
-                <h1 class="tituloTablita">Listado de Pacientes</h1>
-                <button type="button" class="btn btn-dark tituloTablita btnRegistrarHeader" data-toggle="modal" data-target="#staticBackdropPaciente">Registrar paciente</button>
-              </div>
 
-              <table id="tablePaciente" class="table table-striped table-responsive posicionRegistros">
-
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-			<!--    MODAL DE REGISTRO-->
-			<div class="modal fade" id="staticBackdropPaciente" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelPaciente" aria-hidden="true">
-				<div class="modal-dialog">
-					<div class="modal-content" style=" background-color: #63aae5;">
-						<div class="modal-header" style="color: #ffffff;">
-							<h3 class="modal-title" id="staticBackdropLabelPaciente">Registro de pacientes</h3>
-							<button type="button" class="close" data-dismiss="modal" style="padding: 1.5rem 1.5rem; color:#ffffff;" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						<div class="modal-body">
-							<div style="background-color: #c0d6f3; padding: 10px; border-radius: 3px;">
-								<h5>Ingreso de datos</h5>
-								<form id="agregarPaciente">
-									<div class="form-group">
-										<label class="control-label" for="nombrePaciente">Nombre:</label>
-										<input type="text" class="form-control" id="nombrePaciente" placeholder="Ingrese el nombre" name="nombre" required />
-									</div>
-									<div class="form-group">
-										<label class="control-label" for="apellidoPaciente">Apellido:</label>
-										<input type="text" class="form-control" id="apellidoPaciente" placeholder="Ingrese el apellido" name="apellido" required />
-									</div>
-									<div class="form-group">
-										<label class="control-label" for="dni">DNI:</label>
-										<input type="text" class="form-control" id="dni" placeholder="Ingrese su DNI" name="DNI" required />
-									</div>
-									<div class="form-group">
-										<label class="control-label" for="fechaIngreso">Fecha de Ingreso:</label>
-										<input type="date" class="form-control" id="fechaIngreso" name="fechaIngreso" required />
-									</div>
-									<div class="form-group">
-										<label class="control-label" for="domicilioCalle">Calle</label>
-										<input type="text" class="form-control" id="domicilioCalle" placeholder="Ingrese la calle." name="domicilioCalle" required />
-									</div>
-									<div class="form-group">
-										<label class="control-label" for="domicilioNumero">Numero de domicilio</label>
-										<input type="text" class="form-control" id="domicilioNumero" placeholder="Ingrese el numero." name="domicilioNumero" required />
-									</div>
-									<div class="form-group">
-										<label class="control-label" for="domicilioLocalidad">Localidad</label>
-										<input type="text" class="form-control" id="domicilioLocalidad" placeholder="Ingrese el localidad." name="domicilioLocaclidad" required />
-									</div>
-									<div class="form-group">
-										<label class="control-label" for="domicilioProvincia">Provincia</label>
-										<input type="text" class="form-control" id="domicilioProvincia" placeholder="Ingrese el provincia." name="domicilioProvincia" required />
-									</div>
-									<div class="modal-footer">
-										<button type="submit" class="btn btn-primary">Guardar</button>
-										<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-									</div>
-								</form>
-								<div id="responsePatient" style="display: none; margin-top: 10px"></div>
-							</div>
+		<!--    MODAL DE REGISTRO-->
+		<div class="modal fade" id="staticBackdropPaciente" data-backdrop="static" data-keyboard="false" tabindex="-1"
+			aria-labelledby="staticBackdropLabelPaciente" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content" style=" background-color: #63aae5;">
+					<div class="modal-header" style="color: #ffffff;">
+						<h3 class="modal-title" id="staticBackdropLabelPaciente">Registro de pacientes</h3>
+						<button type="button" class="close" data-dismiss="modal"
+							style="padding: 1.5rem 1.5rem; color:#ffffff;" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div style="background-color: #c0d6f3; padding: 10px; border-radius: 3px;">
+							<h5>Ingreso de datos</h5>
+							<form id="agregarPaciente">
+								<div class="form-group">
+									<label class="control-label" for="nombrePaciente">Nombre:</label>
+									<input type="text" class="form-control" id="nombrePaciente"
+										placeholder="Ingrese el nombre" name="nombre" required />
+								</div>
+								<div class="form-group">
+									<label class="control-label" for="apellidoPaciente">Apellido:</label>
+									<input type="text" class="form-control" id="apellidoPaciente"
+										placeholder="Ingrese el apellido" name="apellido" required />
+								</div>
+								<div class="form-group">
+									<label class="control-label" for="dni">DNI:</label>
+									<input type="text" class="form-control" id="dni" placeholder="Ingrese su DNI"
+										name="DNI" required />
+								</div>
+								<div class="form-group">
+									<label class="control-label" for="fechaIngreso">Fecha de Ingreso:</label>
+									<input type="date" class="form-control inputFecha" id="fechaIngreso" name="fechaIngreso"
+										required />
+								</div>
+								<div class="form-group">
+									<label class="control-label" for="domicilioCalle">Calle</label>
+									<input type="text" class="form-control" id="domicilioCalle"
+										placeholder="Ingrese la calle." name="domicilioCalle" required />
+								</div>
+								<div class="form-group">
+									<label class="control-label" for="domicilioNumero">Numero de domicilio</label>
+									<input type="text" class="form-control" id="domicilioNumero"
+										placeholder="Ingrese el numero." name="domicilioNumero" required />
+								</div>
+								<div class="form-group">
+									<label class="control-label" for="domicilioLocalidad">Localidad</label>
+									<input type="text" class="form-control" id="domicilioLocalidad"
+										placeholder="Ingrese el localidad." name="domicilioLocaclidad" required />
+								</div>
+								<div class="form-group">
+									<label class="control-label" for="domicilioProvincia">Provincia</label>
+									<input type="text" class="form-control" id="domicilioProvincia"
+										placeholder="Ingrese el provincia." name="domicilioProvincia" required />
+								</div>
+								<div class="modal-footer">
+									<button type="submit" class="btn btn-primary">Guardar</button>
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+								</div>
+							</form>
+							<div id="responsePatient" style="display: none; margin-top: 10px"></div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<!--  MODAL ACTUALIZAR-->
-			<div class="modal fade" id="staticBackdropPacienteUpdate" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelPacienteUpdate" aria-hidden="true">
-				<div class="modal-dialog">
-					<div class="modal-content" style=" background-color: #63aae5;">
-						<div class="modal-header" style="color: #ffffff;">
-							<h3 class="modal-title" id="staticBackdropLabelPacienteUpdate">Registro de pacientes</h3>
-							<button type="button" class="close" data-dismiss="modal" style="padding: 1.5rem 1.5rem; color:#ffffff;" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						<div class="modal-body">
-							<div style="background-color: #c0d6f3; padding: 10px; border-radius: 3px;">
-								<h5>Ingreso de datos</h5>
-								<form id="updatePaciente">
-									<div class="form-group">
-										<label class="control-label" for="nombrePacienteUpdate">Nombre:</label>
-										<input type="text" class="form-control" id="nombrePacienteUpdate" placeholder="Actualica el nombre" name="nombre" required />
-									</div>
-									<div class="form-group">
-										<label class="control-label" for="apellidoPacienteUpdate">Apellido:</label>
-										<input type="text" class="form-control" id="apellidoPacienteUpdate" placeholder="Actualica el apellido" name="apellido" required />
-									</div>
-									<div class="form-group">
-										<label class="control-label" for="dniUpdate">DNI:</label>
-										<input type="text" class="form-control" id="dniUpdate" placeholder="Actualice su DNI" name="DNI" required />
-									</div>
-									<div class="form-group">
-										<label class="control-label" for="fechaIngresoUpdate">Fecha de Ingreso:</label>
-										<input type="text" class="form-control" id="fechaIngresoUpdate" placeholder="Actualiza la Fecha de Ingreso" name="fechaIngreso" required />
-									</div>
-									<div class="form-group">
-										<label class="control-label" for="domicilioCalle">Calle</label>
-										<input type="text" class="form-control" id="domicilioCalleUpdate" placeholder="Actualice la calle." name="domicilioCalle" required />
-									</div>
-									<div class="form-group">
-										<label class="control-label" for="domicilioNumeroUpdate">Numero de domicilio</label>
-										<input type="text" class="form-control" id="domicilioNumeroUpdate" placeholder="Actualice el numero." name="domicilioNumero" required />
-									</div>
-									<div class="form-group">
-										<label class="control-label" for="domicilioLocalidadUpdate">Localidad</label>
-										<input type="text" class="form-control" id="domicilioLocalidadUpdate" placeholder="Actualice la localidad." name="domicilioLocaclidad" required />
-									</div>
-									<div class="form-group">
-										<label class="control-label" for="domicilioProvinciaUpdate">Provincia</label>
-										<input type="text" class="form-control" id="domicilioProvinciaUpdate" placeholder="Actualice la provincia." name="domicilioProvincia" required />
-									</div>
-									<div class="modal-footer">
-										<button type="submit" class="btn btn-primary">Guardar</button>
-										<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-									</div>
-								</form>
-								<div id="responsePatientUpdate" style="display: none; margin-top: 10px"></div>
-							</div>
+		</div>
+		<!--  MODAL ACTUALIZAR-->
+		<div class="modal fade" id="staticBackdropPacienteUpdate" data-backdrop="static" data-keyboard="false"
+			tabindex="-1" aria-labelledby="staticBackdropLabelPacienteUpdate" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content" style=" background-color: #63aae5;">
+					<div class="modal-header" style="color: #ffffff;">
+						<h3 class="modal-title" id="staticBackdropLabelPacienteUpdate">Registro de pacientes</h3>
+						<button type="button" class="close" data-dismiss="modal"
+							style="padding: 1.5rem 1.5rem; color:#ffffff;" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div style="background-color: #c0d6f3; padding: 10px; border-radius: 3px;">
+							<h5>Ingreso de datos</h5>
+							<form id="updatePaciente">
+								<div class="form-group">
+									<label class="control-label" for="nombrePacienteUpdate">Nombre:</label>
+									<input type="text" class="form-control" id="nombrePacienteUpdate"
+										placeholder="Actualica el nombre" name="nombre" required />
+								</div>
+								<div class="form-group">
+									<label class="control-label" for="apellidoPacienteUpdate">Apellido:</label>
+									<input type="text" class="form-control" id="apellidoPacienteUpdate"
+										placeholder="Actualica el apellido" name="apellido" required />
+								</div>
+								<div class="form-group">
+									<label class="control-label" for="dniUpdate">DNI:</label>
+									<input type="text" class="form-control" id="dniUpdate"
+										placeholder="Actualice su DNI" name="DNI" required />
+								</div>
+								<div class="form-group">
+									<label class="control-label" for="fechaIngresoUpdate">Fecha de Ingreso:</label>
+									<input type="date" class="form-control inputFecha" id="fechaIngresoUpdate"
+										placeholder="Actualiza la Fecha de Ingreso" name="fechaIngreso" required />
+								</div>
+								<div class="form-group">
+									<label class="control-label" for="domicilioCalle">Calle</label>
+									<input type="text" class="form-control" id="domicilioCalleUpdate"
+										placeholder="Actualice la calle." name="domicilioCalle" required />
+								</div>
+								<div class="form-group">
+									<label class="control-label" for="domicilioNumeroUpdate">Numero de domicilio</label>
+									<input type="text" class="form-control" id="domicilioNumeroUpdate"
+										placeholder="Actualice el numero." name="domicilioNumero" required />
+								</div>
+								<div class="form-group">
+									<label class="control-label" for="domicilioLocalidadUpdate">Localidad</label>
+									<input type="text" class="form-control" id="domicilioLocalidadUpdate"
+										placeholder="Actualice la localidad." name="domicilioLocaclidad" required />
+								</div>
+								<div class="form-group">
+									<label class="control-label" for="domicilioProvinciaUpdate">Provincia</label>
+									<input type="text" class="form-control" id="domicilioProvinciaUpdate"
+										placeholder="Actualice la provincia." name="domicilioProvincia" required />
+								</div>
+								<div class="modal-footer">
+									<button type="submit" class="btn btn-primary">Guardar</button>
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+								</div>
+							</form>
+							<div id="responsePatientUpdate" style="display: none; margin-top: 10px"></div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</main>
-	</body>
-	<script text="text/javascript" src="js/get_paciente.js"></script>
+		</div>
 
-	<script text="text/javascript" src="js/post_paciente.js"></script>
-	<script text="text/javascript" src="js/update_paciente.js"></script>
-	<script text="text/javascript" src="js/delete_paciente.js"></script>
+
+
+		<!-- MODAL MAS INFO DOMICILIO -->
+
+
+		<div class="modal fade " id="modalDomicilio" tabindex="-1" aria-labelledby="titoloDatosDomicilio"
+			aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="tituloDatosDomicilio">Datos domicilio</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="form-group"><label class="control-label" for="domicilioCalleModal">Calle</label>
+							<input type="text" class="form-control" id="domicilioCalleModal" readonly />
+						</div>
+						<div class="form-group">
+							<label class="control-label" for="domicilioNumeroModal">Numero de domicilio</label>
+							<input type="text" class="form-control" id="domicilioNumeroModal" readonly />
+						</div>
+						<div class="form-group">
+							<label class="control-label" for="domicilioLocalidadModal">Localidad</label>
+							<input type="text" class="form-control" id="domicilioLocalidadModal" readonly />
+						</div>
+						<div class="form-group">
+							<label class="control-label" for="domicilioProvinciaModal">Provincia</label>
+							<input type="text" class="form-control" id="domicilioProvinciaModal" readonly />
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div class="modal fade" id="staticBackdropPacienteDelete" data-backdrop="static" data-keyboard="false"
+			tabindex="-1" aria-labelledby="staticBackdropLabelDelete" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="staticBackdropLabelDelete">Eliminar Paciente</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						Seguro que desea dar de baja el paciente seleccionado?
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary btnCancelarPaciente"
+							data-dismiss="modal">No</button>
+						<button type="submit" id="confirmarPacienteDelete"
+							class="btn btn-danger btnTabla">Eliminar</button>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+
+
+
+	</main>
+</body>
+<script text="text/javascript" src="js/metodosGenericos.js"></script>
+<script text="text/javascript" src="js/paciente/metodosRegistrosPac.js"></script>
+<script text="text/javascript" src="js/paciente/get_paciente.js"></script>
+
+<script text="text/javascript" src="js/paciente/post_paciente.js"></script>
+<script text="text/javascript" src="js/paciente/update_paciente.js"></script>
+<script text="text/javascript" src="js/paciente/delete_paciente.js"></script>
+
 </html>

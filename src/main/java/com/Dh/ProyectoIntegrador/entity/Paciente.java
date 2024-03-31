@@ -1,10 +1,12 @@
 package com.Dh.ProyectoIntegrador.entity;
 
-import java.sql.Date;
+
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import lombok.*;
@@ -15,7 +17,8 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
+//@ToString(exclude = {"turnoSet", "domicilio"})
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Paciente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +26,7 @@ public class Paciente {
     private String nombre;
     private String apellido;
     private String dni;
-    private Date fechaIngreso;
+    private LocalDate fechaIngreso;
     @OneToOne(cascade = CascadeType.ALL)
 
     @JoinColumn(name = "domicilio_id")

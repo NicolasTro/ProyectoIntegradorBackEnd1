@@ -1,13 +1,12 @@
 package com.Dh.ProyectoIntegrador.controller;
 
-import com.Dh.ProyectoIntegrador.Excepciones.DomicilioException;
-import com.Dh.ProyectoIntegrador.Excepciones.OdontologoException;
-import com.Dh.ProyectoIntegrador.Excepciones.PacienteException;
-import com.Dh.ProyectoIntegrador.Excepciones.TurnoException;
-import com.Dh.ProyectoIntegrador.dto.response.OdontologoResponseDTO;
+import com.Dh.ProyectoIntegrador.dto.odontologos.OdontologoDTO;
+import com.Dh.ProyectoIntegrador.dto.odontologos.request.OdontologoRequestDTO;
+import com.Dh.ProyectoIntegrador.dto.odontologos.response.OdontologoResponseDTOFull;
+import com.Dh.ProyectoIntegrador.dto.odontologos.response.OdontologoResponseDTOName;
 import com.Dh.ProyectoIntegrador.entity.Odontologo;
 import com.Dh.ProyectoIntegrador.service.IService;
-import com.Dh.ProyectoIntegrador.service.IServiceDTOHQL;
+import com.Dh.ProyectoIntegrador.service.IServiceDTO;
 import com.Dh.ProyectoIntegrador.service.IServiceHQL;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,150 +17,106 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+//##########################################################################################
+// Controlador para manejar las operaciones relacionadas con los Odontologos
 @RestController
 @RequestMapping("odontologos")
 @Slf4j
 public class OdontologoController {
 
-	private IService<Odontologo> odontologoIService;
-	private IServiceHQL<Odontologo> odontologoIServiceHQL;
-	private IServiceDTOHQL<OdontologoResponseDTO> odontologoIServiceDTOHQL;
+	private IService<OdontologoDTO> odontologoIService;
+	private IServiceHQL<OdontologoDTO> odontologoIServiceHQL;
+	private IServiceDTO<OdontologoDTO> odontologoIServiceDTO;
+
 	@Autowired
-	public OdontologoController(IService<Odontologo> odontologoIService, IServiceHQL<Odontologo> odontologoIServiceHQL, IServiceDTOHQL<OdontologoResponseDTO> odontologoIServiceDTOHQL) {
+	public OdontologoController(IService<OdontologoDTO> odontologoIService, IServiceHQL<OdontologoDTO> odontologoIServiceHQL, IServiceDTO<OdontologoDTO> odontologoIServiceDTO) {
 		this.odontologoIService = odontologoIService;
 		this.odontologoIServiceHQL = odontologoIServiceHQL;
-		this.odontologoIServiceDTOHQL = odontologoIServiceDTOHQL;
+		this.odontologoIServiceDTO = odontologoIServiceDTO;
 	}
 
-	//TODO Preguntarle a la profe sobre los AutoWirdes y si hay dos como en este acso, es nececsario ponerle a ambos?
-
+	//##########################################################################################
+	// Método para buscar odontólogos por parámetros
 	@GetMapping("/buscar")
-	public ResponseEntity<Odontologo> buscar(@RequestParam("valor") String valor,@RequestParam("tipoDeBusqueda") Integer tipoDeBusqueda) {
-		ResponseEntity response =  null;
-		try {
-			Optional<List<Odontologo>> odontologoBuscar = odontologoIServiceHQL.buscar(tipoDeBusqueda, valor);
+	public ResponseEntity<List<OdontologoDTO>> buscar(@RequestParam("valor") String valor, @RequestParam("tipoDeBusqueda") Integer tipoDeBusqueda) {
 
-			if (odontologoBuscar != null) {
-				response = new ResponseEntity<>(odontologoBuscar.get(), HttpStatus.FOUND);
-			} else {
-				response = new ResponseEntity(HttpStatus.NOT_FOUND);
-			}
-		}  catch (Exception  e) {
-			return new ResponseEntity( HttpStatus.I_AM_A_TEAPOT);
-		}
-		return response;
+		Optional<List<OdontologoDTO>> odontologoBuscar = odontologoIServiceHQL.buscarDatosCompletos(tipoDeBusqueda, valor);
+		log.info("Buscando Odontologo con valor: " + valor + " y tipo de Busqueda: " + tipoDeBusqueda);
+
+		return new ResponseEntity(odontologoBuscar, HttpStatus.FOUND);
 	}
+
+	//##########################################################################################
+	// Método para registrar un nuevo odontólogo
 	@PostMapping("/registrar")
-	public ResponseEntity guardar(@RequestBody Odontologo odontologo) {
-		ResponseEntity response = null;
-		try {
-			Odontologo odontologoGuardado = this.odontologoIService.guardar(odontologo);
-			if (odontologoGuardado != null) {
-				response = new ResponseEntity(odontologoGuardado, HttpStatus.CREATED);
-				//TODO ES NECESARIO EL ELSE DEL RESPONSE ENTITY O NO?
-			} else {
-				response = new ResponseEntity(HttpStatus.NOT_ACCEPTABLE);
-			}
-		} catch (Exception e) {
-			return new ResponseEntity(e.getMessage(),  HttpStatus.NO_CONTENT);
-		}
-		return response;
+	public ResponseEntity<OdontologoDTO> guardar(@RequestBody OdontologoRequestDTO odontologo) {
+
+		OdontologoDTO odontologoGuardado = this.odontologoIService.guardar(odontologo);
+		log.info("Guardando Odontologo.");
+
+		return new ResponseEntity(odontologoGuardado, HttpStatus.CREATED);
 	}
 
-
+	//##########################################################################################
+	// Método para buscar un odontólogo por su ID
 	@GetMapping("/{id}")
-	public ResponseEntity buscarPorId(@PathVariable Long id) {
-		ResponseEntity response = null;
-		Odontologo odontologoEncontrado = null;
-		try {
-			odontologoEncontrado = this.odontologoIService.buscarPorId(id);
-			if (odontologoEncontrado != null) {
-				response = new ResponseEntity<>(odontologoEncontrado, HttpStatus.FOUND);
-			} else {
-				response = new ResponseEntity(HttpStatus.NOT_FOUND);
-			}
-		} catch (Exception e) {
-			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
-		}
-		return response;
+	public ResponseEntity<OdontologoResponseDTOFull> buscarPorId(@PathVariable Long id) {
+
+		OdontologoDTO odontologoEncontrado = null;
+
+		odontologoEncontrado = this.odontologoIService.buscarPorId(id);
+		log.info("Buscando Odontologo con ID: "+ id);
+
+		return new ResponseEntity(odontologoEncontrado, HttpStatus.FOUND);
 	}
-	//TODO CAMBIAR METODO ACTUALIZAR COMO EL DEL TURNO
-	//TODO cuando se ve el ResponseEnntity?
+
+	//##########################################################################################
+	// Método para actualizar un odontólogo
 	@PutMapping("/actualizar")
-	public ResponseEntity<Odontologo> actualizar(@RequestBody Odontologo odontologo) throws PacienteException, OdontologoException, DomicilioException, TurnoException {
-		ResponseEntity response = null;
+	public ResponseEntity<OdontologoDTO> actualizar(@RequestBody OdontologoRequestDTO odontologo) {
 
-			if(odontologo != null) {
-				this.odontologoIService.actualizar(odontologo);
+		this.odontologoIService.actualizar(odontologo);
 
-				Odontologo actualizarOdontologo = odontologoIService.buscarPorId(odontologo.getId());
-				log.info("estamos logueando actualizar" + actualizarOdontologo);
+		OdontologoDTO actualizarOdontologo = odontologoIService.buscarPorId(odontologo.getId());
+		log.info("Actualizando Odontologo.");
 
-
-
-				} else {
-					return new ResponseEntity( HttpStatus.NOT_FOUND);
-				}
-
-
-		return  new ResponseEntity(odontologo, HttpStatus.OK);
+		return new ResponseEntity(actualizarOdontologo, HttpStatus.OK);
 	}
 
-	//TODO METODO ACTUALIZAR CON VOID? Y EXCEPTION O CAMBIAR EL VOID??
-
-
-
-
+	//##########################################################################################
+	// Método para listar todos los odontólogos
 	@GetMapping("/listar")
+	public ResponseEntity<List<OdontologoDTO>> listarTodos() {
+		List<OdontologoDTO> listaOdontologos = null;
 
-	public ResponseEntity<List<Odontologo>> listarTodos() {
-		ResponseEntity response = null;
-		List<Odontologo> listaOdontologos = null;
-		try {
-			listaOdontologos = this.odontologoIService.listarTodos();
-			if (listaOdontologos.size() > 0) {
-				response = new ResponseEntity(listaOdontologos, HttpStatus.FOUND);
-			} else {
-				response = new ResponseEntity<List<Odontologo>>(listaOdontologos,  HttpStatus.NOT_FOUND);
-			}
-		} catch (Exception e) {
-			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
-		}
-		return response;
+		listaOdontologos = this.odontologoIService.listarTodos();
+
+		Optional<List<OdontologoDTO>> lista = Optional.of(listaOdontologos);
+		log.info("Listando Odontologos");
+
+		return new ResponseEntity(listaOdontologos, HttpStatus.FOUND);
 	}
 
-
-
+	//##########################################################################################
+	// Método para listar todos los odontólogos en formato DTO
 	@GetMapping("/listarDTO")
+	public ResponseEntity<List<OdontologoDTO>> listarTodosDTO() {
 
-	public ResponseEntity<List<OdontologoResponseDTO>> listarTodosDTO() {
-		ResponseEntity response = null;
-		Optional<List<OdontologoResponseDTO>> listaOdontologos = null;
-		try {
+		Optional<List<OdontologoDTO>> listaOdontologos = this.odontologoIServiceDTO.listarTodosIDNombre();
+		log.info("Listando OdontologosDTO");
 
-			listaOdontologos = this.odontologoIServiceDTOHQL.listarTodosIDNombre();
-
-			if (!listaOdontologos.isEmpty()) {
-				response = new ResponseEntity(listaOdontologos.get(), HttpStatus.FOUND);
-			} else {
-				response = new ResponseEntity<List<Odontologo>>( HttpStatus.NOT_FOUND);
-			}
-		} catch (Exception e) {
-			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
-		}
-		return response;
+		return new ResponseEntity(listaOdontologos, HttpStatus.FOUND);
 	}
 
-
+	//##########################################################################################
+	// Método para eliminar un odontólogo por su ID
 	@DeleteMapping("eliminar/{id}")
-	public ResponseEntity eliminar(@PathVariable Long id) {
-		ResponseEntity response = null;
-		try {
-			this.odontologoIService.eliminar(id);
-		} catch (Exception e) {
-			return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
-		}
-		return new ResponseEntity("Odontologo eliminado correctamente", HttpStatus.OK);
-	}
+	public ResponseEntity<String> eliminar(@PathVariable Long id) {
 
+		this.odontologoIService.eliminar(id);
+		log.info("Eliminando Odontologo con ID:" + id);
+
+		return new ResponseEntity(HttpStatus.OK);
+	}
+	//##########################################################################################
 }

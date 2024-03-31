@@ -2,7 +2,6 @@ package com.Dh.ProyectoIntegrador.service;
 
 import java.util.List;
 
-//@Service
 public interface IService<T> {
 
 	T guardar(T t);

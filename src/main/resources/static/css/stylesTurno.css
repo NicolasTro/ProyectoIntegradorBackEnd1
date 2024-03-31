@@ -1,13 +1,27 @@
-@import url('stylesListOd.css');
-.fondo{
+@import url("stylesListOd.css");
 
-    background-image: url("../images/view-international-worker-s-day-still-life\ \(1\).jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+/* * {
+	border: solid black 3px;
+} */
+.fondo {
+	background-image: url("../images/view-international-worker-s-day-still-life\ \(1\).jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 89.6vh;
+	border: solid black 1px;
+}
+
+
+.comboTurnoPaciente, .comboTurnoOdontologo{
+	width: 100%;
     
-    height: 89.6vh;
-    border: solid black 1px;
-    /* width: 80%; */
+}
+ .contenedorComboPacientes, .contenedorComboOdontologo {
+	width: 100%;
+} 
+.comboTurnoPaciente, .comboTurnoOdontologo{
+    /* font-size: 20px; */
+    border: none;
 }
 

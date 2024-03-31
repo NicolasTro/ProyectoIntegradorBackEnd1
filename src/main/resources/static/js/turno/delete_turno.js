@@ -23,7 +23,7 @@ function eliminarTurno(listaBtnEliminar) {
 				fetch(url, settings)
 					.then((response) => response.json())
 					.then((data) => {
-						console.log("no entra aca");
+						
 						let successAlert = '<div class="alert alert-success alert-dismissible">' + '<button type="button" class="close" data-dismiss="alert">&times;</button>' + "<strong></strong> Turno Eliminado </div>";
 
 						document.querySelector("#responseTurno").innerHTML = successAlert;

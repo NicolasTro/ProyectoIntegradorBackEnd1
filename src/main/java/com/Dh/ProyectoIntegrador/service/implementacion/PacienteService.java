@@ -17,6 +17,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -119,8 +122,11 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 				pacienteOptional = Optional.of(mapearRegistros(pacienteRepository.findByApellido(valor).get()));
 				break;
 			case 4:
-				Date fechaValor = Date.valueOf(valor);
-				pacienteOptional = Optional.of(mapearRegistros(pacienteRepository.findByFecha(fechaValor).get()));
+
+
+				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+				LocalDate fechaHora = LocalDate.parse(valor, formatter);
+				pacienteOptional = Optional.of(mapearRegistros(pacienteRepository.findByFecha(fechaHora).get()));
 				break;
 			default:
 				break;

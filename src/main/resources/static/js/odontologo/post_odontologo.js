@@ -49,7 +49,7 @@ function formularioInsertar(event, form) {
 		fetch(url, settings)
 			.then((response) => response.json())
 			.then((data) => {
-				console.log(data);
+				
 				//Si no hay ningun error se muestra un mensaje diciendo que el odontólogo
 				//se agrego bien
 				let successAlert = '<div class="alert alert-success alert-dismissible">' + '<button type="button" class="close" data-dismiss="alert">&times;</button>' + "<strong>Odontólogo agregado </strong> </div>";

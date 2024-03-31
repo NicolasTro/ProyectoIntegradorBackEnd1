@@ -1,8 +1,4 @@
-window.addEventListener("load", function () {
-
-
-
-});
+window.addEventListener("load", function () {});
 
 function cargarEncabezadoTabla(tituloTabla) {
 	let tabla = document.getElementById("tablaDeRegistros");
@@ -166,10 +162,8 @@ function validarFecha() {
 	const formattedDateTime = `${year}-${month}-${day}T${hours}:${minutes}`;
 
 	let inputFecha = document.querySelectorAll(".inputFecha");
-	
 
 	inputFecha.forEach(fecha => {
-		
 		fecha.min = formattedDateTime;
 	});
 }

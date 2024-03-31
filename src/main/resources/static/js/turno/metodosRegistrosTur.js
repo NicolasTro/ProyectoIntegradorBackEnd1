@@ -73,6 +73,58 @@ window.addEventListener("load", function () {
 		});
 	}
 
+
+let btnReset = document.querySelector('#btnResetBusquedaTurno');
+
+
+
+
+if (btnReset !== null) {
+	btnReset.addEventListener("click", function (event) {
+		let tipoDeBusqueda = document.getElementById("comboBusqueda");
+		let validacionInputId = document.getElementById("search");
+		tipoDeBusqueda.value = 1;
+
+		if(validacionInputId!==null){
+
+
+			validacionInputId.value = "";
+
+
+		}else{
+
+
+			let calendario = document.getElementById("searchCalendar");
+			let inputBusqueda = document.createElement("input");
+			inputBusqueda.type = "text";
+			inputBusqueda.className = "form-control mr-sm-2 idBusqueda";
+			inputBusqueda.id = "search";
+			inputBusqueda.type = "search";
+			inputBusqueda.placeholder = "Buscar";
+			inputBusqueda.ariaLabel = "Search";
+			inputBusqueda.required = true;
+
+			formBusqueda.replaceChild(inputBusqueda, calendario);
+			validacionInput();
+
+
+
+		}
+
+		clearTabla();
+		tablaNueva(tituloTablaTurnos);
+
+		iconosDeCarga.style.visibility = "visible";
+
+		setTimeout(function () {
+			iconosDeCarga.style.visibility = "hidden";
+			obtenerListaTurnos();
+		}, 3000);
+	});
+}
+
+
+
 	validacionInput();
 });
 function cargarRegistro(turno) {
@@ -87,10 +139,6 @@ let tituloTablaTurnos = "<th scope='col'>Id</th>" + "<th scope='col'>Odontologo<
 
 
 
-function resetUploadFormTurno(){
 
 
 
-
-
-}

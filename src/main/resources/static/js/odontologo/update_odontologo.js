@@ -24,7 +24,7 @@ function actualizarOdontologo(listaBtnModificar) {
 
 
 				let bandera = validarCamposIngresados(formulario, ".responseUpdate");
-				console.log(bandera);
+				
 
 				if (bandera) {
 					const formData = {
@@ -46,7 +46,7 @@ function actualizarOdontologo(listaBtnModificar) {
 					fetch(url, settings)
 						.then(response => response.json())
 						.then(data => {
-							console.log(data);
+							
 							let successAlert = '<div class="alert alert-success alert-dismissible">' + '<button type="button" class="close" data-dismiss="alert">&times;</button>' + "<strong></strong> Odontólogo Actualizado </div>";
 
 							document.querySelector(".responseUpdate").innerHTML = successAlert;

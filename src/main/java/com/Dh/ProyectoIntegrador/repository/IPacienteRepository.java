@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,7 +18,7 @@ public interface IPacienteRepository extends JpaRepository<Paciente, Long> {
     @Query("SELECT p FROM Paciente p WHERE LOWER(p.apellido) LIKE LOWER(concat('%', ?1, '%'))")
     Optional<List<Paciente>> findByApellido(String valor);
     @Query("SELECT p FROM Paciente p WHERE p.fechaIngreso =?1")
-    Optional<List<Paciente>> findByFecha(Date valor);
+    Optional<List<Paciente>> findByFecha(LocalDate valor);
 
     @Query("SELECT COUNT(t) FROM Turno t WHERE t.paciente.id = :id")
     Long findByPacienteTurno(Long id);

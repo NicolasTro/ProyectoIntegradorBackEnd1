@@ -1,6 +1,6 @@
 function actualizarPaciente(listaBtnModificarRegistros) {
 	listaBtnModificarRegistros.forEach(botonModificar => {
-		// console.log(botonModificar);
+		
 		let id = botonModificar.dataset.id;
 		let nombre = botonModificar.dataset.nombre;
 		let apellido = botonModificar.dataset.apellido;
@@ -11,13 +11,13 @@ function actualizarPaciente(listaBtnModificarRegistros) {
 		let localidad = botonModificar.dataset.localidad;
 		let provincia = botonModificar.dataset.provincia;
 		let domicilio_id = botonModificar.dataset.domicilioid;
-		// console.log("domicilio id "+ botonModificar.dataset.domicilio_id);
+		
 
 		botonModificar.addEventListener("click", function (e) {
 			// e.preventDefault();
 			$("#staticBackdropPacienteUpdate").modal("show");
 			let inputNumericoAValidar = document.querySelector("#domicilioNumeroUpdate");
-			console.log(inputNumericoAValidar);
+			
 			validarInputNumerico(inputNumericoAValidar);
 
 			
@@ -33,7 +33,7 @@ function actualizarPaciente(listaBtnModificarRegistros) {
 			
 
 			let formulario = document.querySelector("#updatePaciente");
-			// console.log(formulario);
+			
 			if (formulario !== null) {
 				formulario.addEventListener("submit", function (event) {
 					event.preventDefault();

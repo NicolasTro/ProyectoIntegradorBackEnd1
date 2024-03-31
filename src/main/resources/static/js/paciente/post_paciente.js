@@ -1,8 +1,8 @@
 window.addEventListener("load", function () {
 	const formulario = document.querySelector("#agregarPaciente");
-	console.log(formulario);
+	
 	let inputNumericoAValidar = document.querySelector("#domicilioNumero");
-	console.log(inputNumericoAValidar);
+	
 	validarInputNumerico(inputNumericoAValidar);
 	formulario.addEventListener("submit", function (event) {
 		event.preventDefault();

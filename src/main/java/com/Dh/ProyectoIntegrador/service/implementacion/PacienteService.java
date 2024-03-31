@@ -12,15 +12,16 @@ import com.Dh.ProyectoIntegrador.service.IServiceHQL;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import lombok.extern.slf4j.Slf4j;
-import org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.Date;
+
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,7 +30,6 @@ import java.util.Optional;
 @Service
 @Slf4j
 public class PacienteService implements IService<PacienteDomicilioDTO>, IServiceHQL<PacienteDomicilioDTO>, IServiceDTO<PacienteResponseDTOName> {
-
 
 	private IPacienteRepository pacienteRepository;
 
@@ -88,15 +88,10 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 
 			if (pacienteDomicilioDTO.getId() == pacienteDomicilioDTO.getId()) {
 				this.pacienteRepository.save(mapearPacienteEntidad(pacienteRequestDTO));
-
-
 			} else {
 				log.warn("No se encuentra el paciente seleccionado");
 				throw new ResourceNotFoundException("No se encuentra el paciente seleccionado" + pacienteRequestDTO.getId());
-
 			}
-
-
 		} else {
 			log.warn("Ha ocurrido un error actualizando al Paciente.");
 			throw new ResourceNotUpdatedException("No se pudo actualizar el paciente con el ID:" + pacienteRequestDTO.getId());
@@ -121,41 +116,47 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 	// Método para buscar pacientes por parámetros personalizados
 	@Override
 	public Optional<List<PacienteDomicilioDTO>> buscarDatosCompletos(Integer tipoDeBusqueda, String valor) {
-
-		Optional<List<PacienteDomicilioDTO>> pacienteOptional = null;
-		switch (tipoDeBusqueda) {
-			case 1:
-				Long id = Long.parseLong(valor);
-				Optional<Paciente> pacienteEncontrado = this.pacienteRepository.findById(id);
-				if (pacienteEncontrado.isPresent()) {
-					List<PacienteDomicilioDTO> listaPaciente = new ArrayList<>();
-					listaPaciente.add(mapeador(pacienteEncontrado.get(), PacienteDomicilioDTO.class));
-					pacienteOptional = Optional.of(listaPaciente); // Envuelve la lista en un Optional
-				} else {
-					pacienteOptional = Optional.empty();
-				}
-				break;
-			case 2:
-				pacienteOptional = Optional.of(mapearRegistros(pacienteRepository.findByNombre(valor).get()));
-				break;
-			case 3:
-				pacienteOptional = Optional.of(mapearRegistros(pacienteRepository.findByApellido(valor).get()));
-				break;
-			case 4:
+		if (valor.trim() != "") {
 
 
-				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-				LocalDate fechaHora = LocalDate.parse(valor, formatter);
-				pacienteOptional = Optional.of(mapearRegistros(pacienteRepository.findByFecha(fechaHora).get()));
-				break;
-			default:
-				break;
-		}
-		if (pacienteOptional.isPresent()) {
-			return pacienteOptional;
+			Optional<List<PacienteDomicilioDTO>> pacienteOptional = null;
+			switch (tipoDeBusqueda) {
+				case 1:
+					Long id = Long.parseLong(valor);
+					Optional<Paciente> pacienteEncontrado = this.pacienteRepository.findById(id);
+					if (pacienteEncontrado.isPresent()) {
+						List<PacienteDomicilioDTO> listaPaciente = new ArrayList<>();
+						listaPaciente.add(mapeador(pacienteEncontrado.get(), PacienteDomicilioDTO.class));
+						pacienteOptional = Optional.of(listaPaciente); // Envuelve la lista en un Optional
+					} else {
+						pacienteOptional = Optional.empty();
+					}
+					break;
+				case 2:
+					pacienteOptional = Optional.of(mapearRegistros(pacienteRepository.findByNombre(valor).get()));
+					break;
+				case 3:
+					pacienteOptional = Optional.of(mapearRegistros(pacienteRepository.findByApellido(valor).get()));
+					break;
+				case 4:
+					DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+					LocalDate fechaHora = LocalDate.parse(valor, formatter);
+					pacienteOptional = Optional.of(mapearRegistros(pacienteRepository.findByFecha(fechaHora).get()));
+					break;
+				default:
+					break;
+			}
+			if (pacienteOptional.isPresent() && !pacienteOptional.get().isEmpty()) {
+				return pacienteOptional;
+			} else {
+				log.warn("Ha ocurrido un error en la busqueda personalizada de Pacientes");
+				throw new ResourceNotFoundException("Error en la busqueda personalizada de Pacientes.");
+			}
+
 		} else {
-			log.warn("Ha ocurrido un error en la busqueda personalizada de Pacientes");
+			log.warn("Datos invalidos en la busqueda de paciente");
 			throw new ResourceNotFoundException("Error en la busqueda personalizada de Pacientes.");
+
 		}
 	}
 
@@ -188,7 +189,7 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 			});
 			return listaPacientesDTO;
 		}
-		return null;
+		return Collections.emptyList();
 	}
 
 	private static <T> T mapeador(Object objetoAMapear, Class<T> clase) {

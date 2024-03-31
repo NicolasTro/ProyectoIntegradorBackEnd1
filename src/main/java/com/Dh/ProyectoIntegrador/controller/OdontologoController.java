@@ -42,14 +42,6 @@ public class OdontologoController {
 			Optional<List<OdontologoDTO>> odontologoBuscar = odontologoIServiceHQL.buscarDatosCompletos(tipoDeBusqueda, valor);
 
 
-	//		if (odontologoBuscar != null) {
-	//			response = new ResponseEntity<>(odontologoBuscar.get(), HttpStatus.FOUND);
-	//		} else {
-	//			response = new ResponseEntity(HttpStatus.NOT_FOUND);
-	//		}
-	//	} catch (Exception e) {
-	//		return new ResponseEntity(HttpStatus.I_AM_A_TEAPOT);
-	//	}
 		log.info("Buscando Odontologo con valor: " + valor + " y tipo de Busqueda: " + tipoDeBusqueda);
 		return new ResponseEntity(odontologoBuscar, HttpStatus.FOUND);
 	}
@@ -137,33 +129,15 @@ public class OdontologoController {
 	@GetMapping("/listarDTO")
 
 	public ResponseEntity<List<OdontologoDTO>> listarTodosDTO() {
-	//	ResponseEntity response = null;
-		Optional<List<OdontologoDTO>> listaOdontologos = null;
-	//	try {
-
-			listaOdontologos = this.odontologoIServiceDTO.listarTodosIDNombre();
-
-	//		if (!listaOdontologos.isEmpty()) {
-	//			response = new ResponseEntity(listaOdontologos.get(), HttpStatus.FOUND);
-	//		} else {
-	//			response = new ResponseEntity<List<Odontologo>>( HttpStatus.NOT_FOUND);
-	//		}
-	//	} catch (Exception e) {
+		Optional<List<OdontologoDTO>> listaOdontologos = this.odontologoIServiceDTO.listarTodosIDNombre();
 		log.info("Listando OdontologosDTO");
 			return new ResponseEntity(listaOdontologos, HttpStatus.FOUND);
-	//	}
-	//	return response;
 	}
 
 
 	@DeleteMapping("eliminar/{id}")
 	public ResponseEntity<String> eliminar(@PathVariable Long id) {
-	//	ResponseEntity response = null;
-	//	try {
 			this.odontologoIService.eliminar(id);
-	//	} catch (Exception e) {
-	//		return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
-	//	}
 		log.info("Eliminando Odontologo con ID:" + id);
 		return new ResponseEntity(HttpStatus.OK);
 	}

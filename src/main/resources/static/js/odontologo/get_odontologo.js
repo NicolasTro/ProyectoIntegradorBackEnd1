@@ -7,19 +7,24 @@ function obtenerListaOdontologos() {
 	return fetch(url, settings)
 		.then(response => response.json())
 		.then(data => {
+
+
+			console.log(data);
 			if (data.length > 0) {
 				let body = document.getElementById("cuerpoTabla");
+				console.log(body);
 
 				for (dentist of data) {
 					dentistRow = body.insertRow();
 					let tr_id = "tr_" + dentist.id;
 					dentistRow.id = tr_id;
 					dentistRow.innerHTML = cargarRegistro(dentist);
+
+					console.log(dentistRow);
 				}
 
 				let listaBtnModificar = document.querySelectorAll(".btnTablaModificar");
 
-				
 				
 				let listaBtnEliminar = document.querySelectorAll(".btnTablaEliminar");
 
@@ -30,6 +35,7 @@ function obtenerListaOdontologos() {
 			}
 		})
 		.catch(error => {
+			console.log(error);
 			noSeEncontraronRegistros();
 		});
 }

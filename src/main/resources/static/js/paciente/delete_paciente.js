@@ -11,31 +11,26 @@ function eliminarPaciente(listaBtnEliminar) {
 			btnConfirmarEliminar.addEventListener("click", function (event) {
 				event.preventDefault();
 
-				
-				
 				const url = "/pacientes/eliminar/" + idBtn;
 
-				
 				const settings = {
 					method: "DELETE",
 					headers: {
 						"Content-Type": "application/json",
 					},
 				};
-
 				fetch(url, settings)
 					.then(response => {
 						$("#staticBackdropPacienteDelete").modal("hide");
 						if (!response.ok) {
 							return response.text().then(text => Promise.reject(text));
-						} else {
-							response.json();
 						}
 					})
 					.then(data => {
 						setTimeout(function () {
+							alert("Paciente eliminado correctamente");
 							location.reload();
-						}, 2000);
+						}, 1000);
 					})
 					.catch(error => {
 						alert(error);
@@ -43,8 +38,6 @@ function eliminarPaciente(listaBtnEliminar) {
 							location.reload();
 						}, 1000);
 					});
-
-				
 			});
 		});
 	});

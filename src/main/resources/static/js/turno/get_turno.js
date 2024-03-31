@@ -21,7 +21,7 @@ function obtenerListaTurnos() {
 
 				let listaBtnModificarRegistros = document.querySelectorAll(".btnTablaModificar");
 				let listaBtnEliminarRegistros = document.querySelectorAll(".btnTablaEliminar");
-				
+
 				modificarTurno(listaBtnModificarRegistros);
 				eliminarTurno(listaBtnEliminarRegistros);
 			} else {
@@ -35,7 +35,7 @@ function obtenerListaTurnos() {
 
 // ##############################################################################################################################
 // ##############################################################################################################################
-function busquedaPacientePersonalizado() {
+function busquedaTurnosPersonalizado() {
 	let tipoDeBusqueda = document.getElementById("comboBusqueda");
 
 	let valorBusqueda;
@@ -57,25 +57,33 @@ function busquedaPacientePersonalizado() {
 			// clearTabla();
 			// tablaNueva();
 
-			if (data.length == 1) {
-				let tablaBody = document.getElementById("cuerpoTabla");
+			// if (data.length == 1) {
+			// 	let tablaBody = document.getElementById("cuerpoTabla");
 
-				tablaBody.innerHTML = "";
-				let patientRow = tablaBody.insertRow();
+			// 	tablaBody.innerHTML = "";
+			// 	let patientRow = tablaBody.insertRow();
 
-				let tr_id = "tr_" + data[0].id;
+			// 	let tr_id = "tr_" + data[0].id;
 
-				patientRow.id = tr_id;
-				patientRow.innerHTML = cargarRegistro(data[0]);
-			} else if (data.length > 1) {
+			// 	patientRow.id = tr_id;
+			// 	patientRow.innerHTML = cargarRegistro(data[0]);
+			// } else if (data.length > 1) {
+			if (data.length > 0) {
 				let body = document.getElementById("cuerpoTabla");
-
-				for (patient of data) {
-					patientRow = body.insertRow();
-					let tr_id = "tr_" + patient.id;
-					patientRow.id = tr_id;
-					patientRow.innerHTML = cargarRegistro(patient);
+				console.log(body);
+				for (turno of data) {
+					console.log(turno);
+					turnoRow = body.insertRow();
+					let tr_id = "tr_" + turno.id;
+					turnoRow.id = tr_id;
+					turnoRow.innerHTML = cargarRegistro(turno);
 				}
+
+				let listaBtnModificarRegistros = document.querySelectorAll(".btnTablaModificar");
+				let listaBtnEliminarRegistros = document.querySelectorAll(".btnTablaEliminar");
+
+				modificarTurno(listaBtnModificarRegistros);
+				eliminarTurno(listaBtnEliminarRegistros);
 			} else {
 				noSeEncontraronRegistros();
 			}
@@ -121,8 +129,6 @@ function listarOdontologos(comboListaOdontologos) {
 		.then(response => response.json())
 		.then(data => {
 			let comboOdontologo = document.querySelector(comboListaOdontologos);
-			
-			
 
 			for (odontologo of data) {
 				let comboValor = document.createElement("option");

@@ -52,7 +52,7 @@
 							</a>
 							<div class="dropdown-menu">
 								<button type="button" class="btn dropdown-item" data-toggle="modal"
-									data-target="#staticBackdropPacientes">Registrar</button>
+									data-target="#staticBackdropPacientes"   id="btnRegistrarPacienteLista">Registrar</button>
 								<a class="dropdown-item" href="pacienteLista.html">Listar</a>
 							</div>
 						</li>
@@ -163,8 +163,8 @@
 									</div>
 									<div class="form-group">
 										<label class="control-label" for="fechaIngreso">Fecha de Ingreso:</label>
-										<input type="date" class="form-control" id="fechaIngreso" name="fechaIngreso"
-											required />
+										<input type="date" class="form-control inputFecha" id="fechaIngreso" name="fechaIngreso"
+											required="true"/>
 									</div>
 									<div class="form-group">
 										<label class="control-label" for="domicilioCalle">Calle</label>
@@ -239,7 +239,7 @@
 									<div class="form-group">
 										<label class="control-label" for="fechaTurno">FechaYHora:</label>
 
-										<input type="datetime-local" class="form-control inputFecha" id="turnoFecha"
+										<input type="datetime-local" class="form-control inputFechaHora" id="turnoFecha"
 											name="fechaTurno" required />
 									</div>
 									<div class="modal-footer">
@@ -260,6 +260,7 @@
 
 <script text="text/javascript" src="js/metodosGenericos.js"></script>
 <script text="text/javascript" src="js/odontologo/metodosRegistrosOd.js"></script>
+<!-- <script text="text/javascript" src="js/paciente/metodosRegistrosPac.js"></script> -->
 
 <script text="text/javascript" src="js/turno/metodosRegistrosTur.js"></script>
 

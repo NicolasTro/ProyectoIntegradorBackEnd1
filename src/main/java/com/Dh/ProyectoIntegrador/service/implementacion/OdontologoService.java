@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -71,7 +72,7 @@ public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<O
 
 			OdontologoRequestDTO odontologoABuscar = (OdontologoRequestDTO) odontologoRequestDTO;
 
-			OdontologoRequestDTO odontologBuscado = (OdontologoRequestDTO) this.buscarPorId(odontologoABuscar.getId());
+			OdontologoResponseDTOFull odontologBuscado = (OdontologoResponseDTOFull) this.buscarPorId(odontologoABuscar.getId());
 
 			if (odontologBuscado.getId()==odontologoABuscar.getId()) {
 
@@ -113,6 +114,9 @@ public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<O
 	/*###################################################################################################################*/
 
 	public Optional<List<OdontologoDTO>> buscarDatosCompletos(Integer tipoDeBusqueda, String valor) {
+		if(!valor.trim().equals("")){
+
+
 		Optional<List<OdontologoDTO>> odontologoOptional = null;
 		switch (tipoDeBusqueda) {
 
@@ -139,11 +143,20 @@ public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<O
 			default:
 				break;
 		}
-		if (odontologoOptional.isPresent()) {
+
+
+		if (odontologoOptional.isPresent()&& !odontologoOptional.get().isEmpty()) {
 			return odontologoOptional;
 		} else {
 			log.warn("Ha ocurrido un error en la busqueda personalizada de los Odontologos");
 			throw new ResourceNotFoundException("Error en la busqueda de Odontologos.");
+		}
+
+		}else{
+			log.warn("Ha ocurrido un error en la busqueda personalizada de los Odontologos");
+			throw new ResourceNotFoundException("Error en la busqueda de Odontologos.");
+
+
 		}
 	}
 
@@ -169,7 +182,7 @@ public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<O
 			});
 			return listaOdontologosDTO;
 		}
-		return null;
+		return Collections.emptyList();
 	}
 
 	private static <T> T mapeador(Object objetoAMapear, Class<T> clase) {

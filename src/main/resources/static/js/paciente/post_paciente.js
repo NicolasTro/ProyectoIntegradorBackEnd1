@@ -7,6 +7,12 @@ window.addEventListener("load", function () {
 	formulario.addEventListener("submit", function (event) {
 		event.preventDefault();
 
+
+
+// validarFecha();
+
+
+
 		let bandera = validarCamposIngresados(formulario, "#responsePatient");
 
 		if (bandera) {
@@ -59,14 +65,4 @@ window.addEventListener("load", function () {
 		}
 	});
 
-	// function resetUploadForm() {
-	// 	document.querySelector("#nombrePaciente").value = "";
-	// 	document.querySelector("#apellidoPaciente").value = "";
-	// 	document.querySelector("#dni").value = "";
-	// 	document.querySelector("#fechaIngreso").value = "";
-	// 	document.querySelector("#domicilioCalle").value = "";
-	// 	document.querySelector("#domicilioNumero").value = "";
-	// 	document.querySelector("#domicilioLocalidad").value = "";
-	// 	document.querySelector("#domicilioProvincia").value = "";
-	// }
 });

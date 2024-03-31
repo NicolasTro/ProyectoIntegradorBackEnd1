@@ -1,4 +1,14 @@
 window.addEventListener("load", function () {
+
+	validarFecha();
+	// let aaaa = document.querySelector("#btnRegistrarPacienteLista");
+	// console.log("asdasd");
+	// console.log(aaaa);
+	// aaaa.addEventListener("click", function () {
+	// 	// resetUploadForm();
+	// 	console.log("entro");
+	// 	validarFecha();
+	// });
 	tablaNueva(tituloTablaPacientes);
 
 	let iconosDeCarga = document.getElementById("cargando");
@@ -71,15 +81,9 @@ window.addEventListener("load", function () {
 			let validacionInputId = document.getElementById("search");
 			tipoDeBusqueda.value = 1;
 
-			if(validacionInputId!==null){
-
-
+			if (validacionInputId !== null) {
 				validacionInputId.value = "";
-
-
-			}else{
-
-
+			} else {
 				let calendario = document.getElementById("searchCalendar");
 				let inputBusqueda = document.createElement("input");
 				inputBusqueda.type = "text";
@@ -92,9 +96,6 @@ window.addEventListener("load", function () {
 
 				formBusqueda.replaceChild(inputBusqueda, calendario);
 				validacionInput();
-
-
-
 			}
 
 			clearTabla();
@@ -109,34 +110,23 @@ window.addEventListener("load", function () {
 		});
 	}
 
-
-
-document.querySelector('#btnRegistroPacienteLista').addEventListener('click', function(){
-
-
-resetUploadForm();
-
-
-
-});
-
-
-
+	
 });
 
 function cargarRegistro(patient) {
-	
 	return `<td class="td_id align-middle tamanioTexto">${patient.id}</td><td class="td_nombre align-middle tamanioTexto">${patient.nombre.toUpperCase()}</td><td class="td_apellido align-middle tamanioTexto">${patient.apellido.toUpperCase()}</td>
                                         <td class="td_dni align-middle tamanioTexto">${patient.dni}</td>
                                         <td class="td_fecha align-middle tamanioTexto">${patient.fechaIngreso}</td>
-                                        <td class="td_domicilio align-middle tamanioTexto"><button type="button" class="btn btn-dark masInfo" data-toggle="modal" data-target="#modalDomicilio" id='masInfo'     data-calle='${patient.calle}'  data-numero='${patient.numero}' data-localidad='${
-		patient.localidad
-	}' data-provincia='${patient.provincia}'>
+                                        <td class="td_domicilio align-middle tamanioTexto"><button type="button" class="btn btn-dark masInfo" data-toggle="modal" data-target="#modalDomicilio" id='masInfo'     data-calle='${patient.calle}'  data-numero='${
+		patient.numero
+	}' data-localidad='${patient.localidad}' data-provincia='${patient.provincia}'>
 										mas Info</button></td><td td_btn align-middle tamanioTexto><div class="dropdown"><button class='btn btn-dark dropdown-toggle' type='button' data-toggle='dropdown' aria-expanded='false'></button>
                                             <div class='dropdown-menu traerAlFrente'>
-											<button type='button' data-id='${patient.id}' data-nombre='${patient.nombre}' data-apellido='${patient.apellido}' data-dni='${patient.dni}' data-fechaIngreso='${patient.fechaIngreso}' data-domicilioid='${patient.domicilio_id}' data-calle='${patient.calle}' data-numero='${
-		patient.numero
-	}' data-localidad='${patient.localidad}' data-provincia='${patient.provincia}'  class='btn btn-primary btnTabla btnTablaModificar dropdown-item' data-toggle='modal' data-target='#staticBackdropPacienteUpdate'>Modificar</button>
+											<button type='button' data-id='${patient.id}' data-nombre='${patient.nombre}' data-apellido='${patient.apellido}' data-dni='${patient.dni}' data-fechaIngreso='${patient.fechaIngreso}' data-domicilioid='${patient.domicilio_id}' data-calle='${
+		patient.calle
+	}' data-numero='${patient.numero}' data-localidad='${patient.localidad}' data-provincia='${
+		patient.provincia
+	}'  class='btn btn-primary btnTabla btnTablaModificar dropdown-item' data-toggle='modal' data-target='#staticBackdropPacienteUpdate'>Modificar</button>
                                             <button type='button' data-id='${patient.id}'  class='btn btn-primary dropdown-item btnTablaEliminar' data-target='#staticBackdropPacienteDelete' data-toggle='modal'>Eliminar</button>
                                             </div>
                                           </div>
@@ -145,7 +135,6 @@ function cargarRegistro(patient) {
 
 function cargarMasInfo(listaBtnDomicilios) {
 	listaBtnDomicilios.forEach(boton => {
-		
 		boton.addEventListener("click", function () {
 			$("#modalDomicilio").modal("show");
 
@@ -158,8 +147,6 @@ function cargarMasInfo(listaBtnDomicilios) {
 	});
 }
 
-
-
 function resetUploadForm() {
 	document.querySelector("#nombrePaciente").value = "";
 	document.querySelector("#apellidoPaciente").value = "";
@@ -170,3 +157,5 @@ function resetUploadForm() {
 	document.querySelector("#domicilioLocalidad").value = "";
 	document.querySelector("#domicilioProvincia").value = "";
 }
+let tituloTablaPacientes =
+	"<th scope='col'>Id</th>" + "<th scope='col'>Nombre </th>" + "<th scope='col'>Apellido</th>" + "<th scope='col'>DNI</th>" + "<th scope='col'>FechaIngreso</th>" + "<th scope='col'>Domicilio</th>" + "<th scope='col'>Gestionar</th></tr></thead>";

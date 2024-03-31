@@ -1,6 +1,6 @@
 // FUNCION WINDOWS LOAD
 window.addEventListener("load", function () {
-	validarFecha();
+	// validarFecha();
 	tablaNueva(tituloTablaTurnos);
 
 	let iconosDeCarga = document.getElementById("cargando");
@@ -16,9 +16,9 @@ window.addEventListener("load", function () {
 	let btnRegistrarTurno = document.getElementById("btnRegistrarTurnos");
 	if (btnRegistrarTurno !== null) {
 		btnRegistrarTurno.addEventListener("click", function () {
-			
 			listarPacientes('.comboTurnoPaciente');
 			listarOdontologos('.comboTurnoOdontologo');
+			validarFecha();
 		});
 	}
 
@@ -33,7 +33,7 @@ window.addEventListener("load", function () {
 
 			setTimeout(function () {
 				iconosDeCarga.style.visibility = "hidden";
-				busquedaPacientePersonalizado();
+				busquedaTurnosPersonalizado();
 			}, 3000);
 		});
 	}

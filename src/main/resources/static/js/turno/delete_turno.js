@@ -21,21 +21,26 @@ function eliminarTurno(listaBtnEliminar) {
 				};
 
 				fetch(url, settings)
-					.then((response) => response.json())
-					.then((data) => {
+					.then((response) =>{
+						$("#staticBackdropTurnoDelete").modal("hide");
+						if (!response.ok) {
+							return response.text().then(text => Promise.reject(text));
+						}					
 						
-						let successAlert = '<div class="alert alert-success alert-dismissible">' + '<button type="button" class="close" data-dismiss="alert">&times;</button>' + "<strong></strong> Turno Eliminado </div>";
-
-						document.querySelector("#responseTurno").innerHTML = successAlert;
-						document.querySelector("#responseTurno").style.display = "block";
+					})
+					.then((data) => {
+						setTimeout(function () {
+							alert("Turno eliminado correctamente");
+							location.reload();
+						}, 1000);
+						
 					})
 					.catch((error) => {
-						let errorAlert = "<div class='alert alert-danger alert-dismissible'>" + "<button type='button' class='close' data-dismiss='alert'>&times;</button>" + "<strong> Error intente nuevamente</strong></div>";
-						document.querySelector("#responseTurno").innerHTML = errorAlert;
-						document.querySelector("#responseTurno").style.display = "block";
-					});
-				location.reload();
-				$("#staticBackdropTurnoDelete").modal("hide");
+						alert(error);
+						setTimeout(function () {
+							location.reload();
+						}, 1000);
+					});				
 			});
 		});
 	});

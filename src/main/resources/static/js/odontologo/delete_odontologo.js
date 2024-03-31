@@ -10,7 +10,6 @@ function eliminarOdontologo(listaBtnEliminar) {
 
 			btnConfirmarEliminar.addEventListener("click", function (event) {
 				event.preventDefault();
-
 				const url = "/odontologos/eliminar/" + idBtn;
 
 				const settings = {
@@ -19,18 +18,20 @@ function eliminarOdontologo(listaBtnEliminar) {
 						"Content-Type": "application/json",
 					},
 				};
-
 				fetch(url, settings)
 					.then(response => {
 						$("#staticBackdropOdontologoDelete").modal("hide");
 						if (!response.ok) {
 							return response.text().then(text => Promise.reject(text));
 						} else {
-							response.json();
+							$("#staticBackdropOdontologoDelete").modal("hide");
 						}
 					})
 					.then(data => {
-						
+						setTimeout(function () {
+							alert("Odontologo eliminado correctamente");
+							location.reload();
+						}, 2000);
 					})
 					.catch(error => {
 						alert(error);

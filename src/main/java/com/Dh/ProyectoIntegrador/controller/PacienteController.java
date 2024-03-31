@@ -87,13 +87,9 @@ public class PacienteController {
 	}
 	@DeleteMapping("/eliminar/{id}")
 	public ResponseEntity<String> eliminar(@PathVariable Long id)  {
-	//	ResponseEntity response = null;
-	//	try {
+
 		this.pacienteService.eliminar(id);
-	//	} catch (Exception e) {
-	//		response = new ResponseEntity("Error al eliminar Paciente.", HttpStatus.BAD_REQUEST);
-	//		return response;
-	//	}
+
 		log.info("Eliminando el Pacientes con ID:" + id);
 		return new ResponseEntity(HttpStatus.OK);
 	}

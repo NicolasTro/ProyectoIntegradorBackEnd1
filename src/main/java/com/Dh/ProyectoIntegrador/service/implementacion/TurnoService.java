@@ -7,10 +7,7 @@ import com.Dh.ProyectoIntegrador.dto.turnos.response.TurnoResponseDTO;
 import com.Dh.ProyectoIntegrador.entity.Odontologo;
 import com.Dh.ProyectoIntegrador.entity.Paciente;
 import com.Dh.ProyectoIntegrador.entity.Turno;
-import com.Dh.ProyectoIntegrador.excepciones.ResourceNotDeletedException;
-import com.Dh.ProyectoIntegrador.excepciones.ResourceNotFoundException;
-import com.Dh.ProyectoIntegrador.excepciones.ResourceNotSavedException;
-import com.Dh.ProyectoIntegrador.excepciones.ResourceNotUpdatedException;
+import com.Dh.ProyectoIntegrador.excepciones.*;
 import com.Dh.ProyectoIntegrador.repository.ITurnoRepository;
 import com.Dh.ProyectoIntegrador.service.IService;
 import com.Dh.ProyectoIntegrador.service.IServiceDTO;
@@ -24,7 +21,9 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,46 +42,61 @@ public class TurnoService implements IService<TurnoDTO>, IServiceHQL<TurnoDTO>, 
 	// #################################################
 	@Override
 	public Optional<List<TurnoDTO>> buscarDatosCompletos(Integer tipoDeBusqueda, String valor) {
-		Optional<List<TurnoDTO>> turnoOptional = null;
-		switch (tipoDeBusqueda) {
-			case 1:
-
-				Long id = Long.parseLong(valor);
-				Optional<Turno> turnoEncontrado = this.turnoRepository.findById(id);
-				if (turnoEncontrado.isPresent()) {
-					List<TurnoDTO> listaTurnosDTO = new ArrayList<>();
-					listaTurnosDTO.add(mapeadorResponse(turnoEncontrado.get()));
-					turnoOptional = Optional.of(listaTurnosDTO);
-				} else {
-					turnoOptional = Optional.empty();
-				}
-
-				break;
-			case 2:
-				turnoOptional = Optional.of(mapearRegistros(turnoRepository.findByOdontologo(valor).get()));
-				break;
-			case 3:
-				turnoOptional = Optional.of(mapearRegistros(turnoRepository.findByPacientes(valor).get()));
-				break;
-			case 4:
-				String valorDatetimeLocal = valor;
-
-				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
-				LocalDateTime fechaHora = LocalDateTime.parse(valorDatetimeLocal, formatter);
+		if (valor.trim() != "") {
 
 
-				turnoOptional = Optional.of(mapearRegistros(turnoRepository.findByFecha(fechaHora).get()));
-				break;
+			Optional<List<TurnoDTO>> turnoOptional = null;
+			switch (tipoDeBusqueda) {
+				case 1:
 
-			default:
-				break;
-		}
-        if (turnoOptional.isPresent()){
-			return turnoOptional;
+					Long id = Long.parseLong(valor);
+					Optional<Turno> turnoEncontrado = this.turnoRepository.findById(id);
+					if (turnoEncontrado.isPresent()) {
+						List<TurnoDTO> listaTurnosDTO = new ArrayList<>();
+						listaTurnosDTO.add(mapeadorResponse(turnoEncontrado.get()));
+						turnoOptional = Optional.of(listaTurnosDTO);
+					} else {
+						turnoOptional = Optional.empty();
+					}
+
+					break;
+				case 2:
+					turnoOptional = Optional.of(mapearRegistros(turnoRepository.findByOdontologo(valor).get()));
+					break;
+				case 3:
+					turnoOptional = Optional.of(mapearRegistros(turnoRepository.findByPacientes(valor).get()));
+					break;
+				case 4:
+
+					try {
+
+						String valorDatetimeLocal = valor;
+
+						DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
+						LocalDateTime fechaHora = LocalDateTime.parse(valorDatetimeLocal, formatter);
+
+
+						turnoOptional = Optional.of(mapearRegistros(turnoRepository.findByFecha(fechaHora).get()));
+					} catch (Exception e) {
+						throw new DateTimeRegisterException("Valor de busqueda erroneo");
+					}
+					break;
+
+				default:
+					break;
+			}
+			if (turnoOptional.isPresent() && !turnoOptional.get().isEmpty()) {
+				return turnoOptional;
+			} else {
+				log.warn("Ha ocurrido un error en la busqueda de Turnos.");
+				throw new ResourceNotFoundException("Error en la busqueda de Turnos.");
+			}
 		} else {
-			log.warn("Ha ocurrido un error en la busqueda de Turnos.");
+			log.warn("Se introdujo un campo vacio en la busqueda.");
 			throw new ResourceNotFoundException("Error en la busqueda de Turnos.");
+
 		}
+
 	}
 
 	public Optional<List<TurnoResponseDTO>> listarTodosIDNombre() {
@@ -102,7 +116,7 @@ public class TurnoService implements IService<TurnoDTO>, IServiceHQL<TurnoDTO>, 
 			return mapeadorResponse(turno);
 		} else {
 			log.warn("Ha ocurrido un error al guardar el Turno.");
-			throw new ResourceNotSavedException("No se pudo guardar el Turno." );
+			throw new ResourceNotSavedException("No se pudo guardar el Turno.");
 		}
 	}
 
@@ -166,7 +180,7 @@ public class TurnoService implements IService<TurnoDTO>, IServiceHQL<TurnoDTO>, 
 			});
 			return listaTurnosDTO;
 		}
-		return null;
+		return Collections.emptyList();
 	}
 
 	//	METODO MAPEADOR
@@ -176,6 +190,7 @@ public class TurnoService implements IService<TurnoDTO>, IServiceHQL<TurnoDTO>, 
 
 		return mapper.convertValue(objetoAMapear, clase);
 	}
+
 	//	#############################################################################
 	private static TurnoDTO mapeadorResponse(Turno turnoAMapear) {
 

@@ -1,4 +1,6 @@
-window.addEventListener("load", function () {});
+window.addEventListener("load", function () {
+	validarFecha();
+});
 
 function cargarEncabezadoTabla(tituloTabla) {
 	let tabla = document.getElementById("tablaDeRegistros");
@@ -161,9 +163,19 @@ function validarFecha() {
 
 	const formattedDateTime = `${year}-${month}-${day}T${hours}:${minutes}`;
 
-	let inputFecha = document.querySelectorAll(".inputFecha");
+	let inputFechaHora = document.querySelectorAll(".inputFechaHora");
 
-	inputFecha.forEach(fecha => {
+	inputFechaHora.forEach(fecha => {
 		fecha.min = formattedDateTime;
 	});
+
+	let inputFecha = document.querySelectorAll(".inputFecha");
+
+	if (inputFecha !== null) {
+		inputFecha.forEach(fecha => {
+			fecha.min = `${year}-${month}-${day}`;
+
+			fecha.value = `${year}-${month}-${day}`;
+		});
+	}
 }

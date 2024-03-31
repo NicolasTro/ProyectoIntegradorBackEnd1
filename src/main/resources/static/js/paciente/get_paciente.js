@@ -21,12 +21,8 @@ function obtenerListaPacientes() {
 				
 				let listaBtnEliminarRegistros = document.querySelectorAll(".btnTablaEliminar");
 				let listaBtnDomicilios = document.querySelectorAll("#masInfo");
-				
 
-
-cargarMasInfo(listaBtnDomicilios);
-
-
+				cargarMasInfo(listaBtnDomicilios);
 
 				actualizarPaciente(listaBtnModificarRegistros);
 				eliminarPaciente(listaBtnEliminarRegistros);
@@ -78,4 +74,3 @@ function busquedaPacientePersonalizado() {
 		});
 }
 
-let tituloTablaPacientes = "<th scope='col'>Id</th>" + "<th scope='col'>Nombre </th>" + "<th scope='col'>Apellido</th>" + "<th scope='col'>DNI</th>" + "<th scope='col'>FechaIngreso</th>" + "<th scope='col'>Domicilio</th>" + "<th scope='col'>Gestionar</th></tr></thead>";

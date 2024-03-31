@@ -8,10 +8,9 @@ function modificarTurno(listaBtnModificar) {
 		let odontologo_Id = botonModificar.dataset.odontologoid;
 		let fechaYHora = botonModificar.dataset.fechayhora;
 
-
 		botonModificar.addEventListener("click", function () {
 			$("#staticBackdropTurnoUpdate").modal("show");
-
+			// validarFecha();
 			document.querySelector("#comboTurnoPacienteUpdate").value = paciente_Id;
 			document.querySelector("#comboTurnoOdontologoUpdate").value = odontologo_Id;
 			document.querySelector("#fechaUpdate").value = fechaYHora;
@@ -37,12 +36,10 @@ function modificarTurno(listaBtnModificar) {
 						},
 						body: JSON.stringify(formData),
 					};
-					
 
 					fetch(url, settings)
 						.then(response => response.json())
 						.then(data => {
-							
 							let successAlert = '<div class="alert alert-success alert-dismissible">' + '<button type="button" class="close" data-dismiss="alert">&times;</button>' + "<strong></strong> Turno Actualizado </div>";
 
 							document.querySelector("#responseTurnoUpdate").innerHTML = successAlert;
@@ -50,11 +47,12 @@ function modificarTurno(listaBtnModificar) {
 
 							setTimeout(function () {
 								$("#staticBackdropTurnoUpdate").modal("hide");
-								// resetUploadForm();
+
+								location.reload();
 							}, 1000);
-							location.reload();
 						})
 						.catch(error => {
+							alert(error);
 							let errorAlert = "<div class='alert alert-danger alert-dismissible'>" + "<button type='button' class='close' data-dismiss='alert'>&times;</button>" + "<strong> Error intente nuevamente</strong></div>";
 
 							document.querySelector("#responseTurnoUpdate").innerHTML = errorAlert;

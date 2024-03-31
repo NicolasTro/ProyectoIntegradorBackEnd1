@@ -3,15 +3,11 @@ window.addEventListener("load", function () {
 	//los datos que el usuario cargará del nuevo odontólogo
 	const formulario = document.querySelector("#agregarTurno");
 	// const formularioIndex = document.querySelector("#");
-	
 
+	validarFecha();
 
-
-
-	
 	//Ante un submit del formulario se ejecutará la siguiente funcion
 	formulario.addEventListener("submit", function (event) {
-		validarFecha();
 		event.preventDefault();
 
 		//creamos un JSON que tendrá los datos del nuevo odontólogo

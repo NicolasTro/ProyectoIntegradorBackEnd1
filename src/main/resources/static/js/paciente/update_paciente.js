@@ -11,15 +11,14 @@ function actualizarPaciente(listaBtnModificarRegistros) {
 		let localidad = botonModificar.dataset.localidad;
 		let provincia = botonModificar.dataset.provincia;
 		let domicilio_id = botonModificar.dataset.domicilioid;
-		
 
 		botonModificar.addEventListener("click", function (e) {
-			// e.preventDefault();
+		
 			$("#staticBackdropPacienteUpdate").modal("show");
 			let inputNumericoAValidar = document.querySelector("#domicilioNumeroUpdate");
+					
+			validarInputNumerico(inputNumericoAValidar);
 			
-			validarInputNumerico(inputNumericoAValidar);			
-
 			document.querySelector("#nombrePacienteUpdate").value = nombre;
 			document.querySelector("#apellidoPacienteUpdate").value = apellido;
 			document.querySelector("#dniUpdate").value = dni;
@@ -31,7 +30,7 @@ function actualizarPaciente(listaBtnModificarRegistros) {
 			
 
 			let formulario = document.querySelector("#updatePaciente");
-			
+
 			if (formulario !== null) {
 				formulario.addEventListener("submit", function (event) {
 					event.preventDefault();

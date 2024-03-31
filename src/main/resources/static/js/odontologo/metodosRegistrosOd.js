@@ -80,8 +80,9 @@ window.addEventListener("load", function () {
 });
 
 function cargarRegistro(dentist) {
+	
 	return `<td class="td_id align-middle tamanioTexto">${dentist.id}</td><td class="td_nombre align-middle tamanioTexto">${dentist.nombre.toUpperCase()}</td>
-  <td class="td_apellido align-middle tamanioTexto">${dentist.apellido.toUpperCase()}</td><td class="td_matricula align-middle tamanioTexto">${dentist.matricula}</td><td class='align-middle tamanioTexto'>
+  <td class="td_apellido align-middle tamanioTexto">${dentist.apellido.toUpperCase()}</td><td class="td_matricula align-middle tamanioTexto">${dentist.matricula.toUpperCase()}</td><td class='align-middle tamanioTexto'>
     <div class="dropdown"><button class='btn btn-dark dropdown-toggle' type='button'data-toggle='dropdown' aria-expanded='false'></button><div class='dropdown-menu'><button type='button' data-id=${
 			dentist.id
 		} class='btn btn-primary btnTabla btnTablaModificar dropdown-item' data-toggle='modal' data-target='#staticBackdrop' data-id='${dentist.id}' data-nombre='${dentist.nombre}'data-apellido='${dentist.apellido}' data-matricula='${dentist.matricula}'>Modificar</button><button type='button' data-id=${

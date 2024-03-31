@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import java.time.format.DateTimeParseException;
+
 @ControllerAdvice
 public class GlobalException {
 
@@ -38,5 +40,12 @@ public class GlobalException {
     public ResponseEntity<String> violacionDeIntegridadReferencial(IntegrityConstraintViolationException e) {
         return ResponseEntity.status(HttpStatus.FORBIDDEN).body(e.getMessage());
     }
+
+    @ExceptionHandler(DateTimeRegisterException.class)
+    public ResponseEntity<String> datosErroneos(DateTimeRegisterException e) {
+        return ResponseEntity.status(HttpStatus.REQUESTED_RANGE_NOT_SATISFIABLE).body(e.getMessage());
+    }
+
+
 
 }

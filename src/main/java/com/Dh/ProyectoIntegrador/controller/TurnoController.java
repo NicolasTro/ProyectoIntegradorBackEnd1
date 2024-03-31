@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+//##########################################################################################
+// Controlador para manejar las operaciones relacionadas con los Turnos
 @RestController
 @RequestMapping("/turnos")
 @Slf4j
@@ -34,124 +36,90 @@ public class TurnoController {
 		this.turnoIServiceHQL = turnoIServiceHQL;
 		this.turnoIServiceDTO = turnoIServiceDTO;
 	}
+
+	//##########################################################################################
+	// Método para buscar turnos por parámetros personalizados
 	@GetMapping("/buscar")
 	public ResponseEntity<TurnoDTO> buscar(@RequestParam("valor") String valor, @RequestParam("tipoDeBusqueda") Integer tipoDeBusqueda) {
-	//	ResponseEntity response =  null;
-	//	try {
-			Optional<List<TurnoDTO>> turnoBuscar = turnoIServiceHQL.buscarDatosCompletos(tipoDeBusqueda, valor);
 
-	//		if (turnoBuscar != null) {
-	//			response = new ResponseEntity(turnoBuscar, HttpStatus.FOUND);
-	//		} else {
-	//			response = new ResponseEntity(HttpStatus.NOT_FOUND);
-	//		}
-	//	}  catch (Exception  e) {
-	//		return new ResponseEntity(e.getMessage(), HttpStatus.I_AM_A_TEAPOT);
-	//	}
+		Optional<List<TurnoDTO>> turnoBuscar = turnoIServiceHQL.buscarDatosCompletos(tipoDeBusqueda, valor);
 		log.info("Busqueda personalizada de Turnos con valor: " + valor + " y tipo de busqueda: " + tipoDeBusqueda);
+
 		return new ResponseEntity(turnoBuscar.get(), HttpStatus.FOUND);
 	}
 
+	//##########################################################################################
+	// Método para registrar un nuevo turno
 	@PostMapping("/registrar")
 	public ResponseEntity<TurnoDTO> guardar(@RequestBody TurnoRequestDTO turnoRequestDTO) {
-	//	ResponseEntity<TurnoDTO> response = null;
+
 		TurnoDTO turno = null;
-	//	try {
-			turno = turnoIService.guardar(turnoRequestDTO);
-	//		if (turno != null) {
-	//			response = new ResponseEntity(turno, HttpStatus.OK);
-	//		}
-	//	} catch (Exception e) {
-	//		return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
-	//	}
+
+		turno = turnoIService.guardar(turnoRequestDTO);
 		log.info("Guardando el Turno");
+
 		return new ResponseEntity(turno, HttpStatus.CREATED);
 	}
 
-	//TODO arreglar actualizar y envido de datos vacio.
+	//##########################################################################################
+	// Método para actualizar un turno
 	@PutMapping("/actualizar")
 	public ResponseEntity<TurnoDTO> actualizar(@RequestBody TurnoRequestDTO turnoRequestDTO) {
-	//	ResponseEntity<TurnoDTO> response = null;
-	//	try {
-		TurnoDTO turnoActualizar = turnoIService.buscarPorId(turnoRequestDTO.getId());
-			turnoIService.actualizar(turnoRequestDTO);
-	//		response = new ResponseEntity(turnoRequestDTO, HttpStatus.ACCEPTED);
 
-	//	} catch (Exception e) {
-	//		return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
-	//	}
+		TurnoDTO turnoActualizar = turnoIService.buscarPorId(turnoRequestDTO.getId());
+
+		turnoIService.actualizar(turnoRequestDTO);
 		log.info("Actualizando el Turno con ID:" + turnoRequestDTO.getId());
+
 		return new ResponseEntity(turnoActualizar, HttpStatus.OK);
 	}
 
+	//##########################################################################################
+	// Método para eliminar un turno por su ID
 	@DeleteMapping("/eliminar/{id}")
-
 	public ResponseEntity<String> eliminar(@PathVariable Long id) {
-	//	ResponseEntity<TurnoDTO> response = null;
-	//	try {
-			turnoIService.eliminar(id);
-	//		response = new ResponseEntity("Registro eliminado correctamente", HttpStatus.OK);
-	//	} catch (Exception e) {
-	//		return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
-	//	}
+
+		turnoIService.eliminar(id);
 		log.info("Eliminando el Turno con ID:" + id);
+
 		return new ResponseEntity(HttpStatus.OK);
 	}
 
-
+	//##########################################################################################
+	// Método para buscar un turno por su ID
 	@GetMapping("{id}")
 	public ResponseEntity<TurnoDTO> buscarPorId(@PathVariable Long id) {
-	//	ResponseEntity<TurnoDTO> response = null;
-	//	try {
-			TurnoDTO turnoEncontrado = turnoIService.buscarPorId(id);
-	//		if (turnoEncontrado != null) {
-	//			response = new ResponseEntity(turnoEncontrado, HttpStatus.FOUND);
-	//		} else {
-	//			response = new ResponseEntity("No se encontro el registro", HttpStatus.NOT_FOUND);
-	//		}
-	//	} catch (Exception e) {
-	//		return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
-	//	}
+
+		TurnoDTO turnoEncontrado = turnoIService.buscarPorId(id);
 		log.info("Buscando el Turno con ID:" + id);
+
 		return new ResponseEntity(turnoEncontrado, HttpStatus.FOUND);
 	}
 
+	//##########################################################################################
+	// Método para listar todos los turnos
 	@GetMapping("/listar")
 
 	public ResponseEntity<List<TurnoDTO>> listarTodos() {
-	//	ResponseEntity<List<TurnoDTO>> response = null;
-	//	try {
-			List<TurnoDTO> listaTurnos = this.turnoIService.listarTodos();
-	//		if (!listaTurnos.isEmpty()) {
-	//			response = new ResponseEntity(listaTurnos, HttpStatus.FOUND);
-	//		} else {
-	//			response = new ResponseEntity("No se encontraron registros", HttpStatus.NOT_FOUND);
-	//		}
-	//	} catch (Exception e) {
-	//		return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
-	//	}
+
+		List<TurnoDTO> listaTurnos = this.turnoIService.listarTodos();
 		log.info("Listando todos los Turnos");
 		return new ResponseEntity(listaTurnos, HttpStatus.FOUND);
-	}@GetMapping("/listarDTO")
 
-	public ResponseEntity<List<TurnoDTO>> listarTodosDTO() {
-	//	ResponseEntity response = null;
-		Optional<List<TurnoResponseDTO>> listaTurnos = null;
-	//	try {
-
-			listaTurnos = this.turnoIServiceDTO.listarTodosIDNombre();
-
-	//		if (!listaTurnos.isEmpty()) {
-	//			response = new ResponseEntity(listaTurnos.get(), HttpStatus.FOUND);
-	//		} else {
-	//			response = new ResponseEntity<List<Paciente>>( HttpStatus.NOT_FOUND);
-	//		}
-	//	} catch (Exception e) {
-		log.info("Listando los PacientesDTO");
-			return new ResponseEntity(listaTurnos, HttpStatus.FOUND);
-	//	}
-	//	return response;
 	}
 
+	//##########################################################################################
+	// Método para listar todos los turnos en formato DTO
+	@GetMapping("/listarDTO")
 
+	public ResponseEntity<List<TurnoDTO>> listarTodosDTO() {
+
+		Optional<List<TurnoResponseDTO>> listaTurnos = null;
+
+		listaTurnos = this.turnoIServiceDTO.listarTodosIDNombre();
+		log.info("Listando los PacientesDTO");
+
+		return new ResponseEntity(listaTurnos, HttpStatus.FOUND);
+	}
+	//##########################################################################################
 }

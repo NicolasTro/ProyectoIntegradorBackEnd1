@@ -35,8 +35,8 @@ public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<O
 
 	//METODOS CRUD
 
-	//METODO GUARDAR
-	/*###################################################################################################################*/
+	//##########################################################################################
+	// Método para guardar un nuevo Odontologo
 	@Override
 	public OdontologoDTO guardar(OdontologoDTO odontologoRequestDTO) {
 		Odontologo odontologoGuardado = odontologoRepository.save(mapeador(odontologoRequestDTO, Odontologo.class));
@@ -48,8 +48,8 @@ public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<O
 		}
 	}
 
-	//METODO ELIMINAR
-	/*###################################################################################################################*/
+	//##########################################################################################
+	// Método para eliminar un Odontologo por su ID
 	public void eliminar(Long id) {
 		if (!odontologoRepository.existsById(id)) {
 
@@ -64,8 +64,8 @@ public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<O
 		this.odontologoRepository.deleteById(id);
 	}
 
-	//METODO ACTUALIZAR
-	/*###################################################################################################################*/
+	//##########################################################################################
+	// Método para actualizar un Odontologo
 	@Override
 	public void actualizar(OdontologoDTO odontologoRequestDTO) {
 		if (odontologoRequestDTO != null) {
@@ -86,9 +86,9 @@ public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<O
 			throw new ResourceNotUpdatedException("No se pudo actualizar el Odontologo");
 		}
 	}
-	//METODO BUSCAR POR ID
-	/*###################################################################################################################*/
 
+	//##########################################################################################
+	// Método para buscar un Odontologo por su ID
 	public OdontologoDTO buscarPorId(Long id) {
 		Optional<Odontologo> odontologoOptional = odontologoRepository.findById(id);
 		if (odontologoOptional.isPresent()) {
@@ -99,8 +99,8 @@ public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<O
 		}
 	}
 
-	//METODO LISTAR
-	/*###################################################################################################################*/
+	//##########################################################################################
+	// Método para listar todos los Odontologos
 	@Override
 	public List<OdontologoDTO> listarTodos() {
 		List<Odontologo> odontologos = odontologoRepository.findAll();
@@ -111,14 +111,15 @@ public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<O
 			throw new ResourceNotFoundException("No se pueden listar los Odontologos");
 		}
 	}
-	/*###################################################################################################################*/
 
+	//##########################################################################################
+	// Método para buscar Odontologos por parámetros personalizados
 	public Optional<List<OdontologoDTO>> buscarDatosCompletos(Integer tipoDeBusqueda, String valor) {
 		if(!valor.trim().equals("")){
 
 
-		Optional<List<OdontologoDTO>> odontologoOptional = null;
-		switch (tipoDeBusqueda) {
+			Optional<List<OdontologoDTO>> odontologoOptional = null;
+			switch (tipoDeBusqueda) {
 
 			case 1:
 				Long id = Long.parseLong(valor);
@@ -143,7 +144,7 @@ public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<O
 			default:
 				break;
 		}
-		if (odontologoOptional.isPresent()&& !odontologoOptional.get().isEmpty()) {
+		if (odontologoOptional.isPresent() && !odontologoOptional.get().isEmpty()) {
 			return odontologoOptional;
 		} else {
 			log.warn("Ha ocurrido un error en la busqueda personalizada de los Odontologos");
@@ -158,6 +159,8 @@ public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<O
 		}
 	}
 
+	//##########################################################################################
+	// Método para listar todos los Odontologos en formato DTO
 	public Optional<List<OdontologoDTO>> listarTodosIDNombre() {
 		List<Odontologo> listaOdontologos = this.odontologoRepository.findAll();
 		if (listaOdontologos == null || listaOdontologos.isEmpty()) {
@@ -172,6 +175,9 @@ public class OdontologoService implements IService<OdontologoDTO>, IServiceHQL<O
 	}
 
 
+	// Controladores/Mappers del Service.
+	// ######################################################################################
+	// Implementación de métodos privados de mapeo y controladores adicionales
 	private List<OdontologoDTO> mapearRegistros(List<Odontologo> listaOdontologos) {
 		if (!listaOdontologos.isEmpty()) {
 			List<OdontologoDTO> listaOdontologosDTO = new ArrayList<>();

@@ -24,6 +24,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+//##########################################################################################
+// Implementación del servicio para operaciones relacionadas con los pacientes.
 @Service
 @Slf4j
 public class PacienteService implements IService<PacienteDomicilioDTO>, IServiceHQL<PacienteDomicilioDTO>, IServiceDTO<PacienteResponseDTOName> {
@@ -36,6 +38,8 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 		this.pacienteRepository = pacienteRepository;
 	}
 
+	//##########################################################################################
+	// Método para guardar un nuevo paciente con su domicilio
 	public PacienteDomicilioDTO guardar(PacienteDomicilioDTO pacienteRequestDTO) {
 
 		Paciente pacienteGuardado = pacienteRepository.save(mapearPacienteEntidad(pacienteRequestDTO));
@@ -46,10 +50,10 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 			throw new ResourceNotSavedException("No se pudo guardar el paciente.");
 
 		}
-
-
 	}
 
+	//##########################################################################################
+	// Método para buscar un paciente por su ID
 	public PacienteDomicilioDTO buscarPorId(Long id) {
 		Optional<Paciente> pacienteOptional = pacienteRepository.findById(id);
 		if (pacienteOptional.isPresent()) {
@@ -60,7 +64,8 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 		}
 	}
 
-
+	//##########################################################################################
+	// Método para eliminar un paciente por su ID
 	public void eliminar(Long id) {
 		if (!pacienteRepository.existsById(id)) {
 			throw new ResourceNotDeletedException("El Paciente no existe en la base de datos");
@@ -73,6 +78,8 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 		}
 	}
 
+	//##########################################################################################
+	// Método para actualizar un paciente
 	@Override
 	public void actualizar(PacienteDomicilioDTO pacienteRequestDTO) {
 
@@ -96,7 +103,8 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 		}
 	}
 
-
+	//##########################################################################################
+	// Método para listar todos los pacientes
 	@Override
 	public List<PacienteDomicilioDTO> listarTodos() {
 		List<Paciente> pacientes = pacienteRepository.findAll();
@@ -109,6 +117,8 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 		}
 	}
 
+	//##########################################################################################
+	// Método para buscar pacientes por parámetros personalizados
 	@Override
 	public Optional<List<PacienteDomicilioDTO>> buscarDatosCompletos(Integer tipoDeBusqueda, String valor) {
 
@@ -149,6 +159,8 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 		}
 	}
 
+	//##########################################################################################
+	// Método para listar todos los pacientes en formato DTO
 	@Override
 	public Optional<List<PacienteResponseDTOName>> listarTodosIDNombre() {
 		List<Paciente> listaPacientes = this.pacienteRepository.findAll();
@@ -167,6 +179,7 @@ public class PacienteService implements IService<PacienteDomicilioDTO>, IService
 
 	// Controladores/Mappers del Service.
 	// ######################################################################################
+	// Implementación de métodos privados de mapeo y controladores adicionales
 	private List<PacienteDomicilioDTO> mapearRegistros(List<Paciente> listaPacientes) {
 		if (!listaPacientes.isEmpty()) {
 			List<PacienteDomicilioDTO> listaPacientesDTO = new ArrayList<>();

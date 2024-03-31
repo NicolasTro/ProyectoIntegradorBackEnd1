@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+//##########################################################################################
+// Controlador para manejar las operaciones relacionadas con los Pacientes
 @RestController
 @RequestMapping("/pacientes")
 @Slf4j
@@ -34,121 +36,88 @@ public class PacienteController {
 		this.pacienteIServiceDTO = pacienteIServiceDTO;
 	}
 
-
-
+	//##########################################################################################
+	// Método para registrar un nuevo paciente
 	@PostMapping("/registrar")
 	public ResponseEntity<PacienteDTO> guardar(@RequestBody PacienteDomicilioDTO paciente) {
-	//	ResponseEntity<PacienteDTO> response = null;
-	//	try {
-			PacienteDomicilioDTO pacienteGuardado = this.pacienteService.guardar(paciente);
-	//		if (pacienteGuardado != null) {
-	//			response = new ResponseEntity(pacienteGuardado, HttpStatus.CREATED);
-	//		} else {
-	//			response = new ResponseEntity(HttpStatus.NOT_ACCEPTABLE);
-	//		}
-	//	} catch (Exception e) {
-	//		return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
-	//	}
+
+		PacienteDomicilioDTO pacienteGuardado = this.pacienteService.guardar(paciente);
 		log.info("Guardando Pacientes");
+
 		return new ResponseEntity(pacienteGuardado, HttpStatus.CREATED);
 	}
 
-
+	//##########################################################################################
+	// Método para buscar un paciente por su ID
 	@GetMapping("/{id}")
 	public ResponseEntity<PacienteResponseDTOFull> buscarPorId(@PathVariable Long id){
-	//	ResponseEntity<PacienteResponseDTOFull> response = null;
 		PacienteDTO pacienteEnontrado = null;
-	//	try {
+
 		pacienteEnontrado = this.pacienteService.buscarPorId(id);
-	//		if (pacienteEnontrado!=null) {
-	//			response = new ResponseEntity(pacienteEnontrado, HttpStatus.FOUND);
-	//		} else {
-	//			response = new ResponseEntity(HttpStatus.NOT_FOUND);
-	//		}
-	//	} catch (Exception e) {
-	//		return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
-	//	}
 		log.info("Buscando el Pacientes con ID:" + id);
+
 		return new ResponseEntity(pacienteEnontrado, HttpStatus.FOUND);
 	}
 
+	//##########################################################################################
+	// Método para actualizar un paciente
 	@PutMapping("/actualizar")
 	public ResponseEntity<PacienteDTO> actualizar(@RequestBody PacienteDomicilioDTO paciente) {
-	//	ResponseEntity response = null;
-	//	if(paciente != null) {
-			this.pacienteService.actualizar(paciente);
 
-			PacienteDTO actualizarPaciente = pacienteService.buscarPorId(paciente.getId());
+		this.pacienteService.actualizar(paciente);
+
+		PacienteDTO actualizarPaciente = pacienteService.buscarPorId(paciente.getId());
 		log.info("Actualizando el Pacientes con ID:" + paciente.getId());
-			return new ResponseEntity(actualizarPaciente, HttpStatus.OK);
-	//	} else {
-	//		return new ResponseEntity(HttpStatus.CONFLICT);
-	//	}
+
+		return new ResponseEntity(actualizarPaciente, HttpStatus.OK);
 	}
+
+	//##########################################################################################
+	// Método para eliminar un paciente por su ID
 	@DeleteMapping("/eliminar/{id}")
 	public ResponseEntity<String> eliminar(@PathVariable Long id)  {
 
 		this.pacienteService.eliminar(id);
-
 		log.info("Eliminando el Pacientes con ID:" + id);
+
 		return new ResponseEntity(HttpStatus.OK);
 	}
 
 
+	//##########################################################################################
+	// Método para listar todos los pacientes
 	@GetMapping("/listar")
 	public ResponseEntity<List<PacienteDTO>> listarTodos() {
-	//	ResponseEntity response = null;
+
 		List<PacienteDomicilioDTO> listaPacientes = null;
-	//	try {
-			listaPacientes = this.pacienteService.listarTodos();
-	//		if (listaPacientes.size() > 0) {
 
-	//			response = new ResponseEntity(listaPacientes, HttpStatus.OK);
-	//		} else {
-	//			response = new ResponseEntity("No se encontraron Pacientes", HttpStatus.NOT_FOUND);
-	//		}
-	//	} catch (Exception e) {
-	//		return new ResponseEntity(HttpStatus.BAD_REQUEST);
-	//	}
+		listaPacientes = this.pacienteService.listarTodos();
 		log.info("Listando todos los Pacientes");
+
 		return new ResponseEntity(listaPacientes, HttpStatus.FOUND);
 	}
+
+	//##########################################################################################
+	// Método para listar todos los pacientes en formato DTO
 	@GetMapping("/listarDTO")
-
 	public ResponseEntity<List<PacienteDomicilioDTO>> listarTodosDTO() {
-	//	ResponseEntity response = null;
 		Optional<List<PacienteResponseDTOName>> listaPacientes = null;
-	//	try {
 
-			listaPacientes = this.pacienteIServiceDTO.listarTodosIDNombre();
-
-	//		if (!listaPacientes.isEmpty()) {
-	//			response = new ResponseEntity(listaPacientes.get(), HttpStatus.FOUND);
-	//		} else {
-	//			response = new ResponseEntity<List<Paciente>>( HttpStatus.NOT_FOUND);
-	//		}
-	//	} catch (Exception e) {
-	//		return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
-	//	}
+		listaPacientes = this.pacienteIServiceDTO.listarTodosIDNombre();
 		log.info("Listando PacientesDTO");
+
 		return new ResponseEntity(listaPacientes, HttpStatus.FOUND);
 	}
 
+	//##########################################################################################
+	// Método para buscar pacientes por parámetros personalizados
 	@GetMapping("/buscar")
 	public ResponseEntity<List<PacienteDTO>> buscar(@RequestParam("valor") String valor, @RequestParam("tipoDeBusqueda") Integer tipoDeBusqueda) {
-	//	ResponseEntity response =  null;
-	//	try {
-			Optional<List<PacienteDomicilioDTO>> pacienteBuscar = pacienteIServiceHQL.buscarDatosCompletos(tipoDeBusqueda, valor);
-	//		if (pacienteBuscar.isPresent()) {
-	//			response = new ResponseEntity(pacienteBuscar.get(), HttpStatus.FOUND);
-	//		} else {
-	//			response = new ResponseEntity(HttpStatus.NOT_FOUND);
-	//		}
-	//	}  catch (Exception  e) {
 
+		Optional<List<PacienteDomicilioDTO>> pacienteBuscar = pacienteIServiceHQL.buscarDatosCompletos(tipoDeBusqueda, valor);
 		log.info("Busqueda personalizada de  con valor: " + valor + " y tipo de busqueda: " + tipoDeBusqueda);
-			return new ResponseEntity(pacienteBuscar, HttpStatus.FOUND);
-	//	}
-	//	return response;
+
+		return new ResponseEntity(pacienteBuscar, HttpStatus.FOUND);
 	}
+	//##########################################################################################
 }
